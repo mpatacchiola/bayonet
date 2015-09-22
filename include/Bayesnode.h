@@ -18,6 +18,7 @@
 */
 
 #include <vector>
+#include <string>
 
 namespace bayonet{
 
@@ -26,22 +27,20 @@ class Bayesnode {
  public:
 
   //Bayesnode();
-  Bayesnode(unsigned int numberOfStates);
+  Bayesnode(unsigned int numberOfStates, std::string label );
 
   ~Bayesnode();
 
   void PrintStates();
-
   unsigned int ReturnStatesNumber();
-
+  double ReturnStatesSum();
   bool SetState(unsigned int index, double value);
   double GetState(unsigned int index);
-
   void NormalizeStates();
-  
 
 
  private:
+ std::string nodeLabel;
  std::vector<double> statesVector;
 
 };

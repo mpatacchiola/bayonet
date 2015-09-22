@@ -34,9 +34,10 @@ namespace bayonet{
 * the minimum number of states allowed is 2. The values assigned to the states are
 * randomly generated and normalized.
 **/
-Bayesnode::Bayesnode(unsigned int numberOfStates = 2){
+Bayesnode::Bayesnode(unsigned int numberOfStates = 2, std::string label = ""){
  if (numberOfStates <= 1) numberOfStates = 2; //the minimum number of states allowed is 2
  statesVector.reserve(numberOfStates);
+ nodeLabel = label; //assign the name
 
  std::random_device random_device;
  std::mt19937 generator(random_device());
@@ -80,6 +81,16 @@ void Bayesnode::PrintStates(){
 **/
 unsigned int Bayesnode::ReturnStatesNumber(){
  return statesVector.size();
+}
+
+double Bayesnode::ReturnStatesSum(){
+ double accumulator = 0;
+
+ //sum all the values inside the vector, to obtain the normalization constant
+ for(auto it = statesVector.begin(); it != statesVector.end(); ++it) {
+  accumulator += *it;
+ }
+ return accumulator;
 }
 
 /**

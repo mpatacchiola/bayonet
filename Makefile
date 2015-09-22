@@ -40,7 +40,7 @@ install:
 	ln -sf /usr/local/lib/libbayonet.so.1.0 /usr/local/lib/libbayonet.so
 	ln -sf /usr/local/lib/libbayonet.so.1.0 /usr/local/lib/libbayonet.so.1
 
-clean:
+remove:
 	rm ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o
 	rm ./bin/lib/libbayonet.so.1.0  
 	rm /usr/local/lib/libbayonet.so /usr/local/lib/libbayonet.so.1
