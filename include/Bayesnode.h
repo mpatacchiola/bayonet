@@ -19,6 +19,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 namespace bayonet{
 
@@ -27,21 +28,27 @@ class Bayesnode {
  public:
 
   //Bayesnode();
-  Bayesnode(unsigned int numberOfStates, std::string label );
+  Bayesnode(unsigned int numberOfStates);
 
   ~Bayesnode();
 
   void PrintStates();
   unsigned int ReturnStatesNumber();
   double ReturnStatesSum();
-  bool SetState(unsigned int index, double value);
-  double GetState(unsigned int index);
-  void NormalizeStates();
-
+  bool SetStateValue(unsigned int index, double value);
+  double GetStateValue(unsigned int index);
+  void NormalizeValues();
+  bool AddIncomingConnection(std::shared_ptr<Bayesnode>);
+  bool AddOutgoingConnection(std::shared_ptr<Bayesnode>);
+  unsigned int ReturnSample();
+  bool IsRoot();
+  bool IsLeaf();
 
  private:
- std::string nodeLabel;
- std::vector<double> statesVector;
+  std::string nodeLabel;
+  std::vector<double> valuesVector;
+  std::vector<std::weak_ptr<Bayesnode>> incomingVector;
+  std::vector<std::weak_ptr<Bayesnode>> outgoingVector; 
 
 };
 

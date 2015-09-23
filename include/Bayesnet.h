@@ -16,3 +16,29 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
 */
+
+#include <memory> //shared_ptr
+#include"Bayesnode.h"
+
+namespace bayonet{
+
+class Bayesnet{
+
+ public:
+  //Bayesnode();
+  Bayesnet(unsigned int numberOfNodes, unsigned int numberOfStates);
+
+  ~Bayesnet();
+
+  bool AddConnection(unsigned int FirstNode, unsigned int SecondNode);
+  bool RemoveConnection(unsigned int FirstNode, unsigned int SecondNode);
+
+  std::vector<unsigned int> ReturnSampleVector();
+
+
+ private:
+  std::vector<std::shared_ptr<Bayesnode>> nodesVector;
+
+};
+
+}
