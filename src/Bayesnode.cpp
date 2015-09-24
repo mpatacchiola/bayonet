@@ -39,6 +39,8 @@ Bayesnode::Bayesnode(unsigned int numberOfStates = 2){
  if (numberOfStates <= 1) numberOfStates = 2; //the minimum number of states allowed is 2
  valuesVector.reserve(numberOfStates);
 
+ Bayesnode::statesNumber = numberOfStates;
+
  std::random_device random_device;
  std::mt19937 generator(random_device());
  std::uniform_real_distribution<> real_dist(0, 1);
@@ -69,7 +71,7 @@ void Bayesnode::PrintStates(){
  unsigned int counter = 0;
  std::cout << "Total States Number: " << valuesVector.size() << std::endl;
  for(auto it = valuesVector.begin(); it != valuesVector.end(); ++it) {
-  std::cout << "State: " << counter << " Value:" << *it << std::endl;
+  std::cout << "State: " << counter << " ..... " << *it << std::endl;
   counter++;
  }
 }

@@ -1,0 +1,99 @@
+\hypertarget{classbayonet_1_1_conditional_probability_table}{\section{bayonet\-:\-:Conditional\-Probability\-Table Class Reference}
+\label{classbayonet_1_1_conditional_probability_table}\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbayonet_1_1_conditional_probability_table_af83db269bcfc340658801d5e473ad5c8}{Conditional\-Probability\-Table} (unsigned int Node\-States\-Number, std\-::vector$<$ unsigned int $>$ parents\-States\-List)
+\item 
+\hyperlink{classbayonet_1_1_conditional_probability_table_a5fd07eba1d571bf8f8bac3014f2409b2}{$\sim$\-Conditional\-Probability\-Table} ()
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classbayonet_1_1_conditional_probability_table_a7612e2c40e51eaf4d94109adb2bd269d}{Get\-Probabilities} (std\-::vector$<$ unsigned int $>$ parents\-States)
+\item 
+bool \hyperlink{classbayonet_1_1_conditional_probability_table_ac94cd225747e8f59c5497b860ff777c0}{Set\-Probabilities} (std\-::vector$<$ unsigned int $>$ parents\-States, std\-::vector$<$ double $>$ probabilities)
+\item 
+void \hyperlink{classbayonet_1_1_conditional_probability_table_a0815f7814cc5797629035f17f0cf26c2}{Print} ()
+\item 
+void \hyperlink{classbayonet_1_1_conditional_probability_table_a0ca5c1cbfeb5c86ef06161a810233b2a}{Print\-Probabilities} (std\-::vector$<$ unsigned int $>$ parents\-States)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbayonet_1_1_conditional_probability_table_af83db269bcfc340658801d5e473ad5c8}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Conditional\-Probability\-Table@{Conditional\-Probability\-Table}}
+\index{Conditional\-Probability\-Table@{Conditional\-Probability\-Table}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Conditional\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Conditional\-Probability\-Table\-::\-Conditional\-Probability\-Table (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{Node\-States\-Number, }
+\item[{std\-::vector$<$ unsigned int $>$}]{parents\-States}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_af83db269bcfc340658801d5e473ad5c8}
+The constructor of the object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Node\-States\-Number} & is the number of states of the node associated with the table \\
+\hline
+{\em parents\-States} & this is a list that represents the number of states of each parent of the node If the node has 3 boolean states as parents the list is \{2, 2, 2\} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_conditional_probability_table_a5fd07eba1d571bf8f8bac3014f2409b2}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!$\sim$\-Conditional\-Probability\-Table@{$\sim$\-Conditional\-Probability\-Table}}
+\index{$\sim$\-Conditional\-Probability\-Table@{$\sim$\-Conditional\-Probability\-Table}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{$\sim$\-Conditional\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Conditional\-Probability\-Table\-::$\sim$\-Conditional\-Probability\-Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_a5fd07eba1d571bf8f8bac3014f2409b2}
+Destroying the object 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_conditional_probability_table_a7612e2c40e51eaf4d94109adb2bd269d}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Get\-Probabilities@{Get\-Probabilities}}
+\index{Get\-Probabilities@{Get\-Probabilities}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Get\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ double $>$ bayonet\-::\-Conditional\-Probability\-Table\-::\-Get\-Probabilities (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ unsigned int $>$}]{parents\-States}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_a7612e2c40e51eaf4d94109adb2bd269d}
+Given a vector key it returns the associated probabilities
+
+
+\begin{DoxyParams}{Parameters}
+{\em parents\-States} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_conditional_probability_table_a0815f7814cc5797629035f17f0cf26c2}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Print@{Print}}
+\index{Print@{Print}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Conditional\-Probability\-Table\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_a0815f7814cc5797629035f17f0cf26c2}
+It prints the conditional table on the terminal. If the number of columns and rows is huge, the terminal could cut parts of the output. \hypertarget{classbayonet_1_1_conditional_probability_table_a0ca5c1cbfeb5c86ef06161a810233b2a}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Print\-Probabilities@{Print\-Probabilities}}
+\index{Print\-Probabilities@{Print\-Probabilities}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Print\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Conditional\-Probability\-Table\-::\-Print\-Probabilities (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ unsigned int $>$}]{parents\-States}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_a0ca5c1cbfeb5c86ef06161a810233b2a}
+It prints the probabilities associated with a particular set of parents. If the number of columns is huge, the terminal could cut parts of the output. \hypertarget{classbayonet_1_1_conditional_probability_table_ac94cd225747e8f59c5497b860ff777c0}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Set\-Probabilities@{Set\-Probabilities}}
+\index{Set\-Probabilities@{Set\-Probabilities}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Set\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Conditional\-Probability\-Table\-::\-Set\-Probabilities (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ unsigned int $>$}]{parents\-States, }
+\item[{std\-::vector$<$ double $>$}]{probabilities}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_ac94cd225747e8f59c5497b860ff777c0}
+Given a vector key it sets the probabilities associated
+
+
+\begin{DoxyParams}{Parameters}
+{\em parents\-States} & \\
+\hline
+{\em probabilities} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+include/Conditional\-Probability\-Table.\-h\item 
+src/Conditional\-Probability\-Table.\-cpp\end{DoxyCompactItemize}

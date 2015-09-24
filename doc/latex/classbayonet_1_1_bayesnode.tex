@@ -1,0 +1,184 @@
+\hypertarget{classbayonet_1_1_bayesnode}{\section{bayonet\-:\-:Bayesnode Class Reference}
+\label{classbayonet_1_1_bayesnode}\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbayonet_1_1_bayesnode_a2b676188453fbbb4dc96be714ac931d3}{Bayesnode} (unsigned int number\-Of\-States)
+\item 
+void \hyperlink{classbayonet_1_1_bayesnode_abdbdfaca4d468449d0fd6217e27ec25d}{Print\-States} ()
+\item 
+unsigned int \hyperlink{classbayonet_1_1_bayesnode_a4237e16f1fa27d0b2db3ae1c9cd5f6e7}{Return\-States\-Number} ()
+\item 
+\hypertarget{classbayonet_1_1_bayesnode_a1c8d97fd7a7d6b848206ccca4dc17a96}{double {\bfseries Return\-States\-Sum} ()}\label{classbayonet_1_1_bayesnode_a1c8d97fd7a7d6b848206ccca4dc17a96}
+
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnode_a9ccc692d3c2cb897b532a7308d58ab62}{Set\-State\-Value} (unsigned int index, double value)
+\item 
+double \hyperlink{classbayonet_1_1_bayesnode_aafca678755ca1d544d468cc9d825c4a1}{Get\-State\-Value} (unsigned int index)
+\item 
+void \hyperlink{classbayonet_1_1_bayesnode_af751c1310434e290a7866bc3de5bb466}{Normalize\-Values} ()
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnode_ad8dbca37751fc6387a370daea4233aaf}{Add\-Incoming\-Connection} (std\-::shared\-\_\-ptr$<$ \hyperlink{classbayonet_1_1_bayesnode}{Bayesnode} $>$)
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnode_ac43991461780ca9056b4977db4cbd603}{Add\-Outgoing\-Connection} (std\-::shared\-\_\-ptr$<$ \hyperlink{classbayonet_1_1_bayesnode}{Bayesnode} $>$)
+\item 
+unsigned int \hyperlink{classbayonet_1_1_bayesnode_a1849b4ba4dde1142f1228d6f4ac23fde}{Return\-Sample} ()
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnode_a58a35d2f668568011181114550962981}{Is\-Root} ()
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnode_ad1daa0c3ba4cb3704c0509df975d7206}{Is\-Leaf} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbayonet_1_1_bayesnode_a2b676188453fbbb4dc96be714ac931d3}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Bayesnode@{Bayesnode}}
+\index{Bayesnode@{Bayesnode}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Bayesnode}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Bayesnode\-::\-Bayesnode (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{number\-Of\-States = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a2b676188453fbbb4dc96be714ac931d3}
+The constructor of the object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\-Of\-States} & the number of discrete state to assign to this node the minimum number of states allowed is 2. The values assigned to the states are randomly generated and normalized. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_bayesnode_ad8dbca37751fc6387a370daea4233aaf}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Add\-Incoming\-Connection@{Add\-Incoming\-Connection}}
+\index{Add\-Incoming\-Connection@{Add\-Incoming\-Connection}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Add\-Incoming\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Add\-Incoming\-Connection (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Bayesnode} $>$}]{sp\-Node}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_ad8dbca37751fc6387a370daea4233aaf}
+Adding an incoming connection to this node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sp\-Node} & shared\-\_\-ptr to the incoming node \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_bayesnode_ac43991461780ca9056b4977db4cbd603}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Add\-Outgoing\-Connection@{Add\-Outgoing\-Connection}}
+\index{Add\-Outgoing\-Connection@{Add\-Outgoing\-Connection}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Add\-Outgoing\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Add\-Outgoing\-Connection (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf Bayesnode} $>$}]{sp\-Node}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_ac43991461780ca9056b4977db4cbd603}
+Adding an outgoing connection from this node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sp\-Node} & shared\-\_\-ptr to the outgoing node \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_bayesnode_aafca678755ca1d544d468cc9d825c4a1}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Get\-State\-Value@{Get\-State\-Value}}
+\index{Get\-State\-Value@{Get\-State\-Value}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Get\-State\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double bayonet\-::\-Bayesnode\-::\-Get\-State\-Value (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_aafca678755ca1d544d468cc9d825c4a1}
+The function returns the number associated to a specific state value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & an unsigned integer representing the state index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+it returns the state value 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnode_ad1daa0c3ba4cb3704c0509df975d7206}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Is\-Leaf@{Is\-Leaf}}
+\index{Is\-Leaf@{Is\-Leaf}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Is\-Leaf}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Is\-Leaf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_ad1daa0c3ba4cb3704c0509df975d7206}
+A leaf node is a node without children.
+
+\begin{DoxyReturn}{Returns}
+it returns true if the node is a leaf node. 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnode_a58a35d2f668568011181114550962981}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Is\-Root@{Is\-Root}}
+\index{Is\-Root@{Is\-Root}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Is\-Root}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Is\-Root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a58a35d2f668568011181114550962981}
+A root node is a node without parents.
+
+\begin{DoxyReturn}{Returns}
+it returns true if the node is a root node. 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnode_af751c1310434e290a7866bc3de5bb466}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Normalize\-Values@{Normalize\-Values}}
+\index{Normalize\-Values@{Normalize\-Values}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Normalize\-Values}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnode\-::\-Normalize\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_af751c1310434e290a7866bc3de5bb466}
+The function normalizes all the values inside the vector. The values assigned to the states must always sum to 1. \hypertarget{classbayonet_1_1_bayesnode_abdbdfaca4d468449d0fd6217e27ec25d}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Print\-States@{Print\-States}}
+\index{Print\-States@{Print\-States}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Print\-States}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnode\-::\-Print\-States (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_abdbdfaca4d468449d0fd6217e27ec25d}
+It prints the current values associated with the node states. \hypertarget{classbayonet_1_1_bayesnode_a1849b4ba4dde1142f1228d6f4ac23fde}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Return\-Sample@{Return\-Sample}}
+\index{Return\-Sample@{Return\-Sample}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Return\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnode\-::\-Return\-Sample (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a1849b4ba4dde1142f1228d6f4ac23fde}
+This function get a sample from the distribution associated with the node.
+
+\begin{DoxyReturn}{Returns}
+it returns the state sampled. 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnode_a4237e16f1fa27d0b2db3ae1c9cd5f6e7}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Return\-States\-Number@{Return\-States\-Number}}
+\index{Return\-States\-Number@{Return\-States\-Number}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Return\-States\-Number}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnode\-::\-Return\-States\-Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a4237e16f1fa27d0b2db3ae1c9cd5f6e7}
+The function returns the number of states of the node.
+
+\begin{DoxyReturn}{Returns}
+it returns the number of states 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnode_a9ccc692d3c2cb897b532a7308d58ab62}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-State\-Value@{Set\-State\-Value}}
+\index{Set\-State\-Value@{Set\-State\-Value}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Set\-State\-Value}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Set\-State\-Value (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a9ccc692d3c2cb897b532a7308d58ab62}
+The function returns the number of states of the node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & an unsigned integer representing the state index \\
+\hline
+{\em value} & a double representing the value to assign to the state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+it returns true if the value is correctly set 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+include/Bayesnode.\-h\item 
+src/Bayesnode.\-cpp\end{DoxyCompactItemize}

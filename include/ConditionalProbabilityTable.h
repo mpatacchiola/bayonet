@@ -17,39 +17,29 @@
  *
 */
 
-#include <vector>
-#include <string>
-#include <memory>
+#include <initializer_list>
+#include <map>
+#include<vector>
 
 namespace bayonet{
 
-class Bayesnode {
+class ConditionalProbabilityTable {
 
  public:
+  ConditionalProbabilityTable(unsigned int NodeStatesNumber, std::vector<unsigned int> parentsStatesList);
+  ~ConditionalProbabilityTable();
 
-  //Bayesnode();
-  Bayesnode(unsigned int numberOfStates);
+  std::vector<double> GetProbabilities(std::vector<unsigned int> parentsStates);
+  bool SetProbabilities(std::vector<unsigned int> parentsStates, std::vector<double> probabilities);
+  void Print();
+  void PrintProbabilities(std::vector<unsigned int> parentsStates);
 
-  ~Bayesnode();
-
-  void PrintStates();
-  unsigned int ReturnStatesNumber();
-  double ReturnStatesSum();
-  bool SetStateValue(unsigned int index, double value);
-  double GetStateValue(unsigned int index);
-  void NormalizeValues();
-  bool AddIncomingConnection(std::shared_ptr<Bayesnode>);
-  bool AddOutgoingConnection(std::shared_ptr<Bayesnode>);
-  unsigned int ReturnSample();
-  bool IsRoot();
-  bool IsLeaf();
 
  private:
-  unsigned int statesNumber;
-  std::string nodeLabel;
-  std::vector<double> valuesVector;
-  std::vector<std::weak_ptr<Bayesnode>> incomingVector;
-  std::vector<std::weak_ptr<Bayesnode>> outgoingVector; 
+  unsigned int totalRows;
+  unsigned int totalColumns;
+  std::map<std::vector<unsigned int>,std::vector<double>> conditionalMap;
+
 
 };
 
