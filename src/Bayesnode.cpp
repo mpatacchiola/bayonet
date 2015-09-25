@@ -35,28 +35,15 @@ namespace bayonet{
 * the minimum number of states allowed is 2. The values assigned to the states are
 * randomly generated and normalized.
 **/
-Bayesnode::Bayesnode(unsigned int numberOfStates = 2){
+Bayesnode::Bayesnode(unsigned int numberOfStates = 2) : mConditionalTable(numberOfStates)
+{
  if (numberOfStates <= 1) numberOfStates = 2; //the minimum number of states allowed is 2
  valuesVector.reserve(numberOfStates);
 
- Bayesnode::statesNumber = numberOfStates;
-
- std::random_device random_device;
- std::mt19937 generator(random_device());
- std::uniform_real_distribution<> real_dist(0, 1);
- double accumulator = 0;
-
- //generate random values and push them inside the state vector
- for (unsigned int i = 0; i < numberOfStates; i++) {
-  double temp_value = real_dist(generator);
-  valuesVector.push_back(temp_value);
-  accumulator += temp_value;      
- }
-
- //normalize all the elements into the vector (they must sum to 1)
- for(auto it = valuesVector.begin(); it != valuesVector.end(); ++it) {
-  *it = *it / accumulator;
- }
+ //Bayesnode::statesNumber = numberOfStates;
+ //std::vector<unsigned int> void_vector;
+ //void_vector.reserve(1);
+ 
 }
 
 Bayesnode::~Bayesnode()
@@ -64,76 +51,12 @@ Bayesnode::~Bayesnode()
 }
 
 /**
-* It prints the current values associated with the node states.
-*
+* It returns the states associate with the node.
+* 
+* @return the number of states associated with the node
 **/
-void Bayesnode::PrintStates(){
- unsigned int counter = 0;
- std::cout << "Total States Number: " << valuesVector.size() << std::endl;
- for(auto it = valuesVector.begin(); it != valuesVector.end(); ++it) {
-  std::cout << "State: " << counter << " ..... " << *it << std::endl;
-  counter++;
- }
-}
-
-/**
-* The function returns the number of states of the node.
-*
-* @return it returns the number of states
-**/
-unsigned int Bayesnode::ReturnStatesNumber(){
- return valuesVector.size();
-}
-
-double Bayesnode::ReturnStatesSum(){
- double accumulator = 0;
-
- //sum all the values inside the vector, to obtain the normalization constant
- for(auto it = valuesVector.begin(); it != valuesVector.end(); ++it) {
-  accumulator += *it;
- }
- return accumulator;
-}
-
-/**
-* The function returns the number of states of the node.
-*
-* @param index an unsigned integer representing the state index
-* @param value a double representing the value to assign to the state
-* @return it returns true if the value is correctly set
-**/
-bool Bayesnode::SetStateValue(unsigned int index, double value){
- valuesVector[index] = value;
- return true;
-}
-
-/**
-* The function returns the number associated to a specific state value.
-*
-* @param index an unsigned integer representing the state index
-* @return it returns the state value
-**/
-double Bayesnode::GetStateValue(unsigned int index){
- return valuesVector[index];
-}
-
-/**
-* The function normalizes all the values inside the vector.
-* The values assigned to the states must always sum to 1.
-*
-**/
-void Bayesnode::NormalizeValues(){
- double accumulator = 0;
-
- //sum all the values inside the vector, to obtain the normalization constant
- for(auto it = valuesVector.begin(); it != valuesVector.end(); ++it) {
-  accumulator += *it;
- }
-
- //normalize all the elements into the vector (they must sum to 1)
- for(auto it = valuesVector.begin(); it != valuesVector.end(); ++it) {
-  *it = *it / accumulator;
- }
+unsigned int Bayesnode::ReturnNumberOfStates(){
+ return statesNumber;
 }
 
 /**
@@ -152,8 +75,14 @@ bool Bayesnode::AddIncomingConnection(std::shared_ptr<Bayesnode> spNode){
   if((*it).lock() == spNode) return false;
  }
 
+ //Adding the sp to the vector
  std::weak_ptr<Bayesnode> wp_temp = spNode;
  incomingVector.push_back(wp_temp);
+
+ //Add the new states to the Conditional Table
+ unsigned int states_to_add = spNode->statesNumber;
+ mConditionalTable.AddParentState(states_to_add);
+
  return true;
 }
 
@@ -176,17 +105,6 @@ bool Bayesnode::AddOutgoingConnection(std::shared_ptr<Bayesnode> spNode){
  std::weak_ptr<Bayesnode> wp_temp = spNode;
  outgoingVector.push_back(wp_temp);
  return true;
-}
-
-/**
-* This function get a sample from the distribution associated with the node.
-* 
-* @return it returns the state sampled.
-**/
-unsigned int Bayesnode::ReturnSample(){
- std::default_random_engine generator;
- std::discrete_distribution<int> values_distribution (valuesVector.begin(), valuesVector.end());
- return values_distribution(generator);
 }
 
 /**

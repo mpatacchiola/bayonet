@@ -17,15 +17,20 @@
  *
 */
 
+#ifndef CONDITIONALPROBABILITYTABLE_H
+#define CONDITIONALPROBABILITYTABLE_H
+
 #include <initializer_list>
 #include <map>
 #include<vector>
+#include <memory>
 
 namespace bayonet{
 
 class ConditionalProbabilityTable {
 
  public:
+  ConditionalProbabilityTable(unsigned int NodeStatesNumber);
   ConditionalProbabilityTable(unsigned int NodeStatesNumber, std::vector<unsigned int> parentsStatesList);
   ~ConditionalProbabilityTable();
 
@@ -34,13 +39,26 @@ class ConditionalProbabilityTable {
   void Print();
   void PrintProbabilities(std::vector<unsigned int> parentsStates);
 
+  void NormalizeProbabilities();
+  void RandomizeProbabilities();
+
+  unsigned int ReturnSample(std::vector<unsigned int> parentsStates);
+
+  void AddParentState(unsigned int totStates);
+  void Clear();
+
+  unsigned int ReturnRowsNumber();
+  unsigned int ReturnColumnsNumber();
+
 
  private:
-  unsigned int totalRows;
-  unsigned int totalColumns;
+  std::vector<unsigned int> mTotalParentsStates;
   std::map<std::vector<unsigned int>,std::vector<double>> conditionalMap;
 
+  void FillMap(unsigned int NodeStatesNumber, std::vector<unsigned int> parentsStates);
 
 };
 
 }
+
+#endif // CONDITIONALPROBABILITYTABLE_H

@@ -21,6 +21,12 @@
 
 namespace bayonet{
 
+/**
+* It create a net with a certain number of nodes and number of states.
+*
+* @param numberOfNodes the number of nodes to add to the network
+* @param numberOfStates the number of state to assign to each node
+**/
 Bayesnet::Bayesnet(unsigned int numberOfNodes, unsigned int numberOfStates = 2){
  for(unsigned int i=0; i<numberOfNodes; i++){
   auto sp = std::make_shared<Bayesnode>(numberOfStates);
@@ -28,11 +34,18 @@ Bayesnet::Bayesnet(unsigned int numberOfNodes, unsigned int numberOfStates = 2){
  }
 }
 
-Bayesnet::~Bayesnet(){
+/**
+* It destroys the object.
+*
+**/
+Bayesnet::~Bayesnet(){}
 
-}
-
-
+/**
+* It add a connection between two nodes.
+*
+* @param firstNode the parent node
+* @param secondNode the child node
+**/
 bool Bayesnet::AddConnection(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
 
@@ -42,25 +55,17 @@ bool Bayesnet::AddConnection(unsigned int firstNode, unsigned int secondNode){
  return true;
 }
 
+/**
+* It remove a connection between two nodes.
+*
+* @param firstNode the parent node
+* @param secondNode the child node
+**/
 bool Bayesnet::RemoveConnection(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
 
  return true;
 }
-
-std::vector<unsigned int> Bayesnet::ReturnSampleVector(){
-
-  std::vector<unsigned int> temp_vector;
-  temp_vector.reserve(nodesVector.size());
-
-  //iterating each node and collecting samples
- for(auto it = nodesVector.begin(); it != nodesVector.end(); ++it) {
-  temp_vector.push_back( (*it)->ReturnSample() );
- }
-
- return temp_vector;
-}
-
 
 
 }

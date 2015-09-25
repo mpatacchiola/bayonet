@@ -17,9 +17,13 @@
  *
 */
 
+#ifndef BAYESNODE_H
+#define BAYESNODE_H
+
 #include <vector>
 #include <string>
 #include <memory>
+#include "ConditionalProbabilityTable.h"
 
 namespace bayonet{
 
@@ -32,20 +36,20 @@ class Bayesnode {
 
   ~Bayesnode();
 
-  void PrintStates();
-  unsigned int ReturnStatesNumber();
-  double ReturnStatesSum();
+  unsigned int ReturnNumberOfStates();
+
   bool SetStateValue(unsigned int index, double value);
   double GetStateValue(unsigned int index);
-  void NormalizeValues();
+
   bool AddIncomingConnection(std::shared_ptr<Bayesnode>);
   bool AddOutgoingConnection(std::shared_ptr<Bayesnode>);
-  unsigned int ReturnSample();
+
   bool IsRoot();
   bool IsLeaf();
 
  private:
   unsigned int statesNumber;
+  ConditionalProbabilityTable mConditionalTable;
   std::string nodeLabel;
   std::vector<double> valuesVector;
   std::vector<std::weak_ptr<Bayesnode>> incomingVector;
@@ -54,3 +58,5 @@ class Bayesnode {
 };
 
 }
+
+#endif // BAYESNODE_H

@@ -17,6 +17,9 @@
  *
 */
 
+#ifndef BAYESNET_H
+#define BAYESNET_H
+
 #include <memory> //shared_ptr
 #include"Bayesnode.h"
 
@@ -33,8 +36,6 @@ class Bayesnet{
   bool AddConnection(unsigned int FirstNode, unsigned int SecondNode);
   bool RemoveConnection(unsigned int FirstNode, unsigned int SecondNode);
 
-  std::vector<unsigned int> ReturnSampleVector();
-
 
  private:
   std::vector<std::shared_ptr<Bayesnode>> nodesVector;
@@ -42,3 +43,5 @@ class Bayesnet{
 };
 
 }
+
+#endif // BAYESNET_H
