@@ -38,20 +38,27 @@ class Bayesnode {
 
   unsigned int ReturnNumberOfStates();
 
-  bool SetStateValue(unsigned int index, double value);
-  double GetStateValue(unsigned int index);
+  void SetLabel(std::string);
+  std::string GetLabel();
 
   bool AddIncomingConnection(std::shared_ptr<Bayesnode>);
   bool AddOutgoingConnection(std::shared_ptr<Bayesnode>);
+  bool RemoveIncomingConnection(std::shared_ptr<Bayesnode>);
+  bool RemoveOutgoingConnection(std::shared_ptr<Bayesnode>);
+  unsigned int EraseExpiredConnections();
+
+  bool SetAsEvidence(unsigned int evidenceState);
+  int IsEvidence();
 
   bool IsRoot();
   bool IsLeaf();
+  bool IsParent(std::shared_ptr<Bayesnode>);
+  bool IsChild(std::shared_ptr<Bayesnode>);
 
  private:
-  unsigned int statesNumber;
+  int mEvidence;
   ConditionalProbabilityTable mConditionalTable;
-  std::string nodeLabel;
-  std::vector<double> valuesVector;
+  std::string mNodeLabel;
   std::vector<std::weak_ptr<Bayesnode>> incomingVector;
   std::vector<std::weak_ptr<Bayesnode>> outgoingVector; 
 

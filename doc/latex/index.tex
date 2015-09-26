@@ -15,7 +15,7 @@ Bayonet is a C++ library that permits to create discrete Bayesian networks, the 
 \item Learning the network parameters
 \end{DoxyItemize}
 
-Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-\/connections and cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-\/list representation is used. Using an adjacency-\/matrix the amount of space necessary to store the nodes (N) is O(\-N$^\wedge$2), instead using the adjacency-\/list representation it is only O(N + E) where E is the number of edges.
+Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-\/connections and cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-\/list representation is used. Using an adjacency-\/matrix the amount of space necessary to store the nodes N is O(\-N$^\wedge$2), instead using the adjacency-\/list representation it is only O(N + E) where E is the number of edges.
 
 Each node is stored as a shared pointer and the edges are stored inside the node as weak pointers. Using smart pointers it is possible to allocate and delete memory in a safe way.
 

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['returnsample',['ReturnSample',['../classbayonet_1_1_bayesnode.html#a1849b4ba4dde1142f1228d6f4ac23fde',1,'bayonet::Bayesnode']]],
-  ['returnstatesnumber',['ReturnStatesNumber',['../classbayonet_1_1_bayesnode.html#a4237e16f1fa27d0b2db3ae1c9cd5f6e7',1,'bayonet::Bayesnode']]]
+  ['operator_5b_5d',['operator[]',['../classbayonet_1_1_bayesnet.html#a805e5513cfef8b16f5f6f38f93aab5db',1,'bayonet::Bayesnet']]]
 ];

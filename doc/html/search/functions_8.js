@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['setprobabilities',['SetProbabilities',['../classbayonet_1_1_conditional_probability_table.html#ac94cd225747e8f59c5497b860ff777c0',1,'bayonet::ConditionalProbabilityTable']]],
-  ['setstatevalue',['SetStateValue',['../classbayonet_1_1_bayesnode.html#a9ccc692d3c2cb897b532a7308d58ab62',1,'bayonet::Bayesnode']]]
+  ['print',['Print',['../classbayonet_1_1_conditional_probability_table.html#a0815f7814cc5797629035f17f0cf26c2',1,'bayonet::ConditionalProbabilityTable']]],
+  ['printprobabilities',['PrintProbabilities',['../classbayonet_1_1_conditional_probability_table.html#a0ca5c1cbfeb5c86ef06161a810233b2a',1,'bayonet::ConditionalProbabilityTable']]]
 ];

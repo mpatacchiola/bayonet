@@ -15,7 +15,7 @@ Bayonet is a C++ library that permits to create discrete Bayesian networks, the 
 - Approximate inference in single and multi connected network using Gibbs sampling
 - Learning the network parameters
 
-Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections and cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes (N) is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges.
+Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections and cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges.
 
 Each node is stored as a shared pointer and the edges are stored inside the node as weak pointers. Using smart pointers it is possible to allocate and delete memory in a safe way. 
 
@@ -30,7 +30,7 @@ You can install them from a Unix system running the following commands from the 
 
 
 Installation
---------------
+------------
 
 If you are using a Unix system you can install the library very easily:
 
@@ -45,7 +45,7 @@ If you are using a Unix system you can install the library very easily:
 
 
 Using the library
---------------
+-----------------
 
 After the installation bayonet was copied on your system, inside the folder */usr/local/lib* you can see the shared library libbayonet.so and the static library libbayonet.a. Another important path is the one containing the header files, they are located at */usr/local/include/bayonet*. 
 To use the shared library it is necessary to link it to your project. In g++ this is very easy, here is an example:

@@ -4,18 +4,113 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classbayonet_1_1_bayesnet_a737f36870a5ff30826f205306a3ebaa0}{{\bfseries Bayesnet} (unsigned int number\-Of\-Nodes, unsigned int number\-Of\-States)}\label{classbayonet_1_1_bayesnet_a737f36870a5ff30826f205306a3ebaa0}
+\hyperlink{classbayonet_1_1_bayesnet_a737f36870a5ff30826f205306a3ebaa0}{Bayesnet} (unsigned int number\-Of\-Nodes, unsigned int number\-Of\-States)
+\item 
+\hyperlink{classbayonet_1_1_bayesnet_af0d3ee29b0676789a3c5d1c33a0e36a2}{$\sim$\-Bayesnet} ()
+\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{classbayonet_1_1_bayesnode}{Bayesnode} $>$ \hyperlink{classbayonet_1_1_bayesnet_a805e5513cfef8b16f5f6f38f93aab5db}{operator\mbox{[}$\,$\mbox{]}} (unsigned int index)
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnet_aca30de1deda07143604927588e2ff470}{Add\-Connection} (unsigned int First\-Node, unsigned int Second\-Node)
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnet_a73566585e97c08b87160c74796d00bbd}{Remove\-Connection} (unsigned int First\-Node, unsigned int Second\-Node)
+\item 
+\hypertarget{classbayonet_1_1_bayesnet_a6f8bf99107923f69539eb7c3c8ad1dd2}{double {\bfseries Return\-Joint\-Probability} (std\-::vector$<$ unsigned int $>$)}\label{classbayonet_1_1_bayesnet_a6f8bf99107923f69539eb7c3c8ad1dd2}
 
 \item 
-\hypertarget{classbayonet_1_1_bayesnet_aca30de1deda07143604927588e2ff470}{bool {\bfseries Add\-Connection} (unsigned int First\-Node, unsigned int Second\-Node)}\label{classbayonet_1_1_bayesnet_aca30de1deda07143604927588e2ff470}
+\hypertarget{classbayonet_1_1_bayesnet_af757ecb227c91cc1ab1513ed3fe095c9}{bool {\bfseries Make\-Polytree} ()}\label{classbayonet_1_1_bayesnet_af757ecb227c91cc1ab1513ed3fe095c9}
 
 \item 
-\hypertarget{classbayonet_1_1_bayesnet_a73566585e97c08b87160c74796d00bbd}{bool {\bfseries Remove\-Connection} (unsigned int First\-Node, unsigned int Second\-Node)}\label{classbayonet_1_1_bayesnet_a73566585e97c08b87160c74796d00bbd}
+\hypertarget{classbayonet_1_1_bayesnet_af9ece9e6faea6c3da9fe927f5b42ff83}{bool {\bfseries Make\-Multi\-Connected} ()}\label{classbayonet_1_1_bayesnet_af9ece9e6faea6c3da9fe927f5b42ff83}
 
 \item 
-\hypertarget{classbayonet_1_1_bayesnet_abefba0cb0332662154518fbe25a84562}{std\-::vector$<$ unsigned int $>$ {\bfseries Return\-Sample\-Vector} ()}\label{classbayonet_1_1_bayesnet_abefba0cb0332662154518fbe25a84562}
+\hypertarget{classbayonet_1_1_bayesnet_a6a3fa624a2e63c642112e80f6683edc5}{int {\bfseries Return\-Network\-Type} ()}\label{classbayonet_1_1_bayesnet_a6a3fa624a2e63c642112e80f6683edc5}
 
 \end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classbayonet_1_1_bayesnet_a286953d2c0303bf226044dd874ed4808}{bool {\bfseries Make\-Tree}}\label{classbayonet_1_1_bayesnet_a286953d2c0303bf226044dd874ed4808}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbayonet_1_1_bayesnet_a737f36870a5ff30826f205306a3ebaa0}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Bayesnet@{Bayesnet}}
+\index{Bayesnet@{Bayesnet}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Bayesnet}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Bayesnet\-::\-Bayesnet (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{number\-Of\-Nodes, }
+\item[{unsigned int}]{number\-Of\-States = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_a737f36870a5ff30826f205306a3ebaa0}
+It create a net with a certain number of nodes and number of states.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\-Of\-Nodes} & the number of nodes to add to the network \\
+\hline
+{\em number\-Of\-States} & the number of state to assign to each node \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_bayesnet_af0d3ee29b0676789a3c5d1c33a0e36a2}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!$\sim$\-Bayesnet@{$\sim$\-Bayesnet}}
+\index{$\sim$\-Bayesnet@{$\sim$\-Bayesnet}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{$\sim$\-Bayesnet}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Bayesnet\-::$\sim$\-Bayesnet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_af0d3ee29b0676789a3c5d1c33a0e36a2}
+It destroys the object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_bayesnet_aca30de1deda07143604927588e2ff470}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Add\-Connection@{Add\-Connection}}
+\index{Add\-Connection@{Add\-Connection}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Add\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnet\-::\-Add\-Connection (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{first\-Node, }
+\item[{unsigned int}]{second\-Node}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_aca30de1deda07143604927588e2ff470}
+It add a connection between two nodes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em first\-Node} & the parent node \\
+\hline
+{\em second\-Node} & the child node \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_bayesnet_a805e5513cfef8b16f5f6f38f93aab5db}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Bayesnode} $>$ bayonet\-::\-Bayesnet\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_a805e5513cfef8b16f5f6f38f93aab5db}
+Operator overload \mbox{[}\mbox{]} it is used to return the smart pointer reference to the node stored inside the net It is possible to access the methods of the single node using the deferencing operator -\/$>$ Example\-: net\mbox{[}2\mbox{]}-\/$>$Is\-Root(); // It checks if the third node is a root node 
+\begin{DoxyParams}{Parameters}
+{\em index} & the number of the element stored inside the net \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+it returns a shared\-\_\-ptr to the node 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnet_a73566585e97c08b87160c74796d00bbd}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Remove\-Connection@{Remove\-Connection}}
+\index{Remove\-Connection@{Remove\-Connection}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Remove\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnet\-::\-Remove\-Connection (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{first\-Node, }
+\item[{unsigned int}]{second\-Node}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_a73566585e97c08b87160c74796d00bbd}
+It remove a connection between two nodes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em first\-Node} & the parent node \\
+\hline
+{\em second\-Node} & the child node \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

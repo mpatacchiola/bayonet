@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['isleaf',['IsLeaf',['../classbayonet_1_1_bayesnode.html#ad1daa0c3ba4cb3704c0509df975d7206',1,'bayonet::Bayesnode']]],
-  ['isroot',['IsRoot',['../classbayonet_1_1_bayesnode.html#a58a35d2f668568011181114550962981',1,'bayonet::Bayesnode']]]
+  ['getlabel',['GetLabel',['../classbayonet_1_1_bayesnode.html#aebe7f411efe8b8647ed6f7d28f700638',1,'bayonet::Bayesnode']]],
+  ['getprobabilities',['GetProbabilities',['../classbayonet_1_1_conditional_probability_table.html#a7612e2c40e51eaf4d94109adb2bd269d',1,'bayonet::ConditionalProbabilityTable']]]
 ];

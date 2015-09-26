@@ -30,11 +30,19 @@ class Bayesnet{
  public:
   //Bayesnode();
   Bayesnet(unsigned int numberOfNodes, unsigned int numberOfStates);
-
   ~Bayesnet();
+
+  std::shared_ptr<Bayesnode> operator[](unsigned int index);
 
   bool AddConnection(unsigned int FirstNode, unsigned int SecondNode);
   bool RemoveConnection(unsigned int FirstNode, unsigned int SecondNode);
+
+  double ReturnJointProbability(std::vector<unsigned int>);
+
+  bool MakeTree; //TODO
+  bool MakePolytree(); //TODO
+  bool MakeMultiConnected(); //TODO
+  int ReturnNetworkType(); //TODO
 
 
  private:
