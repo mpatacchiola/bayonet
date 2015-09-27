@@ -93,6 +93,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">bayonet::Bayesnet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class represents the whole Bayesian network.  
+ <a href="classbayonet_1_1_bayesnet.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_bayesnet_8h_source.html">Bayesnet.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -109,23 +114,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f8bf99107923f69539eb7c3c8ad1dd2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f8bf99107923f69539eb7c3c8ad1dd2"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnJointProbability</b> (std::vector&lt; unsigned int &gt;)</td></tr>
 <tr class="separator:a6f8bf99107923f69539eb7c3c8ad1dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af757ecb227c91cc1ab1513ed3fe095c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af757ecb227c91cc1ab1513ed3fe095c9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>MakePolytree</b> ()</td></tr>
-<tr class="separator:af757ecb227c91cc1ab1513ed3fe095c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9ece9e6faea6c3da9fe927f5b42ff83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9ece9e6faea6c3da9fe927f5b42ff83"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>MakeMultiConnected</b> ()</td></tr>
-<tr class="separator:af9ece9e6faea6c3da9fe927f5b42ff83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb81cc447fe07fab5652c7a6b2fe9375"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb81cc447fe07fab5652c7a6b2fe9375"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsPolytree</b> ()</td></tr>
+<tr class="separator:adb81cc447fe07fab5652c7a6b2fe9375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82ed68cc718009c948d681addd48e23"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af82ed68cc718009c948d681addd48e23"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsMultiConnected</b> ()</td></tr>
+<tr class="separator:af82ed68cc718009c948d681addd48e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a3fa624a2e63c642112e80f6683edc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a3fa624a2e63c642112e80f6683edc5"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnNetworkType</b> ()</td></tr>
 <tr class="separator:a6a3fa624a2e63c642112e80f6683edc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a286953d2c0303bf226044dd874ed4808"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a286953d2c0303bf226044dd874ed4808"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>MakeTree</b></td></tr>
-<tr class="separator:a286953d2c0303bf226044dd874ed4808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bffae5641214a898bcaf583e7d6760d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bffae5641214a898bcaf583e7d6760d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsTree</b></td></tr>
+<tr class="separator:a0bffae5641214a898bcaf583e7d6760d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class represents the whole Bayesian network. </p>
+<hr/>
+ </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a737f36870a5ff30826f205306a3ebaa0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -276,7 +284,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>MakeTree</b></td></tr
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 26 2015 15:38:59 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 27 2015 19:40:30 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

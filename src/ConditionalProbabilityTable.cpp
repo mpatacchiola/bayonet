@@ -227,7 +227,7 @@ unsigned int ConditionalProbabilityTable::ReturnSample(std::vector<unsigned int>
 *
 * @param totStates the total number of states to assign to the new parent
 **/
-void ConditionalProbabilityTable::AddParentState(unsigned int totStates=2){
+void ConditionalProbabilityTable::AddVariable(unsigned int totStates=2){
 
  //Check for wrong input
  if(totStates <2) totStates=2;

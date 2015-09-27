@@ -17,8 +17,8 @@
  *
 */
 
-#ifndef CONDITIONALPROBABILITYTABLE_H
-#define CONDITIONALPROBABILITYTABLE_H
+#ifndef JOINTPROBABILITYTABLE_H
+#define JOINTPROBABILITYTABLE_H
 
 #include <initializer_list>
 #include <map>
@@ -27,43 +27,42 @@
 
 namespace bayonet{
 
-/** \class ConditionalProbabilityTable
- *  \brief A table containing the conditional probabilities of random variables.
- *
- *  This class is a container for conditional probabilities.
+/** \class JointProbabilityTable
+*   \brief A table containing the joint probabilities of random variables.
+*
+*  This class is a container for joint probabilities. 
+*  It can be used as a generic container or it can be associated with a Bayesian network.
 **/
-class ConditionalProbabilityTable {
+class JointProbabilityTable {
 
  public:
-  ConditionalProbabilityTable(unsigned int NodeStatesNumber);
-  ConditionalProbabilityTable(unsigned int NodeStatesNumber, std::vector<unsigned int> parentsStatesList);
-  ~ConditionalProbabilityTable();
+  JointProbabilityTable();
+  JointProbabilityTable(std::vector<unsigned int> variablesTotStatesVector);
+  ~JointProbabilityTable();
 
-  std::vector<double> GetProbabilities(std::vector<unsigned int> parentsStates);
-  bool SetProbabilities(std::vector<unsigned int> parentsStates, std::vector<double> probabilities);
+  double ReturnMarginal(unsigned int variableIndex, unsigned int variableState);
+  double GetProbability(std::vector<unsigned int> variablesStatesVector);
+  bool SetProbability(std::vector<unsigned int> variablesStatesVector, double probability);
   void Print();
-  void PrintProbabilities(std::vector<unsigned int> parentsStates);
+  void PrintProbability(std::vector<unsigned int> variablesStatesVector);
 
   void NormalizeProbabilities();
   void RandomizeProbabilities();
-
-  unsigned int ReturnSample(std::vector<unsigned int> parentsStates);
 
   void AddVariable(unsigned int totStates);
   void Clear();
 
   unsigned int ReturnRowsNumber();
-  unsigned int ReturnColumnsNumber();
 
 
  private:
-  std::vector<unsigned int> mTotalParentsStates;
-  std::map<std::vector<unsigned int>,std::vector<double>> conditionalMap;
+  std::vector<unsigned int> mVariablesTotStatesVector;
+  std::map<std::vector<unsigned int>,double> mJointMap;
 
-  void FillMap(unsigned int NodeStatesNumber, std::vector<unsigned int> parentsStates);
+  void FillMap(std::vector<unsigned int> variablesTotStatesVector);
 
 };
 
 }
 
-#endif // CONDITIONALPROBABILITYTABLE_H
+#endif // JOINTPROBABILITYTABLE_H

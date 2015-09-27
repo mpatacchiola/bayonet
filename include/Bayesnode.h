@@ -27,6 +27,11 @@
 
 namespace bayonet{
 
+/** \class Bayesnode
+*   \brief This class represents the single node of a Bayesian network.
+*  
+*   ---
+**/
 class Bayesnode {
 
  public:

@@ -19,14 +19,15 @@ compile:
 	g++ $(CFLAGS) -Iinclude -c ./src/Bayesnode.cpp -o ./bin/obj/Bayesnode.o
 	g++ $(CFLAGS) -Iinclude -c ./src/Bayesnet.cpp -o ./bin/obj/Bayesnet.o
 	g++ $(CFLAGS) -Iinclude -c ./src/ConditionalProbabilityTable.cpp -o ./bin/obj/ConditionalProbabilityTable.o
+	g++ $(CFLAGS) -Iinclude -c ./src/JointProbabilityTable.cpp -o ./bin/obj/JointProbabilityTable.o
 
 	@echo
 	@echo "=== Starting creation of Shared Library ==="
-	g++ -fPIC -shared -Wl,-soname,libbayonet.so.1 -o ./bin/lib/libbayonet.so.1.0 ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o
+	g++ -fPIC -shared -Wl,-soname,libbayonet.so.1 -o ./bin/lib/libbayonet.so.1.0 ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o
 
 	@echo
 	@echo "=== Creating the Static Library ==="
-	ar rcs ./bin/lib/libbayonet.a ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o
+	ar rcs ./bin/lib/libbayonet.a ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o
 
 install:
 
@@ -42,7 +43,7 @@ install:
 	ln -sf /usr/local/lib/libbayonet.so.1.0 /usr/local/lib/libbayonet.so.1
 
 remove:
-	rm ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o
+	rm ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o
 	rm ./bin/lib/libbayonet.so.1.0  
 	rm /usr/local/lib/libbayonet.so /usr/local/lib/libbayonet.so.1
 	rm /usr/local/lib/libbayonet.a ./bin/lib/libbayonet.a

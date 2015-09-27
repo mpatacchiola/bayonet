@@ -1,0 +1,190 @@
+\hypertarget{classbayonet_1_1_joint_probability_table}{\section{bayonet\-:\-:Joint\-Probability\-Table Class Reference}
+\label{classbayonet_1_1_joint_probability_table}\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}}
+}
+
+
+A table containing the joint probabilities of random variables.  
+
+
+
+
+{\ttfamily \#include $<$Joint\-Probability\-Table.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbayonet_1_1_joint_probability_table_abc02930b72bf85bde3981e422e8676e0}{Joint\-Probability\-Table} ()
+\item 
+\hyperlink{classbayonet_1_1_joint_probability_table_afedab5cdff76623e341a9e8075a5867b}{Joint\-Probability\-Table} (std\-::vector$<$ unsigned int $>$ variables\-Tot\-States\-Vector)
+\item 
+\hyperlink{classbayonet_1_1_joint_probability_table_a5abe5ffb7ad2b6c4525e58b8ed6d7595}{$\sim$\-Joint\-Probability\-Table} ()
+\item 
+double \hyperlink{classbayonet_1_1_joint_probability_table_a90538c4bf67f0270b705caa26fea742b}{Return\-Marginal} (unsigned int variable\-Index, unsigned int variable\-State)
+\item 
+double \hyperlink{classbayonet_1_1_joint_probability_table_a6b43b8414444f81a8013d34837d191af}{Get\-Probability} (std\-::vector$<$ unsigned int $>$ variables\-States\-Vector)
+\item 
+bool \hyperlink{classbayonet_1_1_joint_probability_table_a69554f2b857ee778d2d2aff7cefa0d1e}{Set\-Probability} (std\-::vector$<$ unsigned int $>$ variables\-States\-Vector, double probability)
+\item 
+void \hyperlink{classbayonet_1_1_joint_probability_table_ade691120f2a61325b94a7f9e85dd21f8}{Print} ()
+\item 
+void \hyperlink{classbayonet_1_1_joint_probability_table_ac52835cb75b2d635b51843abf58311a9}{Print\-Probability} (std\-::vector$<$ unsigned int $>$ variables\-States\-Vector)
+\item 
+void \hyperlink{classbayonet_1_1_joint_probability_table_aa244b70256292fd00f8cd7bf1e8e7ed1}{Normalize\-Probabilities} ()
+\item 
+void \hyperlink{classbayonet_1_1_joint_probability_table_a91133b2cf610076459a641b458c898cd}{Randomize\-Probabilities} ()
+\item 
+void \hyperlink{classbayonet_1_1_joint_probability_table_a34def84ddda0e58303d552055057b884}{Add\-Variable} (unsigned int tot\-States)
+\item 
+void \hyperlink{classbayonet_1_1_joint_probability_table_a61a82adc62427272e5aa84ace3fc15a6}{Clear} ()
+\item 
+unsigned int \hyperlink{classbayonet_1_1_joint_probability_table_af87920fcfa20657c2c3eb816a77ea66b}{Return\-Rows\-Number} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A table containing the joint probabilities of random variables. 
+
+This class is a container for joint probabilities. It can be used as a generic container or it can be associated with a Bayesian network. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbayonet_1_1_joint_probability_table_abc02930b72bf85bde3981e422e8676e0}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Joint\-Probability\-Table@{Joint\-Probability\-Table}}
+\index{Joint\-Probability\-Table@{Joint\-Probability\-Table}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Joint\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Joint\-Probability\-Table\-::\-Joint\-Probability\-Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_abc02930b72bf85bde3981e422e8676e0}
+The constructor of the object. \hypertarget{classbayonet_1_1_joint_probability_table_afedab5cdff76623e341a9e8075a5867b}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Joint\-Probability\-Table@{Joint\-Probability\-Table}}
+\index{Joint\-Probability\-Table@{Joint\-Probability\-Table}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Joint\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Joint\-Probability\-Table\-::\-Joint\-Probability\-Table (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ unsigned int $>$}]{variables\-Tot\-States}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_afedab5cdff76623e341a9e8075a5867b}
+The constructor of the object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variables\-Tot\-States} & this is a list that represents the number of states of each parent of the node If the node has 3 boolean states as parents the list is \{2, 2, 2\} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_joint_probability_table_a5abe5ffb7ad2b6c4525e58b8ed6d7595}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!$\sim$\-Joint\-Probability\-Table@{$\sim$\-Joint\-Probability\-Table}}
+\index{$\sim$\-Joint\-Probability\-Table@{$\sim$\-Joint\-Probability\-Table}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{$\sim$\-Joint\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Joint\-Probability\-Table\-::$\sim$\-Joint\-Probability\-Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_a5abe5ffb7ad2b6c4525e58b8ed6d7595}
+Destroying the object 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_joint_probability_table_a34def84ddda0e58303d552055057b884}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Add\-Variable@{Add\-Variable}}
+\index{Add\-Variable@{Add\-Variable}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Add\-Variable}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Add\-Variable (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tot\-States = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_a34def84ddda0e58303d552055057b884}
+It add a new variable to the table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tot\-States} & the total number of states to assign to the new variable \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_joint_probability_table_a61a82adc62427272e5aa84ace3fc15a6}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Clear@{Clear}}
+\index{Clear@{Clear}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Clear}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_a61a82adc62427272e5aa84ace3fc15a6}
+It clear the content of the table. \hypertarget{classbayonet_1_1_joint_probability_table_a6b43b8414444f81a8013d34837d191af}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Get\-Probability@{Get\-Probability}}
+\index{Get\-Probability@{Get\-Probability}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Get\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}double bayonet\-::\-Joint\-Probability\-Table\-::\-Get\-Probability (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ unsigned int $>$}]{variables\-Tot\-States}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_a6b43b8414444f81a8013d34837d191af}
+Given a vector key it returns the associated probabilities
+
+
+\begin{DoxyParams}{Parameters}
+{\em variables\-Tot\-States} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_joint_probability_table_aa244b70256292fd00f8cd7bf1e8e7ed1}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Normalize\-Probabilities@{Normalize\-Probabilities}}
+\index{Normalize\-Probabilities@{Normalize\-Probabilities}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Normalize\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Normalize\-Probabilities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_aa244b70256292fd00f8cd7bf1e8e7ed1}
+It normalize the probabilities inside each row of the table. \hypertarget{classbayonet_1_1_joint_probability_table_ade691120f2a61325b94a7f9e85dd21f8}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Print@{Print}}
+\index{Print@{Print}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_ade691120f2a61325b94a7f9e85dd21f8}
+It prints the conditional table on the terminal. If the number of columns and rows is huge, the terminal could cut parts of the output. \hypertarget{classbayonet_1_1_joint_probability_table_ac52835cb75b2d635b51843abf58311a9}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Print\-Probability@{Print\-Probability}}
+\index{Print\-Probability@{Print\-Probability}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Print\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Print\-Probability (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ unsigned int $>$}]{variables\-Tot\-States}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_ac52835cb75b2d635b51843abf58311a9}
+It prints the probabilities associated with a particular set of parents. If the number of columns is huge, the terminal could cut parts of the output. \hypertarget{classbayonet_1_1_joint_probability_table_a91133b2cf610076459a641b458c898cd}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Randomize\-Probabilities@{Randomize\-Probabilities}}
+\index{Randomize\-Probabilities@{Randomize\-Probabilities}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Randomize\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Randomize\-Probabilities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_a91133b2cf610076459a641b458c898cd}
+It randomize the probabilities inside each row of the table. The probabilities are also normalized. \hypertarget{classbayonet_1_1_joint_probability_table_a90538c4bf67f0270b705caa26fea742b}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Return\-Marginal@{Return\-Marginal}}
+\index{Return\-Marginal@{Return\-Marginal}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Return\-Marginal}]{\setlength{\rightskip}{0pt plus 5cm}double bayonet\-::\-Joint\-Probability\-Table\-::\-Return\-Marginal (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{variable\-Index, }
+\item[{unsigned int}]{variable\-State}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_a90538c4bf67f0270b705caa26fea742b}
+It returns the marginal probability of a given variable.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\-Index} & \\
+\hline
+{\em variable\-State} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_joint_probability_table_af87920fcfa20657c2c3eb816a77ea66b}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Return\-Rows\-Number@{Return\-Rows\-Number}}
+\index{Return\-Rows\-Number@{Return\-Rows\-Number}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Return\-Rows\-Number}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Joint\-Probability\-Table\-::\-Return\-Rows\-Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_af87920fcfa20657c2c3eb816a77ea66b}
+It returns the total number of rows. \hypertarget{classbayonet_1_1_joint_probability_table_a69554f2b857ee778d2d2aff7cefa0d1e}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Set\-Probability@{Set\-Probability}}
+\index{Set\-Probability@{Set\-Probability}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Set\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Joint\-Probability\-Table\-::\-Set\-Probability (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ unsigned int $>$}]{variables\-Tot\-States, }
+\item[{double}]{probability}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_a69554f2b857ee778d2d2aff7cefa0d1e}
+Given a vector key it sets the probabilities associated
+
+
+\begin{DoxyParams}{Parameters}
+{\em variables\-Tot\-States} & \\
+\hline
+{\em probabilities} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+include/Joint\-Probability\-Table.\-h\item 
+src/Joint\-Probability\-Table.\-cpp\end{DoxyCompactItemize}

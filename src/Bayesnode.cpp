@@ -94,7 +94,7 @@ bool Bayesnode::AddIncomingConnection(std::shared_ptr<Bayesnode> spNode){
 
  //Add the new states to the Conditional Table
  unsigned int states_to_add = spNode->ReturnNumberOfStates();
- mConditionalTable.AddParentState(states_to_add);
+ mConditionalTable.AddVariable(states_to_add);
 
  return true;
 }

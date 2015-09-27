@@ -114,35 +114,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>bayonet{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classbayonet_1_1_bayesnet.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">//Bayesnode();</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classbayonet_1_1_bayesnet.html#a737f36870a5ff30826f205306a3ebaa0">Bayesnet</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numberOfNodes, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numberOfStates);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="classbayonet_1_1_bayesnet.html#af0d3ee29b0676789a3c5d1c33a0e36a2">~Bayesnet</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classbayonet_1_1_bayesnet.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  std::shared_ptr&lt;Bayesnode&gt; <a class="code" href="classbayonet_1_1_bayesnet.html#a805e5513cfef8b16f5f6f38f93aab5db">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnet.html#aca30de1deda07143604927588e2ff470">AddConnection</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> FirstNode, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> SecondNode);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnet.html#a73566585e97c08b87160c74796d00bbd">RemoveConnection</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> FirstNode, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> SecondNode);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">//Bayesnode();</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="classbayonet_1_1_bayesnet.html#a737f36870a5ff30826f205306a3ebaa0">Bayesnet</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numberOfNodes, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numberOfStates);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="classbayonet_1_1_bayesnet.html#af0d3ee29b0676789a3c5d1c33a0e36a2">~Bayesnet</a>();</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">double</span> ReturnJointProbability(std::vector&lt;unsigned int&gt;);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::shared_ptr&lt;Bayesnode&gt; <a class="code" href="classbayonet_1_1_bayesnet.html#a805e5513cfef8b16f5f6f38f93aab5db">operator[]</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">bool</span> MakeTree; <span class="comment">//TODO</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">bool</span> MakePolytree(); <span class="comment">//TODO</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">bool</span> MakeMultiConnected(); <span class="comment">//TODO</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">int</span> ReturnNetworkType(); <span class="comment">//TODO</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnet.html#aca30de1deda07143604927588e2ff470">AddConnection</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> FirstNode, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> SecondNode);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnet.html#a73566585e97c08b87160c74796d00bbd">RemoveConnection</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> FirstNode, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> SecondNode);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">double</span> ReturnJointProbability(std::vector&lt;unsigned int&gt;);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  std::vector&lt;std::shared_ptr&lt;Bayesnode&gt;&gt; nodesVector;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">bool</span> IsTree; <span class="comment">//TODO</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">bool</span> IsPolytree(); <span class="comment">//TODO</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">bool</span> IsMultiConnected(); <span class="comment">//TODO</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">int</span> ReturnNetworkType(); <span class="comment">//TODO</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif // BAYESNET_H</span></div>
-<div class="ttc" id="classbayonet_1_1_bayesnet_html"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a></div><div class="ttdef"><b>Definition:</b> Bayesnet.h:28</div></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  std::vector&lt;std::shared_ptr&lt;Bayesnode&gt;&gt; nodesVector;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif // BAYESNET_H</span></div>
+<div class="ttc" id="classbayonet_1_1_bayesnet_html"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a></div><div class="ttdoc">This class represents the whole Bayesian network. </div><div class="ttdef"><b>Definition:</b> Bayesnet.h:33</div></div>
 <div class="ttc" id="classbayonet_1_1_bayesnet_html_aca30de1deda07143604927588e2ff470"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html#aca30de1deda07143604927588e2ff470">bayonet::Bayesnet::AddConnection</a></div><div class="ttdeci">bool AddConnection(unsigned int FirstNode, unsigned int SecondNode)</div><div class="ttdef"><b>Definition:</b> Bayesnet.cpp:61</div></div>
 <div class="ttc" id="classbayonet_1_1_bayesnet_html_a737f36870a5ff30826f205306a3ebaa0"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html#a737f36870a5ff30826f205306a3ebaa0">bayonet::Bayesnet::Bayesnet</a></div><div class="ttdeci">Bayesnet(unsigned int numberOfNodes, unsigned int numberOfStates)</div><div class="ttdef"><b>Definition:</b> Bayesnet.cpp:30</div></div>
 <div class="ttc" id="classbayonet_1_1_bayesnet_html_af0d3ee29b0676789a3c5d1c33a0e36a2"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html#af0d3ee29b0676789a3c5d1c33a0e36a2">bayonet::Bayesnet::~Bayesnet</a></div><div class="ttdeci">~Bayesnet()</div><div class="ttdef"><b>Definition:</b> Bayesnet.cpp:41</div></div>
@@ -151,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 26 2015 15:38:59 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 27 2015 19:40:30 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,6 +1,15 @@
 \hypertarget{classbayonet_1_1_conditional_probability_table}{\section{bayonet\-:\-:Conditional\-Probability\-Table Class Reference}
 \label{classbayonet_1_1_conditional_probability_table}\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}}
 }
+
+
+A table containing the conditional probabilities of random variables.  
+
+
+
+
+{\ttfamily \#include $<$Conditional\-Probability\-Table.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -24,7 +33,7 @@ void \hyperlink{classbayonet_1_1_conditional_probability_table_a224d882019f784a9
 \item 
 unsigned int \hyperlink{classbayonet_1_1_conditional_probability_table_a3e600c4b5247dd52a5d0e775ca898c69}{Return\-Sample} (std\-::vector$<$ unsigned int $>$ parents\-States)
 \item 
-void \hyperlink{classbayonet_1_1_conditional_probability_table_aaced459ef9fbf9bdeaca95e2bfa32578}{Add\-Parent\-State} (unsigned int tot\-States)
+void \hyperlink{classbayonet_1_1_conditional_probability_table_a038e1940c40528ac23101272f33f752c}{Add\-Variable} (unsigned int tot\-States)
 \item 
 void \hyperlink{classbayonet_1_1_conditional_probability_table_a1708d2e94833fe8e0c37e661269dc11d}{Clear} ()
 \item 
@@ -33,6 +42,11 @@ unsigned int \hyperlink{classbayonet_1_1_conditional_probability_table_ae2b35a36
 unsigned int \hyperlink{classbayonet_1_1_conditional_probability_table_a2fef41dbe55cbccc82b3921d4d471c1d}{Return\-Columns\-Number} ()
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A table containing the conditional probabilities of random variables. 
+
+This class is a container for conditional probabilities. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classbayonet_1_1_conditional_probability_table_a58abcca6946f80bfe3c86ccbbdeed31e}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Conditional\-Probability\-Table@{Conditional\-Probability\-Table}}
@@ -76,13 +90,13 @@ The constructor of the object.
 Destroying the object 
 
 \subsection{Member Function Documentation}
-\hypertarget{classbayonet_1_1_conditional_probability_table_aaced459ef9fbf9bdeaca95e2bfa32578}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Add\-Parent\-State@{Add\-Parent\-State}}
-\index{Add\-Parent\-State@{Add\-Parent\-State}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
-\subsubsection[{Add\-Parent\-State}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Conditional\-Probability\-Table\-::\-Add\-Parent\-State (
+\hypertarget{classbayonet_1_1_conditional_probability_table_a038e1940c40528ac23101272f33f752c}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Add\-Variable@{Add\-Variable}}
+\index{Add\-Variable@{Add\-Variable}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Add\-Variable}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Conditional\-Probability\-Table\-::\-Add\-Variable (
 \begin{DoxyParamCaption}
 \item[{unsigned int}]{tot\-States = {\ttfamily 2}}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_conditional_probability_table_aaced459ef9fbf9bdeaca95e2bfa32578}
+)}}\label{classbayonet_1_1_conditional_probability_table_a038e1940c40528ac23101272f33f752c}
 It add a new parent to the table.
 
 

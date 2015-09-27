@@ -25,6 +25,11 @@
 
 namespace bayonet{
 
+/** \class Bayesnet
+*   \brief This class represents the whole Bayesian network.
+*  
+*   ---
+**/
 class Bayesnet{
 
  public:
@@ -39,9 +44,9 @@ class Bayesnet{
 
   double ReturnJointProbability(std::vector<unsigned int>);
 
-  bool MakeTree; //TODO
-  bool MakePolytree(); //TODO
-  bool MakeMultiConnected(); //TODO
+  bool IsTree; //TODO
+  bool IsPolytree(); //TODO
+  bool IsMultiConnected(); //TODO
   int ReturnNetworkType(); //TODO
 
 

@@ -92,6 +92,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">bayonet::ConditionalProbabilityTable Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A table containing the conditional probabilities of random variables.  
+ <a href="classbayonet_1_1_conditional_probability_table.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_conditional_probability_table_8h_source.html">ConditionalProbabilityTable.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -115,8 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a224d882019f784a993c50043dca4cb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e600c4b5247dd52a5d0e775ca898c69"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a3e600c4b5247dd52a5d0e775ca898c69">ReturnSample</a> (std::vector&lt; unsigned int &gt; parentsStates)</td></tr>
 <tr class="separator:a3e600c4b5247dd52a5d0e775ca898c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaced459ef9fbf9bdeaca95e2bfa32578"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#aaced459ef9fbf9bdeaca95e2bfa32578">AddParentState</a> (unsigned int totStates)</td></tr>
-<tr class="separator:aaced459ef9fbf9bdeaca95e2bfa32578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a038e1940c40528ac23101272f33f752c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a038e1940c40528ac23101272f33f752c">AddVariable</a> (unsigned int totStates)</td></tr>
+<tr class="separator:a038e1940c40528ac23101272f33f752c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1708d2e94833fe8e0c37e661269dc11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a1708d2e94833fe8e0c37e661269dc11d">Clear</a> ()</td></tr>
 <tr class="separator:a1708d2e94833fe8e0c37e661269dc11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2b35a361fb92684abdfde96887b24e6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#ae2b35a361fb92684abdfde96887b24e6">ReturnRowsNumber</a> ()</td></tr>
@@ -124,7 +129,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2fef41dbe55cbccc82b3921d4d471c1d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a2fef41dbe55cbccc82b3921d4d471c1d">ReturnColumnsNumber</a> ()</td></tr>
 <tr class="separator:a2fef41dbe55cbccc82b3921d4d471c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A table containing the conditional probabilities of random variables. </p>
+<p>This class is a container for conditional probabilities. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a58abcca6946f80bfe3c86ccbbdeed31e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -199,12 +207,12 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aaced459ef9fbf9bdeaca95e2bfa32578"></a>
+<a class="anchor" id="a038e1940c40528ac23101272f33f752c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void bayonet::ConditionalProbabilityTable::AddParentState </td>
+          <td class="memname">void bayonet::ConditionalProbabilityTable::AddVariable </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>totStates</em> = <code>2</code></td><td>)</td>
@@ -416,7 +424,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 26 2015 15:38:59 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 27 2015 19:40:30 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
