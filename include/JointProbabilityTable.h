@@ -41,6 +41,7 @@ class JointProbabilityTable {
   ~JointProbabilityTable();
 
   double ReturnMarginal(unsigned int variableIndex, unsigned int variableState);
+  std::vector<unsigned int> ReturnKey(unsigned int index);
   double GetProbability(std::vector<unsigned int> variablesStatesVector);
   bool SetProbability(std::vector<unsigned int> variablesStatesVector, double probability);
   void Print();

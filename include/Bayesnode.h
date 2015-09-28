@@ -45,12 +45,14 @@ class Bayesnode {
 
   void SetLabel(std::string);
   std::string GetLabel();
+  void SetNumericLabel(int);
+  int GetNumericLabel();
 
-  bool AddIncomingConnection(std::shared_ptr<Bayesnode>);
-  bool AddOutgoingConnection(std::shared_ptr<Bayesnode>);
-  bool RemoveIncomingConnection(std::shared_ptr<Bayesnode>);
-  bool RemoveOutgoingConnection(std::shared_ptr<Bayesnode>);
-  unsigned int EraseExpiredConnections();
+  bool AddIncomingEdge(std::shared_ptr<Bayesnode>);
+  bool AddOutgoingEdge(std::shared_ptr<Bayesnode>);
+  bool RemoveIncomingEdge(std::shared_ptr<Bayesnode>);
+  bool RemoveOutgoingEdge(std::shared_ptr<Bayesnode>);
+  unsigned int EraseExpiredEdges();
 
   bool SetAsEvidence(unsigned int evidenceState);
   int IsEvidence();
@@ -60,10 +62,15 @@ class Bayesnode {
   bool IsParent(std::shared_ptr<Bayesnode>);
   bool IsChild(std::shared_ptr<Bayesnode>);
 
+  unsigned int ReturnMarkovBlanketSize();
+  std::shared_ptr<ConditionalProbabilityTable> ReturnPointerToConditionalTable();
+
  private:
   int mEvidence;
-  ConditionalProbabilityTable mConditionalTable;
   std::string mNodeLabel;
+  int mNodeNumericLabel;
+  std::shared_ptr<ConditionalProbabilityTable> spConditionalTable;
+  //ConditionalProbabilityTable mConditionalTable;
   std::vector<std::weak_ptr<Bayesnode>> incomingVector;
   std::vector<std::weak_ptr<Bayesnode>> outgoingVector; 
 

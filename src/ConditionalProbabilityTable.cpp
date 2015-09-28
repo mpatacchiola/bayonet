@@ -67,6 +67,17 @@ ConditionalProbabilityTable::ConditionalProbabilityTable(unsigned int NodeStates
 ConditionalProbabilityTable::~ConditionalProbabilityTable(){}
 
 /**
+* Given the state of the variable and a vector key it returns the associated probability
+*
+* @param variableState
+* @param parentsStates
+**/
+double ConditionalProbabilityTable::GetProbability(unsigned int variableState, std::vector<unsigned int> parentsStates){
+ auto row_vector = conditionalMap[parentsStates];
+ return row_vector.at(variableState);
+}
+
+/**
 * Given a vector key it returns the associated probabilities
 *
 * @param parentsStates

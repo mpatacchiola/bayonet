@@ -35,9 +35,9 @@ namespace bayonet{
 * the minimum number of states allowed is 2. The values assigned to the states are
 * randomly generated and normalized.
 **/
-Bayesnode::Bayesnode(unsigned int numberOfStates = 2) : mEvidence(-1), mConditionalTable(numberOfStates), mNodeLabel("")
+Bayesnode::Bayesnode(unsigned int numberOfStates = 2) : mEvidence(-1), mNodeLabel(""), mNodeNumericLabel(0)
 {
-
+ spConditionalTable = std::make_shared<ConditionalProbabilityTable>(numberOfStates);
 }
 
 Bayesnode::~Bayesnode()
@@ -51,7 +51,7 @@ Bayesnode::~Bayesnode()
 **/
 unsigned int Bayesnode::ReturnNumberOfStates(){
  //the number of states is obtained directly from the CPT
- return mConditionalTable.ReturnRowsNumber();
+ return spConditionalTable->ReturnRowsNumber();
 }
 
 /**
@@ -73,11 +73,29 @@ std::string Bayesnode::GetLabel(){
 }
 
 /**
+* It sets the numeric label of the node.
+* 
+* @return the label associated with the node
+**/
+void Bayesnode::SetNumericLabel(int numericLabel){
+ mNodeNumericLabel = numericLabel;
+}
+
+/**
+* It returns the numeric label associate with the node.
+* 
+* @return the numeric label associated with the node
+**/
+int Bayesnode::GetNumericLabel(){
+ return mNodeNumericLabel;
+}
+
+/**
 * Adding an incoming connection to this node.
 * 
 * @param spNode shared_ptr to the incoming node
 **/
-bool Bayesnode::AddIncomingConnection(std::shared_ptr<Bayesnode> spNode){
+bool Bayesnode::AddIncomingEdge(std::shared_ptr<Bayesnode> spNode){
  //no cycles allowed
  for(auto it = outgoingVector.begin(); it != outgoingVector.end(); ++it) {
   if((*it).lock() == spNode) return false;
@@ -94,7 +112,7 @@ bool Bayesnode::AddIncomingConnection(std::shared_ptr<Bayesnode> spNode){
 
  //Add the new states to the Conditional Table
  unsigned int states_to_add = spNode->ReturnNumberOfStates();
- mConditionalTable.AddVariable(states_to_add);
+ spConditionalTable->AddVariable(states_to_add);
 
  return true;
 }
@@ -104,7 +122,7 @@ bool Bayesnode::AddIncomingConnection(std::shared_ptr<Bayesnode> spNode){
 * 
 * @param spNode shared_ptr to the outgoing node
 **/
-bool Bayesnode::AddOutgoingConnection(std::shared_ptr<Bayesnode> spNode){
+bool Bayesnode::AddOutgoingEdge(std::shared_ptr<Bayesnode> spNode){
  //no cycles allowed
  for(auto it = incomingVector.begin(); it != incomingVector.end(); ++it) {
   if((*it).lock() == spNode) return false;
@@ -126,7 +144,7 @@ bool Bayesnode::AddOutgoingConnection(std::shared_ptr<Bayesnode> spNode){
 * @param spNode shared_ptr to the outgoing node
 * @return it returns true if the element was found and erased
 **/
-bool Bayesnode::RemoveIncomingConnection(std::shared_ptr<Bayesnode> spNode){
+bool Bayesnode::RemoveIncomingEdge(std::shared_ptr<Bayesnode> spNode){
  auto it_to_remove = incomingVector.end();
 
  for(auto it=incomingVector.begin(); it != incomingVector.end(); ++it){
@@ -149,7 +167,7 @@ bool Bayesnode::RemoveIncomingConnection(std::shared_ptr<Bayesnode> spNode){
 * @param spNode shared_ptr to the outgoing node
 * @return it returns true if the element was found and erased
 **/
-bool Bayesnode::RemoveOutgoingConnection(std::shared_ptr<Bayesnode> spNode){
+bool Bayesnode::RemoveOutgoingEdge(std::shared_ptr<Bayesnode> spNode){
  auto it_to_remove = outgoingVector.end();
 
  for(auto it=outgoingVector.begin(); it != outgoingVector.end(); ++it){
@@ -172,7 +190,7 @@ bool Bayesnode::RemoveOutgoingConnection(std::shared_ptr<Bayesnode> spNode){
 * 
 * @return it returns the number of expired nodes deleted.
 **/
-unsigned int Bayesnode::EraseExpiredConnections(){
+unsigned int Bayesnode::EraseExpiredEdges(){
  unsigned int counter = 0;
  auto it = incomingVector.begin();
  //Iterating through the vector and looking for expired weak_ptr
@@ -278,8 +296,37 @@ bool Bayesnode::IsChild(std::shared_ptr<Bayesnode> spNode){
 
   if ((*it).lock() == spNode) return true; 
  }
-
  return false;
+}
+
+/**
+* It returns the number of neighbors of the node.
+*
+* @return
+**/
+unsigned int Bayesnode::ReturnMarkovBlanketSize(){
+ unsigned int blanket_size = 0;
+ std::shared_ptr<Bayesnode> sp_node;
+
+ blanket_size += incomingVector.size(); //adding all the incoming parents
+
+ for(auto it=outgoingVector.begin(); it!=outgoingVector.end(); ++it){
+  sp_node = (*it).lock();
+  blanket_size += 1; //adding the children nodes
+  blanket_size += sp_node->incomingVector.size() - 1; //adding the parents of the children nodes
+ }
+
+ return blanket_size;
+}
+
+/**
+* It returns a shared pointer to the conditional table inside the node.
+*
+* @return
+**/
+std::shared_ptr<ConditionalProbabilityTable> Bayesnode::ReturnPointerToConditionalTable(){
+ std::shared_ptr<ConditionalProbabilityTable> sp_to_return = spConditionalTable;
+ return sp_to_return;
 }
 
 

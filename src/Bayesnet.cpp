@@ -28,10 +28,16 @@ namespace bayonet{
 * @param numberOfStates the number of state to assign to each node
 **/
 Bayesnet::Bayesnet(unsigned int numberOfNodes, unsigned int numberOfStates = 2){
+ std::vector<unsigned int> tot_states_vector;
+ tot_states_vector.reserve(numberOfNodes);
  for(unsigned int i=0; i<numberOfNodes; i++){
   auto sp = std::make_shared<Bayesnode>(numberOfStates);
-  nodesVector.push_back(sp);
+  sp->SetNumericLabel(i); //applying an incremental numeric label
+  nodesVector.push_back(sp); //filling the nodes vector
+  tot_states_vector.push_back(numberOfStates); //building the vector to give to the JPT
  }
+ auto sp_to_set = std::make_shared<JointProbabilityTable>(tot_states_vector);
+ spJointTable = sp_to_set;
 }
 
 /**
@@ -53,35 +59,116 @@ std::shared_ptr<Bayesnode> Bayesnet::operator[](unsigned int index){
 }
 
 /**
-* It add a connection between two nodes.
+* It add a Edge between two nodes.
 *
 * @param firstNode the parent node
 * @param secondNode the child node
 **/
-bool Bayesnet::AddConnection(unsigned int firstNode, unsigned int secondNode){
+bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
 
- nodesVector[firstNode]->AddOutgoingConnection(nodesVector[secondNode]); 
- nodesVector[secondNode]->AddIncomingConnection(nodesVector[firstNode]);
- 
+ auto edge_pair = std::make_pair (firstNode,secondNode);
+ auto it_to_check = edgesVector.end();
+ for(auto it=edgesVector.begin(); it!=edgesVector.end(); ++it){
+  if((*it) == edge_pair) it_to_check = it;
+ }
+
+ if(it_to_check == edgesVector.end()){
+  edgesVector.push_back(edge_pair);
+  nodesVector[firstNode]->AddOutgoingEdge(nodesVector[secondNode]); 
+  nodesVector[secondNode]->AddIncomingEdge(nodesVector[firstNode]);
+  return true;
+ }else{
+  return false;
+ }
+ edgesVector.push_back(std::make_pair (firstNode,secondNode));
  return true;
 }
 
 /**
-* It remove a connection between two nodes.
+* It remove a Edge between two nodes.
 *
 * @param firstNode the parent node
 * @param secondNode the child node
 **/
-bool Bayesnet::RemoveConnection(unsigned int firstNode, unsigned int secondNode){
+bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
- bool first_bool = nodesVector[firstNode]->RemoveOutgoingConnection(nodesVector[secondNode]); 
- bool second_bool = nodesVector[secondNode]->RemoveIncomingConnection(nodesVector[firstNode]);
- return first_bool && second_bool;
+ 
+ auto edge_pair = std::make_pair (firstNode,secondNode);
+ auto it_to_remove = edgesVector.end();
+
+ for(auto it=edgesVector.begin(); it!=edgesVector.end(); ++it){
+  if((*it) == edge_pair) it_to_remove = it;
+ }
+
+ if(it_to_remove == edgesVector.end()){
+  return false;
+ }else{
+  edgesVector.erase(it_to_remove);
+  nodesVector[firstNode]->RemoveOutgoingEdge(nodesVector[secondNode]); 
+  nodesVector[secondNode]->RemoveIncomingEdge(nodesVector[firstNode]);
+  return true;
+ }
+
 }
 
-
+/**
+* It returns the number of nodes.
+*
+**/
+unsigned int Bayesnet::ReturnNumberOfNodes(){
+ return  nodesVector.size();
 }
+
+/**
+* It returns the number of edges.
+*
+**/
+unsigned int Bayesnet::ReturnNumberOfEdges(){
+ return edgesVector.size();
+}
+
+/**
+* It returns the average dimensions of the Markov blanket for all the nodes inside the network.
+*
+**/
+double Bayesnet::ReturnAverageMarkovBlanketSize(){
+ double average_size = 0;
+ for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
+  average_size += (*it)->ReturnMarkovBlanketSize(); //summing all the markov size for all nodes
+ }
+ return average_size / (double) nodesVector.size(); //dividing by the total number of nodes
+}
+
+/**
+* It fills the Joint Probability Table using the data from the Bayesian network.
+*
+* @return it returns a smart pointer to the Joint Table
+**/
+std::shared_ptr<JointProbabilityTable> Bayesnet::FillJointProbabilityTable(){
+
+ std::vector<unsigned int> variable_states_vector;
+ for(unsigned int i=0; i<spJointTable->ReturnRowsNumber(); i++){
+  variable_states_vector = spJointTable->ReturnKey(i);
+ }
+
+
+ //1- It returns the key from the JPT
+
+ //2- The key is the state of each node
+ // there is a one-to-one association node-state(key)
+
+ //3- It is necessary to buld a query to send to each CPT of each node
+ // for loop scanning each node, then creating a vector(query) for each node
+ // the vector(query) can be filled using the edgesVector cronology.
+
+ //QUERY(variableState, {parents state})
+ 
+
+ return spJointTable;
+}
+
+} //namespace
 
 
 

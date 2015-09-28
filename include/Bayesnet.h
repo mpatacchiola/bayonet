@@ -22,6 +22,7 @@
 
 #include <memory> //shared_ptr
 #include"Bayesnode.h"
+#include"JointProbabilityTable.h"
 
 namespace bayonet{
 
@@ -39,19 +40,25 @@ class Bayesnet{
 
   std::shared_ptr<Bayesnode> operator[](unsigned int index);
 
-  bool AddConnection(unsigned int FirstNode, unsigned int SecondNode);
-  bool RemoveConnection(unsigned int FirstNode, unsigned int SecondNode);
+  bool AddEdge(unsigned int FirstNode, unsigned int SecondNode);
+  bool RemoveEdge(unsigned int FirstNode, unsigned int SecondNode);
 
-  double ReturnJointProbability(std::vector<unsigned int>);
+  unsigned int ReturnNumberOfNodes();
+  unsigned int ReturnNumberOfEdges();
+  unsigned int ReturnNumberOfStates(); //TODO
+  double ReturnAverageMarkovBlanketSize();
 
   bool IsTree; //TODO
   bool IsPolytree(); //TODO
   bool IsMultiConnected(); //TODO
   int ReturnNetworkType(); //TODO
 
+  std::shared_ptr<JointProbabilityTable> FillJointProbabilityTable();
 
  private:
   std::vector<std::shared_ptr<Bayesnode>> nodesVector;
+  std::vector<std::pair<unsigned int,unsigned int>> edgesVector;
+  std::shared_ptr<JointProbabilityTable> spJointTable;
 
 };
 

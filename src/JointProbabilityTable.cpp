@@ -21,7 +21,7 @@
 #include <iomanip>
 #include <sstream>
 #include <random>
-#include "JointProbabilityTable.h"
+#include"JointProbabilityTable.h"
 
 namespace bayonet{
 
@@ -68,6 +68,20 @@ double JointProbabilityTable::ReturnMarginal(unsigned int variableIndex, unsigne
     if(it_map->first.at(variableIndex) == variableState) total += it_map->second;
   }
   return total;
+}
+
+/**
+* It returns the key assciated with the index.
+*
+* @param index
+**/
+std::vector<unsigned int> JointProbabilityTable::ReturnKey(unsigned int index){
+ unsigned int counter = 0;
+ for(auto it=mJointMap.begin(); it!=mJointMap.end(); ++it){
+  if(counter == index) return (*it).first;
+  counter ++;
+ }
+ return {};
 }
 
 /**
@@ -289,12 +303,5 @@ void JointProbabilityTable::FillMap(std::vector<unsigned int> variablesTotStates
 
 
 } //namespace
-
-
-
-
-
-
-
 
 
