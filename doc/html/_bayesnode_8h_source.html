@@ -110,73 +110,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BAYESNODE_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;ConditionalProbabilityTable.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>bayonet{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classbayonet_1_1_bayesnode.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbayonet_1_1_bayesnode.html">Bayesnode</a> {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">//Bayesnode();</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classbayonet_1_1_bayesnode.html#a2b676188453fbbb4dc96be714ac931d3">Bayesnode</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numberOfStates);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include&lt;list&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;ConditionalProbabilityTable.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>bayonet{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classbayonet_1_1_bayesnode.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbayonet_1_1_bayesnode.html">Bayesnode</a> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classbayonet_1_1_conditional_probability_table.html">ConditionalProbabilityTable</a> conditionalTable;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  ~<a class="code" href="classbayonet_1_1_bayesnode.html">Bayesnode</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a24d38b28413a60938ea7fad7c74e823d">ReturnNumberOfStates</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_bayesnode.html#abaa27f1597d5599344e3a4d82e7b64b0">SetLabel</a>(std::string);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  std::string <a class="code" href="classbayonet_1_1_bayesnode.html#aebe7f411efe8b8647ed6f7d28f700638">GetLabel</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">//Bayesnode();</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="classbayonet_1_1_bayesnode.html#a2b676188453fbbb4dc96be714ac931d3">Bayesnode</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numberOfStates);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  ~<a class="code" href="classbayonet_1_1_bayesnode.html">Bayesnode</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a24d38b28413a60938ea7fad7c74e823d">ReturnNumberOfStates</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#ad8dbca37751fc6387a370daea4233aaf">AddIncomingConnection</a>(std::shared_ptr&lt;Bayesnode&gt;);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#ac43991461780ca9056b4977db4cbd603">AddOutgoingConnection</a>(std::shared_ptr&lt;Bayesnode&gt;);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a2e401b2dbc46513c016d2c894fde3726">RemoveIncomingConnection</a>(std::shared_ptr&lt;Bayesnode&gt;);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a5a8ffea3ad34391225c307ad047969c0">RemoveOutgoingConnection</a>(std::shared_ptr&lt;Bayesnode&gt;);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a6b85e5dcadbf79631f5789fb205d076d">EraseExpiredConnections</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#af84f66934ccb24596b5fbb936903e6e3">SetAsEvidence</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> evidenceState);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a8410fbbba2974a1a4f8ba4914e76bf33">IsEvidence</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a58a35d2f668568011181114550962981">IsRoot</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#ad1daa0c3ba4cb3704c0509df975d7206">IsLeaf</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a57b37eaf360521bc431726716db841d1">IsParent</a>(std::shared_ptr&lt;Bayesnode&gt;);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a31a1dda6bbf65939396d21c9399cfc16">IsChild</a>(std::shared_ptr&lt;Bayesnode&gt;);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_bayesnode.html#abaa27f1597d5599344e3a4d82e7b64b0">SetLabel</a>(std::string);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::string <a class="code" href="classbayonet_1_1_bayesnode.html#aebe7f411efe8b8647ed6f7d28f700638">GetLabel</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_bayesnode.html#adbda396fa53b6923a69824c98fce9ca1">SetNumericLabel</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a347df4c4cac0f04f6b263a3523ea37d5">GetNumericLabel</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a123ac9e1e30d69c6037eb9ea9562adbb">AddIncomingEdge</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a9614959ba778d25d7679e8fcad20c75d">RemoveIncomingEdge</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">const</span> std::list&lt;unsigned int&gt;&amp;  ReturnAdjacencyList();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">bool</span> HasIncomingEdgeFrom(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classbayonet_1_1_bayesnode.html#adbc24d8c9d141fc21e8b93d87b7683b7">ReturnNumberIncomingEdges</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classbayonet_1_1_bayesnode.html#af84f66934ccb24596b5fbb936903e6e3">SetAsEvidence</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> evidenceState);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classbayonet_1_1_bayesnode.html#a8410fbbba2974a1a4f8ba4914e76bf33">IsEvidence</a>();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">int</span> mEvidence;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="classbayonet_1_1_conditional_probability_table.html">ConditionalProbabilityTable</a> mConditionalTable;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  std::string mNodeLabel;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  std::vector&lt;std::weak_ptr&lt;Bayesnode&gt;&gt; incomingVector;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  std::vector&lt;std::weak_ptr&lt;Bayesnode&gt;&gt; outgoingVector; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">//unsigned int ReturnMarkovBlanketSize();</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  std::shared_ptr&lt;ConditionalProbabilityTable&gt; <a class="code" href="classbayonet_1_1_bayesnode.html#a7cdb567ddcc8b81ec0466d67d937b7f0">ReturnPointerToConditionalTable</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">int</span> mEvidence;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mNumberOfStates;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  std::string mNodeLabel;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">int</span> mNodeNumericLabel;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  std::list&lt;unsigned int&gt; adjacencyList;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif // BAYESNODE_H</span></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_a58a35d2f668568011181114550962981"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a58a35d2f668568011181114550962981">bayonet::Bayesnode::IsRoot</a></div><div class="ttdeci">bool IsRoot()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:232</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_a8410fbbba2974a1a4f8ba4914e76bf33"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a8410fbbba2974a1a4f8ba4914e76bf33">bayonet::Bayesnode::IsEvidence</a></div><div class="ttdeci">int IsEvidence()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:223</div></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif // BAYESNODE_H</span></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_a123ac9e1e30d69c6037eb9ea9562adbb"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a123ac9e1e30d69c6037eb9ea9562adbb">bayonet::Bayesnode::AddIncomingEdge</a></div><div class="ttdeci">bool AddIncomingEdge(unsigned int, unsigned int)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:99</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_a8410fbbba2974a1a4f8ba4914e76bf33"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a8410fbbba2974a1a4f8ba4914e76bf33">bayonet::Bayesnode::IsEvidence</a></div><div class="ttdeci">int IsEvidence()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:166</div></div>
 <div class="ttc" id="classbayonet_1_1_bayesnode_html_a2b676188453fbbb4dc96be714ac931d3"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a2b676188453fbbb4dc96be714ac931d3">bayonet::Bayesnode::Bayesnode</a></div><div class="ttdeci">Bayesnode(unsigned int numberOfStates)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:38</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html">bayonet::Bayesnode</a></div><div class="ttdoc">This class represents the single node of a Bayesian network. </div><div class="ttdef"><b>Definition:</b> Bayesnode.h:35</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_a2e401b2dbc46513c016d2c894fde3726"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a2e401b2dbc46513c016d2c894fde3726">bayonet::Bayesnode::RemoveIncomingConnection</a></div><div class="ttdeci">bool RemoveIncomingConnection(std::shared_ptr&lt; Bayesnode &gt;)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:129</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_ad8dbca37751fc6387a370daea4233aaf"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#ad8dbca37751fc6387a370daea4233aaf">bayonet::Bayesnode::AddIncomingConnection</a></div><div class="ttdeci">bool AddIncomingConnection(std::shared_ptr&lt; Bayesnode &gt;)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:80</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_a57b37eaf360521bc431726716db841d1"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a57b37eaf360521bc431726716db841d1">bayonet::Bayesnode::IsParent</a></div><div class="ttdeci">bool IsParent(std::shared_ptr&lt; Bayesnode &gt;)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:253</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_abaa27f1597d5599344e3a4d82e7b64b0"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#abaa27f1597d5599344e3a4d82e7b64b0">bayonet::Bayesnode::SetLabel</a></div><div class="ttdeci">void SetLabel(std::string)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:62</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_aebe7f411efe8b8647ed6f7d28f700638"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#aebe7f411efe8b8647ed6f7d28f700638">bayonet::Bayesnode::GetLabel</a></div><div class="ttdeci">std::string GetLabel()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:71</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_a5a8ffea3ad34391225c307ad047969c0"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a5a8ffea3ad34391225c307ad047969c0">bayonet::Bayesnode::RemoveOutgoingConnection</a></div><div class="ttdeci">bool RemoveOutgoingConnection(std::shared_ptr&lt; Bayesnode &gt;)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:152</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_a347df4c4cac0f04f6b263a3523ea37d5"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a347df4c4cac0f04f6b263a3523ea37d5">bayonet::Bayesnode::GetNumericLabel</a></div><div class="ttdeci">int GetNumericLabel()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:90</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_adbda396fa53b6923a69824c98fce9ca1"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#adbda396fa53b6923a69824c98fce9ca1">bayonet::Bayesnode::SetNumericLabel</a></div><div class="ttdeci">void SetNumericLabel(int)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:81</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html">bayonet::Bayesnode</a></div><div class="ttdoc">This class represents the single node of a Bayesian network. </div><div class="ttdef"><b>Definition:</b> Bayesnode.h:36</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_adbc24d8c9d141fc21e8b93d87b7683b7"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#adbc24d8c9d141fc21e8b93d87b7683b7">bayonet::Bayesnode::ReturnNumberIncomingEdges</a></div><div class="ttdeci">unsigned int ReturnNumberIncomingEdges()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:156</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_abaa27f1597d5599344e3a4d82e7b64b0"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#abaa27f1597d5599344e3a4d82e7b64b0">bayonet::Bayesnode::SetLabel</a></div><div class="ttdeci">void SetLabel(std::string)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:63</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_aebe7f411efe8b8647ed6f7d28f700638"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#aebe7f411efe8b8647ed6f7d28f700638">bayonet::Bayesnode::GetLabel</a></div><div class="ttdeci">std::string GetLabel()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:72</div></div>
 <div class="ttc" id="classbayonet_1_1_bayesnode_html_a24d38b28413a60938ea7fad7c74e823d"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a24d38b28413a60938ea7fad7c74e823d">bayonet::Bayesnode::ReturnNumberOfStates</a></div><div class="ttdeci">unsigned int ReturnNumberOfStates()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:52</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_ac43991461780ca9056b4977db4cbd603"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#ac43991461780ca9056b4977db4cbd603">bayonet::Bayesnode::AddOutgoingConnection</a></div><div class="ttdeci">bool AddOutgoingConnection(std::shared_ptr&lt; Bayesnode &gt;)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:107</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_ad1daa0c3ba4cb3704c0509df975d7206"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#ad1daa0c3ba4cb3704c0509df975d7206">bayonet::Bayesnode::IsLeaf</a></div><div class="ttdeci">bool IsLeaf()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:242</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_a6b85e5dcadbf79631f5789fb205d076d"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a6b85e5dcadbf79631f5789fb205d076d">bayonet::Bayesnode::EraseExpiredConnections</a></div><div class="ttdeci">unsigned int EraseExpiredConnections()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:175</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_af84f66934ccb24596b5fbb936903e6e3"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#af84f66934ccb24596b5fbb936903e6e3">bayonet::Bayesnode::SetAsEvidence</a></div><div class="ttdeci">bool SetAsEvidence(unsigned int evidenceState)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:207</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_a9614959ba778d25d7679e8fcad20c75d"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a9614959ba778d25d7679e8fcad20c75d">bayonet::Bayesnode::RemoveIncomingEdge</a></div><div class="ttdeci">bool RemoveIncomingEdge(unsigned int)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:118</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_af84f66934ccb24596b5fbb936903e6e3"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#af84f66934ccb24596b5fbb936903e6e3">bayonet::Bayesnode::SetAsEvidence</a></div><div class="ttdeci">bool SetAsEvidence(unsigned int evidenceState)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:129</div></div>
 <div class="ttc" id="classbayonet_1_1_conditional_probability_table_html"><div class="ttname"><a href="classbayonet_1_1_conditional_probability_table.html">bayonet::ConditionalProbabilityTable</a></div><div class="ttdoc">A table containing the conditional probabilities of random variables. </div><div class="ttdef"><b>Definition:</b> ConditionalProbabilityTable.h:35</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnode_html_a31a1dda6bbf65939396d21c9399cfc16"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a31a1dda6bbf65939396d21c9399cfc16">bayonet::Bayesnode::IsChild</a></div><div class="ttdeci">bool IsChild(std::shared_ptr&lt; Bayesnode &gt;)</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:272</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnode_html_a7cdb567ddcc8b81ec0466d67d937b7f0"><div class="ttname"><a href="classbayonet_1_1_bayesnode.html#a7cdb567ddcc8b81ec0466d67d937b7f0">bayonet::Bayesnode::ReturnPointerToConditionalTable</a></div><div class="ttdeci">std::shared_ptr&lt; ConditionalProbabilityTable &gt; ReturnPointerToConditionalTable()</div><div class="ttdef"><b>Definition:</b> Bayesnode.cpp:177</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 27 2015 19:40:30 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 29 2015 18:11:26 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

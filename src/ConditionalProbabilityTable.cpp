@@ -74,6 +74,7 @@ ConditionalProbabilityTable::~ConditionalProbabilityTable(){}
 **/
 double ConditionalProbabilityTable::GetProbability(unsigned int variableState, std::vector<unsigned int> parentsStates){
  auto row_vector = conditionalMap[parentsStates];
+ //std::cout << "AT: " << row_vector.at(variableState) << std::endl;
  return row_vector.at(variableState);
 }
 

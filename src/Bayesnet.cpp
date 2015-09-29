@@ -18,6 +18,7 @@
 */
 
 #include"Bayesnet.h"
+#include<iostream>
 
 namespace bayonet{
 
@@ -27,17 +28,23 @@ namespace bayonet{
 * @param numberOfNodes the number of nodes to add to the network
 * @param numberOfStates the number of state to assign to each node
 **/
-Bayesnet::Bayesnet(unsigned int numberOfNodes, unsigned int numberOfStates = 2){
- std::vector<unsigned int> tot_states_vector;
- tot_states_vector.reserve(numberOfNodes);
- for(unsigned int i=0; i<numberOfNodes; i++){
-  auto sp = std::make_shared<Bayesnode>(numberOfStates);
-  sp->SetNumericLabel(i); //applying an incremental numeric label
+Bayesnet::Bayesnet(std::vector<unsigned int> nodesTotStatesVector) : jointTable(nodesTotStatesVector) {
+ //std::vector<unsigned int> tot_states_vector;
+ //tot_states_vector.reserve(numberOfNodes);
+ nodesVector.reserve(nodesTotStatesVector.size());
+ for(auto it=nodesTotStatesVector.begin(); it!=nodesTotStatesVector.end(); ++it){
+  auto sp = std::make_shared<Bayesnode>(*it);
   nodesVector.push_back(sp); //filling the nodes vector
-  tot_states_vector.push_back(numberOfStates); //building the vector to give to the JPT
  }
- auto sp_to_set = std::make_shared<JointProbabilityTable>(tot_states_vector);
- spJointTable = sp_to_set;
+
+ //for(unsigned int i=0; i<numberOfNodes; i++){
+  //auto sp = std::make_shared<Bayesnode>(numberOfStates);
+  //sp->SetNumericLabel(i); //applying an incremental numeric label
+  //nodesVector.push_back(sp); //filling the nodes vector
+  //tot_states_vector.push_back(numberOfStates); //building the vector to give to the JPT
+ //}
+ //auto sp_to_set = std::make_shared<JointProbabilityTable>(tot_states_vector);
+ //spJointTable = sp_to_set;
 }
 
 /**
@@ -66,22 +73,8 @@ std::shared_ptr<Bayesnode> Bayesnet::operator[](unsigned int index){
 **/
 bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
-
- auto edge_pair = std::make_pair (firstNode,secondNode);
- auto it_to_check = edgesVector.end();
- for(auto it=edgesVector.begin(); it!=edgesVector.end(); ++it){
-  if((*it) == edge_pair) it_to_check = it;
- }
-
- if(it_to_check == edgesVector.end()){
-  edgesVector.push_back(edge_pair);
-  nodesVector[firstNode]->AddOutgoingEdge(nodesVector[secondNode]); 
-  nodesVector[secondNode]->AddIncomingEdge(nodesVector[firstNode]);
-  return true;
- }else{
-  return false;
- }
- edgesVector.push_back(std::make_pair (firstNode,secondNode));
+ unsigned int node_states = nodesVector[firstNode]->ReturnNumberOfStates();
+ nodesVector[secondNode]->AddIncomingEdge(firstNode, node_states); 
  return true;
 }
 
@@ -93,23 +86,18 @@ bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
 **/
 bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
- 
- auto edge_pair = std::make_pair (firstNode,secondNode);
- auto it_to_remove = edgesVector.end();
+ nodesVector[secondNode]->RemoveIncomingEdge(firstNode); 
+ return true;
+}
 
- for(auto it=edgesVector.begin(); it!=edgesVector.end(); ++it){
-  if((*it) == edge_pair) it_to_remove = it;
- }
-
- if(it_to_remove == edgesVector.end()){
-  return false;
- }else{
-  edgesVector.erase(it_to_remove);
-  nodesVector[firstNode]->RemoveOutgoingEdge(nodesVector[secondNode]); 
-  nodesVector[secondNode]->RemoveIncomingEdge(nodesVector[firstNode]);
-  return true;
- }
-
+/**
+* It checks if an Edge between two nodes exist.
+*
+* @param firstNode the parent node
+* @param secondNode the child node
+**/
+bool Bayesnet::HasEdge(unsigned int FirstNode, unsigned int SecondNode){
+ return nodesVector[SecondNode]->HasIncomingEdgeFrom(FirstNode);
 }
 
 /**
@@ -117,7 +105,7 @@ bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
 *
 **/
 unsigned int Bayesnet::ReturnNumberOfNodes(){
- return  nodesVector.size();
+ return nodesVector.size();
 }
 
 /**
@@ -125,7 +113,12 @@ unsigned int Bayesnet::ReturnNumberOfNodes(){
 *
 **/
 unsigned int Bayesnet::ReturnNumberOfEdges(){
- return edgesVector.size();
+ unsigned int tot_edges;
+ for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
+  tot_edges += (*it)->ReturnAdjacencyList().size();
+ }
+
+ return tot_edges;
 }
 
 /**
@@ -133,39 +126,115 @@ unsigned int Bayesnet::ReturnNumberOfEdges(){
 *
 **/
 double Bayesnet::ReturnAverageMarkovBlanketSize(){
- double average_size = 0;
- for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
-  average_size += (*it)->ReturnMarkovBlanketSize(); //summing all the markov size for all nodes
- }
- return average_size / (double) nodesVector.size(); //dividing by the total number of nodes
+ //double average_size = 0;
+ //for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
+ // average_size += (*it)->ReturnMarkovBlanketSize(); //summing all the markov size for all nodes
+ //}
+ //return average_size / (double) nodesVector.size(); //dividing by the total number of nodes
 }
+
+/**
+* It returns output index list
+*
+**/
+std::list<unsigned int> Bayesnet::ReturnOutEdges(unsigned int index){
+ std::list<unsigned int> temp_list;
+ unsigned int counter = 0;
+ for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
+  if((*it)->HasIncomingEdgeFrom(index) == true) temp_list.push_back(counter);
+  counter++;
+ }
+ return temp_list;
+
+}
+
+/**
+* It returns the input index list.
+*
+**/
+std::list<unsigned int> Bayesnet::ReturnInEdges(unsigned int index){
+ std::list<unsigned int> temp_list;
+ temp_list = nodesVector[index]->ReturnAdjacencyList();
+ return temp_list;
+}
+
+/**
+* It returns the number of Incoming edges from the node specified in the index.
+*
+**/
+unsigned int Bayesnet::ReturnNumberOutEdges(unsigned int index){
+ return nodesVector[index]->ReturnNumberIncomingEdges();
+}
+
+/**
+* It returns the number of ingoing edges from the node specified in the index.
+*
+**/
+unsigned int Bayesnet::ReturnNumberInEdges(unsigned int index){
+ unsigned int edges_counter = 0;
+ for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
+  if((*it)->HasIncomingEdgeFrom(index) == true) edges_counter++;
+ }
+ return edges_counter;
+}
+
+
+/**
+* A root node is a node without parents.
+* 
+* @return it returns true if the node is a root node.
+**/
+bool Bayesnet::IsRoot(){
+return false;
+}
+
+/**
+* A leaf node is a node without children.
+* 
+* @return it returns true if the node is a leaf node.
+**/
+bool Bayesnet::IsLeaf(){
+return false;
+}
+
+const std::vector<std::shared_ptr<Bayesnode>>& Bayesnet::ReturnNodesVector(){
+ return nodesVector;
+}
+
 
 /**
 * It fills the Joint Probability Table using the data from the Bayesian network.
 *
 * @return it returns a smart pointer to the Joint Table
 **/
-std::shared_ptr<JointProbabilityTable> Bayesnet::FillJointProbabilityTable(){
+void Bayesnet::FillJointProbabilityTable(){
 
- std::vector<unsigned int> variable_states_vector;
- for(unsigned int i=0; i<spJointTable->ReturnRowsNumber(); i++){
-  variable_states_vector = spJointTable->ReturnKey(i);
+ //cycle through the key of the map
+ for(auto it_map = jointTable.ReturnJointMap().begin(); it_map != jointTable.ReturnJointMap().end(); ++it_map){
+  std::vector<unsigned int> variable_states_vector = it_map->first;
+  std::vector<double> probability_vector;
+  unsigned int nodes_counter = 0;
+  //cycle through all the nodes
+  for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
+   unsigned int node_state = variable_states_vector[nodes_counter];
+   std::vector<unsigned int> conditional_key_vector;
+   //cycle through Adjacency List
+   for ( auto it_list = (*it_node)->ReturnAdjacencyList().begin(); it_list !=(*it_node)->ReturnAdjacencyList().end(); ++it_list){
+    conditional_key_vector.push_back( variable_states_vector.at(*it_list) );
+    //std::cout << variable_states_vector.at(*it_list) << "-";
+   }
+   double local_probability = (*it_node)->conditionalTable.GetProbability(node_state, conditional_key_vector);
+   probability_vector.push_back(local_probability);
+   nodes_counter++;
+  }
+  double global_probability = 1; //TO 1 because of the multiplication chain
+  //cycle through local probability vector
+  for(auto it_prob = probability_vector.begin(); it_prob!= probability_vector.end(); ++it_prob){
+   global_probability *= *it_prob;
+  }
+  //Assign the value to the Joint Table
+  jointTable.SetProbability(variable_states_vector , global_probability);
  }
-
-
- //1- It returns the key from the JPT
-
- //2- The key is the state of each node
- // there is a one-to-one association node-state(key)
-
- //3- It is necessary to buld a query to send to each CPT of each node
- // for loop scanning each node, then creating a vector(query) for each node
- // the vector(query) can be filled using the edgesVector cronology.
-
- //QUERY(variableState, {parents state})
- 
-
- return spJointTable;
 }
 
 } //namespace

@@ -108,6 +108,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5abe5ffb7ad2b6c4525e58b8ed6d7595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90538c4bf67f0270b705caa26fea742b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a90538c4bf67f0270b705caa26fea742b">ReturnMarginal</a> (unsigned int variableIndex, unsigned int variableState)</td></tr>
 <tr class="separator:a90538c4bf67f0270b705caa26fea742b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bcd0ebffb4d8fd6403759c55de62f9b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a0bcd0ebffb4d8fd6403759c55de62f9b">ReturnKey</a> (unsigned int index)</td></tr>
+<tr class="separator:a0bcd0ebffb4d8fd6403759c55de62f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b43b8414444f81a8013d34837d191af"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a6b43b8414444f81a8013d34837d191af">GetProbability</a> (std::vector&lt; unsigned int &gt; variablesStatesVector)</td></tr>
 <tr class="separator:a6b43b8414444f81a8013d34837d191af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69554f2b857ee778d2d2aff7cefa0d1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a69554f2b857ee778d2d2aff7cefa0d1e">SetProbability</a> (std::vector&lt; unsigned int &gt; variablesStatesVector, double probability)</td></tr>
@@ -116,6 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ade691120f2a61325b94a7f9e85dd21f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac52835cb75b2d635b51843abf58311a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#ac52835cb75b2d635b51843abf58311a9">PrintProbability</a> (std::vector&lt; unsigned int &gt; variablesStatesVector)</td></tr>
 <tr class="separator:ac52835cb75b2d635b51843abf58311a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73e7e3843c63192e37d11bd9916f0587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a73e7e3843c63192e37d11bd9916f0587">PrintMarginals</a> ()</td></tr>
+<tr class="separator:a73e7e3843c63192e37d11bd9916f0587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa244b70256292fd00f8cd7bf1e8e7ed1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#aa244b70256292fd00f8cd7bf1e8e7ed1">NormalizeProbabilities</a> ()</td></tr>
 <tr class="separator:aa244b70256292fd00f8cd7bf1e8e7ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91133b2cf610076459a641b458c898cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a91133b2cf610076459a641b458c898cd">RandomizeProbabilities</a> ()</td></tr>
@@ -126,6 +130,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a61a82adc62427272e5aa84ace3fc15a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af87920fcfa20657c2c3eb816a77ea66b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#af87920fcfa20657c2c3eb816a77ea66b">ReturnRowsNumber</a> ()</td></tr>
 <tr class="separator:af87920fcfa20657c2c3eb816a77ea66b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6172ff11f3cc9e2f6eb0ae42eb3fcb47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6172ff11f3cc9e2f6eb0ae42eb3fcb47"></a>
+const std::map&lt; std::vector<br class="typebreak"/>
+&lt; unsigned int &gt;, double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnJointMap</b> ()</td></tr>
+<tr class="separator:a6172ff11f3cc9e2f6eb0ae42eb3fcb47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A table containing the joint probabilities of random variables. </p>
@@ -281,6 +289,22 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a73e7e3843c63192e37d11bd9916f0587"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::JointProbabilityTable::PrintMarginals </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It prints the marginal probabilities associated with all the variables. If the number of columns is huge, the terminal could cut parts of the output. </p>
+
+</div>
+</div>
 <a class="anchor" id="ac52835cb75b2d635b51843abf58311a9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -311,6 +335,29 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>It randomize the probabilities inside each row of the table. The probabilities are also normalized. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0bcd0ebffb4d8fd6403759c55de62f9b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; bayonet::JointProbabilityTable::ReturnKey </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns the key assciated with the index.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -405,7 +452,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 27 2015 19:40:30 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 29 2015 18:11:26 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

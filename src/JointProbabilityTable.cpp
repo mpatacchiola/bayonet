@@ -102,6 +102,7 @@ double JointProbabilityTable::GetProbability(std::vector<unsigned int> variables
 bool JointProbabilityTable::SetProbability(std::vector<unsigned int> variablesTotStates, double probability){
  if(mJointMap.find(variablesTotStates) != mJointMap.end()){
   mJointMap[variablesTotStates] = probability;
+  //std::cout << "P: " << probability << std::endl;
   return true;
  }else{
   return false;
@@ -153,6 +154,22 @@ void JointProbabilityTable::PrintProbability(std::vector<unsigned int> variables
  //THE DATA
  std::cout << " ..... " << mJointMap[variablesTotStates]  << std::endl;
  std::cout << std::endl;
+}
+
+/**
+* It prints the marginal probabilities associated with all the variables.
+* If the number of columns is huge, the terminal could cut parts of the output.
+*
+**/
+void JointProbabilityTable::PrintMarginals(){
+ unsigned int variable_counter = 0;
+ for (auto it=mVariablesTotStatesVector.begin(); it!=mVariablesTotStatesVector.end(); ++it){
+  for(unsigned int i=0; i<*it; i++){
+   double probability = ReturnMarginal(variable_counter, i);
+   std::cout << "Variable: " << variable_counter << " State: " << i << " ..... " << probability << std::endl;
+  }
+  variable_counter++;
+ } 
 }
 
 /**
@@ -300,6 +317,9 @@ void JointProbabilityTable::FillMap(std::vector<unsigned int> variablesTotStates
  }
 }
 
+const std::map<std::vector<unsigned int>,double>& JointProbabilityTable::ReturnJointMap(){
+ return mJointMap;
+}
 
 
 } //namespace

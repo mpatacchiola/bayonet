@@ -34,32 +34,45 @@ namespace bayonet{
 class Bayesnet{
 
  public:
+
+  JointProbabilityTable jointTable;
+
   //Bayesnode();
-  Bayesnet(unsigned int numberOfNodes, unsigned int numberOfStates);
+  Bayesnet(std::vector<unsigned int> nodesTotStatesVector);
   ~Bayesnet();
 
   std::shared_ptr<Bayesnode> operator[](unsigned int index);
 
-  bool AddEdge(unsigned int FirstNode, unsigned int SecondNode);
+  bool AddEdge(unsigned int FirstNode, unsigned int SecondNode); //TODO
   bool RemoveEdge(unsigned int FirstNode, unsigned int SecondNode);
+  bool HasEdge(unsigned int FirstNode, unsigned int SecondNode);
 
   unsigned int ReturnNumberOfNodes();
-  unsigned int ReturnNumberOfEdges();
+  unsigned int ReturnNumberOfEdges(); //TODO
   unsigned int ReturnNumberOfStates(); //TODO
   double ReturnAverageMarkovBlanketSize();
+
+  std::list<unsigned int> ReturnOutEdges(unsigned int index);
+  std::list<unsigned int> ReturnInEdges(unsigned int index);
+  unsigned int ReturnNumberOutEdges(unsigned int index);
+  unsigned int ReturnNumberInEdges(unsigned int index);
 
   bool IsTree; //TODO
   bool IsPolytree(); //TODO
   bool IsMultiConnected(); //TODO
   int ReturnNetworkType(); //TODO
 
-  std::shared_ptr<JointProbabilityTable> FillJointProbabilityTable();
+  bool IsRoot();  //TODO
+  bool IsLeaf(); //TODO
+  bool ReturnMarkovBlanketSize(); //TODO
+
+  const std::vector<std::shared_ptr<Bayesnode>>& ReturnNodesVector();
+  void FillJointProbabilityTable();
 
  private:
   std::vector<std::shared_ptr<Bayesnode>> nodesVector;
-  std::vector<std::pair<unsigned int,unsigned int>> edgesVector;
   std::shared_ptr<JointProbabilityTable> spJointTable;
-
+  
 };
 
 }

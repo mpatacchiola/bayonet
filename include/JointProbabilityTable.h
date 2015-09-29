@@ -46,6 +46,7 @@ class JointProbabilityTable {
   bool SetProbability(std::vector<unsigned int> variablesStatesVector, double probability);
   void Print();
   void PrintProbability(std::vector<unsigned int> variablesStatesVector);
+  void PrintMarginals();
 
   void NormalizeProbabilities();
   void RandomizeProbabilities();
@@ -54,6 +55,7 @@ class JointProbabilityTable {
   void Clear();
 
   unsigned int ReturnRowsNumber();
+  const std::map<std::vector<unsigned int>,double>& ReturnJointMap();
 
 
  private:

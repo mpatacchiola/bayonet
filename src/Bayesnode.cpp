@@ -35,9 +35,9 @@ namespace bayonet{
 * the minimum number of states allowed is 2. The values assigned to the states are
 * randomly generated and normalized.
 **/
-Bayesnode::Bayesnode(unsigned int numberOfStates = 2) : mEvidence(-1), mNodeLabel(""), mNodeNumericLabel(0)
+Bayesnode::Bayesnode(unsigned int numberOfStates) : conditionalTable(numberOfStates), mEvidence(-1), mNumberOfStates(numberOfStates), mNodeLabel(""), mNodeNumericLabel(0)
 {
- spConditionalTable = std::make_shared<ConditionalProbabilityTable>(numberOfStates);
+ //spConditionalTable = std::make_shared<ConditionalProbabilityTable>(numberOfStates);
 }
 
 Bayesnode::~Bayesnode()
@@ -51,7 +51,8 @@ Bayesnode::~Bayesnode()
 **/
 unsigned int Bayesnode::ReturnNumberOfStates(){
  //the number of states is obtained directly from the CPT
- return spConditionalTable->ReturnRowsNumber();
+ return mNumberOfStates;
+ //return spConditionalTable->ReturnRowsNumber();
 }
 
 /**
@@ -91,128 +92,31 @@ int Bayesnode::GetNumericLabel(){
 }
 
 /**
-* Adding an incoming connection to this node.
+* Adding an Incoming connection from this node.
 * 
-* @param spNode shared_ptr to the incoming node
+* @param index
 **/
-bool Bayesnode::AddIncomingEdge(std::shared_ptr<Bayesnode> spNode){
- //no cycles allowed
- for(auto it = outgoingVector.begin(); it != outgoingVector.end(); ++it) {
-  if((*it).lock() == spNode) return false;
- }
+bool Bayesnode::AddIncomingEdge(unsigned int index, unsigned int totStates){
 
  //looking for copies
- for(auto it = incomingVector.begin(); it != incomingVector.end(); ++it) {
-  if((*it).lock() == spNode) return false;
+ for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
+  if( *it == index) return false;
  }
-
- //Adding the sp to the vector
- std::weak_ptr<Bayesnode> wp_temp = spNode;
- incomingVector.push_back(wp_temp);
-
- //Add the new states to the Conditional Table
- unsigned int states_to_add = spNode->ReturnNumberOfStates();
- spConditionalTable->AddVariable(states_to_add);
+ adjacencyList.push_back(index);
+ conditionalTable.AddVariable(totStates);
 
  return true;
 }
 
-/**
-* Adding an outgoing connection from this node.
-* 
-* @param spNode shared_ptr to the outgoing node
-**/
-bool Bayesnode::AddOutgoingEdge(std::shared_ptr<Bayesnode> spNode){
- //no cycles allowed
- for(auto it = incomingVector.begin(); it != incomingVector.end(); ++it) {
-  if((*it).lock() == spNode) return false;
- }
-
- //looking for copies
- for(auto it = outgoingVector.begin(); it != outgoingVector.end(); ++it) {
-  if((*it).lock() == spNode) return false;
- }
-
- std::weak_ptr<Bayesnode> wp_temp = spNode;
- outgoingVector.push_back(wp_temp);
- return true;
-}
 
 /**
-* Removing an incoming connection from this node.
+* Removing an Incoming connection from this node.
 * 
-* @param spNode shared_ptr to the outgoing node
+* @param index
 * @return it returns true if the element was found and erased
 **/
-bool Bayesnode::RemoveIncomingEdge(std::shared_ptr<Bayesnode> spNode){
- auto it_to_remove = incomingVector.end();
-
- for(auto it=incomingVector.begin(); it != incomingVector.end(); ++it){
-  if ((*it).lock() == spNode){
-   it_to_remove = it; 
-  }
- }
-
- if(it_to_remove != incomingVector.end()){
-  incomingVector.erase(it_to_remove);
-  return true;
- }else{
-  return false;
- }
-}
-
-/**
-* Removing an outgoing connection from this node.
-* 
-* @param spNode shared_ptr to the outgoing node
-* @return it returns true if the element was found and erased
-**/
-bool Bayesnode::RemoveOutgoingEdge(std::shared_ptr<Bayesnode> spNode){
- auto it_to_remove = outgoingVector.end();
-
- for(auto it=outgoingVector.begin(); it != outgoingVector.end(); ++it){
-  if ((*it).lock() == spNode){
-   it_to_remove = it; 
-  }
- }
-
- if(it_to_remove != outgoingVector.end()){
-  outgoingVector.erase(it_to_remove);
-  return true;
- }else{
-  return false;
- }
-}
-
-/**
-* It search inside the incoming and outgoing containers if there are
-* pointers to deleted nodes. If the wrong references are found they are deleted.
-* 
-* @return it returns the number of expired nodes deleted.
-**/
-unsigned int Bayesnode::EraseExpiredEdges(){
- unsigned int counter = 0;
- auto it = incomingVector.begin();
- //Iterating through the vector and looking for expired weak_ptr
- //vector.erase() returns a pointer to the new location of the element that followed the last element erased
- while( it != incomingVector.end() ) {
-  if( it->expired() ){
-   it = incomingVector.erase(it); 
-   counter++;
-  }
-  ++it;
- }
-
- it = outgoingVector.begin();
- while( it != outgoingVector.end() ) {
-  if( it->expired() ){
-   it = outgoingVector.erase(it);
-   counter++;
-  }
-  ++it;
- }
-
- return counter;
+bool Bayesnode::RemoveIncomingEdge(unsigned int index){
+ adjacencyList.remove(index);
 }
 
 /**
@@ -231,6 +135,27 @@ bool Bayesnode::SetAsEvidence(unsigned int evidenceState){
  }
 }
 
+const std::list<unsigned int>& Bayesnode::ReturnAdjacencyList(){
+ return adjacencyList;
+}
+
+bool Bayesnode::HasIncomingEdgeFrom(unsigned int index){
+  //looking for edges
+ for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
+  if( *it == index) return  true;
+ }
+ return false;
+}
+
+/**
+* It returns the number of Incoming edges
+*
+* @return 
+* 
+**/
+unsigned int Bayesnode::ReturnNumberIncomingEdges(){
+ return adjacencyList.size();
+}
 
 /**
 * A node is an evidence when is outcome state is given.
@@ -242,82 +167,7 @@ int Bayesnode::IsEvidence(){
  return mEvidence;
 }
 
-/**
-* A root node is a node without parents.
-* 
-* @return it returns true if the node is a root node.
-**/
-bool Bayesnode::IsRoot(){
- if(incomingVector.size() == 0) return true;
- else return false;
-}
 
-/**
-* A leaf node is a node without children.
-* 
-* @return it returns true if the node is a leaf node.
-**/
-bool Bayesnode::IsLeaf(){
- if(outgoingVector.size() == 0) return true;
- else return false;
-}
-
-/**
-* It checks if a given node is a parent.
-*
-* @param spNode a shared pointer to a Bayes node. 
-* @return it returns true if the node is a parent node.
-**/
-bool Bayesnode::IsParent(std::shared_ptr<Bayesnode> spNode){
- for(auto it=incomingVector.begin(); it != incomingVector.end(); ++it){
-  //check if the weak_ptr is expired
-  if ((*it).expired() == true){
-   return false;
-  }
-
-  if ((*it).lock() == spNode) return true; 
- }
-
- return false;
-}
-
-/**
-* It checks if a given node is a child.
-*
-* @param spNode a shared pointer to a Bayes node. 
-* @return it returns true if the node is a child node.
-**/
-bool Bayesnode::IsChild(std::shared_ptr<Bayesnode> spNode){
- for(auto it=outgoingVector.begin(); it != incomingVector.end(); ++it){
-  //check if the weak_ptr is expired
-  if ((*it).expired() == true){
-   return false;
-  }
-
-  if ((*it).lock() == spNode) return true; 
- }
- return false;
-}
-
-/**
-* It returns the number of neighbors of the node.
-*
-* @return
-**/
-unsigned int Bayesnode::ReturnMarkovBlanketSize(){
- unsigned int blanket_size = 0;
- std::shared_ptr<Bayesnode> sp_node;
-
- blanket_size += incomingVector.size(); //adding all the incoming parents
-
- for(auto it=outgoingVector.begin(); it!=outgoingVector.end(); ++it){
-  sp_node = (*it).lock();
-  blanket_size += 1; //adding the children nodes
-  blanket_size += sp_node->incomingVector.size() - 1; //adding the parents of the children nodes
- }
-
- return blanket_size;
-}
 
 /**
 * It returns a shared pointer to the conditional table inside the node.
@@ -325,8 +175,8 @@ unsigned int Bayesnode::ReturnMarkovBlanketSize(){
 * @return
 **/
 std::shared_ptr<ConditionalProbabilityTable> Bayesnode::ReturnPointerToConditionalTable(){
- std::shared_ptr<ConditionalProbabilityTable> sp_to_return = spConditionalTable;
- return sp_to_return;
+ //std::shared_ptr<ConditionalProbabilityTable> sp_to_return = spConditionalTable;
+ //return sp_to_return;
 }
 
 

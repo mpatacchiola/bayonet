@@ -19,6 +19,8 @@ A table containing the conditional probabilities of random variables.
 \item 
 \hyperlink{classbayonet_1_1_conditional_probability_table_a5fd07eba1d571bf8f8bac3014f2409b2}{$\sim$\-Conditional\-Probability\-Table} ()
 \item 
+double \hyperlink{classbayonet_1_1_conditional_probability_table_aeb4965bc9b4903d5108fd9b6e1379e1b}{Get\-Probability} (unsigned int variable\-State, std\-::vector$<$ unsigned int $>$ parents\-States)
+\item 
 std\-::vector$<$ double $>$ \hyperlink{classbayonet_1_1_conditional_probability_table_a7612e2c40e51eaf4d94109adb2bd269d}{Get\-Probabilities} (std\-::vector$<$ unsigned int $>$ parents\-States)
 \item 
 bool \hyperlink{classbayonet_1_1_conditional_probability_table_ac94cd225747e8f59c5497b860ff777c0}{Set\-Probabilities} (std\-::vector$<$ unsigned int $>$ parents\-States, std\-::vector$<$ double $>$ probabilities)
@@ -122,6 +124,23 @@ Given a vector key it returns the associated probabilities
 
 
 \begin{DoxyParams}{Parameters}
+{\em parents\-States} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_conditional_probability_table_aeb4965bc9b4903d5108fd9b6e1379e1b}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Get\-Probability@{Get\-Probability}}
+\index{Get\-Probability@{Get\-Probability}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Get\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}double bayonet\-::\-Conditional\-Probability\-Table\-::\-Get\-Probability (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{variable\-State, }
+\item[{std\-::vector$<$ unsigned int $>$}]{parents\-States}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_aeb4965bc9b4903d5108fd9b6e1379e1b}
+Given the state of the variable and a vector key it returns the associated probability
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\-State} & \\
+\hline
 {\em parents\-States} & \\
 \hline
 \end{DoxyParams}

@@ -106,6 +106,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af83db269bcfc340658801d5e473ad5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd07eba1d571bf8f8bac3014f2409b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a5fd07eba1d571bf8f8bac3014f2409b2">~ConditionalProbabilityTable</a> ()</td></tr>
 <tr class="separator:a5fd07eba1d571bf8f8bac3014f2409b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb4965bc9b4903d5108fd9b6e1379e1b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#aeb4965bc9b4903d5108fd9b6e1379e1b">GetProbability</a> (unsigned int variableState, std::vector&lt; unsigned int &gt; parentsStates)</td></tr>
+<tr class="separator:aeb4965bc9b4903d5108fd9b6e1379e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7612e2c40e51eaf4d94109adb2bd269d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a7612e2c40e51eaf4d94109adb2bd269d">GetProbabilities</a> (std::vector&lt; unsigned int &gt; parentsStates)</td></tr>
 <tr class="separator:a7612e2c40e51eaf4d94109adb2bd269d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac94cd225747e8f59c5497b860ff777c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#ac94cd225747e8f59c5497b860ff777c0">SetProbabilities</a> (std::vector&lt; unsigned int &gt; parentsStates, std::vector&lt; double &gt; probabilities)</td></tr>
@@ -269,6 +271,40 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aeb4965bc9b4903d5108fd9b6e1379e1b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double bayonet::ConditionalProbabilityTable::GetProbability </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>variableState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>parentsStates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Given the state of the variable and a vector key it returns the associated probability</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variableState</td><td></td></tr>
+    <tr><td class="paramname">parentsStates</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a600256d28edeef688ab4cdf38794acc3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -424,7 +460,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 27 2015 19:40:30 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 29 2015 18:11:26 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

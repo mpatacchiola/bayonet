@@ -21,6 +21,7 @@
 #define BAYESNODE_H
 
 #include <vector>
+#include<list>
 #include <string>
 #include <memory>
 #include "ConditionalProbabilityTable.h"
@@ -36,6 +37,8 @@ class Bayesnode {
 
  public:
 
+  ConditionalProbabilityTable conditionalTable;
+
   //Bayesnode();
   Bayesnode(unsigned int numberOfStates);
 
@@ -48,31 +51,25 @@ class Bayesnode {
   void SetNumericLabel(int);
   int GetNumericLabel();
 
-  bool AddIncomingEdge(std::shared_ptr<Bayesnode>);
-  bool AddOutgoingEdge(std::shared_ptr<Bayesnode>);
-  bool RemoveIncomingEdge(std::shared_ptr<Bayesnode>);
-  bool RemoveOutgoingEdge(std::shared_ptr<Bayesnode>);
-  unsigned int EraseExpiredEdges();
+  bool AddIncomingEdge(unsigned int,  unsigned int);
+  bool RemoveIncomingEdge(unsigned int);
+  const std::list<unsigned int>&  ReturnAdjacencyList();
+  bool HasIncomingEdgeFrom(unsigned int);
+  unsigned int ReturnNumberIncomingEdges();
 
   bool SetAsEvidence(unsigned int evidenceState);
   int IsEvidence();
 
-  bool IsRoot();
-  bool IsLeaf();
-  bool IsParent(std::shared_ptr<Bayesnode>);
-  bool IsChild(std::shared_ptr<Bayesnode>);
-
-  unsigned int ReturnMarkovBlanketSize();
+  //unsigned int ReturnMarkovBlanketSize();
   std::shared_ptr<ConditionalProbabilityTable> ReturnPointerToConditionalTable();
 
  private:
   int mEvidence;
+  unsigned int mNumberOfStates;
   std::string mNodeLabel;
   int mNodeNumericLabel;
-  std::shared_ptr<ConditionalProbabilityTable> spConditionalTable;
-  //ConditionalProbabilityTable mConditionalTable;
-  std::vector<std::weak_ptr<Bayesnode>> incomingVector;
-  std::vector<std::weak_ptr<Bayesnode>> outgoingVector; 
+  std::list<unsigned int> adjacencyList;
+
 
 };
 
