@@ -35,7 +35,7 @@ namespace bayonet{
 * the minimum number of states allowed is 2. The values assigned to the states are
 * randomly generated and normalized.
 **/
-Bayesnode::Bayesnode(unsigned int numberOfStates) : conditionalTable(numberOfStates), mEvidence(-1), mNumberOfStates(numberOfStates), mNodeLabel(""), mNodeNumericLabel(0)
+Bayesnode::Bayesnode(unsigned int numberOfStates) : conditionalTable(numberOfStates), mEvidence(-1), mCurrentColour(colour::WHITE), mNumberOfStates(numberOfStates), mNodeLabel(""), mNodeNumericLabel(0)
 {
  //spConditionalTable = std::make_shared<ConditionalProbabilityTable>(numberOfStates);
 }
@@ -92,18 +92,38 @@ int Bayesnode::GetNumericLabel(){
 }
 
 /**
+* It sets the colour of the node.
+* The colour is used in searching algorithms.
+* White vertices are undiscovered. 
+* Grey is an adjacent vertex that is not already discovered.
+* Black vertices are discovered and are adjacent to only other black or gray vertices.
+* 
+**/
+void Bayesnode::SetColour(colour colourToSet){
+ mCurrentColour = colourToSet;
+}
+
+/**
+* It return the colour associated with the node.
+* 
+**/
+Bayesnode::colour Bayesnode::GetColour(){
+ return mCurrentColour;
+}
+
+/**
 * Adding an Incoming connection from this node.
 * 
 * @param index
 **/
-bool Bayesnode::AddIncomingEdge(unsigned int index, unsigned int totStates){
+bool Bayesnode::AddToAdjacencyList(unsigned int index){
 
  //looking for copies
  for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
   if( *it == index) return false;
  }
  adjacencyList.push_back(index);
- conditionalTable.AddVariable(totStates);
+ //conditionalTable.AddVariable(totStates);
 
  return true;
 }
@@ -115,7 +135,7 @@ bool Bayesnode::AddIncomingEdge(unsigned int index, unsigned int totStates){
 * @param index
 * @return it returns true if the element was found and erased
 **/
-bool Bayesnode::RemoveIncomingEdge(unsigned int index){
+bool Bayesnode::RemoveFromAdjacencyList(unsigned int index){
  adjacencyList.remove(index);
 }
 
@@ -139,7 +159,7 @@ const std::list<unsigned int>& Bayesnode::ReturnAdjacencyList(){
  return adjacencyList;
 }
 
-bool Bayesnode::HasIncomingEdgeFrom(unsigned int index){
+bool Bayesnode::HasOutgoingEdgeTo(unsigned int index){
   //looking for edges
  for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
   if( *it == index) return  true;

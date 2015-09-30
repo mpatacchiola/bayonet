@@ -23,6 +23,7 @@
 #include <memory> //shared_ptr
 #include"Bayesnode.h"
 #include"JointProbabilityTable.h"
+#include <functional>
 
 namespace bayonet{
 
@@ -43,9 +44,9 @@ class Bayesnet{
 
   std::shared_ptr<Bayesnode> operator[](unsigned int index);
 
-  bool AddEdge(unsigned int FirstNode, unsigned int SecondNode); //TODO
+  bool AddEdge(unsigned int FirstNode, unsigned int SecondNode);
   bool RemoveEdge(unsigned int FirstNode, unsigned int SecondNode);
-  bool HasEdge(unsigned int FirstNode, unsigned int SecondNode);
+  bool HasEdge(unsigned int FirstNode, unsigned int SecondNode); //TODO
 
   unsigned int ReturnNumberOfNodes();
   unsigned int ReturnNumberOfEdges(); //TODO
@@ -56,18 +57,26 @@ class Bayesnet{
   std::list<unsigned int> ReturnInEdges(unsigned int index);
   unsigned int ReturnNumberOutEdges(unsigned int index);
   unsigned int ReturnNumberInEdges(unsigned int index);
+  std::list<unsigned int> ReturnParentChain(unsigned int index);
+  std::list<unsigned int> ReturnTopologicalList(); //TODO
+
+  void ResetAllColours();
 
   bool IsTree; //TODO
   bool IsPolytree(); //TODO
   bool IsMultiConnected(); //TODO
   int ReturnNetworkType(); //TODO
 
-  bool IsRoot();  //TODO
+  bool IsRoot(unsigned int);
   bool IsLeaf(); //TODO
   bool ReturnMarkovBlanketSize(); //TODO
 
   const std::vector<std::shared_ptr<Bayesnode>>& ReturnNodesVector();
   void FillJointProbabilityTable();
+
+  void BreadthFirstSearch(unsigned int startingNode, std::function<void(Bayesnode)>);
+  void BreadthFirstSearch(unsigned int startingNode);
+  void DepthFirstSearch(unsigned int startingNode, bool resetColours = true);
 
  private:
   std::vector<std::shared_ptr<Bayesnode>> nodesVector;

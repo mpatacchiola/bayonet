@@ -74,19 +74,25 @@ std::shared_ptr<Bayesnode> Bayesnet::operator[](unsigned int index){
 bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
  unsigned int node_states = nodesVector[firstNode]->ReturnNumberOfStates();
- nodesVector[secondNode]->AddIncomingEdge(firstNode, node_states); 
+ //nodesVector[secondNode]->AddIncomingEdge(firstNode, node_states);
+ auto sp_first = nodesVector[firstNode];
+ auto sp_second = nodesVector[secondNode];
+ unsigned int first_tot_states = sp_first->ReturnNumberOfStates();
+ sp_first->AddToAdjacencyList(secondNode);
+ sp_second->conditionalTable.AddVariable(first_tot_states);
  return true;
 }
 
 /**
-* It remove a Edge between two nodes.
+* It remove an Edge between two nodes.
 *
 * @param firstNode the parent node
 * @param secondNode the child node
 **/
 bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
- nodesVector[secondNode]->RemoveIncomingEdge(firstNode); 
+ auto sp_first = nodesVector[firstNode];
+ sp_first->RemoveFromAdjacencyList(secondNode);
  return true;
 }
 
@@ -97,7 +103,7 @@ bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
 * @param secondNode the child node
 **/
 bool Bayesnet::HasEdge(unsigned int FirstNode, unsigned int SecondNode){
- return nodesVector[SecondNode]->HasIncomingEdgeFrom(FirstNode);
+ //return nodesVector[SecondNode]->HasIncomingEdgeFrom(FirstNode);
 }
 
 /**
@@ -139,11 +145,7 @@ double Bayesnet::ReturnAverageMarkovBlanketSize(){
 **/
 std::list<unsigned int> Bayesnet::ReturnOutEdges(unsigned int index){
  std::list<unsigned int> temp_list;
- unsigned int counter = 0;
- for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
-  if((*it)->HasIncomingEdgeFrom(index) == true) temp_list.push_back(counter);
-  counter++;
- }
+ temp_list = nodesVector[index]->ReturnAdjacencyList();
  return temp_list;
 
 }
@@ -154,7 +156,11 @@ std::list<unsigned int> Bayesnet::ReturnOutEdges(unsigned int index){
 **/
 std::list<unsigned int> Bayesnet::ReturnInEdges(unsigned int index){
  std::list<unsigned int> temp_list;
- temp_list = nodesVector[index]->ReturnAdjacencyList();
+ unsigned int counter = 0;
+ for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
+  if((*it)->HasOutgoingEdgeTo(index) == true) temp_list.push_back(counter);
+  counter++;
+ }
  return temp_list;
 }
 
@@ -163,7 +169,7 @@ std::list<unsigned int> Bayesnet::ReturnInEdges(unsigned int index){
 *
 **/
 unsigned int Bayesnet::ReturnNumberOutEdges(unsigned int index){
- return nodesVector[index]->ReturnNumberIncomingEdges();
+ return ReturnOutEdges(index).size();
 }
 
 /**
@@ -171,21 +177,75 @@ unsigned int Bayesnet::ReturnNumberOutEdges(unsigned int index){
 *
 **/
 unsigned int Bayesnet::ReturnNumberInEdges(unsigned int index){
- unsigned int edges_counter = 0;
- for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
-  if((*it)->HasIncomingEdgeFrom(index) == true) edges_counter++;
- }
- return edges_counter;
+ return ReturnInEdges(index).size();
 }
 
+/**
+* It returns the chain of parents from this node to the root.
+* It is basically a Reverse Breadth First Search.
+*
+**/
+std::list<unsigned int> Bayesnet::ReturnParentChain(unsigned int index){
+//Mark all nodes as white (not visited)
+  ResetAllColours();
+
+ // Create a queue for BFS
+ std::list<int> queue;
+
+ // Mark the current node as visited and enqueue it
+ unsigned int startingNode = index;
+ nodesVector[startingNode]->SetColour(Bayesnode::colour::BLACK);
+ queue.push_back(startingNode);
+ unsigned int dequeue_node = startingNode;
+ std::list<unsigned int> cronology_list;
+
+ while(!queue.empty())
+ {
+  dequeue_node = queue.front();
+  std::cout << dequeue_node << " ";
+  queue.pop_front();
+
+  // Get all adjacent vertices of the dequeued node.
+  // If a adjacent has not been visited, then mark it visited and enqueue it.
+  auto temp_list = ReturnInEdges(dequeue_node);
+
+  for(auto it = temp_list.begin(); it != temp_list.end(); ++it)
+  {
+
+   if(nodesVector[*it]->GetColour() != Bayesnode::colour::BLACK){
+    nodesVector[*it]->SetColour(Bayesnode::colour::BLACK);
+    queue.push_back(*it);  
+    cronology_list.push_front(*it); //here the chain is registered  
+   }
+   
+  }
+ }
+
+ return cronology_list;
+}
+
+/**
+* It reset all colours for all nodes to white.
+*
+**/
+void Bayesnet::ResetAllColours(){
+
+  Bayesnode::colour my_colour = Bayesnode::colour::WHITE;
+  for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
+   (*it)->SetColour(my_colour);
+  }
+}
 
 /**
 * A root node is a node without parents.
 * 
 * @return it returns true if the node is a root node.
 **/
-bool Bayesnet::IsRoot(){
-return false;
+bool Bayesnet::IsRoot(unsigned int index){
+ auto out_list = ReturnOutEdges(index);
+ auto in_list = ReturnInEdges(index);
+ if(in_list.size() == 0 && out_list.size() > 0) return true;
+ else return false;
 }
 
 /**
@@ -219,7 +279,9 @@ void Bayesnet::FillJointProbabilityTable(){
    unsigned int node_state = variable_states_vector[nodes_counter];
    std::vector<unsigned int> conditional_key_vector;
    //cycle through Adjacency List
-   for ( auto it_list = (*it_node)->ReturnAdjacencyList().begin(); it_list !=(*it_node)->ReturnAdjacencyList().end(); ++it_list){
+   //for ( auto it_list = (*it_node)->ReturnAdjacencyList().begin(); it_list !=(*it_node)->ReturnAdjacencyList().end(); ++it_list){
+   std::list<unsigned int> temp_in_list = ReturnInEdges(nodes_counter);
+   for ( auto it_list = temp_in_list.begin(); it_list != temp_in_list.end(); ++it_list){
     conditional_key_vector.push_back( variable_states_vector.at(*it_list) );
     //std::cout << variable_states_vector.at(*it_list) << "-";
    }
@@ -237,7 +299,126 @@ void Bayesnet::FillJointProbabilityTable(){
  }
 }
 
+/**
+* Breadth First Search algorithm. Starting from a node it performs a breadth-first traversal of the network.
+* It is possible to associate a function to the algorithm. The function is called when a node is marked as visited (black colour).
+*
+* @param startingNode the index of the node 
+* @param functionNode
+**/
+void Bayesnet::BreadthFirstSearch(unsigned int startingNode, std::function<void(Bayesnode)> functionNode){
+ // bread-first-search on the Bayesian network
+    // Mark all the vertices as not visited
+    unsigned int V = nodesVector.size();
+    bool *visited = new bool[V];
+    for(int i = 0; i < V; i++)
+        visited[i] = false;
+ 
+    // Create a queue for BFS
+    std::list<int> queue;
+ 
+    // Mark the current node as visited and enqueue it
+    visited[startingNode] = true;
+    queue.push_back(startingNode);
+ 
+    // 'i' will be used to get all adjacent vertices of a vertex
+    //std::list<int>::iterator it;
+ 
+    while(!queue.empty())
+    {
+        // Dequeue a vertex from queue and print it
+        startingNode = queue.front();
+        std::cout << startingNode << " ";
+        queue.pop_front();
+ 
+        // Get all adjacent vertices of the dequeued vertex startingNode
+        // If a adjacent has not been visited, then mark it visited
+        // and enqueue it
+        for(auto it = ReturnOutEdges(startingNode).begin(); it != ReturnOutEdges(startingNode).end(); ++it)
+        {
+            if(!visited[*it])
+            {
+                visited[*it] = true;
+                queue.push_back(*it);
+            }
+        }
+    }
+}
+
+
+void Bayesnet::BreadthFirstSearch(unsigned int startingNode){
+
+ //Mark all nodes as white (not visited)
+  ResetAllColours();
+
+ // Create a queue for BFS
+ std::list<int> queue;
+
+ // Mark the current node as visited and enqueue it
+ nodesVector[startingNode]->SetColour(Bayesnode::colour::BLACK);
+ queue.push_back(startingNode);
+
+ while(!queue.empty())
+ {
+  unsigned int dequeue_node = queue.front();
+  std::cout << dequeue_node << " ";
+  queue.pop_front();
+
+  // Get all adjacent vertices of the dequeued node.
+  // If a adjacent has not been visited, then mark it visited and enqueue it.
+  auto temp_list = ReturnOutEdges(dequeue_node);
+
+  for(auto it = temp_list.begin(); it != temp_list.end(); ++it)
+  {
+
+   if(nodesVector[*it]->GetColour() == Bayesnode::colour::WHITE){
+    nodesVector[*it]->SetColour(Bayesnode::colour::BLACK);
+    queue.push_back(*it);
+   }
+  }
+ }
+}
+
+void Bayesnet::DepthFirstSearch(unsigned int startingNode, bool resetColours ){
+
+ //Mark all nodes as white (not visited)
+ if (resetColours == true) ResetAllColours();
+
+ // Mark the current node as grey
+ nodesVector[startingNode]->SetColour(Bayesnode::colour::GREY);
+  std::cout << startingNode << " ";
+
+  // Get all adjacent vertices of the dequeued node.
+  // If a adjacent has not been visited, then mark it visited and enqueue it.
+  auto temp_list = ReturnOutEdges(startingNode);
+
+  //Chain iteration to all the children
+  for(auto it = temp_list.begin(); it != temp_list.end(); ++it)
+  {
+   if(nodesVector[*it]->GetColour() == Bayesnode::colour::WHITE){
+     nodesVector[*it]->SetColour(Bayesnode::colour::GREY);
+     DepthFirstSearch(*it, false);
+   }
+  }
+
+ // Done Visiting StartingNode
+ nodesVector[startingNode]->SetColour(Bayesnode::colour::BLACK);
+}
+
+
+
 } //namespace
+
+
+
+
+
+
+
+
+
+
+
 
 
 

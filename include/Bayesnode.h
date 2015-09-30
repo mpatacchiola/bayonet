@@ -37,6 +37,12 @@ class Bayesnode {
 
  public:
 
+  enum class colour : char {
+   WHITE = 'W',
+   GREY = 'G',
+   BLACK = 'B',
+  };
+
   ConditionalProbabilityTable conditionalTable;
 
   //Bayesnode();
@@ -51,10 +57,13 @@ class Bayesnode {
   void SetNumericLabel(int);
   int GetNumericLabel();
 
-  bool AddIncomingEdge(unsigned int,  unsigned int);
-  bool RemoveIncomingEdge(unsigned int);
+  void SetColour(colour);
+  colour GetColour();
+
+  bool AddToAdjacencyList(unsigned int);
+  bool RemoveFromAdjacencyList(unsigned int);
   const std::list<unsigned int>&  ReturnAdjacencyList();
-  bool HasIncomingEdgeFrom(unsigned int);
+  bool HasOutgoingEdgeTo(unsigned int);
   unsigned int ReturnNumberIncomingEdges();
 
   bool SetAsEvidence(unsigned int evidenceState);
@@ -65,6 +74,7 @@ class Bayesnode {
 
  private:
   int mEvidence;
+  colour mCurrentColour;
   unsigned int mNumberOfStates;
   std::string mNodeLabel;
   int mNodeNumericLabel;
