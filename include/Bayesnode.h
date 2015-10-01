@@ -37,17 +37,16 @@ class Bayesnode {
 
  public:
 
+  /// Enum class colour
   enum class colour : char {
-   WHITE = 'W',
-   GREY = 'G',
-   BLACK = 'B',
+   WHITE = 'W', ///< is used for unobserved nodes
+   GREY = 'G', ///< is is used for partially observed nodes
+   BLACK = 'B', ///< is used for observed nodes
   };
 
   ConditionalProbabilityTable conditionalTable;
 
-  //Bayesnode();
   Bayesnode(unsigned int numberOfStates);
-
   ~Bayesnode();
 
   unsigned int ReturnNumberOfStates();
@@ -63,14 +62,12 @@ class Bayesnode {
   bool AddToAdjacencyList(unsigned int);
   bool RemoveFromAdjacencyList(unsigned int);
   const std::list<unsigned int>&  ReturnAdjacencyList();
-  bool HasOutgoingEdgeTo(unsigned int);
-  unsigned int ReturnNumberIncomingEdges();
+  bool IsInAdjacencyList(unsigned int);
+  unsigned int SizeOfAdjacencyList();
 
   bool SetAsEvidence(unsigned int evidenceState);
   int IsEvidence();
 
-  //unsigned int ReturnMarkovBlanketSize();
-  std::shared_ptr<ConditionalProbabilityTable> ReturnPointerToConditionalTable();
 
  private:
   int mEvidence;

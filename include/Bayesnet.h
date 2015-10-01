@@ -38,7 +38,6 @@ class Bayesnet{
 
   JointProbabilityTable jointTable;
 
-  //Bayesnode();
   Bayesnet(std::vector<unsigned int> nodesTotStatesVector);
   ~Bayesnet();
 
@@ -46,37 +45,34 @@ class Bayesnet{
 
   bool AddEdge(unsigned int FirstNode, unsigned int SecondNode);
   bool RemoveEdge(unsigned int FirstNode, unsigned int SecondNode);
-  bool HasEdge(unsigned int FirstNode, unsigned int SecondNode); //TODO
+  bool HasEdge(unsigned int FirstNode, unsigned int SecondNode);
 
   unsigned int ReturnNumberOfNodes();
-  unsigned int ReturnNumberOfEdges(); //TODO
-  unsigned int ReturnNumberOfStates(); //TODO
-  double ReturnAverageMarkovBlanketSize();
+  unsigned int ReturnNumberOfEdges();
 
   std::list<unsigned int> ReturnOutEdges(unsigned int index);
   std::list<unsigned int> ReturnInEdges(unsigned int index);
   unsigned int ReturnNumberOutEdges(unsigned int index);
   unsigned int ReturnNumberInEdges(unsigned int index);
-  std::list<unsigned int> ReturnParentChain(unsigned int index);
-  std::list<unsigned int> ReturnTopologicalList(); //TODO
+  std::list<unsigned int> ReturnTopologicalList();
 
   void ResetAllColours();
 
-  bool IsTree; //TODO
-  bool IsPolytree(); //TODO
-  bool IsMultiConnected(); //TODO
-  int ReturnNetworkType(); //TODO
+  //bool IsTree; //TODO
+  //bool IsPolytree(); //TODO
+  //bool IsMultiConnected(); //TODO
+  //int ReturnNetworkType(); //TODO
 
   bool IsRoot(unsigned int);
-  bool IsLeaf(); //TODO
-  bool ReturnMarkovBlanketSize(); //TODO
+  bool IsLeaf(unsigned int); //TODO
+  //unsigned int ReturnMarkovBlanketSize(unsigned int index); //TODO
+  //double ReturnAverageMarkovBlanketSize(unsigned int index); //TODO
 
   const std::vector<std::shared_ptr<Bayesnode>>& ReturnNodesVector();
   void FillJointProbabilityTable();
 
-  void BreadthFirstSearch(unsigned int startingNode, std::function<void(Bayesnode)>);
-  void BreadthFirstSearch(unsigned int startingNode);
-  void DepthFirstSearch(unsigned int startingNode, bool resetColours = true);
+  std::list<unsigned int> BreadthFirstSearch(unsigned int startingNode);
+  void DepthFirstSearch(unsigned int startingNode, std::shared_ptr<std::list<unsigned int>> spToList, bool resetColours = true);
 
  private:
   std::vector<std::shared_ptr<Bayesnode>> nodesVector;

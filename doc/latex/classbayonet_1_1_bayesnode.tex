@@ -10,6 +10,14 @@ This class represents the single node of a Bayesian network.
 
 {\ttfamily \#include $<$Bayesnode.\-h$>$}
 
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3}{colour} \-: char \{ \hyperlink{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3ab5bf627e448384cf3a4c35121ca6008d}{colour\-::\-W\-H\-I\-T\-E} = 'W', 
+\hyperlink{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3a3c551f0d1a06b4f852d1832daed357bf}{colour\-::\-G\-R\-E\-Y} = 'G', 
+\hyperlink{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3a08d0012388564e95c3b4a7407cf04965}{colour\-::\-B\-L\-A\-C\-K} = 'B'
+ \}
+\begin{DoxyCompactList}\small\item\em Enum class colour. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,24 +33,23 @@ void \hyperlink{classbayonet_1_1_bayesnode_adbda396fa53b6923a69824c98fce9ca1}{Se
 \item 
 int \hyperlink{classbayonet_1_1_bayesnode_a347df4c4cac0f04f6b263a3523ea37d5}{Get\-Numeric\-Label} ()
 \item 
-bool \hyperlink{classbayonet_1_1_bayesnode_a123ac9e1e30d69c6037eb9ea9562adbb}{Add\-Incoming\-Edge} (unsigned int, unsigned int)
+void \hyperlink{classbayonet_1_1_bayesnode_a1102ecda4b933a2ccce879ca520a795e}{Set\-Colour} (\hyperlink{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3}{colour})
 \item 
-bool \hyperlink{classbayonet_1_1_bayesnode_a9614959ba778d25d7679e8fcad20c75d}{Remove\-Incoming\-Edge} (unsigned int)
+\hyperlink{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3}{colour} \hyperlink{classbayonet_1_1_bayesnode_a9f4a34547a9dab484a683450cd68691c}{Get\-Colour} ()
 \item 
-\hypertarget{classbayonet_1_1_bayesnode_ad20de796507c48523bcf49fffdc7b3d5}{const std\-::list$<$ unsigned int $>$ \& {\bfseries Return\-Adjacency\-List} ()}\label{classbayonet_1_1_bayesnode_ad20de796507c48523bcf49fffdc7b3d5}
-
+bool \hyperlink{classbayonet_1_1_bayesnode_ab3c6995309d67dd9b30c645fbb1cb739}{Add\-To\-Adjacency\-List} (unsigned int)
 \item 
-\hypertarget{classbayonet_1_1_bayesnode_a37445ad6877e51f911a3a2228bd9c417}{bool {\bfseries Has\-Incoming\-Edge\-From} (unsigned int)}\label{classbayonet_1_1_bayesnode_a37445ad6877e51f911a3a2228bd9c417}
-
+bool \hyperlink{classbayonet_1_1_bayesnode_a96768ee5d89848d3275c7d916faad480}{Remove\-From\-Adjacency\-List} (unsigned int)
 \item 
-unsigned int \hyperlink{classbayonet_1_1_bayesnode_adbc24d8c9d141fc21e8b93d87b7683b7}{Return\-Number\-Incoming\-Edges} ()
+const std\-::list$<$ unsigned int $>$ \& \hyperlink{classbayonet_1_1_bayesnode_ad20de796507c48523bcf49fffdc7b3d5}{Return\-Adjacency\-List} ()
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnode_a531f3d3341170ba4ea6d646f1a368b54}{Is\-In\-Adjacency\-List} (unsigned int)
+\item 
+unsigned int \hyperlink{classbayonet_1_1_bayesnode_a33a92e17091b3d0361d63eeadbbd39b6}{Size\-Of\-Adjacency\-List} ()
 \item 
 bool \hyperlink{classbayonet_1_1_bayesnode_af84f66934ccb24596b5fbb936903e6e3}{Set\-As\-Evidence} (unsigned int evidence\-State)
 \item 
 int \hyperlink{classbayonet_1_1_bayesnode_a8410fbbba2974a1a4f8ba4914e76bf33}{Is\-Evidence} ()
-\item 
-std\-::shared\-\_\-ptr\\*
-$<$ \hyperlink{classbayonet_1_1_conditional_probability_table}{Conditional\-Probability\-Table} $>$ \hyperlink{classbayonet_1_1_bayesnode_a7cdb567ddcc8b81ec0466d67d937b7f0}{Return\-Pointer\-To\-Conditional\-Table} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -58,6 +65,27 @@ This class represents the single node of a Bayesian network.
 
 
  
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!colour@{colour}}
+\index{colour@{colour}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{colour}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf bayonet\-::\-Bayesnode\-::colour} \-: char\hspace{0.3cm}{\ttfamily [strong]}}}\label{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3}
+
+
+Enum class colour. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{W\-H\-I\-T\-E@{W\-H\-I\-T\-E}!bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}}\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!W\-H\-I\-T\-E@{W\-H\-I\-T\-E}}\item[{\em 
+\hypertarget{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3ab5bf627e448384cf3a4c35121ca6008d}{W\-H\-I\-T\-E}\label{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3ab5bf627e448384cf3a4c35121ca6008d}
+}]is used for unobserved nodes \index{G\-R\-E\-Y@{G\-R\-E\-Y}!bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}}\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!G\-R\-E\-Y@{G\-R\-E\-Y}}\item[{\em 
+\hypertarget{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3a3c551f0d1a06b4f852d1832daed357bf}{G\-R\-E\-Y}\label{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3a3c551f0d1a06b4f852d1832daed357bf}
+}]is is used for partially observed nodes \index{B\-L\-A\-C\-K@{B\-L\-A\-C\-K}!bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}}\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!B\-L\-A\-C\-K@{B\-L\-A\-C\-K}}\item[{\em 
+\hypertarget{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3a08d0012388564e95c3b4a7407cf04965}{B\-L\-A\-C\-K}\label{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3a08d0012388564e95c3b4a7407cf04965}
+}]is used for observed nodes \end{description}
+\end{Desc}
+
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classbayonet_1_1_bayesnode_a2b676188453fbbb4dc96be714ac931d3}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Bayesnode@{Bayesnode}}
@@ -77,29 +105,35 @@ The constructor of the object.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classbayonet_1_1_bayesnode_a123ac9e1e30d69c6037eb9ea9562adbb}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Add\-Incoming\-Edge@{Add\-Incoming\-Edge}}
-\index{Add\-Incoming\-Edge@{Add\-Incoming\-Edge}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
-\subsubsection[{Add\-Incoming\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Add\-Incoming\-Edge (
+\hypertarget{classbayonet_1_1_bayesnode_ab3c6995309d67dd9b30c645fbb1cb739}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Add\-To\-Adjacency\-List@{Add\-To\-Adjacency\-List}}
+\index{Add\-To\-Adjacency\-List@{Add\-To\-Adjacency\-List}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Add\-To\-Adjacency\-List}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Add\-To\-Adjacency\-List (
 \begin{DoxyParamCaption}
-\item[{unsigned int}]{index, }
-\item[{unsigned int}]{tot\-States}
+\item[{unsigned int}]{index}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_a123ac9e1e30d69c6037eb9ea9562adbb}
-Adding an Incoming connection from this node.
+)}}\label{classbayonet_1_1_bayesnode_ab3c6995309d67dd9b30c645fbb1cb739}
+Adding an index to the adjacency list of the node.
 
 
 \begin{DoxyParams}{Parameters}
 {\em index} & \\
 \hline
 \end{DoxyParams}
-\hypertarget{classbayonet_1_1_bayesnode_aebe7f411efe8b8647ed6f7d28f700638}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Get\-Label@{Get\-Label}}
+\hypertarget{classbayonet_1_1_bayesnode_a9f4a34547a9dab484a683450cd68691c}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Get\-Colour@{Get\-Colour}}
+\index{Get\-Colour@{Get\-Colour}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Get\-Colour}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bayesnode\-::colour} bayonet\-::\-Bayesnode\-::\-Get\-Colour (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a9f4a34547a9dab484a683450cd68691c}
+It return the colour associated with the node. \hypertarget{classbayonet_1_1_bayesnode_aebe7f411efe8b8647ed6f7d28f700638}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Get\-Label@{Get\-Label}}
 \index{Get\-Label@{Get\-Label}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
 \subsubsection[{Get\-Label}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string bayonet\-::\-Bayesnode\-::\-Get\-Label (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnode_aebe7f411efe8b8647ed6f7d28f700638}
-It returns the label associate with the node.
+It returns the label associated with the node.
 
 \begin{DoxyReturn}{Returns}
 the label associated with the node 
@@ -111,7 +145,7 @@ the label associated with the node
 {}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnode_a347df4c4cac0f04f6b263a3523ea37d5}
-It returns the numeric label associate with the node.
+It returns the numeric label associated with the node.
 
 \begin{DoxyReturn}{Returns}
 the numeric label associated with the node 
@@ -128,14 +162,31 @@ A node is an evidence when is outcome state is given.
 \begin{DoxyReturn}{Returns}
 it returns -\/1 if the node is not an evidence. Otherwise it return the state sets as evidence. 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnode_a9614959ba778d25d7679e8fcad20c75d}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Remove\-Incoming\-Edge@{Remove\-Incoming\-Edge}}
-\index{Remove\-Incoming\-Edge@{Remove\-Incoming\-Edge}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
-\subsubsection[{Remove\-Incoming\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Remove\-Incoming\-Edge (
+\hypertarget{classbayonet_1_1_bayesnode_a531f3d3341170ba4ea6d646f1a368b54}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Is\-In\-Adjacency\-List@{Is\-In\-Adjacency\-List}}
+\index{Is\-In\-Adjacency\-List@{Is\-In\-Adjacency\-List}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Is\-In\-Adjacency\-List}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Is\-In\-Adjacency\-List (
 \begin{DoxyParamCaption}
 \item[{unsigned int}]{index}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_a9614959ba778d25d7679e8fcad20c75d}
-Removing an Incoming connection from this node.
+)}}\label{classbayonet_1_1_bayesnode_a531f3d3341170ba4ea6d646f1a368b54}
+It looks for the index specified in input inside the adjacency list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the element is inside the list 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnode_a96768ee5d89848d3275c7d916faad480}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Remove\-From\-Adjacency\-List@{Remove\-From\-Adjacency\-List}}
+\index{Remove\-From\-Adjacency\-List@{Remove\-From\-Adjacency\-List}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Remove\-From\-Adjacency\-List}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Remove\-From\-Adjacency\-List (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a96768ee5d89848d3275c7d916faad480}
+Removing an index to the adjacency list of the node.
 
 
 \begin{DoxyParams}{Parameters}
@@ -145,17 +196,17 @@ Removing an Incoming connection from this node.
 \begin{DoxyReturn}{Returns}
 it returns true if the element was found and erased 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnode_adbc24d8c9d141fc21e8b93d87b7683b7}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Return\-Number\-Incoming\-Edges@{Return\-Number\-Incoming\-Edges}}
-\index{Return\-Number\-Incoming\-Edges@{Return\-Number\-Incoming\-Edges}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
-\subsubsection[{Return\-Number\-Incoming\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnode\-::\-Return\-Number\-Incoming\-Edges (
+\hypertarget{classbayonet_1_1_bayesnode_ad20de796507c48523bcf49fffdc7b3d5}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Return\-Adjacency\-List@{Return\-Adjacency\-List}}
+\index{Return\-Adjacency\-List@{Return\-Adjacency\-List}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Return\-Adjacency\-List}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::list$<$ unsigned int $>$ \& bayonet\-::\-Bayesnode\-::\-Return\-Adjacency\-List (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_adbc24d8c9d141fc21e8b93d87b7683b7}
-It returns the number of Incoming edges
+)}}\label{classbayonet_1_1_bayesnode_ad20de796507c48523bcf49fffdc7b3d5}
+It returns a const reference to the internal adjacency list.
 
 \begin{DoxyReturn}{Returns}
-
+a const reference to the list 
 \end{DoxyReturn}
 \hypertarget{classbayonet_1_1_bayesnode_a24d38b28413a60938ea7fad7c74e823d}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Return\-Number\-Of\-States@{Return\-Number\-Of\-States}}
 \index{Return\-Number\-Of\-States@{Return\-Number\-Of\-States}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
@@ -164,22 +215,10 @@ It returns the number of Incoming edges
 {}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnode_a24d38b28413a60938ea7fad7c74e823d}
-It returns the states associate with the node.
+It returns the number of states associated with the node.
 
 \begin{DoxyReturn}{Returns}
 the number of states associated with the node 
-\end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnode_a7cdb567ddcc8b81ec0466d67d937b7f0}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Return\-Pointer\-To\-Conditional\-Table@{Return\-Pointer\-To\-Conditional\-Table}}
-\index{Return\-Pointer\-To\-Conditional\-Table@{Return\-Pointer\-To\-Conditional\-Table}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
-\subsubsection[{Return\-Pointer\-To\-Conditional\-Table}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Conditional\-Probability\-Table} $>$ bayonet\-::\-Bayesnode\-::\-Return\-Pointer\-To\-Conditional\-Table (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_a7cdb567ddcc8b81ec0466d67d937b7f0}
-It returns a shared pointer to the conditional table inside the node.
-
-\begin{DoxyReturn}{Returns}
-
 \end{DoxyReturn}
 \hypertarget{classbayonet_1_1_bayesnode_af84f66934ccb24596b5fbb936903e6e3}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-As\-Evidence@{Set\-As\-Evidence}}
 \index{Set\-As\-Evidence@{Set\-As\-Evidence}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
@@ -198,14 +237,21 @@ A node is an evidence when is outcome state is given.
 \begin{DoxyReturn}{Returns}
 it returns true if the state was correctly set. 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnode_abaa27f1597d5599344e3a4d82e7b64b0}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Label@{Set\-Label}}
+\hypertarget{classbayonet_1_1_bayesnode_a1102ecda4b933a2ccce879ca520a795e}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Colour@{Set\-Colour}}
+\index{Set\-Colour@{Set\-Colour}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Set\-Colour}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnode\-::\-Set\-Colour (
+\begin{DoxyParamCaption}
+\item[{{\bf colour}}]{colour\-To\-Set}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a1102ecda4b933a2ccce879ca520a795e}
+It sets the colour of the node. The colour is used in searching algorithms. White vertices are undiscovered. Grey is an adjacent vertex that is not already discovered. Black vertices are discovered and are adjacent to only other black or gray vertices. \hypertarget{classbayonet_1_1_bayesnode_abaa27f1597d5599344e3a4d82e7b64b0}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Label@{Set\-Label}}
 \index{Set\-Label@{Set\-Label}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
 \subsubsection[{Set\-Label}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnode\-::\-Set\-Label (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{node\-Label}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnode_abaa27f1597d5599344e3a4d82e7b64b0}
-It sets the label associate with the node.
+It sets the label associated with the node.
 
 
 \begin{DoxyParams}{Parameters}
@@ -223,6 +269,18 @@ It sets the numeric label of the node.
 
 \begin{DoxyReturn}{Returns}
 the label associated with the node 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnode_a33a92e17091b3d0361d63eeadbbd39b6}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Size\-Of\-Adjacency\-List@{Size\-Of\-Adjacency\-List}}
+\index{Size\-Of\-Adjacency\-List@{Size\-Of\-Adjacency\-List}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Size\-Of\-Adjacency\-List}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnode\-::\-Size\-Of\-Adjacency\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a33a92e17091b3d0361d63eeadbbd39b6}
+It returns the number of Incoming edges
+
+\begin{DoxyReturn}{Returns}
+
 \end{DoxyReturn}
 
 

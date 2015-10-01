@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classbayonet_1_1_bayesnode-members.html">List of all members</a>  </div>
@@ -99,6 +101,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="_bayesnode_8h_source.html">Bayesnode.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a6294bd0f5387871bc5f39f57cc1f0fb3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">colour</a> : char { <a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3ab5bf627e448384cf3a4c35121ca6008d">colour::WHITE</a> = 'W', 
+<a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3a3c551f0d1a06b4f852d1832daed357bf">colour::GREY</a> = 'G', 
+<a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3a08d0012388564e95c3b4a7407cf04965">colour::BLACK</a> = 'B'
+ }</td></tr>
+<tr class="memdesc:a6294bd0f5387871bc5f39f57cc1f0fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class colour.  <a href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">More...</a><br/></td></tr>
+<tr class="separator:a6294bd0f5387871bc5f39f57cc1f0fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2b676188453fbbb4dc96be714ac931d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a2b676188453fbbb4dc96be714ac931d3">Bayesnode</a> (unsigned int numberOfStates)</td></tr>
@@ -113,25 +124,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adbda396fa53b6923a69824c98fce9ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347df4c4cac0f04f6b263a3523ea37d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a347df4c4cac0f04f6b263a3523ea37d5">GetNumericLabel</a> ()</td></tr>
 <tr class="separator:a347df4c4cac0f04f6b263a3523ea37d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a123ac9e1e30d69c6037eb9ea9562adbb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a123ac9e1e30d69c6037eb9ea9562adbb">AddIncomingEdge</a> (unsigned int, unsigned int)</td></tr>
-<tr class="separator:a123ac9e1e30d69c6037eb9ea9562adbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9614959ba778d25d7679e8fcad20c75d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a9614959ba778d25d7679e8fcad20c75d">RemoveIncomingEdge</a> (unsigned int)</td></tr>
-<tr class="separator:a9614959ba778d25d7679e8fcad20c75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad20de796507c48523bcf49fffdc7b3d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad20de796507c48523bcf49fffdc7b3d5"></a>
-const std::list&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnAdjacencyList</b> ()</td></tr>
+<tr class="memitem:a1102ecda4b933a2ccce879ca520a795e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a1102ecda4b933a2ccce879ca520a795e">SetColour</a> (<a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">colour</a>)</td></tr>
+<tr class="separator:a1102ecda4b933a2ccce879ca520a795e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4a34547a9dab484a683450cd68691c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">colour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a9f4a34547a9dab484a683450cd68691c">GetColour</a> ()</td></tr>
+<tr class="separator:a9f4a34547a9dab484a683450cd68691c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c6995309d67dd9b30c645fbb1cb739"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#ab3c6995309d67dd9b30c645fbb1cb739">AddToAdjacencyList</a> (unsigned int)</td></tr>
+<tr class="separator:ab3c6995309d67dd9b30c645fbb1cb739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96768ee5d89848d3275c7d916faad480"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a96768ee5d89848d3275c7d916faad480">RemoveFromAdjacencyList</a> (unsigned int)</td></tr>
+<tr class="separator:a96768ee5d89848d3275c7d916faad480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad20de796507c48523bcf49fffdc7b3d5"><td class="memItemLeft" align="right" valign="top">const std::list&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#ad20de796507c48523bcf49fffdc7b3d5">ReturnAdjacencyList</a> ()</td></tr>
 <tr class="separator:ad20de796507c48523bcf49fffdc7b3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37445ad6877e51f911a3a2228bd9c417"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37445ad6877e51f911a3a2228bd9c417"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasIncomingEdgeFrom</b> (unsigned int)</td></tr>
-<tr class="separator:a37445ad6877e51f911a3a2228bd9c417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbc24d8c9d141fc21e8b93d87b7683b7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#adbc24d8c9d141fc21e8b93d87b7683b7">ReturnNumberIncomingEdges</a> ()</td></tr>
-<tr class="separator:adbc24d8c9d141fc21e8b93d87b7683b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531f3d3341170ba4ea6d646f1a368b54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a531f3d3341170ba4ea6d646f1a368b54">IsInAdjacencyList</a> (unsigned int)</td></tr>
+<tr class="separator:a531f3d3341170ba4ea6d646f1a368b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33a92e17091b3d0361d63eeadbbd39b6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a33a92e17091b3d0361d63eeadbbd39b6">SizeOfAdjacencyList</a> ()</td></tr>
+<tr class="separator:a33a92e17091b3d0361d63eeadbbd39b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af84f66934ccb24596b5fbb936903e6e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#af84f66934ccb24596b5fbb936903e6e3">SetAsEvidence</a> (unsigned int evidenceState)</td></tr>
 <tr class="separator:af84f66934ccb24596b5fbb936903e6e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8410fbbba2974a1a4f8ba4914e76bf33"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a8410fbbba2974a1a4f8ba4914e76bf33">IsEvidence</a> ()</td></tr>
 <tr class="separator:a8410fbbba2974a1a4f8ba4914e76bf33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cdb567ddcc8b81ec0466d67d937b7f0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="classbayonet_1_1_conditional_probability_table.html">ConditionalProbabilityTable</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a7cdb567ddcc8b81ec0466d67d937b7f0">ReturnPointerToConditionalTable</a> ()</td></tr>
-<tr class="separator:a7cdb567ddcc8b81ec0466d67d937b7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -142,7 +152,41 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents the single node of a Bayesian network. </p>
 <hr/>
- </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+ </div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="a6294bd0f5387871bc5f39f57cc1f0fb3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">bayonet::Bayesnode::colour</a> : char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enum class colour. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a6294bd0f5387871bc5f39f57cc1f0fb3ab5bf627e448384cf3a4c35121ca6008d"></a>WHITE</em>&#160;</td><td class="fielddoc">
+<p>is used for unobserved nodes </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6294bd0f5387871bc5f39f57cc1f0fb3a3c551f0d1a06b4f852d1832daed357bf"></a>GREY</em>&#160;</td><td class="fielddoc">
+<p>is is used for partially observed nodes </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a6294bd0f5387871bc5f39f57cc1f0fb3a08d0012388564e95c3b4a7407cf04965"></a>BLACK</em>&#160;</td><td class="fielddoc">
+<p>is used for observed nodes </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a2b676188453fbbb4dc96be714ac931d3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -167,36 +211,42 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a123ac9e1e30d69c6037eb9ea9562adbb"></a>
+<a class="anchor" id="ab3c6995309d67dd9b30c645fbb1cb739"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool bayonet::Bayesnode::AddIncomingEdge </td>
+          <td class="memname">bool bayonet::Bayesnode::AddToAdjacencyList </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>index</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>totStates</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adding an Incoming connection from this node.</p>
+<p>Adding an index to the adjacency list of the node.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a9f4a34547a9dab484a683450cd68691c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">Bayesnode::colour</a> bayonet::Bayesnode::GetColour </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It return the colour associated with the node. </p>
 
 </div>
 </div>
@@ -212,7 +262,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It returns the label associate with the node.</p>
+<p>It returns the label associated with the node.</p>
 <dl class="section return"><dt>Returns</dt><dd>the label associated with the node </dd></dl>
 
 </div>
@@ -229,7 +279,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It returns the numeric label associate with the node.</p>
+<p>It returns the numeric label associated with the node.</p>
 <dl class="section return"><dt>Returns</dt><dd>the numeric label associated with the node </dd></dl>
 
 </div>
@@ -251,12 +301,12 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9614959ba778d25d7679e8fcad20c75d"></a>
+<a class="anchor" id="a531f3d3341170ba4ea6d646f1a368b54"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool bayonet::Bayesnode::RemoveIncomingEdge </td>
+          <td class="memname">bool bayonet::Bayesnode::IsInAdjacencyList </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -264,7 +314,31 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Removing an Incoming connection from this node.</p>
+<p>It looks for the index specified in input inside the adjacency list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the element is inside the list </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a96768ee5d89848d3275c7d916faad480"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool bayonet::Bayesnode::RemoveFromAdjacencyList </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Removing an index to the adjacency list of the node.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td></td></tr>
@@ -275,20 +349,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="adbc24d8c9d141fc21e8b93d87b7683b7"></a>
+<a class="anchor" id="ad20de796507c48523bcf49fffdc7b3d5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int bayonet::Bayesnode::ReturnNumberIncomingEdges </td>
+          <td class="memname">const std::list&lt; unsigned int &gt; &amp; bayonet::Bayesnode::ReturnAdjacencyList </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It returns the number of Incoming edges</p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>It returns a const reference to the internal adjacency list.</p>
+<dl class="section return"><dt>Returns</dt><dd>a const reference to the list </dd></dl>
 
 </div>
 </div>
@@ -304,25 +378,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It returns the states associate with the node.</p>
+<p>It returns the number of states associated with the node.</p>
 <dl class="section return"><dt>Returns</dt><dd>the number of states associated with the node </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a7cdb567ddcc8b81ec0466d67d937b7f0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="classbayonet_1_1_conditional_probability_table.html">ConditionalProbabilityTable</a> &gt; bayonet::Bayesnode::ReturnPointerToConditionalTable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>It returns a shared pointer to the conditional table inside the node.</p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -350,6 +407,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a1102ecda4b933a2ccce879ca520a795e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::Bayesnode::SetColour </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">colour</a>&#160;</td>
+          <td class="paramname"><em>colourToSet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It sets the colour of the node. The colour is used in searching algorithms. White vertices are undiscovered. Grey is an adjacent vertex that is not already discovered. Black vertices are discovered and are adjacent to only other black or gray vertices. </p>
+
+</div>
+</div>
 <a class="anchor" id="abaa27f1597d5599344e3a4d82e7b64b0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -363,7 +437,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It sets the label associate with the node.</p>
+<p>It sets the label associated with the node.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nodeLabel</td><td>the string to associate with the label </td></tr>
@@ -391,6 +465,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a33a92e17091b3d0361d63eeadbbd39b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int bayonet::Bayesnode::SizeOfAdjacencyList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns the number of Incoming edges</p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_bayesnode_8h_source.html">Bayesnode.h</a></li>
 <li>src/Bayesnode.cpp</li>
@@ -398,7 +489,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 29 2015 18:11:26 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 1 2015 17:45:23 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -24,9 +24,6 @@
 
 namespace bayonet{
 
-//Bayesnode::Bayesnode()
-//{
-//}
 
 /**
 * The constructor of the object.
@@ -37,7 +34,6 @@ namespace bayonet{
 **/
 Bayesnode::Bayesnode(unsigned int numberOfStates) : conditionalTable(numberOfStates), mEvidence(-1), mCurrentColour(colour::WHITE), mNumberOfStates(numberOfStates), mNodeLabel(""), mNodeNumericLabel(0)
 {
- //spConditionalTable = std::make_shared<ConditionalProbabilityTable>(numberOfStates);
 }
 
 Bayesnode::~Bayesnode()
@@ -45,18 +41,16 @@ Bayesnode::~Bayesnode()
 }
 
 /**
-* It returns the states associate with the node.
+* It returns the number of states associated with the node.
 * 
 * @return the number of states associated with the node
 **/
 unsigned int Bayesnode::ReturnNumberOfStates(){
- //the number of states is obtained directly from the CPT
  return mNumberOfStates;
- //return spConditionalTable->ReturnRowsNumber();
 }
 
 /**
-* It sets the label associate with the node.
+* It sets the label associated with the node.
 * 
 * @param nodeLabel the string to associate with the label
 **/
@@ -65,7 +59,7 @@ void Bayesnode::SetLabel(std::string nodeLabel){
 }
 
 /**
-* It returns the label associate with the node.
+* It returns the label associated with the node.
 * 
 * @return the label associated with the node
 **/
@@ -83,7 +77,7 @@ void Bayesnode::SetNumericLabel(int numericLabel){
 }
 
 /**
-* It returns the numeric label associate with the node.
+* It returns the numeric label associated with the node.
 * 
 * @return the numeric label associated with the node
 **/
@@ -112,7 +106,7 @@ Bayesnode::colour Bayesnode::GetColour(){
 }
 
 /**
-* Adding an Incoming connection from this node.
+* Adding an index to the adjacency list of the node.
 * 
 * @param index
 **/
@@ -130,13 +124,19 @@ bool Bayesnode::AddToAdjacencyList(unsigned int index){
 
 
 /**
-* Removing an Incoming connection from this node.
+* Removing an index to the adjacency list of the node.
 * 
 * @param index
 * @return it returns true if the element was found and erased
 **/
 bool Bayesnode::RemoveFromAdjacencyList(unsigned int index){
+ bool result = false;
+ //looking if present
+ for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
+  if( *it == index) result = true;;
+ }
  adjacencyList.remove(index);
+ return result;
 }
 
 /**
@@ -155,11 +155,24 @@ bool Bayesnode::SetAsEvidence(unsigned int evidenceState){
  }
 }
 
+/**
+* It returns a const reference to the internal adjacency list.
+*
+* @return a const reference to the list
+* 
+**/
 const std::list<unsigned int>& Bayesnode::ReturnAdjacencyList(){
  return adjacencyList;
 }
 
-bool Bayesnode::HasOutgoingEdgeTo(unsigned int index){
+/**
+* It looks for the index specified in input inside the adjacency list.
+*
+* @param index 
+* @return true if the element is inside the list
+* 
+**/
+bool Bayesnode::IsInAdjacencyList(unsigned int index){
   //looking for edges
  for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
   if( *it == index) return  true;
@@ -173,7 +186,7 @@ bool Bayesnode::HasOutgoingEdgeTo(unsigned int index){
 * @return 
 * 
 **/
-unsigned int Bayesnode::ReturnNumberIncomingEdges(){
+unsigned int Bayesnode::SizeOfAdjacencyList(){
  return adjacencyList.size();
 }
 
@@ -185,18 +198,6 @@ unsigned int Bayesnode::ReturnNumberIncomingEdges(){
 **/
 int Bayesnode::IsEvidence(){
  return mEvidence;
-}
-
-
-
-/**
-* It returns a shared pointer to the conditional table inside the node.
-*
-* @return
-**/
-std::shared_ptr<ConditionalProbabilityTable> Bayesnode::ReturnPointerToConditionalTable(){
- //std::shared_ptr<ConditionalProbabilityTable> sp_to_return = spConditionalTable;
- //return sp_to_return;
 }
 
 
