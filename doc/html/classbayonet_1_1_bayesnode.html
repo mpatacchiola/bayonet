@@ -62,7 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -138,10 +137,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a531f3d3341170ba4ea6d646f1a368b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33a92e17091b3d0361d63eeadbbd39b6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a33a92e17091b3d0361d63eeadbbd39b6">SizeOfAdjacencyList</a> ()</td></tr>
 <tr class="separator:a33a92e17091b3d0361d63eeadbbd39b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af84f66934ccb24596b5fbb936903e6e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#af84f66934ccb24596b5fbb936903e6e3">SetAsEvidence</a> (unsigned int evidenceState)</td></tr>
-<tr class="separator:af84f66934ccb24596b5fbb936903e6e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8410fbbba2974a1a4f8ba4914e76bf33"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a8410fbbba2974a1a4f8ba4914e76bf33">IsEvidence</a> ()</td></tr>
-<tr class="separator:a8410fbbba2974a1a4f8ba4914e76bf33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2cb3576c583115b45dbf331727d9fff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#ac2cb3576c583115b45dbf331727d9fff">SetEvidence</a> (unsigned int evidenceState)</td></tr>
+<tr class="separator:ac2cb3576c583115b45dbf331727d9fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a783735e7bb2ec04a07a209a8c83f95cd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a783735e7bb2ec04a07a209a8c83f95cd">GetEvidence</a> ()</td></tr>
+<tr class="separator:a783735e7bb2ec04a07a209a8c83f95cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a90c0403ecb1441d43af3978200fd2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnode.html#a71a90c0403ecb1441d43af3978200fd2">IsEvidence</a> ()</td></tr>
+<tr class="separator:a71a90c0403ecb1441d43af3978200fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -250,6 +251,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a783735e7bb2ec04a07a209a8c83f95cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int bayonet::Bayesnode::GetEvidence </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns the evidence. If the node is not an evidence node it returns -1</p>
+<dl class="section return"><dt>Returns</dt><dd>it returns true if the state was correctly set. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aebe7f411efe8b8647ed6f7d28f700638"></a>
 <div class="memitem">
 <div class="memproto">
@@ -284,12 +302,12 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8410fbbba2974a1a4f8ba4914e76bf33"></a>
+<a class="anchor" id="a71a90c0403ecb1441d43af3978200fd2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int bayonet::Bayesnode::IsEvidence </td>
+          <td class="memname">bool bayonet::Bayesnode::IsEvidence </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -383,12 +401,29 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af84f66934ccb24596b5fbb936903e6e3"></a>
+<a class="anchor" id="a1102ecda4b933a2ccce879ca520a795e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool bayonet::Bayesnode::SetAsEvidence </td>
+          <td class="memname">void bayonet::Bayesnode::SetColour </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">colour</a>&#160;</td>
+          <td class="paramname"><em>colourToSet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It sets the colour of the node. The colour is used in searching algorithms. White vertices are undiscovered. Grey is an adjacent vertex that is not already discovered. Black vertices are discovered and are adjacent to only other black or gray vertices. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac2cb3576c583115b45dbf331727d9fff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool bayonet::Bayesnode::SetEvidence </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>evidenceState</em></td><td>)</td>
@@ -404,23 +439,6 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>it returns true if the state was correctly set. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a1102ecda4b933a2ccce879ca520a795e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void bayonet::Bayesnode::SetColour </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnode.html#a6294bd0f5387871bc5f39f57cc1f0fb3">colour</a>&#160;</td>
-          <td class="paramname"><em>colourToSet</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>It sets the colour of the node. The colour is used in searching algorithms. White vertices are undiscovered. Grey is an adjacent vertex that is not already discovered. Black vertices are discovered and are adjacent to only other black or gray vertices. </p>
 
 </div>
 </div>
@@ -489,7 +507,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 1 2015 17:45:23 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 7 2015 18:10:24 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

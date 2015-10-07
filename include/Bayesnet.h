@@ -47,14 +47,15 @@ class Bayesnet{
   bool RemoveEdge(unsigned int FirstNode, unsigned int SecondNode);
   bool HasEdge(unsigned int FirstNode, unsigned int SecondNode);
 
-  unsigned int ReturnNumberOfNodes();
-  unsigned int ReturnNumberOfEdges();
+  unsigned int ReturnNumberOfNodes() const;
+  unsigned int ReturnNumberOfEdges() const;
 
   std::list<unsigned int> ReturnOutEdges(unsigned int index);
   std::list<unsigned int> ReturnInEdges(unsigned int index);
   unsigned int ReturnNumberOutEdges(unsigned int index);
   unsigned int ReturnNumberInEdges(unsigned int index);
   std::list<unsigned int> ReturnTopologicalList();
+  std::vector<unsigned int> ReturnTotalStates();
 
   void ResetAllColours();
 

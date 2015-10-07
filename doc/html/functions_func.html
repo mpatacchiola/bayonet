@@ -62,7 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li class="current"><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -112,6 +111,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 &#160;
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>AccumulateAndDiscardSamples()
+: <a class="el" href="classbayonet_1_1_rejection_sampler.html#ab63d7fa72ea2f9e8dfcd5f873d257df4">bayonet::RejectionSampler</a>
+</li>
+<li>AccumulateSamples()
+: <a class="el" href="classbayonet_1_1_rejection_sampler.html#aa5d0525c10cba1a99fba9e4233d8ac30">bayonet::RejectionSampler</a>
+</li>
 <li>AddEdge()
 : <a class="el" href="classbayonet_1_1_bayesnet.html#aba354bf67d39dc73e070e63b9bc45ecd">bayonet::Bayesnet</a>
 </li>
@@ -167,6 +172,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>GetColour()
 : <a class="el" href="classbayonet_1_1_bayesnode.html#a9f4a34547a9dab484a683450cd68691c">bayonet::Bayesnode</a>
 </li>
+<li>GetEvidence()
+: <a class="el" href="classbayonet_1_1_bayesnode.html#a783735e7bb2ec04a07a209a8c83f95cd">bayonet::Bayesnode</a>
+</li>
 <li>GetLabel()
 : <a class="el" href="classbayonet_1_1_bayesnode.html#aebe7f411efe8b8647ed6f7d28f700638">bayonet::Bayesnode</a>
 </li>
@@ -192,7 +200,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>IsEvidence()
-: <a class="el" href="classbayonet_1_1_bayesnode.html#a8410fbbba2974a1a4f8ba4914e76bf33">bayonet::Bayesnode</a>
+: <a class="el" href="classbayonet_1_1_bayesnode.html#a71a90c0403ecb1441d43af3978200fd2">bayonet::Bayesnode</a>
 </li>
 <li>IsInAdjacencyList()
 : <a class="el" href="classbayonet_1_1_bayesnode.html#a531f3d3341170ba4ea6d646f1a368b54">bayonet::Bayesnode</a>
@@ -242,6 +250,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>PrintProbability()
 : <a class="el" href="classbayonet_1_1_joint_probability_table.html#ac52835cb75b2d635b51843abf58311a9">bayonet::JointProbabilityTable</a>
 </li>
+<li>PrintSample()
+: <a class="el" href="classbayonet_1_1_rejection_sampler.html#ab68ff90b1c015d6aa2d185cacb18a74d">bayonet::RejectionSampler</a>
+</li>
 </ul>
 
 
@@ -268,6 +279,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>ReturnInEdges()
 : <a class="el" href="classbayonet_1_1_bayesnet.html#a5621b949d8fda17ae0efd9810655b1b3">bayonet::Bayesnet</a>
 </li>
+<li>ReturnJointProbabilityTable()
+: <a class="el" href="classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5">bayonet::RejectionSampler</a>
+</li>
 <li>ReturnKey()
 : <a class="el" href="classbayonet_1_1_joint_probability_table.html#a0bcd0ebffb4d8fd6403759c55de62f9b">bayonet::JointProbabilityTable</a>
 </li>
@@ -281,10 +295,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classbayonet_1_1_bayesnet.html#a7d47ce38f3882b80121f6acc351fd373">bayonet::Bayesnet</a>
 </li>
 <li>ReturnNumberOfEdges()
-: <a class="el" href="classbayonet_1_1_bayesnet.html#a42e6612c84beb2d4e6d5c55792f3ed4e">bayonet::Bayesnet</a>
+: <a class="el" href="classbayonet_1_1_bayesnet.html#af19e4190891a42a729a80c61e97f1947">bayonet::Bayesnet</a>
 </li>
 <li>ReturnNumberOfNodes()
-: <a class="el" href="classbayonet_1_1_bayesnet.html#a2d68782e4d08abf2bb2f0ad093db78cc">bayonet::Bayesnet</a>
+: <a class="el" href="classbayonet_1_1_bayesnet.html#aabfe91fab18e3fcaca8c8965f6a59860">bayonet::Bayesnet</a>
 </li>
 <li>ReturnNumberOfStates()
 : <a class="el" href="classbayonet_1_1_bayesnode.html#a24d38b28413a60938ea7fad7c74e823d">bayonet::Bayesnode</a>
@@ -301,19 +315,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>ReturnSample()
 : <a class="el" href="classbayonet_1_1_conditional_probability_table.html#a3e600c4b5247dd52a5d0e775ca898c69">bayonet::ConditionalProbabilityTable</a>
+, <a class="el" href="classbayonet_1_1_rejection_sampler.html#a1f2c685367f549965dcafd9c1b77ab1e">bayonet::RejectionSampler</a>
 </li>
 <li>ReturnTopologicalList()
 : <a class="el" href="classbayonet_1_1_bayesnet.html#a3e8e924c33186e72bfa7d8ace1c211e6">bayonet::Bayesnet</a>
+</li>
+<li>ReturnTotalStates()
+: <a class="el" href="classbayonet_1_1_bayesnet.html#af05513604bc2273f64abd7e685d1d636">bayonet::Bayesnet</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
-<li>SetAsEvidence()
-: <a class="el" href="classbayonet_1_1_bayesnode.html#af84f66934ccb24596b5fbb936903e6e3">bayonet::Bayesnode</a>
-</li>
 <li>SetColour()
 : <a class="el" href="classbayonet_1_1_bayesnode.html#a1102ecda4b933a2ccce879ca520a795e">bayonet::Bayesnode</a>
+</li>
+<li>SetEvidence()
+: <a class="el" href="classbayonet_1_1_bayesnode.html#ac2cb3576c583115b45dbf331727d9fff">bayonet::Bayesnode</a>
 </li>
 <li>SetLabel()
 : <a class="el" href="classbayonet_1_1_bayesnode.html#abaa27f1597d5599344e3a4d82e7b64b0">bayonet::Bayesnode</a>
@@ -347,7 +365,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 1 2015 17:45:23 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 7 2015 18:10:24 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

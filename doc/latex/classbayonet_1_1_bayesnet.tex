@@ -25,9 +25,9 @@ bool \hyperlink{classbayonet_1_1_bayesnet_a0ea810411a987ebeb97b580053ce7c7f}{Rem
 \item 
 bool \hyperlink{classbayonet_1_1_bayesnet_ae852714069b47eff14918d5a4e53a2dd}{Has\-Edge} (unsigned int First\-Node, unsigned int Second\-Node)
 \item 
-unsigned int \hyperlink{classbayonet_1_1_bayesnet_a2d68782e4d08abf2bb2f0ad093db78cc}{Return\-Number\-Of\-Nodes} ()
+unsigned int \hyperlink{classbayonet_1_1_bayesnet_aabfe91fab18e3fcaca8c8965f6a59860}{Return\-Number\-Of\-Nodes} () const 
 \item 
-unsigned int \hyperlink{classbayonet_1_1_bayesnet_a42e6612c84beb2d4e6d5c55792f3ed4e}{Return\-Number\-Of\-Edges} ()
+unsigned int \hyperlink{classbayonet_1_1_bayesnet_af19e4190891a42a729a80c61e97f1947}{Return\-Number\-Of\-Edges} () const 
 \item 
 std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_acb33076271f03ba59ac98a04b762d26b}{Return\-Out\-Edges} (unsigned int index)
 \item 
@@ -38,6 +38,8 @@ unsigned int \hyperlink{classbayonet_1_1_bayesnet_aae9de07f181dc75f309b7f59e302a
 unsigned int \hyperlink{classbayonet_1_1_bayesnet_a7d47ce38f3882b80121f6acc351fd373}{Return\-Number\-In\-Edges} (unsigned int index)
 \item 
 std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_a3e8e924c33186e72bfa7d8ace1c211e6}{Return\-Topological\-List} ()
+\item 
+std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_af05513604bc2273f64abd7e685d1d636}{Return\-Total\-States} ()
 \item 
 void \hyperlink{classbayonet_1_1_bayesnet_a2a934ac59da3a02720c40515b6b599e7}{Reset\-All\-Colours} ()
 \item 
@@ -268,20 +270,20 @@ it returns a const reference
 \item[{unsigned int}]{index}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnet_a7d47ce38f3882b80121f6acc351fd373}
-It returns the number of ingoing edges from the node specified in the index. \hypertarget{classbayonet_1_1_bayesnet_a42e6612c84beb2d4e6d5c55792f3ed4e}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Of\-Edges@{Return\-Number\-Of\-Edges}}
+It returns the number of ingoing edges from the node specified in the index. \hypertarget{classbayonet_1_1_bayesnet_af19e4190891a42a729a80c61e97f1947}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Of\-Edges@{Return\-Number\-Of\-Edges}}
 \index{Return\-Number\-Of\-Edges@{Return\-Number\-Of\-Edges}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-Number\-Of\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnet\-::\-Return\-Number\-Of\-Edges (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnet_a42e6612c84beb2d4e6d5c55792f3ed4e}
-It returns the number of edges. \hypertarget{classbayonet_1_1_bayesnet_a2d68782e4d08abf2bb2f0ad093db78cc}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Of\-Nodes@{Return\-Number\-Of\-Nodes}}
+) const}}\label{classbayonet_1_1_bayesnet_af19e4190891a42a729a80c61e97f1947}
+It returns the number of edges. \hypertarget{classbayonet_1_1_bayesnet_aabfe91fab18e3fcaca8c8965f6a59860}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Of\-Nodes@{Return\-Number\-Of\-Nodes}}
 \index{Return\-Number\-Of\-Nodes@{Return\-Number\-Of\-Nodes}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-Number\-Of\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnet\-::\-Return\-Number\-Of\-Nodes (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnet_a2d68782e4d08abf2bb2f0ad093db78cc}
+) const}}\label{classbayonet_1_1_bayesnet_aabfe91fab18e3fcaca8c8965f6a59860}
 It returns the number of nodes. \hypertarget{classbayonet_1_1_bayesnet_aae9de07f181dc75f309b7f59e302a947}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Out\-Edges@{Return\-Number\-Out\-Edges}}
 \index{Return\-Number\-Out\-Edges@{Return\-Number\-Out\-Edges}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-Number\-Out\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnet\-::\-Return\-Number\-Out\-Edges (
@@ -307,6 +309,18 @@ The topological sort algorithm creates a linear ordering of the vertices. If edg
 
 \begin{DoxyReturn}{Returns}
 It returns a list of index to nodes sorted in topological order. 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnet_af05513604bc2273f64abd7e685d1d636}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Total\-States@{Return\-Total\-States}}
+\index{Return\-Total\-States@{Return\-Total\-States}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Return\-Total\-States}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ unsigned int $>$ bayonet\-::\-Bayesnet\-::\-Return\-Total\-States (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_af05513604bc2273f64abd7e685d1d636}
+It returns a list with the total number of states for each node.
+
+\begin{DoxyReturn}{Returns}
+it returns the list of total states 
 \end{DoxyReturn}
 
 

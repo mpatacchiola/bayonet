@@ -7,16 +7,18 @@ var searchData=
   ['returnadjacencylist',['ReturnAdjacencyList',['../classbayonet_1_1_bayesnode.html#ad20de796507c48523bcf49fffdc7b3d5',1,'bayonet::Bayesnode']]],
   ['returncolumnsnumber',['ReturnColumnsNumber',['../classbayonet_1_1_conditional_probability_table.html#a2fef41dbe55cbccc82b3921d4d471c1d',1,'bayonet::ConditionalProbabilityTable']]],
   ['returninedges',['ReturnInEdges',['../classbayonet_1_1_bayesnet.html#a5621b949d8fda17ae0efd9810655b1b3',1,'bayonet::Bayesnet']]],
+  ['returnjointprobabilitytable',['ReturnJointProbabilityTable',['../classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5',1,'bayonet::RejectionSampler']]],
   ['returnkey',['ReturnKey',['../classbayonet_1_1_joint_probability_table.html#a0bcd0ebffb4d8fd6403759c55de62f9b',1,'bayonet::JointProbabilityTable']]],
   ['returnmarginal',['ReturnMarginal',['../classbayonet_1_1_joint_probability_table.html#a90538c4bf67f0270b705caa26fea742b',1,'bayonet::JointProbabilityTable']]],
   ['returnnodesvector',['ReturnNodesVector',['../classbayonet_1_1_bayesnet.html#ab0e31b9a2b625b5b59d3e70e3c7e4101',1,'bayonet::Bayesnet']]],
   ['returnnumberinedges',['ReturnNumberInEdges',['../classbayonet_1_1_bayesnet.html#a7d47ce38f3882b80121f6acc351fd373',1,'bayonet::Bayesnet']]],
-  ['returnnumberofedges',['ReturnNumberOfEdges',['../classbayonet_1_1_bayesnet.html#a42e6612c84beb2d4e6d5c55792f3ed4e',1,'bayonet::Bayesnet']]],
-  ['returnnumberofnodes',['ReturnNumberOfNodes',['../classbayonet_1_1_bayesnet.html#a2d68782e4d08abf2bb2f0ad093db78cc',1,'bayonet::Bayesnet']]],
+  ['returnnumberofedges',['ReturnNumberOfEdges',['../classbayonet_1_1_bayesnet.html#af19e4190891a42a729a80c61e97f1947',1,'bayonet::Bayesnet']]],
+  ['returnnumberofnodes',['ReturnNumberOfNodes',['../classbayonet_1_1_bayesnet.html#aabfe91fab18e3fcaca8c8965f6a59860',1,'bayonet::Bayesnet']]],
   ['returnnumberofstates',['ReturnNumberOfStates',['../classbayonet_1_1_bayesnode.html#a24d38b28413a60938ea7fad7c74e823d',1,'bayonet::Bayesnode']]],
   ['returnnumberoutedges',['ReturnNumberOutEdges',['../classbayonet_1_1_bayesnet.html#aae9de07f181dc75f309b7f59e302a947',1,'bayonet::Bayesnet']]],
   ['returnoutedges',['ReturnOutEdges',['../classbayonet_1_1_bayesnet.html#acb33076271f03ba59ac98a04b762d26b',1,'bayonet::Bayesnet']]],
   ['returnrowsnumber',['ReturnRowsNumber',['../classbayonet_1_1_conditional_probability_table.html#ae2b35a361fb92684abdfde96887b24e6',1,'bayonet::ConditionalProbabilityTable::ReturnRowsNumber()'],['../classbayonet_1_1_joint_probability_table.html#af87920fcfa20657c2c3eb816a77ea66b',1,'bayonet::JointProbabilityTable::ReturnRowsNumber()']]],
-  ['returnsample',['ReturnSample',['../classbayonet_1_1_conditional_probability_table.html#a3e600c4b5247dd52a5d0e775ca898c69',1,'bayonet::ConditionalProbabilityTable']]],
-  ['returntopologicallist',['ReturnTopologicalList',['../classbayonet_1_1_bayesnet.html#a3e8e924c33186e72bfa7d8ace1c211e6',1,'bayonet::Bayesnet']]]
+  ['returnsample',['ReturnSample',['../classbayonet_1_1_conditional_probability_table.html#a3e600c4b5247dd52a5d0e775ca898c69',1,'bayonet::ConditionalProbabilityTable::ReturnSample()'],['../classbayonet_1_1_rejection_sampler.html#a1f2c685367f549965dcafd9c1b77ab1e',1,'bayonet::RejectionSampler::ReturnSample()']]],
+  ['returntopologicallist',['ReturnTopologicalList',['../classbayonet_1_1_bayesnet.html#a3e8e924c33186e72bfa7d8ace1c211e6',1,'bayonet::Bayesnet']]],
+  ['returntotalstates',['ReturnTotalStates',['../classbayonet_1_1_bayesnet.html#af05513604bc2273f64abd7e685d1d636',1,'bayonet::Bayesnet']]]
 ];

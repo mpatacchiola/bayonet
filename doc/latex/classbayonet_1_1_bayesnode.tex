@@ -47,9 +47,11 @@ bool \hyperlink{classbayonet_1_1_bayesnode_a531f3d3341170ba4ea6d646f1a368b54}{Is
 \item 
 unsigned int \hyperlink{classbayonet_1_1_bayesnode_a33a92e17091b3d0361d63eeadbbd39b6}{Size\-Of\-Adjacency\-List} ()
 \item 
-bool \hyperlink{classbayonet_1_1_bayesnode_af84f66934ccb24596b5fbb936903e6e3}{Set\-As\-Evidence} (unsigned int evidence\-State)
+bool \hyperlink{classbayonet_1_1_bayesnode_ac2cb3576c583115b45dbf331727d9fff}{Set\-Evidence} (unsigned int evidence\-State)
 \item 
-int \hyperlink{classbayonet_1_1_bayesnode_a8410fbbba2974a1a4f8ba4914e76bf33}{Is\-Evidence} ()
+unsigned int \hyperlink{classbayonet_1_1_bayesnode_a783735e7bb2ec04a07a209a8c83f95cd}{Get\-Evidence} ()
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnode_a71a90c0403ecb1441d43af3978200fd2}{Is\-Evidence} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -126,7 +128,19 @@ Adding an index to the adjacency list of the node.
 {}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnode_a9f4a34547a9dab484a683450cd68691c}
-It return the colour associated with the node. \hypertarget{classbayonet_1_1_bayesnode_aebe7f411efe8b8647ed6f7d28f700638}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Get\-Label@{Get\-Label}}
+It return the colour associated with the node. \hypertarget{classbayonet_1_1_bayesnode_a783735e7bb2ec04a07a209a8c83f95cd}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Get\-Evidence@{Get\-Evidence}}
+\index{Get\-Evidence@{Get\-Evidence}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Get\-Evidence}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnode\-::\-Get\-Evidence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a783735e7bb2ec04a07a209a8c83f95cd}
+It returns the evidence. If the node is not an evidence node it returns -\/1
+
+\begin{DoxyReturn}{Returns}
+it returns true if the state was correctly set. 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnode_aebe7f411efe8b8647ed6f7d28f700638}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Get\-Label@{Get\-Label}}
 \index{Get\-Label@{Get\-Label}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
 \subsubsection[{Get\-Label}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string bayonet\-::\-Bayesnode\-::\-Get\-Label (
 \begin{DoxyParamCaption}
@@ -150,13 +164,13 @@ It returns the numeric label associated with the node.
 \begin{DoxyReturn}{Returns}
 the numeric label associated with the node 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnode_a8410fbbba2974a1a4f8ba4914e76bf33}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Is\-Evidence@{Is\-Evidence}}
+\hypertarget{classbayonet_1_1_bayesnode_a71a90c0403ecb1441d43af3978200fd2}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Is\-Evidence@{Is\-Evidence}}
 \index{Is\-Evidence@{Is\-Evidence}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
-\subsubsection[{Is\-Evidence}]{\setlength{\rightskip}{0pt plus 5cm}int bayonet\-::\-Bayesnode\-::\-Is\-Evidence (
+\subsubsection[{Is\-Evidence}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Is\-Evidence (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_a8410fbbba2974a1a4f8ba4914e76bf33}
+)}}\label{classbayonet_1_1_bayesnode_a71a90c0403ecb1441d43af3978200fd2}
 A node is an evidence when is outcome state is given.
 
 \begin{DoxyReturn}{Returns}
@@ -220,13 +234,20 @@ It returns the number of states associated with the node.
 \begin{DoxyReturn}{Returns}
 the number of states associated with the node 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnode_af84f66934ccb24596b5fbb936903e6e3}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-As\-Evidence@{Set\-As\-Evidence}}
-\index{Set\-As\-Evidence@{Set\-As\-Evidence}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
-\subsubsection[{Set\-As\-Evidence}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Set\-As\-Evidence (
+\hypertarget{classbayonet_1_1_bayesnode_a1102ecda4b933a2ccce879ca520a795e}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Colour@{Set\-Colour}}
+\index{Set\-Colour@{Set\-Colour}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Set\-Colour}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnode\-::\-Set\-Colour (
+\begin{DoxyParamCaption}
+\item[{{\bf colour}}]{colour\-To\-Set}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnode_a1102ecda4b933a2ccce879ca520a795e}
+It sets the colour of the node. The colour is used in searching algorithms. White vertices are undiscovered. Grey is an adjacent vertex that is not already discovered. Black vertices are discovered and are adjacent to only other black or gray vertices. \hypertarget{classbayonet_1_1_bayesnode_ac2cb3576c583115b45dbf331727d9fff}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Evidence@{Set\-Evidence}}
+\index{Set\-Evidence@{Set\-Evidence}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
+\subsubsection[{Set\-Evidence}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Set\-Evidence (
 \begin{DoxyParamCaption}
 \item[{unsigned int}]{evidence\-State}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_af84f66934ccb24596b5fbb936903e6e3}
+)}}\label{classbayonet_1_1_bayesnode_ac2cb3576c583115b45dbf331727d9fff}
 A node is an evidence when is outcome state is given.
 
 
@@ -237,14 +258,7 @@ A node is an evidence when is outcome state is given.
 \begin{DoxyReturn}{Returns}
 it returns true if the state was correctly set. 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnode_a1102ecda4b933a2ccce879ca520a795e}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Colour@{Set\-Colour}}
-\index{Set\-Colour@{Set\-Colour}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
-\subsubsection[{Set\-Colour}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnode\-::\-Set\-Colour (
-\begin{DoxyParamCaption}
-\item[{{\bf colour}}]{colour\-To\-Set}
-\end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_a1102ecda4b933a2ccce879ca520a795e}
-It sets the colour of the node. The colour is used in searching algorithms. White vertices are undiscovered. Grey is an adjacent vertex that is not already discovered. Black vertices are discovered and are adjacent to only other black or gray vertices. \hypertarget{classbayonet_1_1_bayesnode_abaa27f1597d5599344e3a4d82e7b64b0}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Label@{Set\-Label}}
+\hypertarget{classbayonet_1_1_bayesnode_abaa27f1597d5599344e3a4d82e7b64b0}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Label@{Set\-Label}}
 \index{Set\-Label@{Set\-Label}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
 \subsubsection[{Set\-Label}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnode\-::\-Set\-Label (
 \begin{DoxyParamCaption}

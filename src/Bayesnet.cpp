@@ -102,7 +102,7 @@ bool Bayesnet::HasEdge(unsigned int FirstNode, unsigned int SecondNode){
 * It returns the number of nodes.
 *
 **/
-unsigned int Bayesnet::ReturnNumberOfNodes(){
+unsigned int Bayesnet::ReturnNumberOfNodes() const{
  return nodesVector.size();
 }
 
@@ -110,7 +110,7 @@ unsigned int Bayesnet::ReturnNumberOfNodes(){
 * It returns the number of edges.
 *
 **/
-unsigned int Bayesnet::ReturnNumberOfEdges(){
+unsigned int Bayesnet::ReturnNumberOfEdges() const{
  unsigned int tot_edges = 0;
  for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
   tot_edges += (*it)->ReturnAdjacencyList().size();
@@ -170,7 +170,7 @@ unsigned int Bayesnet::ReturnNumberInEdges(unsigned int index){
 *
 * @return It returns a list of index to nodes sorted in topological order.
 **/
-std::list<unsigned int> Bayesnet::ReturnTopologicalList(){
+std::list<unsigned int> Bayesnet::ReturnTopologicalList() {
 
  std::list<unsigned int> list_to_return;
  std::multimap<unsigned int, unsigned int> index_time_map;
@@ -199,6 +199,20 @@ void Bayesnet::ResetAllColours(){
  for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
   (*it_node)->SetColour(Bayesnode::colour::WHITE);
  }
+}
+
+/**
+* It returns a list with the total number of states for each node.
+* 
+* @return it returns the list of total states
+**/
+std::vector<unsigned int> Bayesnet::ReturnTotalStates(){
+
+ std::vector<unsigned int> vector_to_return;
+ for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
+  vector_to_return.push_back( (*it_node)->ReturnNumberOfStates() );
+ }
+ return vector_to_return;
 }
 
 /**
@@ -322,7 +336,7 @@ std::list<unsigned int> Bayesnet::BreadthFirstSearch(unsigned int startingNode){
 * @param spToList a shared pointer to a list, that is filled recursively by the algorithm.
 * @param resetColour if true it reset all the colour to white before starting the algorithm
 **/
-void Bayesnet::DepthFirstSearch(unsigned int startingNode, std::shared_ptr<std::list<unsigned int>> spToList, bool resetColours ){
+void Bayesnet::DepthFirstSearch(unsigned int startingNode, std::shared_ptr<std::list<unsigned int>> spToList, bool resetColours ) {
 
  //Mark all nodes as white (not visited)
  if (resetColours == true) ResetAllColours();

@@ -62,7 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -93,41 +92,191 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">bayonet::RejectionSampler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for bayonet::RejectionSampler:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classbayonet_1_1_rejection_sampler.png" usemap="#bayonet::RejectionSampler_map" alt=""/>
-  <map id="bayonet::RejectionSampler_map" name="bayonet::RejectionSampler_map">
-<area href="classbayonet_1_1_sampler.html" title="A generic class that cannot be used for real. It is a framework for derived classes. " alt="bayonet::Sampler" shape="rect" coords="0,0,161,24"/>
-</map>
- </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afc42e3115c1bc96fa19ff1eb8a082180"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc42e3115c1bc96fa19ff1eb8a082180"></a>
-std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnSample</b> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>)</td></tr>
-<tr class="separator:afc42e3115c1bc96fa19ff1eb8a082180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a036f41259a143b1a101047fcdcf6a580"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a036f41259a143b1a101047fcdcf6a580"></a>
-std::vector&lt; std::vector<br class="typebreak"/>
-&lt; unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>AccumulateSamples</b> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>, unsigned int cycles)</td></tr>
-<tr class="separator:a036f41259a143b1a101047fcdcf6a580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_classbayonet_1_1_sampler"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classbayonet_1_1_sampler')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classbayonet_1_1_sampler.html">bayonet::Sampler</a></td></tr>
-<tr class="memitem:a87272da95dcc8028a13384931eda0d81 inherit pro_attribs_classbayonet_1_1_sampler"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87272da95dcc8028a13384931eda0d81"></a>
-std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mSampleVector</b></td></tr>
-<tr class="separator:a87272da95dcc8028a13384931eda0d81 inherit pro_attribs_classbayonet_1_1_sampler"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f2c685367f549965dcafd9c1b77ab1e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_rejection_sampler.html#a1f2c685367f549965dcafd9c1b77ab1e">ReturnSample</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net)</td></tr>
+<tr class="separator:a1f2c685367f549965dcafd9c1b77ab1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5d0525c10cba1a99fba9e4233d8ac30"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_rejection_sampler.html#aa5d0525c10cba1a99fba9e4233d8ac30">AccumulateSamples</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;, unsigned int cycles)</td></tr>
+<tr class="separator:aa5d0525c10cba1a99fba9e4233d8ac30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab63d7fa72ea2f9e8dfcd5f873d257df4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_rejection_sampler.html#ab63d7fa72ea2f9e8dfcd5f873d257df4">AccumulateAndDiscardSamples</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;, unsigned int cycles)</td></tr>
+<tr class="separator:ab63d7fa72ea2f9e8dfcd5f873d257df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab68ff90b1c015d6aa2d185cacb18a74d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_rejection_sampler.html#ab68ff90b1c015d6aa2d185cacb18a74d">PrintSample</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, unsigned int cycles=1)</td></tr>
+<tr class="separator:ab68ff90b1c015d6aa2d185cacb18a74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ba74f6d5f5fd61baa968464e2e3aac5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5">ReturnJointProbabilityTable</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, unsigned int cycles)</td></tr>
+<tr class="separator:a0ba74f6d5f5fd61baa968464e2e3aac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab63d7fa72ea2f9e8dfcd5f873d257df4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; bayonet::RejectionSampler::AccumulateAndDiscardSamples </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cycles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It accumulates samples picking up them from the Bayesian network. It discards the sample that are not coerent with the evidence, the output vector contains only the accepted samples.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa5d0525c10cba1a99fba9e4233d8ac30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; bayonet::RejectionSampler::AccumulateSamples </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cycles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It accumulate samples picking up them from the Bayesian network.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab68ff90b1c015d6aa2d185cacb18a74d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::RejectionSampler::PrintSample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cycles</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It prints the result of the sampling. It is possible to do it for different iterations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0ba74f6d5f5fd61baa968464e2e3aac5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> bayonet::RejectionSampler::ReturnJointProbabilityTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cycles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It creates a Joint Probability table starting from the Bayesian network and sampling for the number of iterations specified.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>it return a Joint Probability Table object </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1f2c685367f549965dcafd9c1b77ab1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; bayonet::RejectionSampler::ReturnSample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns a single sample picking up it from the Bayesian network</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/<a class="el" href="_sampler_8h_source.html">Sampler.h</a></li>
-<li>src/Sampler.cpp</li>
+<li>include/<a class="el" href="_rejection_sampler_8h_source.html">RejectionSampler.h</a></li>
+<li>src/RejectionSampler.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 1 2015 17:45:23 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 7 2015 18:10:24 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

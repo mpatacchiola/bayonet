@@ -1,26 +1,112 @@
 \hypertarget{classbayonet_1_1_rejection_sampler}{\section{bayonet\-:\-:Rejection\-Sampler Class Reference}
 \label{classbayonet_1_1_rejection_sampler}\index{bayonet\-::\-Rejection\-Sampler@{bayonet\-::\-Rejection\-Sampler}}
 }
-Inheritance diagram for bayonet\-:\-:Rejection\-Sampler\-:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=2.000000cm]{classbayonet_1_1_rejection_sampler}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classbayonet_1_1_rejection_sampler_afc42e3115c1bc96fa19ff1eb8a082180}{std\-::vector$<$ unsigned int $>$ {\bfseries Return\-Sample} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet})}\label{classbayonet_1_1_rejection_sampler_afc42e3115c1bc96fa19ff1eb8a082180}
-
+std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_rejection_sampler_a1f2c685367f549965dcafd9c1b77ab1e}{Return\-Sample} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net)
 \item 
-\hypertarget{classbayonet_1_1_rejection_sampler_a036f41259a143b1a101047fcdcf6a580}{std\-::vector$<$ std\-::vector\\*
-$<$ unsigned int $>$ $>$ {\bfseries Accumulate\-Samples} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet}, unsigned int cycles)}\label{classbayonet_1_1_rejection_sampler_a036f41259a143b1a101047fcdcf6a580}
-
+std\-::vector$<$ std\-::vector\\*
+$<$ unsigned int $>$ $>$ \hyperlink{classbayonet_1_1_rejection_sampler_aa5d0525c10cba1a99fba9e4233d8ac30}{Accumulate\-Samples} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet} \&, unsigned int cycles)
+\item 
+std\-::vector$<$ std\-::vector\\*
+$<$ unsigned int $>$ $>$ \hyperlink{classbayonet_1_1_rejection_sampler_ab63d7fa72ea2f9e8dfcd5f873d257df4}{Accumulate\-And\-Discard\-Samples} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet} \&, unsigned int cycles)
+\item 
+void \hyperlink{classbayonet_1_1_rejection_sampler_ab68ff90b1c015d6aa2d185cacb18a74d}{Print\-Sample} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, unsigned int cycles=1)
+\item 
+\hyperlink{classbayonet_1_1_joint_probability_table}{Joint\-Probability\-Table} \hyperlink{classbayonet_1_1_rejection_sampler_a0ba74f6d5f5fd61baa968464e2e3aac5}{Return\-Joint\-Probability\-Table} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, unsigned int cycles)
 \end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_rejection_sampler_ab63d7fa72ea2f9e8dfcd5f873d257df4}{\index{bayonet\-::\-Rejection\-Sampler@{bayonet\-::\-Rejection\-Sampler}!Accumulate\-And\-Discard\-Samples@{Accumulate\-And\-Discard\-Samples}}
+\index{Accumulate\-And\-Discard\-Samples@{Accumulate\-And\-Discard\-Samples}!bayonet::RejectionSampler@{bayonet\-::\-Rejection\-Sampler}}
+\subsubsection[{Accumulate\-And\-Discard\-Samples}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::vector$<$ unsigned int $>$ $>$ bayonet\-::\-Rejection\-Sampler\-::\-Accumulate\-And\-Discard\-Samples (
+\begin{DoxyParamCaption}
+\item[{{\bf Bayesnet} \&}]{net, }
+\item[{unsigned int}]{cycles}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_rejection_sampler_ab63d7fa72ea2f9e8dfcd5f873d257df4}
+It accumulates samples picking up them from the Bayesian network. It discards the sample that are not coerent with the evidence, the output vector contains only the accepted samples.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em cycles} & the number of iterations \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_rejection_sampler_aa5d0525c10cba1a99fba9e4233d8ac30}{\index{bayonet\-::\-Rejection\-Sampler@{bayonet\-::\-Rejection\-Sampler}!Accumulate\-Samples@{Accumulate\-Samples}}
+\index{Accumulate\-Samples@{Accumulate\-Samples}!bayonet::RejectionSampler@{bayonet\-::\-Rejection\-Sampler}}
+\subsubsection[{Accumulate\-Samples}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::vector$<$ unsigned int $>$ $>$ bayonet\-::\-Rejection\-Sampler\-::\-Accumulate\-Samples (
+\begin{DoxyParamCaption}
+\item[{{\bf Bayesnet} \&}]{net, }
+\item[{unsigned int}]{cycles}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_rejection_sampler_aa5d0525c10cba1a99fba9e4233d8ac30}
+It accumulate samples picking up them from the Bayesian network.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em cycles} & the number of iterations \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_rejection_sampler_ab68ff90b1c015d6aa2d185cacb18a74d}{\index{bayonet\-::\-Rejection\-Sampler@{bayonet\-::\-Rejection\-Sampler}!Print\-Sample@{Print\-Sample}}
+\index{Print\-Sample@{Print\-Sample}!bayonet::RejectionSampler@{bayonet\-::\-Rejection\-Sampler}}
+\subsubsection[{Print\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Rejection\-Sampler\-::\-Print\-Sample (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net, }
+\item[{unsigned int}]{cycles = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_rejection_sampler_ab68ff90b1c015d6aa2d185cacb18a74d}
+It prints the result of the sampling. It is possible to do it for different iterations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em cycles} & the number of iterations \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_rejection_sampler_a0ba74f6d5f5fd61baa968464e2e3aac5}{\index{bayonet\-::\-Rejection\-Sampler@{bayonet\-::\-Rejection\-Sampler}!Return\-Joint\-Probability\-Table@{Return\-Joint\-Probability\-Table}}
+\index{Return\-Joint\-Probability\-Table@{Return\-Joint\-Probability\-Table}!bayonet::RejectionSampler@{bayonet\-::\-Rejection\-Sampler}}
+\subsubsection[{Return\-Joint\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Joint\-Probability\-Table} bayonet\-::\-Rejection\-Sampler\-::\-Return\-Joint\-Probability\-Table (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net, }
+\item[{unsigned int}]{cycles}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_rejection_sampler_a0ba74f6d5f5fd61baa968464e2e3aac5}
+It creates a Joint Probability table starting from the Bayesian network and sampling for the number of iterations specified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em cycles} & the number of iterations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+it return a Joint Probability Table object 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_rejection_sampler_a1f2c685367f549965dcafd9c1b77ab1e}{\index{bayonet\-::\-Rejection\-Sampler@{bayonet\-::\-Rejection\-Sampler}!Return\-Sample@{Return\-Sample}}
+\index{Return\-Sample@{Return\-Sample}!bayonet::RejectionSampler@{bayonet\-::\-Rejection\-Sampler}}
+\subsubsection[{Return\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ unsigned int $>$ bayonet\-::\-Rejection\-Sampler\-::\-Return\-Sample (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_rejection_sampler_a1f2c685367f549965dcafd9c1b77ab1e}
+It returns a single sample picking up it from the Bayesian network
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-include/Sampler.\-h\item 
-src/Sampler.\-cpp\end{DoxyCompactItemize}
+include/Rejection\-Sampler.\-h\item 
+src/Rejection\-Sampler.\-cpp\end{DoxyCompactItemize}

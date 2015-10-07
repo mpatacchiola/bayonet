@@ -65,8 +65,9 @@ class Bayesnode {
   bool IsInAdjacencyList(unsigned int);
   unsigned int SizeOfAdjacencyList();
 
-  bool SetAsEvidence(unsigned int evidenceState);
-  int IsEvidence();
+  bool SetEvidence(unsigned int evidenceState);
+  unsigned int GetEvidence();
+  bool IsEvidence();
 
 
  private:

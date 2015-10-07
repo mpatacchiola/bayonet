@@ -17,29 +17,55 @@
  *
 */
 
-#include <iostream>
-#include <random>
-#include"Sampler.h"
-#include <list>
+#ifndef REJECTIONSAMPLER_H
+#define REJECTIONSAMPLER_H
+
+#include <initializer_list>
+#include <map>
+#include<vector>
+#include <memory>
+#include"Bayesnet.h"
+#include"JointProbabilityTable.h"
 
 namespace bayonet{
 
-RejectionSampler::RejectionSampler(){}
 
-RejectionSampler::~RejectionSampler(){}
+/** \class RejectionSampler
+*   \brief
+*
+*  
+**/
+class RejectionSampler {
 
-std::vector<unsigned int> RejectionSampler::ReturnSample(Bayesnet){
+public:
+RejectionSampler();
+~RejectionSampler();
+std::vector<unsigned int> ReturnSample(bayonet::Bayesnet& net);
+std::vector<std::vector<unsigned int>> AccumulateSamples(Bayesnet&, unsigned int cycles);
+std::vector<std::vector<unsigned int>> AccumulateAndDiscardSamples(Bayesnet&, unsigned int cycles);
+void PrintSample(bayonet::Bayesnet& net, unsigned int cycles = 1);
+JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles);
+
+
+private:
+
+};
+
 
 
 }
 
-std::vector<std::vector<unsigned int>> RejectionSampler::AccumulateSamples(Bayesnet net, unsigned int cycles){
+#endif // REJECTIONSAMPLER_H
 
 
 
 
-}
 
 
 
-} //namespace
+
+
+
+
+
+

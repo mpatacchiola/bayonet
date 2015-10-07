@@ -139,21 +139,6 @@ bool Bayesnode::RemoveFromAdjacencyList(unsigned int index){
  return result;
 }
 
-/**
-* A node is an evidence when is outcome state is given.
-*
-* @param evidenceState the state to set as evidence.
-* @return it returns true if the state was correctly set.
-* 
-**/
-bool Bayesnode::SetAsEvidence(unsigned int evidenceState){
- if(evidenceState < ReturnNumberOfStates()){
-  mEvidence = evidenceState;
-  return true;
- }else{
-  return false;
- }
-}
 
 /**
 * It returns a const reference to the internal adjacency list.
@@ -196,7 +181,34 @@ unsigned int Bayesnode::SizeOfAdjacencyList(){
 * @return it returns -1 if the node is not an evidence.
 * Otherwise it return the state sets as evidence.
 **/
-int Bayesnode::IsEvidence(){
+bool Bayesnode::IsEvidence(){
+ if(mEvidence == -1) return false;
+ else return true;
+}
+
+/**
+* A node is an evidence when is outcome state is given.
+*
+* @param evidenceState the state to set as evidence.
+* @return it returns true if the state was correctly set.
+* 
+**/
+bool Bayesnode::SetEvidence(unsigned int evidenceState){
+ if(evidenceState < ReturnNumberOfStates()){
+  mEvidence = evidenceState;
+  return true;
+ }else{
+  return false;
+ }
+}
+
+/**
+* It returns the evidence. If the node is not an evidence node it returns -1
+*
+* @return it returns true if the state was correctly set.
+* 
+**/
+unsigned int Bayesnode::GetEvidence(){
  return mEvidence;
 }
 
