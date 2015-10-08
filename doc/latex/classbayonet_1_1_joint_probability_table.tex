@@ -27,15 +27,22 @@ double \hyperlink{classbayonet_1_1_joint_probability_table_a6b43b8414444f81a8013
 \item 
 bool \hyperlink{classbayonet_1_1_joint_probability_table_a69554f2b857ee778d2d2aff7cefa0d1e}{Set\-Probability} (std\-::vector$<$ unsigned int $>$ variables\-States\-Vector, double probability)
 \item 
+\hypertarget{classbayonet_1_1_joint_probability_table_a1968a96a22b64477b05f1118a6f8ac32}{bool {\bfseries Add\-To\-Probability} (std\-::vector$<$ unsigned int $>$ variables\-States\-Vector, double value\-To\-Add)}\label{classbayonet_1_1_joint_probability_table_a1968a96a22b64477b05f1118a6f8ac32}
+
+\item 
 void \hyperlink{classbayonet_1_1_joint_probability_table_ade691120f2a61325b94a7f9e85dd21f8}{Print} ()
 \item 
 void \hyperlink{classbayonet_1_1_joint_probability_table_ac52835cb75b2d635b51843abf58311a9}{Print\-Probability} (std\-::vector$<$ unsigned int $>$ variables\-States\-Vector)
 \item 
 void \hyperlink{classbayonet_1_1_joint_probability_table_a73e7e3843c63192e37d11bd9916f0587}{Print\-Marginals} ()
 \item 
+void \hyperlink{classbayonet_1_1_joint_probability_table_ada1f39508ba6a128d9f0405efe1257a7}{Print\-Marginal} (unsigned int variable\-Index)
+\item 
 void \hyperlink{classbayonet_1_1_joint_probability_table_aa244b70256292fd00f8cd7bf1e8e7ed1}{Normalize\-Probabilities} ()
 \item 
 void \hyperlink{classbayonet_1_1_joint_probability_table_a91133b2cf610076459a641b458c898cd}{Randomize\-Probabilities} ()
+\item 
+void \hyperlink{classbayonet_1_1_joint_probability_table_a1d099395c21a1ec57df4ffbaa1b85484}{Reset\-Probabilities} ()
 \item 
 void \hyperlink{classbayonet_1_1_joint_probability_table_a34def84ddda0e58303d552055057b884}{Add\-Variable} (unsigned int tot\-States)
 \item 
@@ -135,7 +142,14 @@ It normalize the probabilities inside each row of the table. \hypertarget{classb
 {}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_joint_probability_table_ade691120f2a61325b94a7f9e85dd21f8}
-It prints the conditional table on the terminal. If the number of columns and rows is huge, the terminal could cut parts of the output. \hypertarget{classbayonet_1_1_joint_probability_table_a73e7e3843c63192e37d11bd9916f0587}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Print\-Marginals@{Print\-Marginals}}
+It prints the conditional table on the terminal. If the number of columns and rows is huge, the terminal could cut parts of the output. \hypertarget{classbayonet_1_1_joint_probability_table_ada1f39508ba6a128d9f0405efe1257a7}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Print\-Marginal@{Print\-Marginal}}
+\index{Print\-Marginal@{Print\-Marginal}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Print\-Marginal}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Print\-Marginal (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{variable\-Index}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_ada1f39508ba6a128d9f0405efe1257a7}
+It prints the marginal probabilities associated with a specific variable. If the number of columns is huge, the terminal could cut parts of the output. \hypertarget{classbayonet_1_1_joint_probability_table_a73e7e3843c63192e37d11bd9916f0587}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Print\-Marginals@{Print\-Marginals}}
 \index{Print\-Marginals@{Print\-Marginals}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
 \subsubsection[{Print\-Marginals}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Print\-Marginals (
 \begin{DoxyParamCaption}
@@ -156,7 +170,14 @@ It prints the probabilities associated with a particular set of parents. If the 
 {}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_joint_probability_table_a91133b2cf610076459a641b458c898cd}
-It randomize the probabilities inside each row of the table. The probabilities are also normalized. \hypertarget{classbayonet_1_1_joint_probability_table_a0bcd0ebffb4d8fd6403759c55de62f9b}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Return\-Key@{Return\-Key}}
+It randomize the probabilities inside each row of the table. The probabilities are also normalized. \hypertarget{classbayonet_1_1_joint_probability_table_a1d099395c21a1ec57df4ffbaa1b85484}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Reset\-Probabilities@{Reset\-Probabilities}}
+\index{Reset\-Probabilities@{Reset\-Probabilities}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
+\subsubsection[{Reset\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Joint\-Probability\-Table\-::\-Reset\-Probabilities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_joint_probability_table_a1d099395c21a1ec57df4ffbaa1b85484}
+It reset the probabilities inside each row of the table. Each value is set to zero. \hypertarget{classbayonet_1_1_joint_probability_table_a0bcd0ebffb4d8fd6403759c55de62f9b}{\index{bayonet\-::\-Joint\-Probability\-Table@{bayonet\-::\-Joint\-Probability\-Table}!Return\-Key@{Return\-Key}}
 \index{Return\-Key@{Return\-Key}!bayonet::JointProbabilityTable@{bayonet\-::\-Joint\-Probability\-Table}}
 \subsubsection[{Return\-Key}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ unsigned int $>$ bayonet\-::\-Joint\-Probability\-Table\-::\-Return\-Key (
 \begin{DoxyParamCaption}

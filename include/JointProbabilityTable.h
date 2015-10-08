@@ -44,12 +44,15 @@ class JointProbabilityTable {
   std::vector<unsigned int> ReturnKey(unsigned int index);
   double GetProbability(std::vector<unsigned int> variablesStatesVector);
   bool SetProbability(std::vector<unsigned int> variablesStatesVector, double probability);
+  bool AddToProbability(std::vector<unsigned int> variablesStatesVector, double valueToAdd);
   void Print();
   void PrintProbability(std::vector<unsigned int> variablesStatesVector);
   void PrintMarginals();
+  void PrintMarginal(unsigned int variableIndex);
 
   void NormalizeProbabilities();
   void RandomizeProbabilities();
+  void ResetProbabilities();
 
   void AddVariable(unsigned int totStates);
   void Clear();

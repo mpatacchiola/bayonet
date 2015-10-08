@@ -114,16 +114,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6b43b8414444f81a8013d34837d191af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69554f2b857ee778d2d2aff7cefa0d1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a69554f2b857ee778d2d2aff7cefa0d1e">SetProbability</a> (std::vector&lt; unsigned int &gt; variablesStatesVector, double probability)</td></tr>
 <tr class="separator:a69554f2b857ee778d2d2aff7cefa0d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1968a96a22b64477b05f1118a6f8ac32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1968a96a22b64477b05f1118a6f8ac32"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>AddToProbability</b> (std::vector&lt; unsigned int &gt; variablesStatesVector, double valueToAdd)</td></tr>
+<tr class="separator:a1968a96a22b64477b05f1118a6f8ac32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade691120f2a61325b94a7f9e85dd21f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#ade691120f2a61325b94a7f9e85dd21f8">Print</a> ()</td></tr>
 <tr class="separator:ade691120f2a61325b94a7f9e85dd21f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac52835cb75b2d635b51843abf58311a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#ac52835cb75b2d635b51843abf58311a9">PrintProbability</a> (std::vector&lt; unsigned int &gt; variablesStatesVector)</td></tr>
 <tr class="separator:ac52835cb75b2d635b51843abf58311a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73e7e3843c63192e37d11bd9916f0587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a73e7e3843c63192e37d11bd9916f0587">PrintMarginals</a> ()</td></tr>
 <tr class="separator:a73e7e3843c63192e37d11bd9916f0587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1f39508ba6a128d9f0405efe1257a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#ada1f39508ba6a128d9f0405efe1257a7">PrintMarginal</a> (unsigned int variableIndex)</td></tr>
+<tr class="separator:ada1f39508ba6a128d9f0405efe1257a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa244b70256292fd00f8cd7bf1e8e7ed1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#aa244b70256292fd00f8cd7bf1e8e7ed1">NormalizeProbabilities</a> ()</td></tr>
 <tr class="separator:aa244b70256292fd00f8cd7bf1e8e7ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91133b2cf610076459a641b458c898cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a91133b2cf610076459a641b458c898cd">RandomizeProbabilities</a> ()</td></tr>
 <tr class="separator:a91133b2cf610076459a641b458c898cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d099395c21a1ec57df4ffbaa1b85484"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a1d099395c21a1ec57df4ffbaa1b85484">ResetProbabilities</a> ()</td></tr>
+<tr class="separator:a1d099395c21a1ec57df4ffbaa1b85484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34def84ddda0e58303d552055057b884"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a34def84ddda0e58303d552055057b884">AddVariable</a> (unsigned int totStates)</td></tr>
 <tr class="separator:a34def84ddda0e58303d552055057b884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61a82adc62427272e5aa84ace3fc15a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_joint_probability_table.html#a61a82adc62427272e5aa84ace3fc15a6">Clear</a> ()</td></tr>
@@ -289,6 +296,23 @@ const std::map&lt; std::vector<br class="typebreak"/>
 
 </div>
 </div>
+<a class="anchor" id="ada1f39508ba6a128d9f0405efe1257a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::JointProbabilityTable::PrintMarginal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>variableIndex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It prints the marginal probabilities associated with a specific variable. If the number of columns is huge, the terminal could cut parts of the output. </p>
+
+</div>
+</div>
 <a class="anchor" id="a73e7e3843c63192e37d11bd9916f0587"></a>
 <div class="memitem">
 <div class="memproto">
@@ -335,6 +359,22 @@ const std::map&lt; std::vector<br class="typebreak"/>
       </table>
 </div><div class="memdoc">
 <p>It randomize the probabilities inside each row of the table. The probabilities are also normalized. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1d099395c21a1ec57df4ffbaa1b85484"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::JointProbabilityTable::ResetProbabilities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It reset the probabilities inside each row of the table. Each value is set to zero. </p>
 
 </div>
 </div>
@@ -452,7 +492,7 @@ const std::map&lt; std::vector<br class="typebreak"/>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 7 2015 18:10:24 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 8 2015 16:52:21 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -4,6 +4,7 @@ var searchData=
   ['removeedge',['RemoveEdge',['../classbayonet_1_1_bayesnet.html#a0ea810411a987ebeb97b580053ce7c7f',1,'bayonet::Bayesnet']]],
   ['removefromadjacencylist',['RemoveFromAdjacencyList',['../classbayonet_1_1_bayesnode.html#a96768ee5d89848d3275c7d916faad480',1,'bayonet::Bayesnode']]],
   ['resetallcolours',['ResetAllColours',['../classbayonet_1_1_bayesnet.html#a2a934ac59da3a02720c40515b6b599e7',1,'bayonet::Bayesnet']]],
+  ['resetprobabilities',['ResetProbabilities',['../classbayonet_1_1_joint_probability_table.html#a1d099395c21a1ec57df4ffbaa1b85484',1,'bayonet::JointProbabilityTable']]],
   ['returnadjacencylist',['ReturnAdjacencyList',['../classbayonet_1_1_bayesnode.html#ad20de796507c48523bcf49fffdc7b3d5',1,'bayonet::Bayesnode']]],
   ['returncolumnsnumber',['ReturnColumnsNumber',['../classbayonet_1_1_conditional_probability_table.html#a2fef41dbe55cbccc82b3921d4d471c1d',1,'bayonet::ConditionalProbabilityTable']]],
   ['returninedges',['ReturnInEdges',['../classbayonet_1_1_bayesnet.html#a5621b949d8fda17ae0efd9810655b1b3',1,'bayonet::Bayesnet']]],

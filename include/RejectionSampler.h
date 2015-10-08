@@ -31,9 +31,12 @@ namespace bayonet{
 
 
 /** \class RejectionSampler
-*   \brief
+*   \brief This object is used for sampling a Bayesian network and make inference.
 *
 *  
+* The rejection sampling generates outcome for each node and discard all the outcomes
+* that do not contain the evidence. It is considered a brute-force method and it is
+* not recommended for large network with many states because a lot of samples get rejected.
 **/
 class RejectionSampler {
 

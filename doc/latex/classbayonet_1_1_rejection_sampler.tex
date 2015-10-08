@@ -1,6 +1,15 @@
 \hypertarget{classbayonet_1_1_rejection_sampler}{\section{bayonet\-:\-:Rejection\-Sampler Class Reference}
 \label{classbayonet_1_1_rejection_sampler}\index{bayonet\-::\-Rejection\-Sampler@{bayonet\-::\-Rejection\-Sampler}}
 }
+
+
+This object is used for sampling a Bayesian network and make inference.  
+
+
+
+
+{\ttfamily \#include $<$Rejection\-Sampler.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -17,6 +26,11 @@ void \hyperlink{classbayonet_1_1_rejection_sampler_ab68ff90b1c015d6aa2d185cacb18
 \hyperlink{classbayonet_1_1_joint_probability_table}{Joint\-Probability\-Table} \hyperlink{classbayonet_1_1_rejection_sampler_a0ba74f6d5f5fd61baa968464e2e3aac5}{Return\-Joint\-Probability\-Table} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, unsigned int cycles)
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+This object is used for sampling a Bayesian network and make inference. 
+
+The rejection sampling generates outcome for each node and discard all the outcomes that do not contain the evidence. It is considered a brute-\/force method and it is not recommended for large network with many states because a lot of samples get rejected. 
 
 \subsection{Member Function Documentation}
 \hypertarget{classbayonet_1_1_rejection_sampler_ab63d7fa72ea2f9e8dfcd5f873d257df4}{\index{bayonet\-::\-Rejection\-Sampler@{bayonet\-::\-Rejection\-Sampler}!Accumulate\-And\-Discard\-Samples@{Accumulate\-And\-Discard\-Samples}}

@@ -109,6 +109,15 @@ bool JointProbabilityTable::SetProbability(std::vector<unsigned int> variablesTo
  }
 }
 
+bool JointProbabilityTable::AddToProbability(std::vector<unsigned int> variablesStatesVector, double valueToAdd){
+ if(mJointMap.find(variablesStatesVector) != mJointMap.end()){
+  mJointMap[variablesStatesVector] += valueToAdd;
+  return true;
+ }else{
+  return false;
+ }
+}
+
 /**
 * It prints the conditional table on the terminal.
 * If the number of columns and rows is huge, the terminal could cut parts of the output.
@@ -173,6 +182,19 @@ void JointProbabilityTable::PrintMarginals(){
 }
 
 /**
+* It prints the marginal probabilities associated with a specific variable.
+* If the number of columns is huge, the terminal could cut parts of the output.
+*
+**/
+void JointProbabilityTable::PrintMarginal(unsigned int variableIndex){
+ unsigned int variableTotStates = mVariablesTotStatesVector[variableIndex];
+  for(unsigned int i=0; i<variableTotStates; i++){
+   double probability = ReturnMarginal(variableIndex, i);
+   std::cout << "Variable: " << variableIndex << " State: " << i << " ..... " << probability << std::endl;
+  }
+}
+
+/**
 * It normalize the probabilities inside each row of the table.
 *
 **/
@@ -214,9 +236,18 @@ void JointProbabilityTable::RandomizeProbabilities(){
  for (auto it_map=mJointMap.begin(); it_map!=mJointMap.end(); ++it_map){
   it_map->second = it_map->second / accumulator;
  }
-
 }
 
+/**
+* It reset the probabilities inside each row of the table.
+* Each value is set to zero.
+**/
+void JointProbabilityTable::ResetProbabilities(){
+ //Iterate through map for the normalization
+ for (auto it_map=mJointMap.begin(); it_map!=mJointMap.end(); ++it_map){
+  it_map->second = 0;
+ }
+}
 
 /**
 * It add a new variable to the table.

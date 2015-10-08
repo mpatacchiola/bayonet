@@ -213,28 +213,24 @@ for (unsigned int i_cycle=0; i_cycle<cycles; i_cycle++){
 **/
 JointProbabilityTable RejectionSampler::ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles){
 
- //Init variables
- std::map<std::vector<unsigned int>, unsigned int> counter_map;
+ //0-Declare the JPT
+ JointProbabilityTable joint_table(net.ReturnTotalStates());
+
+ //1-reset JPT
+ joint_table.ResetProbabilities();
+
+ //2-Accumulate samples
  auto samples_vector = AccumulateAndDiscardSamples(net, cycles);
 
- //For creating the Joint Probability Table we need to knwo the tot states number of each node
-
- JointProbabilityTable joint_table(net.ReturnTotalStates());
- 
- //It fills the map incrementing by 1 the value associated with a key
- //the key is a specific combination of states
+ //3-Add sample to JPT
  for(auto it_sample=samples_vector.begin(); it_sample!=samples_vector.end(); ++it_sample){
-  counter_map[*it_sample] += 1;
+  joint_table.AddToProbability(*it_sample, 1);
  }
 
- //Iteration through the map for calculating the probabilities
- double norm = samples_vector.size(); //the normalization value is the number of elements inside the sample vector
- for(auto it_map=counter_map.begin(); it_map!=counter_map.end(); ++it_map){
-  std::vector<unsigned int> key_vector = it_map->first;
-  double probability = (double) it_map->second / norm;
-  joint_table.SetProbability(key_vector, probability);
- }
+ //4-Normalize JPT
+ joint_table.NormalizeProbabilities();
 
+ //5-Return JPT
  return joint_table;
 }
 
