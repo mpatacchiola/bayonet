@@ -21,14 +21,16 @@ compile:
 	g++ $(CFLAGS) -Iinclude -c ./src/ConditionalProbabilityTable.cpp -o ./bin/obj/ConditionalProbabilityTable.o
 	g++ $(CFLAGS) -Iinclude -c ./src/JointProbabilityTable.cpp -o ./bin/obj/JointProbabilityTable.o
 	g++ $(CFLAGS) -Iinclude -c ./src/RejectionSampler.cpp -o ./bin/obj/RejectionSampler.o
+	g++ $(CFLAGS) -Iinclude -c ./src/LWSampler.cpp -o ./bin/obj/LWSampler.o
+	g++ $(CFLAGS) -Iinclude -c ./src/GibbsSampler.cpp -o ./bin/obj/GibbsSampler.o
 
 	@echo
 	@echo "=== Starting creation of Shared Library ==="
-	g++ -fPIC -shared -Wl,-soname,libbayonet.so.1 -o ./bin/lib/libbayonet.so.1.0 ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o
+	g++ -fPIC -shared -Wl,-soname,libbayonet.so.1 -o ./bin/lib/libbayonet.so.1.0 ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o
 
 	@echo
 	@echo "=== Creating the Static Library ==="
-	ar rcs ./bin/lib/libbayonet.a ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o
+	ar rcs ./bin/lib/libbayonet.a ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o
 
 install:
 
@@ -44,7 +46,7 @@ install:
 	ln -sf /usr/local/lib/libbayonet.so.1.0 /usr/local/lib/libbayonet.so.1
 
 remove:
-	rm ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o
+	rm ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o
 	rm ./bin/lib/libbayonet.so.1.0  
 	rm /usr/local/lib/libbayonet.so /usr/local/lib/libbayonet.so.1
 	rm /usr/local/lib/libbayonet.a ./bin/lib/libbayonet.a

@@ -115,7 +115,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classbayonet_1_1_rejection_sampler.html#ab63d7fa72ea2f9e8dfcd5f873d257df4">bayonet::RejectionSampler</a>
 </li>
 <li>AccumulateSamples()
-: <a class="el" href="classbayonet_1_1_rejection_sampler.html#aa5d0525c10cba1a99fba9e4233d8ac30">bayonet::RejectionSampler</a>
+: <a class="el" href="classbayonet_1_1_gibbs_sampler.html#a625b16c10dc1d4fea3899fd5a0b3c921">bayonet::GibbsSampler</a>
+, <a class="el" href="classbayonet_1_1_l_w_sampler.html#abd25d8f7eb12dd345dbfc8984cadcdbf">bayonet::LWSampler</a>
+, <a class="el" href="classbayonet_1_1_rejection_sampler.html#aa5d0525c10cba1a99fba9e4233d8ac30">bayonet::RejectionSampler</a>
 </li>
 <li>AddEdge()
 : <a class="el" href="classbayonet_1_1_bayesnet.html#aba354bf67d39dc73e070e63b9bc45ecd">bayonet::Bayesnet</a>
@@ -224,7 +226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>NormalizeProbabilities()
 : <a class="el" href="classbayonet_1_1_conditional_probability_table.html#a600256d28edeef688ab4cdf38794acc3">bayonet::ConditionalProbabilityTable</a>
-, <a class="el" href="classbayonet_1_1_joint_probability_table.html#aa244b70256292fd00f8cd7bf1e8e7ed1">bayonet::JointProbabilityTable</a>
+, <a class="el" href="classbayonet_1_1_joint_probability_table.html#a7f89dc909bd3fc68ba0859ce4b6f130c">bayonet::JointProbabilityTable</a>
 </li>
 </ul>
 
@@ -254,7 +256,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classbayonet_1_1_joint_probability_table.html#ac52835cb75b2d635b51843abf58311a9">bayonet::JointProbabilityTable</a>
 </li>
 <li>PrintSample()
-: <a class="el" href="classbayonet_1_1_rejection_sampler.html#ab68ff90b1c015d6aa2d185cacb18a74d">bayonet::RejectionSampler</a>
+: <a class="el" href="classbayonet_1_1_gibbs_sampler.html#af375d044a2e0c45a384f37ee4761a2ba">bayonet::GibbsSampler</a>
+, <a class="el" href="classbayonet_1_1_l_w_sampler.html#a010eacc55fbbb462f50b7ab6b292056f">bayonet::LWSampler</a>
+, <a class="el" href="classbayonet_1_1_rejection_sampler.html#ab68ff90b1c015d6aa2d185cacb18a74d">bayonet::RejectionSampler</a>
 </li>
 </ul>
 
@@ -282,11 +286,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>ReturnColumnsNumber()
 : <a class="el" href="classbayonet_1_1_conditional_probability_table.html#a2fef41dbe55cbccc82b3921d4d471c1d">bayonet::ConditionalProbabilityTable</a>
 </li>
+<li>ReturnEvidenceNodes()
+: <a class="el" href="classbayonet_1_1_bayesnet.html#a8610f2ec52297edfe6bf2151d2ce002c">bayonet::Bayesnet</a>
+</li>
 <li>ReturnInEdges()
 : <a class="el" href="classbayonet_1_1_bayesnet.html#a5621b949d8fda17ae0efd9810655b1b3">bayonet::Bayesnet</a>
 </li>
 <li>ReturnJointProbabilityTable()
-: <a class="el" href="classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5">bayonet::RejectionSampler</a>
+: <a class="el" href="classbayonet_1_1_gibbs_sampler.html#a29dfcfda3462de83fa89672768d690f4">bayonet::GibbsSampler</a>
+, <a class="el" href="classbayonet_1_1_l_w_sampler.html#af2fd4c51a13c8cc95f5eaca05941eb47">bayonet::LWSampler</a>
+, <a class="el" href="classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5">bayonet::RejectionSampler</a>
 </li>
 <li>ReturnKey()
 : <a class="el" href="classbayonet_1_1_joint_probability_table.html#a0bcd0ebffb4d8fd6403759c55de62f9b">bayonet::JointProbabilityTable</a>
@@ -296,6 +305,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>ReturnNodesVector()
 : <a class="el" href="classbayonet_1_1_bayesnet.html#ab0e31b9a2b625b5b59d3e70e3c7e4101">bayonet::Bayesnet</a>
+</li>
+<li>ReturnNotEvidenceNodes()
+: <a class="el" href="classbayonet_1_1_bayesnet.html#ac9f389cd6382946deb5b04cb6513f11e">bayonet::Bayesnet</a>
 </li>
 <li>ReturnNumberInEdges()
 : <a class="el" href="classbayonet_1_1_bayesnet.html#a7d47ce38f3882b80121f6acc351fd373">bayonet::Bayesnet</a>
@@ -321,6 +333,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>ReturnSample()
 : <a class="el" href="classbayonet_1_1_conditional_probability_table.html#a3e600c4b5247dd52a5d0e775ca898c69">bayonet::ConditionalProbabilityTable</a>
+, <a class="el" href="classbayonet_1_1_gibbs_sampler.html#ac789fc64fd349769633ab84ea5e59f70">bayonet::GibbsSampler</a>
+, <a class="el" href="classbayonet_1_1_l_w_sampler.html#a1da2655dd3332796a3293c3aac8d618d">bayonet::LWSampler</a>
 , <a class="el" href="classbayonet_1_1_rejection_sampler.html#a1f2c685367f549965dcafd9c1b77ab1e">bayonet::RejectionSampler</a>
 </li>
 <li>ReturnTopologicalList()
@@ -371,7 +385,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 8 2015 16:52:21 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 14 2015 17:56:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

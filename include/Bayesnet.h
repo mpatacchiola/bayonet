@@ -56,6 +56,8 @@ class Bayesnet{
   unsigned int ReturnNumberInEdges(unsigned int index);
   std::list<unsigned int> ReturnTopologicalList();
   std::vector<unsigned int> ReturnTotalStates();
+  std::vector<unsigned int> ReturnNotEvidenceNodes();
+  std::vector<unsigned int> ReturnEvidenceNodes();
 
   void ResetAllColours();
 

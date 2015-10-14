@@ -11,8 +11,9 @@ Bayonet is a C++ library that permits to create discrete Bayesian networks, the 
 - No external library required, Bayonet is self-contained
 - Completely open source (GNU v2.0)
 - Easy to create and manage densely connected networks
-- Deterministic inference in polytree using Pearl's message passing algorithm
-- Approximate inference in single and multi connected network using Gibbs sampling
+- Deterministic inference (Pearl's message passing)
+- Approximate inference through sampling
+- Different sampling methods: Rejection, Likelihood-Weighting, Gibbs
 - Learning the network parameters
 - Topological sorting, Depth-First and Breadth-First Searching
 

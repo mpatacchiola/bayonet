@@ -50,7 +50,7 @@ class JointProbabilityTable {
   void PrintMarginals();
   void PrintMarginal(unsigned int variableIndex);
 
-  void NormalizeProbabilities();
+  void NormalizeProbabilities(double alpha=0);
   void RandomizeProbabilities();
   void ResetProbabilities();
 

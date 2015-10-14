@@ -198,17 +198,22 @@ void JointProbabilityTable::PrintMarginal(unsigned int variableIndex){
 * It normalize the probabilities inside each row of the table.
 *
 **/
-void JointProbabilityTable::NormalizeProbabilities(){
- double accumulator = 0;
+void JointProbabilityTable::NormalizeProbabilities(double alpha){
+ //double accumulator = 0;
 
- //Iterate through map content:
- for (auto it_map=mJointMap.begin(); it_map!=mJointMap.end(); ++it_map){
-    accumulator += it_map->second;
+ //If the normalizing constant is less than zero it is not possible to divide
+ //then it will be find thorugh iteration
+ if(alpha <= 0){
+  alpha = 0;
+  //Iterate through map content:
+  for (auto it_map=mJointMap.begin(); it_map!=mJointMap.end(); ++it_map){
+    alpha += it_map->second;
+  }
  }
 
  //Iterate through map content for the normalization
  for (auto it_map=mJointMap.begin(); it_map!=mJointMap.end(); ++it_map){
-    it_map->second = it_map->second / accumulator;
+    it_map->second = it_map->second / alpha;
  }
 }
 

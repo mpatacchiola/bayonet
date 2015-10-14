@@ -129,6 +129,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3e8e924c33186e72bfa7d8ace1c211e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af05513604bc2273f64abd7e685d1d636"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#af05513604bc2273f64abd7e685d1d636">ReturnTotalStates</a> ()</td></tr>
 <tr class="separator:af05513604bc2273f64abd7e685d1d636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f389cd6382946deb5b04cb6513f11e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#ac9f389cd6382946deb5b04cb6513f11e">ReturnNotEvidenceNodes</a> ()</td></tr>
+<tr class="separator:ac9f389cd6382946deb5b04cb6513f11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8610f2ec52297edfe6bf2151d2ce002c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a8610f2ec52297edfe6bf2151d2ce002c">ReturnEvidenceNodes</a> ()</td></tr>
+<tr class="separator:a8610f2ec52297edfe6bf2151d2ce002c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a934ac59da3a02720c40515b6b599e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a2a934ac59da3a02720c40515b6b599e7">ResetAllColours</a> ()</td></tr>
 <tr class="separator:a2a934ac59da3a02720c40515b6b599e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5877478cf225ed47f43df29cc087c5d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a5877478cf225ed47f43df29cc087c5d6">IsRoot</a> (unsigned int)</td></tr>
@@ -456,6 +460,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a8610f2ec52297edfe6bf2151d2ce002c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; bayonet::Bayesnet::ReturnEvidenceNodes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns a list containing the index to the nodes which are Evidence nodes.</p>
+<dl class="section return"><dt>Returns</dt><dd>it returns the list of evidence node </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a5621b949d8fda17ae0efd9810655b1b3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -487,6 +508,23 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>It return a const reference to the internal vector used to store the nodes.</p>
 <dl class="section return"><dt>Returns</dt><dd>it returns a const reference </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac9f389cd6382946deb5b04cb6513f11e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; bayonet::Bayesnet::ReturnNotEvidenceNodes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns a list containing the index to the nodes which are not Evidence nodes.</p>
+<dl class="section return"><dt>Returns</dt><dd>it returns the list of not evidence node </dd></dl>
 
 </div>
 </div>
@@ -614,7 +652,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 8 2015 16:52:21 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 14 2015 17:56:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

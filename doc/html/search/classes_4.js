@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rejectionsampler',['RejectionSampler',['../classbayonet_1_1_rejection_sampler.html',1,'bayonet']]]
+  ['lwsampler',['LWSampler',['../classbayonet_1_1_l_w_sampler.html',1,'bayonet']]]
 ];

@@ -62,7 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -93,40 +92,162 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">bayonet::GibbsSampler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for bayonet::GibbsSampler:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classbayonet_1_1_gibbs_sampler.png" usemap="#bayonet::GibbsSampler_map" alt=""/>
-  <map id="bayonet::GibbsSampler_map" name="bayonet::GibbsSampler_map">
-<area href="classbayonet_1_1_sampler.html" title="A generic class that cannot be used for real. It is a framework for derived classes. " alt="bayonet::Sampler" shape="rect" coords="0,0,141,24"/>
-</map>
- </div></div>
+
+<p>Implementation of the Gibbs sampler.  
+ <a href="classbayonet_1_1_gibbs_sampler.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_gibbs_sampler_8h_source.html">GibbsSampler.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8b35908dc647c1e058c4155d24c26bf7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b35908dc647c1e058c4155d24c26bf7"></a>
-std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReturnSample</b> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>)</td></tr>
-<tr class="separator:a8b35908dc647c1e058c4155d24c26bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a702c92aa472e6a134fd728123a78f24b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a702c92aa472e6a134fd728123a78f24b"></a>
-std::vector&lt; std::vector<br class="typebreak"/>
-&lt; unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>AccumulateSamples</b> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>, unsigned int cycles)</td></tr>
-<tr class="separator:a702c92aa472e6a134fd728123a78f24b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_classbayonet_1_1_sampler"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classbayonet_1_1_sampler')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classbayonet_1_1_sampler.html">bayonet::Sampler</a></td></tr>
-<tr class="memitem:a87272da95dcc8028a13384931eda0d81 inherit pro_attribs_classbayonet_1_1_sampler"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87272da95dcc8028a13384931eda0d81"></a>
-std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mSampleVector</b></td></tr>
-<tr class="separator:a87272da95dcc8028a13384931eda0d81 inherit pro_attribs_classbayonet_1_1_sampler"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac789fc64fd349769633ab84ea5e59f70"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_gibbs_sampler.html#ac789fc64fd349769633ab84ea5e59f70">ReturnSample</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net)</td></tr>
+<tr class="separator:ac789fc64fd349769633ab84ea5e59f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625b16c10dc1d4fea3899fd5a0b3c921"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_gibbs_sampler.html#a625b16c10dc1d4fea3899fd5a0b3c921">AccumulateSamples</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;net, unsigned int cycles)</td></tr>
+<tr class="separator:a625b16c10dc1d4fea3899fd5a0b3c921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af375d044a2e0c45a384f37ee4761a2ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_gibbs_sampler.html#af375d044a2e0c45a384f37ee4761a2ba">PrintSample</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, unsigned int cycles=1)</td></tr>
+<tr class="separator:af375d044a2e0c45a384f37ee4761a2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29dfcfda3462de83fa89672768d690f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_gibbs_sampler.html#a29dfcfda3462de83fa89672768d690f4">ReturnJointProbabilityTable</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, unsigned int cycles)</td></tr>
+<tr class="separator:a29dfcfda3462de83fa89672768d690f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="_sampler_8h_source.html">Sampler.h</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of the Gibbs sampler. </p>
+<p>The Gibbs sampler is part of the Markov Chain Monte Carlo (MCMC) methods. These family of methods work differently from rejection and LW sampling. Each sample is generated by making a random change to the preceding one. The algorithm starts with a random state where only the evidence variables are fixed at their observed values. After the initialization, the sampling is done conditioned on the current values of the variables in the Markov blanket of the node. The algorithm then continue moving at random, flipping one variable at a time but leaving the evidences unchanged. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a625b16c10dc1d4fea3899fd5a0b3c921"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; bayonet::GibbsSampler::AccumulateSamples </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cycles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This method is different from the same methods in the other samplers. A Markov chain is used for picking up samples in</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af375d044a2e0c45a384f37ee4761a2ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::GibbsSampler::PrintSample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cycles</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It prints the result of the sampling. It is possible to do it for different iterations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a29dfcfda3462de83fa89672768d690f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> bayonet::GibbsSampler::ReturnJointProbabilityTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cycles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It creates a Joint Probability table starting from the Bayesian network and sampling for the number of iterations specified.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>it return a Joint Probability Table object </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac789fc64fd349769633ab84ea5e59f70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; bayonet::GibbsSampler::ReturnSample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns a single sample picking up it from the Bayesian network</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>include/<a class="el" href="_gibbs_sampler_8h_source.html">GibbsSampler.h</a></li>
+<li>src/GibbsSampler.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 1 2015 17:45:23 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 14 2015 17:56:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

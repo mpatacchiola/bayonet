@@ -41,6 +41,10 @@ std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_a3e8e924c33
 \item 
 std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_af05513604bc2273f64abd7e685d1d636}{Return\-Total\-States} ()
 \item 
+std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_ac9f389cd6382946deb5b04cb6513f11e}{Return\-Not\-Evidence\-Nodes} ()
+\item 
+std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_a8610f2ec52297edfe6bf2151d2ce002c}{Return\-Evidence\-Nodes} ()
+\item 
 void \hyperlink{classbayonet_1_1_bayesnet_a2a934ac59da3a02720c40515b6b599e7}{Reset\-All\-Colours} ()
 \item 
 bool \hyperlink{classbayonet_1_1_bayesnet_a5877478cf225ed47f43df29cc087c5d6}{Is\-Root} (unsigned int)
@@ -244,7 +248,19 @@ It removes an Edge between two nodes.
 {}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnet_a2a934ac59da3a02720c40515b6b599e7}
-Reset all the nodes colours to white. \hypertarget{classbayonet_1_1_bayesnet_a5621b949d8fda17ae0efd9810655b1b3}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-In\-Edges@{Return\-In\-Edges}}
+Reset all the nodes colours to white. \hypertarget{classbayonet_1_1_bayesnet_a8610f2ec52297edfe6bf2151d2ce002c}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Evidence\-Nodes@{Return\-Evidence\-Nodes}}
+\index{Return\-Evidence\-Nodes@{Return\-Evidence\-Nodes}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Return\-Evidence\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ unsigned int $>$ bayonet\-::\-Bayesnet\-::\-Return\-Evidence\-Nodes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_a8610f2ec52297edfe6bf2151d2ce002c}
+It returns a list containing the index to the nodes which are Evidence nodes.
+
+\begin{DoxyReturn}{Returns}
+it returns the list of evidence node 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnet_a5621b949d8fda17ae0efd9810655b1b3}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-In\-Edges@{Return\-In\-Edges}}
 \index{Return\-In\-Edges@{Return\-In\-Edges}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-In\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ unsigned int $>$ bayonet\-::\-Bayesnet\-::\-Return\-In\-Edges (
 \begin{DoxyParamCaption}
@@ -262,6 +278,18 @@ It return a const reference to the internal vector used to store the nodes.
 
 \begin{DoxyReturn}{Returns}
 it returns a const reference 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnet_ac9f389cd6382946deb5b04cb6513f11e}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Not\-Evidence\-Nodes@{Return\-Not\-Evidence\-Nodes}}
+\index{Return\-Not\-Evidence\-Nodes@{Return\-Not\-Evidence\-Nodes}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Return\-Not\-Evidence\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ unsigned int $>$ bayonet\-::\-Bayesnet\-::\-Return\-Not\-Evidence\-Nodes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_ac9f389cd6382946deb5b04cb6513f11e}
+It returns a list containing the index to the nodes which are not Evidence nodes.
+
+\begin{DoxyReturn}{Returns}
+it returns the list of not evidence node 
 \end{DoxyReturn}
 \hypertarget{classbayonet_1_1_bayesnet_a7d47ce38f3882b80121f6acc351fd373}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-In\-Edges@{Return\-Number\-In\-Edges}}
 \index{Return\-Number\-In\-Edges@{Return\-Number\-In\-Edges}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}

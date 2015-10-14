@@ -216,6 +216,36 @@ std::vector<unsigned int> Bayesnet::ReturnTotalStates(){
 }
 
 /**
+* It returns a list containing the index to the nodes which are not Evidence nodes.
+* 
+* @return it returns the list of not evidence node
+**/
+std::vector<unsigned int> Bayesnet::ReturnNotEvidenceNodes(){
+ std::vector<unsigned int> list_to_return;
+ unsigned int counter = 0;
+ for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
+  if((*it_node)->IsEvidence() == false) list_to_return.push_back( counter );
+  counter++;
+ }
+ return list_to_return;
+}
+
+/**
+* It returns a list containing the index to the nodes which are Evidence nodes.
+* 
+* @return it returns the list of evidence node
+**/
+std::vector<unsigned int> Bayesnet::ReturnEvidenceNodes(){
+ std::vector<unsigned int> list_to_return;
+ unsigned int counter = 0;
+ for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
+  if((*it_node)->IsEvidence() == true) list_to_return.push_back( counter );
+  counter++;
+ }
+ return list_to_return;
+}
+
+/**
 * A root node is a node without parents but with children.
 * 
 * @return it returns true if the node is a root node.

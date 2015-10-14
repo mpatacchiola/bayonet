@@ -1,0 +1,108 @@
+\hypertarget{classbayonet_1_1_l_w_sampler}{\section{bayonet\-:\-:L\-W\-Sampler Class Reference}
+\label{classbayonet_1_1_l_w_sampler}\index{bayonet\-::\-L\-W\-Sampler@{bayonet\-::\-L\-W\-Sampler}}
+}
+
+
+Implementation of the Likelihood-\/\-Weighted sampler.  
+
+
+
+
+{\ttfamily \#include $<$L\-W\-Sampler.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::pair$<$ std\-::vector\\*
+$<$ unsigned int $>$, double $>$ \hyperlink{classbayonet_1_1_l_w_sampler_a1da2655dd3332796a3293c3aac8d618d}{Return\-Sample} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net)
+\item 
+std\-::vector$<$ std\-::pair\\*
+$<$ std\-::vector$<$ unsigned int $>$\\*
+, double $>$ $>$ \hyperlink{classbayonet_1_1_l_w_sampler_abd25d8f7eb12dd345dbfc8984cadcdbf}{Accumulate\-Samples} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet} \&, unsigned int cycles)
+\item 
+void \hyperlink{classbayonet_1_1_l_w_sampler_a010eacc55fbbb462f50b7ab6b292056f}{Print\-Sample} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, unsigned int cycles=1)
+\item 
+\hyperlink{classbayonet_1_1_joint_probability_table}{Joint\-Probability\-Table} \hyperlink{classbayonet_1_1_l_w_sampler_af2fd4c51a13c8cc95f5eaca05941eb47}{Return\-Joint\-Probability\-Table} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, unsigned int cycles)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of the Likelihood-\/\-Weighted sampler. 
+
+Using a rejection sampler with high dimensional random variables is problematic because many samples get lost. In this case a Likelihood-\/\-Weighted sampler is more efficient. The samples are \char`\"{}forced\char`\"{} to assume the appropriate value according to the inference. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_l_w_sampler_abd25d8f7eb12dd345dbfc8984cadcdbf}{\index{bayonet\-::\-L\-W\-Sampler@{bayonet\-::\-L\-W\-Sampler}!Accumulate\-Samples@{Accumulate\-Samples}}
+\index{Accumulate\-Samples@{Accumulate\-Samples}!bayonet::LWSampler@{bayonet\-::\-L\-W\-Sampler}}
+\subsubsection[{Accumulate\-Samples}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::pair$<$ std\-::vector$<$ unsigned int $>$, double $>$ $>$ bayonet\-::\-L\-W\-Sampler\-::\-Accumulate\-Samples (
+\begin{DoxyParamCaption}
+\item[{{\bf Bayesnet} \&}]{net, }
+\item[{unsigned int}]{cycles}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_l_w_sampler_abd25d8f7eb12dd345dbfc8984cadcdbf}
+It accumulate samples picking up them from the Bayesian network.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em cycles} & the number of iterations \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_l_w_sampler_a010eacc55fbbb462f50b7ab6b292056f}{\index{bayonet\-::\-L\-W\-Sampler@{bayonet\-::\-L\-W\-Sampler}!Print\-Sample@{Print\-Sample}}
+\index{Print\-Sample@{Print\-Sample}!bayonet::LWSampler@{bayonet\-::\-L\-W\-Sampler}}
+\subsubsection[{Print\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-L\-W\-Sampler\-::\-Print\-Sample (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net, }
+\item[{unsigned int}]{cycles = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_l_w_sampler_a010eacc55fbbb462f50b7ab6b292056f}
+It prints the result of the sampling. It is possible to do it for different iterations. The format used is the following \-: I\-N\-D\-E\-X ..... S\-A\-M\-P\-L\-E ..... W\-E\-I\-G\-H\-T
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em cycles} & the number of iterations \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_l_w_sampler_af2fd4c51a13c8cc95f5eaca05941eb47}{\index{bayonet\-::\-L\-W\-Sampler@{bayonet\-::\-L\-W\-Sampler}!Return\-Joint\-Probability\-Table@{Return\-Joint\-Probability\-Table}}
+\index{Return\-Joint\-Probability\-Table@{Return\-Joint\-Probability\-Table}!bayonet::LWSampler@{bayonet\-::\-L\-W\-Sampler}}
+\subsubsection[{Return\-Joint\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Joint\-Probability\-Table} bayonet\-::\-L\-W\-Sampler\-::\-Return\-Joint\-Probability\-Table (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net, }
+\item[{unsigned int}]{cycles}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_l_w_sampler_af2fd4c51a13c8cc95f5eaca05941eb47}
+It creates a Joint Probability table starting from the Bayesian network and sampling for the number of iterations specified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em cycles} & the number of iterations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+it return a Joint Probability Table object 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_l_w_sampler_a1da2655dd3332796a3293c3aac8d618d}{\index{bayonet\-::\-L\-W\-Sampler@{bayonet\-::\-L\-W\-Sampler}!Return\-Sample@{Return\-Sample}}
+\index{Return\-Sample@{Return\-Sample}!bayonet::LWSampler@{bayonet\-::\-L\-W\-Sampler}}
+\subsubsection[{Return\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$ std\-::vector$<$ unsigned int $>$, double $>$ bayonet\-::\-L\-W\-Sampler\-::\-Return\-Sample (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_l_w_sampler_a1da2655dd3332796a3293c3aac8d618d}
+It returns a std\-::pair containing a single sample picked up from the Bayesian network and the relative weight.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+include/L\-W\-Sampler.\-h\item 
+src/L\-W\-Sampler.\-cpp\end{DoxyCompactItemize}
