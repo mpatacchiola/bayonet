@@ -5,7 +5,7 @@
 
 
 CC=g++
-CFLAGS=-Wall -std=c++11 -fexceptions -I/usr/local/include/bayonet
+CFLAGS=-Wall -std=c++11 -O3 -fexceptions -I/usr/local/include/bayonet
 
 compile:
 	@echo
@@ -18,6 +18,8 @@ compile:
 	mkdir -p ./build/exec
 	g++ $(CFLAGS) -Iinclude -c ./monty_hall.cpp -o ./build/obj/monty_hall.o
 	g++ $(CFLAGS) -Iinclude -c ./grass.cpp -o ./build/obj/grass.o
+	g++ $(CFLAGS) -Iinclude -c ./earthquake.cpp -o ./build/obj/earthquake.o
+
 
 	@echo
 	@echo "=== Compiling example files ==="
@@ -27,7 +29,9 @@ compile:
 	@echo
 	@echo "..... grass"
 	g++ -o ./build/exec/grass ./build/obj/grass.o -lbayonet
-
+	@echo
+	@echo "..... earthquake"
+	g++ -o ./build/exec/earthquake ./build/obj/earthquake.o -lbayonet
 
 remove:
 	@echo
@@ -35,7 +39,7 @@ remove:
 	@echo
 	rm ./build/obj/monty_hall.o ./build/exec/monty_hall 
 	rm ./build/obj/grass.o ./build/exec/grass
-
+	rm ./build/obj/earthquake.o ./build/exec/earthquake
 
 
 

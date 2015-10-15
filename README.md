@@ -11,13 +11,11 @@ Bayonet is a C++ library that permits to create discrete Bayesian networks, the 
 - No external library required, Bayonet is self-contained
 - Completely open source (GNU v2.0)
 - Easy to create and manage densely connected networks
-- Deterministic inference (Pearl's message passing)
 - Approximate inference through sampling
 - Different sampling methods: Rejection, Likelihood-Weighting, Gibbs
-- Learning the network parameters
 - Topological sorting, Depth-First and Breadth-First Searching
 
-Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections and cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.
+Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections or cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.
 
 Smart pointer are one of the most important features of C++11 and Bayonet use them in different classes. Each node is stored in a network as a shared pointer. Using smart pointers it is possible to allocate and delete memory in a safe way, it is also possible to share and access nodes without caring about dangling pointers. 
 

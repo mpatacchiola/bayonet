@@ -100,14 +100,14 @@ int main()
  bayonet::JointProbabilityTable myJointTable = myLWSampler.ReturnJointProbabilityTable(myNet,iterations);
 
  //Here we are going to print the result of the sampling
- std::cout << std::endl << "======= Initial conditions without evidences  =======" << std::endl;
- std::cout << std::endl << "------------- CLOUDY -------------" << std::endl;
+ std::cout << std::endl << "==== Initial conditions without evidences ====" << std::endl;
+ std::cout << std::endl << "-------------- CLOUDY --------------" << std::endl;
  myJointTable.PrintMarginal(CLOUDY);
- std::cout << std::endl << "------------- SPRINKLER -------------" << std::endl;
+ std::cout << std::endl << "------------ SPRINKLER ------------" << std::endl;
  myJointTable.PrintMarginal( SPRINKLER);
- std::cout << std::endl << "------------- RAIN -------------" << std::endl;
+ std::cout << std::endl << "-------------- RAIN --------------" << std::endl;
  myJointTable.PrintMarginal(RAIN);
- std::cout << std::endl << "------------- GRASS -------------" << std::endl;
+ std::cout << std::endl << "-------------- GRASS -------------" << std::endl;
  myJointTable.PrintMarginal(GRASS);
  std::cout << std::endl;
 
@@ -116,14 +116,14 @@ int main()
  myNet[GRASS]->SetEvidence(true);
  myJointTable = myLWSampler.ReturnJointProbabilityTable(myNet,iterations);
 
- std::cout << std::endl << "======= The GRASS is wet  =======" << std::endl;
- std::cout << std::endl << "------------- CLOUDY -------------" << std::endl;
+ std::cout << std::endl << "========= The GRASS is wet =========" << std::endl;
+ std::cout << std::endl << "-------------- CLOUDY --------------" << std::endl;
  myJointTable.PrintMarginal(CLOUDY);
- std::cout << std::endl << "------------- SPRINKLER -------------" << std::endl;
+ std::cout << std::endl << "------------ SPRINKLER ------------" << std::endl;
  myJointTable.PrintMarginal( SPRINKLER);
- std::cout << std::endl << "------------- RAIN -------------" << std::endl;
+ std::cout << std::endl << "-------------- RAIN --------------" << std::endl;
  myJointTable.PrintMarginal(RAIN);
- std::cout << std::endl << "------------- GRASS -------------" << std::endl;
+ std::cout << std::endl << "-------------- GRASS -------------" << std::endl;
  myJointTable.PrintMarginal(GRASS);
  std::cout << std::endl;
 
@@ -131,14 +131,14 @@ int main()
  myNet[CLOUDY]->SetEvidence(true);
  myJointTable = myLWSampler.ReturnJointProbabilityTable(myNet,iterations);
 
- std::cout << std::endl << "======= The weather is CLOUDY  =======" << std::endl;
- std::cout << std::endl << "------------- CLOUDY -------------" << std::endl;
+ std::cout << std::endl << "====== The weather is CLOUDY  ======" << std::endl;
+ std::cout << std::endl << "-------------- CLOUDY --------------" << std::endl;
  myJointTable.PrintMarginal(CLOUDY);
- std::cout << std::endl << "------------- SPRINKLER -------------" << std::endl;
+ std::cout << std::endl << "------------ SPRINKLER ------------" << std::endl;
  myJointTable.PrintMarginal( SPRINKLER);
- std::cout << std::endl << "------------- RAIN -------------" << std::endl;
+ std::cout << std::endl << "-------------- RAIN --------------" << std::endl;
  myJointTable.PrintMarginal(RAIN);
- std::cout << std::endl << "------------- GRASS -------------" << std::endl;
+ std::cout << std::endl << "-------------- GRASS -------------" << std::endl;
  myJointTable.PrintMarginal(GRASS);
  std::cout << std::endl;
 
