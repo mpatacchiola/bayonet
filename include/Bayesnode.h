@@ -49,7 +49,7 @@ class Bayesnode {
   Bayesnode(unsigned int numberOfStates);
   ~Bayesnode();
 
-  unsigned int ReturnNumberOfStates();
+  int ReturnNumberOfStates();
 
   void SetLabel(std::string);
   std::string GetLabel();
@@ -65,7 +65,7 @@ class Bayesnode {
   bool IsInAdjacencyList(unsigned int);
   unsigned int SizeOfAdjacencyList();
 
-  bool SetEvidence(unsigned int evidenceState);
+  bool SetEvidence(int evidenceState);
   unsigned int GetEvidence();
   bool IsEvidence();
 
@@ -73,7 +73,7 @@ class Bayesnode {
  private:
   int mEvidence;
   colour mCurrentColour;
-  unsigned int mNumberOfStates;
+  int mNumberOfStates;
   std::string mNodeLabel;
   int mNodeNumericLabel;
   std::list<unsigned int> adjacencyList;

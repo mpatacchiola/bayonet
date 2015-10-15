@@ -50,6 +50,7 @@ GibbsSampler();
 ~GibbsSampler();
 
 std::vector<unsigned int> ReturnSample(bayonet::Bayesnet& net);
+std::vector<unsigned int> ReturnSample(bayonet::Bayesnet& net, std::vector<unsigned int> startingVector);
 
 std::vector<std::vector<unsigned int>> AccumulateSamples(Bayesnet& net, unsigned int cycles);
 

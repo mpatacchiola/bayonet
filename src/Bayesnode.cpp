@@ -45,7 +45,7 @@ Bayesnode::~Bayesnode()
 * 
 * @return the number of states associated with the node
 **/
-unsigned int Bayesnode::ReturnNumberOfStates(){
+int Bayesnode::ReturnNumberOfStates(){
  return mNumberOfStates;
 }
 
@@ -182,7 +182,7 @@ unsigned int Bayesnode::SizeOfAdjacencyList(){
 * Otherwise it return the state sets as evidence.
 **/
 bool Bayesnode::IsEvidence(){
- if(mEvidence == -1) return false;
+ if(mEvidence < 0) return false;
  else return true;
 }
 
@@ -193,7 +193,7 @@ bool Bayesnode::IsEvidence(){
 * @return it returns true if the state was correctly set.
 * 
 **/
-bool Bayesnode::SetEvidence(unsigned int evidenceState){
+bool Bayesnode::SetEvidence(int evidenceState){
  if(evidenceState < ReturnNumberOfStates()){
   mEvidence = evidenceState;
   return true;

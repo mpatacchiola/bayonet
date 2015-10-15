@@ -133,6 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac9f389cd6382946deb5b04cb6513f11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8610f2ec52297edfe6bf2151d2ce002c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a8610f2ec52297edfe6bf2151d2ce002c">ReturnEvidenceNodes</a> ()</td></tr>
 <tr class="separator:a8610f2ec52297edfe6bf2151d2ce002c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0140ea4f620f852b12746f2a92bd4013"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a0140ea4f620f852b12746f2a92bd4013">GetNodeProbability</a> (unsigned int index, std::vector&lt; unsigned int &gt; variablesStatesVector)</td></tr>
+<tr class="separator:a0140ea4f620f852b12746f2a92bd4013"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a934ac59da3a02720c40515b6b599e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a2a934ac59da3a02720c40515b6b599e7">ResetAllColours</a> ()</td></tr>
 <tr class="separator:a2a934ac59da3a02720c40515b6b599e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5877478cf225ed47f43df29cc087c5d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a5877478cf225ed47f43df29cc087c5d6">IsRoot</a> (unsigned int)</td></tr>
@@ -313,6 +315,40 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>It fills the Joint Probability Table using the data from the Bayesian network.</p>
 <dl class="section return"><dt>Returns</dt><dd>it returns a smart pointer to the Joint Table </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0140ea4f620f852b12746f2a92bd4013"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double bayonet::Bayesnet::GetNodeProbability </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>variablesStatesVector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Given the the index of a variable and the states of all the variables, it returns the associated probability.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variableState</td><td></td></tr>
+    <tr><td class="paramname">parentsStates</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -652,7 +688,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 14 2015 17:56:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 15 2015 15:23:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -126,24 +126,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;~<a class="code" href="classbayonet_1_1_gibbs_sampler.html">GibbsSampler</a>();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;std::vector&lt;unsigned int&gt; <a class="code" href="classbayonet_1_1_gibbs_sampler.html#ac789fc64fd349769633ab84ea5e59f70">ReturnSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;std::vector&lt;std::vector&lt;unsigned int&gt;&gt; <a class="code" href="classbayonet_1_1_gibbs_sampler.html#a625b16c10dc1d4fea3899fd5a0b3c921">AccumulateSamples</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_gibbs_sampler.html#af375d044a2e0c45a384f37ee4761a2ba">PrintSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles = 1);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<a class="code" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> <a class="code" href="classbayonet_1_1_gibbs_sampler.html#a29dfcfda3462de83fa89672768d690f4">ReturnJointProbabilityTable</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">int</span> ReturnInteger(<span class="keyword">const</span> <span class="keywordtype">int</span> minRange, <span class="keyword">const</span> <span class="keywordtype">int</span> maxRange);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;std::vector&lt;unsigned int&gt; <a class="code" href="classbayonet_1_1_gibbs_sampler.html#ac789fc64fd349769633ab84ea5e59f70">ReturnSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, std::vector&lt;unsigned int&gt; startingVector);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;std::vector&lt;std::vector&lt;unsigned int&gt;&gt; <a class="code" href="classbayonet_1_1_gibbs_sampler.html#a625b16c10dc1d4fea3899fd5a0b3c921">AccumulateSamples</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_gibbs_sampler.html#af375d044a2e0c45a384f37ee4761a2ba">PrintSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles = 1);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<a class="code" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> <a class="code" href="classbayonet_1_1_gibbs_sampler.html#a29dfcfda3462de83fa89672768d690f4">ReturnJointProbabilityTable</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">int</span> ReturnInteger(<span class="keyword">const</span> <span class="keywordtype">int</span> minRange, <span class="keyword">const</span> <span class="keywordtype">int</span> maxRange);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // GIBBSSAMPLER_H</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif // GIBBSSAMPLER_H</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
@@ -155,17 +155,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="ttc" id="classbayonet_1_1_joint_probability_table_html"><div class="ttname"><a href="classbayonet_1_1_joint_probability_table.html">bayonet::JointProbabilityTable</a></div><div class="ttdoc">A table containing the joint probabilities of random variables. </div><div class="ttdef"><b>Definition:</b> JointProbabilityTable.h:36</div></div>
-<div class="ttc" id="classbayonet_1_1_gibbs_sampler_html_a29dfcfda3462de83fa89672768d690f4"><div class="ttname"><a href="classbayonet_1_1_gibbs_sampler.html#a29dfcfda3462de83fa89672768d690f4">bayonet::GibbsSampler::ReturnJointProbabilityTable</a></div><div class="ttdeci">JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet &amp;net, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> GibbsSampler.cpp:185</div></div>
+<div class="ttc" id="classbayonet_1_1_gibbs_sampler_html_a29dfcfda3462de83fa89672768d690f4"><div class="ttname"><a href="classbayonet_1_1_gibbs_sampler.html#a29dfcfda3462de83fa89672768d690f4">bayonet::GibbsSampler::ReturnJointProbabilityTable</a></div><div class="ttdeci">JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet &amp;net, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> GibbsSampler.cpp:332</div></div>
 <div class="ttc" id="classbayonet_1_1_bayesnet_html"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a></div><div class="ttdoc">This class represents the whole Bayesian network. </div><div class="ttdef"><b>Definition:</b> Bayesnet.h:35</div></div>
-<div class="ttc" id="classbayonet_1_1_gibbs_sampler_html_a625b16c10dc1d4fea3899fd5a0b3c921"><div class="ttname"><a href="classbayonet_1_1_gibbs_sampler.html#a625b16c10dc1d4fea3899fd5a0b3c921">bayonet::GibbsSampler::AccumulateSamples</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; AccumulateSamples(Bayesnet &amp;net, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> GibbsSampler.cpp:106</div></div>
-<div class="ttc" id="classbayonet_1_1_gibbs_sampler_html_af375d044a2e0c45a384f37ee4761a2ba"><div class="ttname"><a href="classbayonet_1_1_gibbs_sampler.html#af375d044a2e0c45a384f37ee4761a2ba">bayonet::GibbsSampler::PrintSample</a></div><div class="ttdeci">void PrintSample(bayonet::Bayesnet &amp;net, unsigned int cycles=1)</div><div class="ttdef"><b>Definition:</b> GibbsSampler.cpp:160</div></div>
+<div class="ttc" id="classbayonet_1_1_gibbs_sampler_html_a625b16c10dc1d4fea3899fd5a0b3c921"><div class="ttname"><a href="classbayonet_1_1_gibbs_sampler.html#a625b16c10dc1d4fea3899fd5a0b3c921">bayonet::GibbsSampler::AccumulateSamples</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; AccumulateSamples(Bayesnet &amp;net, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> GibbsSampler.cpp:292</div></div>
+<div class="ttc" id="classbayonet_1_1_gibbs_sampler_html_af375d044a2e0c45a384f37ee4761a2ba"><div class="ttname"><a href="classbayonet_1_1_gibbs_sampler.html#af375d044a2e0c45a384f37ee4761a2ba">bayonet::GibbsSampler::PrintSample</a></div><div class="ttdeci">void PrintSample(bayonet::Bayesnet &amp;net, unsigned int cycles=1)</div><div class="ttdef"><b>Definition:</b> GibbsSampler.cpp:311</div></div>
 <div class="ttc" id="classbayonet_1_1_gibbs_sampler_html"><div class="ttname"><a href="classbayonet_1_1_gibbs_sampler.html">bayonet::GibbsSampler</a></div><div class="ttdoc">Implementation of the Gibbs sampler. </div><div class="ttdef"><b>Definition:</b> GibbsSampler.h:46</div></div>
 <div class="ttc" id="classbayonet_1_1_gibbs_sampler_html_ac789fc64fd349769633ab84ea5e59f70"><div class="ttname"><a href="classbayonet_1_1_gibbs_sampler.html#ac789fc64fd349769633ab84ea5e59f70">bayonet::GibbsSampler::ReturnSample</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; ReturnSample(bayonet::Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> GibbsSampler.cpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 14 2015 17:56:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 15 2015 15:23:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

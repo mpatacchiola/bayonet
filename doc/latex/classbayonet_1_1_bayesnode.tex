@@ -23,7 +23,7 @@ enum \hyperlink{classbayonet_1_1_bayesnode_a6294bd0f5387871bc5f39f57cc1f0fb3}{co
 \item 
 \hyperlink{classbayonet_1_1_bayesnode_a2b676188453fbbb4dc96be714ac931d3}{Bayesnode} (unsigned int number\-Of\-States)
 \item 
-unsigned int \hyperlink{classbayonet_1_1_bayesnode_a24d38b28413a60938ea7fad7c74e823d}{Return\-Number\-Of\-States} ()
+int \hyperlink{classbayonet_1_1_bayesnode_a25297ec446c6be1a79e70d3930bef834}{Return\-Number\-Of\-States} ()
 \item 
 void \hyperlink{classbayonet_1_1_bayesnode_abaa27f1597d5599344e3a4d82e7b64b0}{Set\-Label} (std\-::string)
 \item 
@@ -47,7 +47,7 @@ bool \hyperlink{classbayonet_1_1_bayesnode_a531f3d3341170ba4ea6d646f1a368b54}{Is
 \item 
 unsigned int \hyperlink{classbayonet_1_1_bayesnode_a33a92e17091b3d0361d63eeadbbd39b6}{Size\-Of\-Adjacency\-List} ()
 \item 
-bool \hyperlink{classbayonet_1_1_bayesnode_ac2cb3576c583115b45dbf331727d9fff}{Set\-Evidence} (unsigned int evidence\-State)
+bool \hyperlink{classbayonet_1_1_bayesnode_a8478f3ae03c4a479dba6b1f9cb2c69af}{Set\-Evidence} (int evidence\-State)
 \item 
 unsigned int \hyperlink{classbayonet_1_1_bayesnode_a783735e7bb2ec04a07a209a8c83f95cd}{Get\-Evidence} ()
 \item 
@@ -222,13 +222,13 @@ It returns a const reference to the internal adjacency list.
 \begin{DoxyReturn}{Returns}
 a const reference to the list 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnode_a24d38b28413a60938ea7fad7c74e823d}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Return\-Number\-Of\-States@{Return\-Number\-Of\-States}}
+\hypertarget{classbayonet_1_1_bayesnode_a25297ec446c6be1a79e70d3930bef834}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Return\-Number\-Of\-States@{Return\-Number\-Of\-States}}
 \index{Return\-Number\-Of\-States@{Return\-Number\-Of\-States}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
-\subsubsection[{Return\-Number\-Of\-States}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnode\-::\-Return\-Number\-Of\-States (
+\subsubsection[{Return\-Number\-Of\-States}]{\setlength{\rightskip}{0pt plus 5cm}int bayonet\-::\-Bayesnode\-::\-Return\-Number\-Of\-States (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_a24d38b28413a60938ea7fad7c74e823d}
+)}}\label{classbayonet_1_1_bayesnode_a25297ec446c6be1a79e70d3930bef834}
 It returns the number of states associated with the node.
 
 \begin{DoxyReturn}{Returns}
@@ -241,13 +241,13 @@ the number of states associated with the node
 \item[{{\bf colour}}]{colour\-To\-Set}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnode_a1102ecda4b933a2ccce879ca520a795e}
-It sets the colour of the node. The colour is used in searching algorithms. White vertices are undiscovered. Grey is an adjacent vertex that is not already discovered. Black vertices are discovered and are adjacent to only other black or gray vertices. \hypertarget{classbayonet_1_1_bayesnode_ac2cb3576c583115b45dbf331727d9fff}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Evidence@{Set\-Evidence}}
+It sets the colour of the node. The colour is used in searching algorithms. White vertices are undiscovered. Grey is an adjacent vertex that is not already discovered. Black vertices are discovered and are adjacent to only other black or gray vertices. \hypertarget{classbayonet_1_1_bayesnode_a8478f3ae03c4a479dba6b1f9cb2c69af}{\index{bayonet\-::\-Bayesnode@{bayonet\-::\-Bayesnode}!Set\-Evidence@{Set\-Evidence}}
 \index{Set\-Evidence@{Set\-Evidence}!bayonet::Bayesnode@{bayonet\-::\-Bayesnode}}
 \subsubsection[{Set\-Evidence}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnode\-::\-Set\-Evidence (
 \begin{DoxyParamCaption}
-\item[{unsigned int}]{evidence\-State}
+\item[{int}]{evidence\-State}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnode_ac2cb3576c583115b45dbf331727d9fff}
+)}}\label{classbayonet_1_1_bayesnode_a8478f3ae03c4a479dba6b1f9cb2c69af}
 A node is an evidence when is outcome state is given.
 
 

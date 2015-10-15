@@ -78,6 +78,8 @@ double ConditionalProbabilityTable::GetProbability(unsigned int variableState, s
  return row_vector.at(variableState);
 }
 
+
+
 /**
 * Given a vector key it returns the associated probabilities
 *

@@ -45,6 +45,8 @@ std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_ac9f389cd
 \item 
 std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_a8610f2ec52297edfe6bf2151d2ce002c}{Return\-Evidence\-Nodes} ()
 \item 
+double \hyperlink{classbayonet_1_1_bayesnet_a0140ea4f620f852b12746f2a92bd4013}{Get\-Node\-Probability} (unsigned int index, std\-::vector$<$ unsigned int $>$ variables\-States\-Vector)
+\item 
 void \hyperlink{classbayonet_1_1_bayesnet_a2a934ac59da3a02720c40515b6b599e7}{Reset\-All\-Colours} ()
 \item 
 bool \hyperlink{classbayonet_1_1_bayesnet_a5877478cf225ed47f43df29cc087c5d6}{Is\-Root} (unsigned int)
@@ -168,6 +170,23 @@ It fills the Joint Probability Table using the data from the Bayesian network.
 \begin{DoxyReturn}{Returns}
 it returns a smart pointer to the Joint Table 
 \end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnet_a0140ea4f620f852b12746f2a92bd4013}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Get\-Node\-Probability@{Get\-Node\-Probability}}
+\index{Get\-Node\-Probability@{Get\-Node\-Probability}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Get\-Node\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}double bayonet\-::\-Bayesnet\-::\-Get\-Node\-Probability (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index, }
+\item[{std\-::vector$<$ unsigned int $>$}]{variables\-States\-Vector}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_a0140ea4f620f852b12746f2a92bd4013}
+Given the the index of a variable and the states of all the variables, it returns the associated probability.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\-State} & \\
+\hline
+{\em parents\-States} & \\
+\hline
+\end{DoxyParams}
 \hypertarget{classbayonet_1_1_bayesnet_ae852714069b47eff14918d5a4e53a2dd}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Has\-Edge@{Has\-Edge}}
 \index{Has\-Edge@{Has\-Edge}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Has\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnet\-::\-Has\-Edge (

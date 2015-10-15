@@ -17,12 +17,16 @@ compile:
 	mkdir -p ./build/obj
 	mkdir -p ./build/exec
 	g++ $(CFLAGS) -Iinclude -c ./monty_hall.cpp -o ./build/obj/monty_hall.o
+	g++ $(CFLAGS) -Iinclude -c ./grass.cpp -o ./build/obj/grass.o
 
 	@echo
 	@echo "=== Compiling example files ==="
 	@echo
 	@echo "..... monty_hall"
 	g++ -o ./build/exec/monty_hall ./build/obj/monty_hall.o -lbayonet
+	@echo
+	@echo "..... grass"
+	g++ -o ./build/exec/grass ./build/obj/grass.o -lbayonet
 
 
 remove:
@@ -30,7 +34,7 @@ remove:
 	@echo "=== Removing example files ==="
 	@echo
 	rm ./build/obj/monty_hall.o ./build/exec/monty_hall 
-
+	rm ./build/obj/grass.o ./build/exec/grass
 
 
 

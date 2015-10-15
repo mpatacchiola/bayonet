@@ -59,6 +59,8 @@ class Bayesnet{
   std::vector<unsigned int> ReturnNotEvidenceNodes();
   std::vector<unsigned int> ReturnEvidenceNodes();
 
+  double GetNodeProbability(unsigned int index, std::vector<unsigned int> variablesStatesVector);
+
   void ResetAllColours();
 
   //bool IsTree; //TODO

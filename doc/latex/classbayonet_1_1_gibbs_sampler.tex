@@ -15,6 +15,8 @@ Implementation of the Gibbs sampler.
 \item 
 std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_gibbs_sampler_ac789fc64fd349769633ab84ea5e59f70}{Return\-Sample} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net)
 \item 
+std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_gibbs_sampler_aa3e7d24f8eae4ee4c4ed0a2c16a9b5fa}{Return\-Sample} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, std\-::vector$<$ unsigned int $>$ starting\-Vector)
+\item 
 std\-::vector$<$ std\-::vector\\*
 $<$ unsigned int $>$ $>$ \hyperlink{classbayonet_1_1_gibbs_sampler_a625b16c10dc1d4fea3899fd5a0b3c921}{Accumulate\-Samples} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet} \&net, unsigned int cycles)
 \item 
@@ -38,7 +40,7 @@ The Gibbs sampler is part of the Markov Chain Monte Carlo (M\-C\-M\-C) methods. 
 \item[{unsigned int}]{cycles}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_gibbs_sampler_a625b16c10dc1d4fea3899fd5a0b3c921}
-This method is different from the same methods in the other samplers. A Markov chain is used for picking up samples in
+This method is different from the same methods in the other samplers. The first sample is obtained at random. The next samples are choosen for each node picking up a value from the Markov blanket of the node. This probability is proportional to the probability of the variable given its parents times the probability of each child given its respective parents.
 
 
 \begin{DoxyParams}{Parameters}
@@ -96,6 +98,23 @@ It returns a single sample picking up it from the Bayesian network
 
 \begin{DoxyParams}{Parameters}
 {\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_gibbs_sampler_aa3e7d24f8eae4ee4c4ed0a2c16a9b5fa}{\index{bayonet\-::\-Gibbs\-Sampler@{bayonet\-::\-Gibbs\-Sampler}!Return\-Sample@{Return\-Sample}}
+\index{Return\-Sample@{Return\-Sample}!bayonet::GibbsSampler@{bayonet\-::\-Gibbs\-Sampler}}
+\subsubsection[{Return\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ unsigned int $>$ bayonet\-::\-Gibbs\-Sampler\-::\-Return\-Sample (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net, }
+\item[{std\-::vector$<$ unsigned int $>$}]{starting\-Vector}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_gibbs_sampler_aa3e7d24f8eae4ee4c4ed0a2c16a9b5fa}
+It returns a single sample picking up it from the Bayesian network
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em starting\-Vector} & it is the vector with the current states of all the nodes it is used as starting point for the Markov chain sampler \\
 \hline
 \end{DoxyParams}
 

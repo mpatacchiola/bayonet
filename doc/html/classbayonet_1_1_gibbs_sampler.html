@@ -102,6 +102,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac789fc64fd349769633ab84ea5e59f70"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_gibbs_sampler.html#ac789fc64fd349769633ab84ea5e59f70">ReturnSample</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net)</td></tr>
 <tr class="separator:ac789fc64fd349769633ab84ea5e59f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e7d24f8eae4ee4c4ed0a2c16a9b5fa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_gibbs_sampler.html#aa3e7d24f8eae4ee4c4ed0a2c16a9b5fa">ReturnSample</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, std::vector&lt; unsigned int &gt; startingVector)</td></tr>
+<tr class="separator:aa3e7d24f8eae4ee4c4ed0a2c16a9b5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a625b16c10dc1d4fea3899fd5a0b3c921"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
 &lt; unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_gibbs_sampler.html#a625b16c10dc1d4fea3899fd5a0b3c921">AccumulateSamples</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;net, unsigned int cycles)</td></tr>
 <tr class="separator:a625b16c10dc1d4fea3899fd5a0b3c921"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,7 +139,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This method is different from the same methods in the other samplers. A Markov chain is used for picking up samples in</p>
+<p>This method is different from the same methods in the other samplers. The first sample is obtained at random. The next samples are choosen for each node picking up a value from the Markov blanket of the node. This probability is proportional to the probability of the variable given its parents times the probability of each child given its respective parents.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
@@ -240,6 +242,40 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa3e7d24f8eae4ee4c4ed0a2c16a9b5fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; bayonet::GibbsSampler::ReturnSample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>startingVector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns a single sample picking up it from the Bayesian network</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">startingVector</td><td>it is the vector with the current states of all the nodes it is used as starting point for the Markov chain sampler </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="_gibbs_sampler_8h_source.html">GibbsSampler.h</a></li>
 <li>src/GibbsSampler.cpp</li>
@@ -247,7 +283,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 14 2015 17:56:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 15 2015 15:23:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

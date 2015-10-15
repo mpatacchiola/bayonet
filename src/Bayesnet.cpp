@@ -192,6 +192,28 @@ std::list<unsigned int> Bayesnet::ReturnTopologicalList() {
 }
 
 /**
+* Given the the index of a variable and the states of all
+* the variables, it returns the associated probability.
+*
+* @param variableState
+* @param parentsStates
+**/
+double Bayesnet::GetNodeProbability(unsigned int index, std::vector<unsigned int> variablesStatesVector){
+
+ auto in_list = ReturnInEdges(index);
+ std::vector<unsigned int> key_vector;
+
+ for(auto it_list=in_list.begin(); it_list!=in_list.end(); ++it_list){
+  key_vector.push_back(variablesStatesVector[*it_list]);
+ }
+
+ unsigned int variable_state = variablesStatesVector[index];
+ auto sp_node = nodesVector[index];
+ double result = sp_node->conditionalTable.GetProbability(variable_state, key_vector);
+ return result;
+}
+
+/**
 * Reset all the nodes colours to white.
 * 
 **/
