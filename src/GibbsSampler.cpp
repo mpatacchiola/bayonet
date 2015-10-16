@@ -73,13 +73,13 @@ std::vector<unsigned int> GibbsSampler::ReturnSample(bayonet::Bayesnet& net){
   //Key completed, asking for the sample
   auto sp_to_node = net[*it_topo];
   //Checking if the node is Evidence
-  if(sp_to_node->IsEvidence() == true){
+  if(sp_to_node.IsEvidence() == true){
    //unsigned int node_evidence = sp_to_node->GetEvidence();
-   std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node->GetEvidence());
+   std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node.GetEvidence());
    sample_map[*it_topo] = pair_to_store;
   }else{
    //If it is not an Evidence then storing the sample in the local index vector
-   std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node->conditionalTable.ReturnSample(key_vector));
+   std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node.conditionalTable.ReturnSample(key_vector));
    sample_map[*it_topo] = pair_to_store;
   }
 
@@ -123,7 +123,7 @@ std::vector<unsigned int> vector_to_return;
   //It is necessary to iterate the different states of the node
   //in order to build the final conditional distribution
   std::vector<unsigned int> temp_sample_vector = startingVector;
-  unsigned int node_tot_states = sp_to_node->ReturnNumberOfStates();
+  unsigned int node_tot_states = sp_to_node.ReturnNumberOfStates();
   std::vector<double> conditional_distribution_vector;
   for(unsigned int i_states=0; i_states<node_tot_states; i_states++){
 
@@ -138,7 +138,7 @@ std::vector<unsigned int> vector_to_return;
 	    key_vector.push_back(selected_state); //push the state in the key vector  
 	  }
 	  //Key completed, asking for the probability
-	  double parents_prob = sp_to_node->conditionalTable.GetProbability(i_states ,key_vector);
+	  double parents_prob = sp_to_node.conditionalTable.GetProbability(i_states ,key_vector);
 
 	  //2- The second phase consists in finding the probability
 	  //for each children of the current node, given the parents

@@ -32,7 +32,7 @@ namespace bayonet{
 * the minimum number of states allowed is 2. The values assigned to the states are
 * randomly generated and normalized.
 **/
-Bayesnode::Bayesnode(unsigned int numberOfStates) : conditionalTable(numberOfStates), mEvidence(-1), mCurrentColour(colour::WHITE), mNumberOfStates(numberOfStates), mNodeLabel(""), mNodeNumericLabel(0)
+Bayesnode::Bayesnode(unsigned int numberOfStates) : conditionalTable(numberOfStates), mEvidence(-1), mCurrentColour(WHITE), mNumberOfStates(numberOfStates), mNodeLabel(""), mNodeNumericLabel(0)
 {
 }
 
@@ -113,7 +113,7 @@ Bayesnode::colour Bayesnode::GetColour(){
 bool Bayesnode::AddToAdjacencyList(unsigned int index){
 
  //looking for copies
- for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
+ for(std::list<unsigned int>::iterator it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
   if( *it == index) return false;
  }
  adjacencyList.push_back(index);
@@ -132,7 +132,7 @@ bool Bayesnode::AddToAdjacencyList(unsigned int index){
 bool Bayesnode::RemoveFromAdjacencyList(unsigned int index){
  bool result = false;
  //looking if present
- for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
+ for(std::list<unsigned int>::iterator it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
   if( *it == index) result = true;;
  }
  adjacencyList.remove(index);
@@ -159,7 +159,7 @@ const std::list<unsigned int>& Bayesnode::ReturnAdjacencyList(){
 **/
 bool Bayesnode::IsInAdjacencyList(unsigned int index){
   //looking for edges
- for(auto it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
+ for(std::list<unsigned int>::iterator it = adjacencyList.begin(); it != adjacencyList.end(); ++it) {
   if( *it == index) return  true;
  }
  return false;

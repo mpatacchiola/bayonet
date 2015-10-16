@@ -36,19 +36,17 @@ class Bayesnet{
 
  public:
 
-  JointProbabilityTable jointTable;
-
   Bayesnet(std::vector<unsigned int> nodesTotStatesVector);
   ~Bayesnet();
 
-  std::shared_ptr<Bayesnode> operator[](unsigned int index);
+  Bayesnode& operator[](unsigned int index);
 
   bool AddEdge(unsigned int FirstNode, unsigned int SecondNode);
   bool RemoveEdge(unsigned int FirstNode, unsigned int SecondNode);
   bool HasEdge(unsigned int FirstNode, unsigned int SecondNode);
 
-  unsigned int ReturnNumberOfNodes() const;
-  unsigned int ReturnNumberOfEdges() const;
+  unsigned int ReturnNumberOfNodes();
+  unsigned int ReturnNumberOfEdges();
 
   std::list<unsigned int> ReturnOutEdges(unsigned int index);
   std::list<unsigned int> ReturnInEdges(unsigned int index);
@@ -73,15 +71,15 @@ class Bayesnet{
   //unsigned int ReturnMarkovBlanketSize(unsigned int index); //TODO
   //double ReturnAverageMarkovBlanketSize(unsigned int index); //TODO
 
-  const std::vector<std::shared_ptr<Bayesnode>>& ReturnNodesVector();
+  const std::vector<Bayesnode>& ReturnNodesVector();
   void FillJointProbabilityTable();
 
   std::list<unsigned int> BreadthFirstSearch(unsigned int startingNode);
   void DepthFirstSearch(unsigned int startingNode, std::shared_ptr<std::list<unsigned int>> spToList, bool resetColours = true);
 
  private:
-  std::vector<std::shared_ptr<Bayesnode>> nodesVector;
-  std::shared_ptr<JointProbabilityTable> spJointTable;
+  //std::vector<std::shared_ptr<Bayesnode>> nodesVector;
+  std::vector<Bayesnode> nodesVector;
   
 };
 

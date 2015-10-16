@@ -48,7 +48,7 @@ unsigned int \hyperlink{classbayonet_1_1_conditional_probability_table_a2fef41db
 \subsection{Detailed Description}
 A table containing the conditional probabilities of random variables. 
 
-This class is a container for conditional probabilities. 
+To quantify the relationships between the nodes it is necessary to specify a conditional distribution for each node given its parents. Using discrete random variables the best way to represent such a relationship is the conditional probability table (C\-P\-T). The C\-P\-T of a node contains all the possible combinations of values (instantiation) of the parents nodes. For each instantiation it is necessary to specify the probabilities that the child node assumes each of its values. Bayonet store the C\-P\-T as a std\-::map, where the key is a vector of integrers representing the states of the parents node, and the value is a vector of double representing the probabilities of the variable states. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classbayonet_1_1_conditional_probability_table_a58abcca6946f80bfe3c86ccbbdeed31e}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Conditional\-Probability\-Table@{Conditional\-Probability\-Table}}

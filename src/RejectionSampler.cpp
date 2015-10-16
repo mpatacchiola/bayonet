@@ -72,7 +72,7 @@ std::vector<unsigned int> RejectionSampler::ReturnSample(bayonet::Bayesnet& net)
   //Key completed, asking for the sample
   auto sp_to_node = net[*it_topo];
   //Storing the sample in the local index vector
-  std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node->conditionalTable.ReturnSample(key_vector));
+  std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node.conditionalTable.ReturnSample(key_vector));
   sample_map[*it_topo] = pair_to_store;
   //Storing the sample into the vector to return
   //vector_to_return.push_back(pair_to_store.second);
@@ -123,7 +123,7 @@ std::vector<std::vector<unsigned int>> RejectionSampler::AccumulateAndDiscardSam
   
   //Check all the values and if an evidence is lost it discards the vector
   for(unsigned int nodes_counter=0; nodes_counter<tot_nodes; nodes_counter++){
-   if(net[nodes_counter]->IsEvidence() == true && net[nodes_counter]->GetEvidence() != sample_vector[nodes_counter]){
+   if(net[nodes_counter].IsEvidence() == true && net[nodes_counter].GetEvidence() != sample_vector[nodes_counter]){
     discard = true;
     break; //stop the for loop
    }
@@ -187,7 +187,7 @@ for (unsigned int i_cycle=0; i_cycle<cycles; i_cycle++){
   //Key completed, asking for the sample
   auto sp_to_node = net[*it_topo];
   //Storing the sample in the local index vector
-  std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node->conditionalTable.ReturnSample(key_vector));
+  std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node.conditionalTable.ReturnSample(key_vector));
   sample_map[*it_topo] = pair_to_store;
   //Storing the sample into the vector to return
   //std::cout << pair_to_store.second << " ";

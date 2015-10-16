@@ -28,10 +28,19 @@
 namespace bayonet{
 
 /** \class JointProbabilityTable
-*   \brief A table containing the joint probabilities of random variables.
-*
-*  This class is a container for joint probabilities. 
-*  It can be used as a generic container or it can be associated with a Bayesian network.
+ *   \brief A table containing the joint probabilities of random variables.
+ *
+ *  Why a Joint Conditional Table class is important? 
+ *
+ *  "Most commonly, BNs are considered to be representations of joint probability distri-
+ *  butions. There is a fundamental assumption that there is a useful underlying structure
+ *  to the problem being modeled that can be captured with a BN, i.e., that not every
+ *  node is connected to every other node. If such domain structure exists, a BN gives
+ *  a more compact representation than simply describing the probability of every joint
+ *  instantiation of all variables. Sparse Bayesian networks (those with relatively few
+ *  arcs, which means few parents for each node) represent probability distributions in a
+ *  computationally tractable way." 
+ *  (Bayesian Artificial Intelligence, Second Edition, 2011)
 **/
 class JointProbabilityTable {
 

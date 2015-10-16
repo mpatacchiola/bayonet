@@ -28,13 +28,16 @@ namespace bayonet{
 * @param numberOfNodes the number of nodes to add to the network
 * @param numberOfStates the number of state to assign to each node
 **/
-Bayesnet::Bayesnet(std::vector<unsigned int> nodesTotStatesVector) : jointTable(nodesTotStatesVector) {
- //std::vector<unsigned int> tot_states_vector;
- //tot_states_vector.reserve(numberOfNodes);
+Bayesnet::Bayesnet(std::vector<unsigned int> nodesTotStatesVector) {
+ //nodesVector.reserve(nodesTotStatesVector.size());
+ //for(auto it=nodesTotStatesVector.begin(); it!=nodesTotStatesVector.end(); ++it){
+  //auto sp = std::make_shared<Bayesnode>(*it);
+  //nodesVector.push_back(sp); //filling the nodes vector
+ //}
  nodesVector.reserve(nodesTotStatesVector.size());
  for(auto it=nodesTotStatesVector.begin(); it!=nodesTotStatesVector.end(); ++it){
-  auto sp = std::make_shared<Bayesnode>(*it);
-  nodesVector.push_back(sp); //filling the nodes vector
+  Bayesnode my_node(*it);
+  nodesVector.push_back(my_node); //filling the nodes vector
  }
 }
 
@@ -45,13 +48,13 @@ Bayesnet::Bayesnet(std::vector<unsigned int> nodesTotStatesVector) : jointTable(
 Bayesnet::~Bayesnet(){}
 
 /**
-* Operator overload [] it is used to return the smart pointer reference to the node stored inside the net
-* It is possible to access the methods of the single node using the deferencing operator ->
-* Example: net[2]->IsRoot();  // It checks if the third node is a root node
+* Operator overload [] it is used to return thereference to the node stored inside the net
+* It is possible to access the methods of the single node in a easier way.
+* Example: net[2].IsRoot();  // It checks if the third node is a root node
 * @param index the number of the element stored inside the net
-* @return it returns a shared_ptr to the node
+* @return it returns a reference to the node
 **/
-std::shared_ptr<Bayesnode> Bayesnet::operator[](unsigned int index){
+Bayesnode& Bayesnet::operator[](unsigned int index){
  if (index >= nodesVector.size()) throw std::domain_error("Error: Out of Range index.");
  return nodesVector[index];
 }
@@ -68,9 +71,9 @@ bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
  //nodesVector[secondNode]->AddIncomingEdge(firstNode, node_states);
  auto sp_first = nodesVector[firstNode];
  auto sp_second = nodesVector[secondNode];
- unsigned int first_tot_states = sp_first->ReturnNumberOfStates();
- sp_first->AddToAdjacencyList(secondNode);
- sp_second->conditionalTable.AddVariable(first_tot_states);
+ unsigned int first_tot_states = sp_first.ReturnNumberOfStates();
+ sp_first.AddToAdjacencyList(secondNode);
+ sp_second.conditionalTable.AddVariable(first_tot_states);
  return true;
 }
 
@@ -83,7 +86,7 @@ bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
 bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
  auto sp_first = nodesVector[firstNode];
- sp_first->RemoveFromAdjacencyList(secondNode);
+ sp_first.RemoveFromAdjacencyList(secondNode);
  return true;
 }
 
@@ -95,14 +98,14 @@ bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
 **/
 bool Bayesnet::HasEdge(unsigned int FirstNode, unsigned int SecondNode){
  //return nodesVector[SecondNode]->HasIncomingEdgeFrom(FirstNode);
- return nodesVector[FirstNode]->IsInAdjacencyList(SecondNode);
+ return nodesVector[FirstNode].IsInAdjacencyList(SecondNode);
 }
 
 /**
 * It returns the number of nodes.
 *
 **/
-unsigned int Bayesnet::ReturnNumberOfNodes() const{
+unsigned int Bayesnet::ReturnNumberOfNodes(){
  return nodesVector.size();
 }
 
@@ -110,10 +113,10 @@ unsigned int Bayesnet::ReturnNumberOfNodes() const{
 * It returns the number of edges.
 *
 **/
-unsigned int Bayesnet::ReturnNumberOfEdges() const{
+unsigned int Bayesnet::ReturnNumberOfEdges(){
  unsigned int tot_edges = 0;
  for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
-  tot_edges += (*it)->ReturnAdjacencyList().size();
+  tot_edges += it->SizeOfAdjacencyList();
  }
 
  return tot_edges;
@@ -125,9 +128,8 @@ unsigned int Bayesnet::ReturnNumberOfEdges() const{
 **/
 std::list<unsigned int> Bayesnet::ReturnOutEdges(unsigned int index){
  std::list<unsigned int> temp_list;
- temp_list = nodesVector[index]->ReturnAdjacencyList();
+ temp_list = nodesVector[index].ReturnAdjacencyList();
  return temp_list;
-
 }
 
 /**
@@ -138,7 +140,7 @@ std::list<unsigned int> Bayesnet::ReturnInEdges(unsigned int index){
  std::list<unsigned int> temp_list;
  unsigned int counter = 0;
  for(auto it=nodesVector.begin(); it!=nodesVector.end(); ++it){
-  if((*it)->IsInAdjacencyList(index) == true) temp_list.push_back(counter);
+  if((*it).IsInAdjacencyList(index) == true) temp_list.push_back(counter);
   counter++;
  }
  return temp_list;
@@ -209,7 +211,7 @@ double Bayesnet::GetNodeProbability(unsigned int index, std::vector<unsigned int
 
  unsigned int variable_state = variablesStatesVector[index];
  auto sp_node = nodesVector[index];
- double result = sp_node->conditionalTable.GetProbability(variable_state, key_vector);
+ double result = sp_node.conditionalTable.GetProbability(variable_state, key_vector);
  return result;
 }
 
@@ -219,7 +221,7 @@ double Bayesnet::GetNodeProbability(unsigned int index, std::vector<unsigned int
 **/
 void Bayesnet::ResetAllColours(){
  for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
-  (*it_node)->SetColour(Bayesnode::colour::WHITE);
+  it_node->SetColour(Bayesnode::colour::WHITE);
  }
 }
 
@@ -232,7 +234,7 @@ std::vector<unsigned int> Bayesnet::ReturnTotalStates(){
 
  std::vector<unsigned int> vector_to_return;
  for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
-  vector_to_return.push_back( (*it_node)->ReturnNumberOfStates() );
+  vector_to_return.push_back( it_node->ReturnNumberOfStates() );
  }
  return vector_to_return;
 }
@@ -246,7 +248,7 @@ std::vector<unsigned int> Bayesnet::ReturnNotEvidenceNodes(){
  std::vector<unsigned int> list_to_return;
  unsigned int counter = 0;
  for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
-  if((*it_node)->IsEvidence() == false) list_to_return.push_back( counter );
+  if(it_node->IsEvidence() == false) list_to_return.push_back( counter );
   counter++;
  }
  return list_to_return;
@@ -261,7 +263,7 @@ std::vector<unsigned int> Bayesnet::ReturnEvidenceNodes(){
  std::vector<unsigned int> list_to_return;
  unsigned int counter = 0;
  for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
-  if((*it_node)->IsEvidence() == true) list_to_return.push_back( counter );
+  if(it_node->IsEvidence() == true) list_to_return.push_back( counter );
   counter++;
  }
  return list_to_return;
@@ -296,47 +298,10 @@ bool Bayesnet::IsLeaf(unsigned int index){
 * 
 * @return it returns a const reference
 **/
-const std::vector<std::shared_ptr<Bayesnode>>& Bayesnet::ReturnNodesVector(){
+const std::vector<Bayesnode>& Bayesnet::ReturnNodesVector(){
  return nodesVector;
 }
 
-
-/**
-* It fills the Joint Probability Table using the data from the Bayesian network.
-*
-* @return it returns a smart pointer to the Joint Table
-**/
-void Bayesnet::FillJointProbabilityTable(){
-
- //cycle through the key of the map
- for(auto it_map = jointTable.ReturnJointMap().begin(); it_map != jointTable.ReturnJointMap().end(); ++it_map){
-  std::vector<unsigned int> variable_states_vector = it_map->first;
-  std::vector<double> probability_vector;
-  unsigned int nodes_counter = 0;
-  //cycle through all the nodes
-  for(auto it_node=nodesVector.begin(); it_node!=nodesVector.end(); ++it_node){
-   unsigned int node_state = variable_states_vector[nodes_counter];
-   std::vector<unsigned int> conditional_key_vector;
-   //cycle through Adjacency List
-   //for ( auto it_list = (*it_node)->ReturnAdjacencyList().begin(); it_list !=(*it_node)->ReturnAdjacencyList().end(); ++it_list){
-   std::list<unsigned int> temp_in_list = ReturnInEdges(nodes_counter);
-   for ( auto it_list = temp_in_list.begin(); it_list != temp_in_list.end(); ++it_list){
-    conditional_key_vector.push_back( variable_states_vector.at(*it_list) );
-    //std::cout << variable_states_vector.at(*it_list) << "-";
-   }
-   double local_probability = (*it_node)->conditionalTable.GetProbability(node_state, conditional_key_vector);
-   probability_vector.push_back(local_probability);
-   nodes_counter++;
-  }
-  double global_probability = 1; //TO 1 because of the multiplication chain
-  //cycle through local probability vector
-  for(auto it_prob = probability_vector.begin(); it_prob!= probability_vector.end(); ++it_prob){
-   global_probability *= *it_prob;
-  }
-  //Assign the value to the Joint Table
-  jointTable.SetProbability(variable_states_vector , global_probability);
- }
-}
 
 /**
 * Breadth First Search algorithm. Starting from a node it performs a breadth-first traversal of the network.
@@ -355,7 +320,7 @@ std::list<unsigned int> Bayesnet::BreadthFirstSearch(unsigned int startingNode){
  std::list<int> queue;
 
  // Mark the current node as visited and enqueue it
- nodesVector[startingNode]->SetColour(Bayesnode::colour::BLACK);
+ nodesVector[startingNode].SetColour(Bayesnode::colour::BLACK);
  queue.push_back(startingNode);
 
  while(!queue.empty())
@@ -372,8 +337,8 @@ std::list<unsigned int> Bayesnet::BreadthFirstSearch(unsigned int startingNode){
   for(auto it = temp_list.begin(); it != temp_list.end(); ++it)
   {
 
-   if(nodesVector[*it]->GetColour() == Bayesnode::colour::WHITE){
-    nodesVector[*it]->SetColour(Bayesnode::colour::BLACK);
+   if(nodesVector[*it].GetColour() == Bayesnode::colour::WHITE){
+    nodesVector[*it].SetColour(Bayesnode::colour::BLACK);
     queue.push_back(*it);
    }
   }
@@ -394,7 +359,7 @@ void Bayesnet::DepthFirstSearch(unsigned int startingNode, std::shared_ptr<std::
  if (resetColours == true) ResetAllColours();
 
  // Mark the current node as grey
- nodesVector[startingNode]->SetColour(Bayesnode::colour::GREY);
+ nodesVector[startingNode].SetColour(Bayesnode::colour::GREY);
   //std::cout << startingNode << " ";
    spToList->push_back(startingNode);
 
@@ -405,15 +370,15 @@ void Bayesnet::DepthFirstSearch(unsigned int startingNode, std::shared_ptr<std::
   //Chain iteration to all the children
   for(auto it = temp_list.begin(); it != temp_list.end(); ++it)
   {
-   if(nodesVector[*it]->GetColour() == Bayesnode::colour::WHITE){
-     nodesVector[*it]->SetColour(Bayesnode::colour::GREY);
+   if(nodesVector[*it].GetColour() == Bayesnode::colour::WHITE){
+     nodesVector[*it].SetColour(Bayesnode::colour::GREY);
      DepthFirstSearch(*it, spToList, false);
      //list_to_return.merge(temp_list);
    }
   }
 
  // Done Visiting StartingNode
- nodesVector[startingNode]->SetColour(Bayesnode::colour::BLACK);
+ nodesVector[startingNode].SetColour(Bayesnode::colour::BLACK);
 }
 
 

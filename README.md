@@ -7,7 +7,7 @@ Bayesian networks are probabilistic graphical models, a set of random variables 
 
 Bayonet is a C++ library that permits to create discrete Bayesian networks, the library has a lot of properties that we can summarize here:
 
-- Safe memory management through smart pointers and STL containers (C++11)
+- Safe memory management through STL containers (C++11)
 - No external library required, Bayonet is self-contained
 - Completely open source (GNU v2.0)
 - Easy to create and manage densely connected networks
@@ -16,8 +16,6 @@ Bayonet is a C++ library that permits to create discrete Bayesian networks, the 
 - Topological sorting, Depth-First and Breadth-First Searching
 
 Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections or cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.
-
-Smart pointer are one of the most important features of C++11 and Bayonet use them in different classes. Each node is stored in a network as a shared pointer. Using smart pointers it is possible to allocate and delete memory in a safe way, it is also possible to share and access nodes without caring about dangling pointers. 
 
 
 Prerequisites
@@ -64,6 +62,7 @@ To integrate bayonet in a different environment (ex Eclipse, Code::Blocks, etc) 
 References
 ----------
 
+- *Bayesian Artificial Intelligence. Kevin B. Korb and Ann E. Nicholson. CRC Press, 2011.*
 - *Probabilistic Graphical Models. Principles and Techniques. Daphne Koller and Nir Friedman. The MIT Press, 2009.*
 - *Artificial Intelligence: A Modern Approach. Stuart Russell and Peter Norvig. Pearson, 2009.*
 - *Learning Bayesian Networks. Richard E. Neapolitan. Perason, 2003.*

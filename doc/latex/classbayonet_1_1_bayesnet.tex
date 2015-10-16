@@ -17,7 +17,7 @@ This class represents the whole Bayesian network.
 \item 
 \hyperlink{classbayonet_1_1_bayesnet_af0d3ee29b0676789a3c5d1c33a0e36a2}{$\sim$\-Bayesnet} ()
 \item 
-std\-::shared\-\_\-ptr$<$ \hyperlink{classbayonet_1_1_bayesnode}{Bayesnode} $>$ \hyperlink{classbayonet_1_1_bayesnet_a805e5513cfef8b16f5f6f38f93aab5db}{operator\mbox{[}$\,$\mbox{]}} (unsigned int index)
+\hyperlink{classbayonet_1_1_bayesnode}{Bayesnode} \& \hyperlink{classbayonet_1_1_bayesnet_ac2367ab8e0fdae128f17159f09c63eea}{operator\mbox{[}$\,$\mbox{]}} (unsigned int index)
 \item 
 bool \hyperlink{classbayonet_1_1_bayesnet_aba354bf67d39dc73e070e63b9bc45ecd}{Add\-Edge} (unsigned int First\-Node, unsigned int Second\-Node)
 \item 
@@ -25,9 +25,9 @@ bool \hyperlink{classbayonet_1_1_bayesnet_a0ea810411a987ebeb97b580053ce7c7f}{Rem
 \item 
 bool \hyperlink{classbayonet_1_1_bayesnet_ae852714069b47eff14918d5a4e53a2dd}{Has\-Edge} (unsigned int First\-Node, unsigned int Second\-Node)
 \item 
-unsigned int \hyperlink{classbayonet_1_1_bayesnet_aabfe91fab18e3fcaca8c8965f6a59860}{Return\-Number\-Of\-Nodes} () const 
+unsigned int \hyperlink{classbayonet_1_1_bayesnet_a2d68782e4d08abf2bb2f0ad093db78cc}{Return\-Number\-Of\-Nodes} ()
 \item 
-unsigned int \hyperlink{classbayonet_1_1_bayesnet_af19e4190891a42a729a80c61e97f1947}{Return\-Number\-Of\-Edges} () const 
+unsigned int \hyperlink{classbayonet_1_1_bayesnet_a42e6612c84beb2d4e6d5c55792f3ed4e}{Return\-Number\-Of\-Edges} ()
 \item 
 std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_acb33076271f03ba59ac98a04b762d26b}{Return\-Out\-Edges} (unsigned int index)
 \item 
@@ -53,20 +53,14 @@ bool \hyperlink{classbayonet_1_1_bayesnet_a5877478cf225ed47f43df29cc087c5d6}{Is\
 \item 
 bool \hyperlink{classbayonet_1_1_bayesnet_af9809dc12e3f77859f9674ced08fe7b0}{Is\-Leaf} (unsigned int)
 \item 
-const std\-::vector\\*
-$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classbayonet_1_1_bayesnode}{Bayesnode} $>$ $>$ \& \hyperlink{classbayonet_1_1_bayesnet_ab0e31b9a2b625b5b59d3e70e3c7e4101}{Return\-Nodes\-Vector} ()
+const std\-::vector$<$ \hyperlink{classbayonet_1_1_bayesnode}{Bayesnode} $>$ \& \hyperlink{classbayonet_1_1_bayesnet_a7b349d82edb61c0c982bb4b1240912da}{Return\-Nodes\-Vector} ()
 \item 
-void \hyperlink{classbayonet_1_1_bayesnet_a586e4951a91ac2c47d8448caea25d657}{Fill\-Joint\-Probability\-Table} ()
+\hypertarget{classbayonet_1_1_bayesnet_a586e4951a91ac2c47d8448caea25d657}{void {\bfseries Fill\-Joint\-Probability\-Table} ()}\label{classbayonet_1_1_bayesnet_a586e4951a91ac2c47d8448caea25d657}
+
 \item 
 std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_adef5210316c514cd50e977d5bc6292e5}{Breadth\-First\-Search} (unsigned int starting\-Node)
 \item 
 void \hyperlink{classbayonet_1_1_bayesnet_a8ab753ba22b35727cce998e2266b9afe}{Depth\-First\-Search} (unsigned int starting\-Node, std\-::shared\-\_\-ptr$<$ std\-::list$<$ unsigned int $>$$>$ sp\-To\-List, bool reset\-Colours=true)
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\hypertarget{classbayonet_1_1_bayesnet_ae162418e729b5c401f36ed1ef1d1b980}{\hyperlink{classbayonet_1_1_joint_probability_table}{Joint\-Probability\-Table} {\bfseries joint\-Table}}\label{classbayonet_1_1_bayesnet_ae162418e729b5c401f36ed1ef1d1b980}
-
 \end{DoxyCompactItemize}
 
 
@@ -158,18 +152,6 @@ Depth First Search algorithm. Starting from a node it performs a depth-\/first t
 {\em reset\-Colour} & if true it reset all the colour to white before starting the algorithm \\
 \hline
 \end{DoxyParams}
-\hypertarget{classbayonet_1_1_bayesnet_a586e4951a91ac2c47d8448caea25d657}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Fill\-Joint\-Probability\-Table@{Fill\-Joint\-Probability\-Table}}
-\index{Fill\-Joint\-Probability\-Table@{Fill\-Joint\-Probability\-Table}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
-\subsubsection[{Fill\-Joint\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnet\-::\-Fill\-Joint\-Probability\-Table (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnet_a586e4951a91ac2c47d8448caea25d657}
-It fills the Joint Probability Table using the data from the Bayesian network.
-
-\begin{DoxyReturn}{Returns}
-it returns a smart pointer to the Joint Table 
-\end{DoxyReturn}
 \hypertarget{classbayonet_1_1_bayesnet_a0140ea4f620f852b12746f2a92bd4013}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Get\-Node\-Probability@{Get\-Node\-Probability}}
 \index{Get\-Node\-Probability@{Get\-Node\-Probability}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Get\-Node\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}double bayonet\-::\-Bayesnet\-::\-Get\-Node\-Probability (
@@ -228,20 +210,20 @@ A root node is a node without parents but with children.
 \begin{DoxyReturn}{Returns}
 it returns true if the node is a root node. 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnet_a805e5513cfef8b16f5f6f38f93aab5db}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\hypertarget{classbayonet_1_1_bayesnet_ac2367ab8e0fdae128f17159f09c63eea}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
 \index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
-\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf Bayesnode} $>$ bayonet\-::\-Bayesnet\-::operator\mbox{[}$\,$\mbox{]} (
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bayesnode} \& bayonet\-::\-Bayesnet\-::operator\mbox{[}$\,$\mbox{]} (
 \begin{DoxyParamCaption}
 \item[{unsigned int}]{index}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnet_a805e5513cfef8b16f5f6f38f93aab5db}
-Operator overload \mbox{[}\mbox{]} it is used to return the smart pointer reference to the node stored inside the net It is possible to access the methods of the single node using the deferencing operator -\/$>$ Example\-: net\mbox{[}2\mbox{]}-\/$>$\hyperlink{classbayonet_1_1_bayesnet_a5877478cf225ed47f43df29cc087c5d6}{Is\-Root()}; // It checks if the third node is a root node 
+)}}\label{classbayonet_1_1_bayesnet_ac2367ab8e0fdae128f17159f09c63eea}
+Operator overload \mbox{[}\mbox{]} it is used to return thereference to the node stored inside the net It is possible to access the methods of the single node in a easier way. Example\-: net\mbox{[}2\mbox{]}.\hyperlink{classbayonet_1_1_bayesnet_a5877478cf225ed47f43df29cc087c5d6}{Is\-Root()}; // It checks if the third node is a root node 
 \begin{DoxyParams}{Parameters}
 {\em index} & the number of the element stored inside the net \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-it returns a shared\-\_\-ptr to the node 
+it returns a reference to the node 
 \end{DoxyReturn}
 \hypertarget{classbayonet_1_1_bayesnet_a0ea810411a987ebeb97b580053ce7c7f}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Remove\-Edge@{Remove\-Edge}}
 \index{Remove\-Edge@{Remove\-Edge}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
@@ -286,13 +268,13 @@ it returns the list of evidence node
 \item[{unsigned int}]{index}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnet_a5621b949d8fda17ae0efd9810655b1b3}
-It returns the input index list. \hypertarget{classbayonet_1_1_bayesnet_ab0e31b9a2b625b5b59d3e70e3c7e4101}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Nodes\-Vector@{Return\-Nodes\-Vector}}
+It returns the input index list. \hypertarget{classbayonet_1_1_bayesnet_a7b349d82edb61c0c982bb4b1240912da}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Nodes\-Vector@{Return\-Nodes\-Vector}}
 \index{Return\-Nodes\-Vector@{Return\-Nodes\-Vector}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
-\subsubsection[{Return\-Nodes\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf Bayesnode} $>$ $>$ \& bayonet\-::\-Bayesnet\-::\-Return\-Nodes\-Vector (
+\subsubsection[{Return\-Nodes\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$ {\bf Bayesnode} $>$ \& bayonet\-::\-Bayesnet\-::\-Return\-Nodes\-Vector (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnet_ab0e31b9a2b625b5b59d3e70e3c7e4101}
+)}}\label{classbayonet_1_1_bayesnet_a7b349d82edb61c0c982bb4b1240912da}
 It return a const reference to the internal vector used to store the nodes.
 
 \begin{DoxyReturn}{Returns}
@@ -317,20 +299,20 @@ it returns the list of not evidence node
 \item[{unsigned int}]{index}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnet_a7d47ce38f3882b80121f6acc351fd373}
-It returns the number of ingoing edges from the node specified in the index. \hypertarget{classbayonet_1_1_bayesnet_af19e4190891a42a729a80c61e97f1947}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Of\-Edges@{Return\-Number\-Of\-Edges}}
+It returns the number of ingoing edges from the node specified in the index. \hypertarget{classbayonet_1_1_bayesnet_a42e6612c84beb2d4e6d5c55792f3ed4e}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Of\-Edges@{Return\-Number\-Of\-Edges}}
 \index{Return\-Number\-Of\-Edges@{Return\-Number\-Of\-Edges}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-Number\-Of\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnet\-::\-Return\-Number\-Of\-Edges (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{classbayonet_1_1_bayesnet_af19e4190891a42a729a80c61e97f1947}
-It returns the number of edges. \hypertarget{classbayonet_1_1_bayesnet_aabfe91fab18e3fcaca8c8965f6a59860}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Of\-Nodes@{Return\-Number\-Of\-Nodes}}
+)}}\label{classbayonet_1_1_bayesnet_a42e6612c84beb2d4e6d5c55792f3ed4e}
+It returns the number of edges. \hypertarget{classbayonet_1_1_bayesnet_a2d68782e4d08abf2bb2f0ad093db78cc}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Of\-Nodes@{Return\-Number\-Of\-Nodes}}
 \index{Return\-Number\-Of\-Nodes@{Return\-Number\-Of\-Nodes}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-Number\-Of\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnet\-::\-Return\-Number\-Of\-Nodes (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{classbayonet_1_1_bayesnet_aabfe91fab18e3fcaca8c8965f6a59860}
+)}}\label{classbayonet_1_1_bayesnet_a2d68782e4d08abf2bb2f0ad093db78cc}
 It returns the number of nodes. \hypertarget{classbayonet_1_1_bayesnet_aae9de07f181dc75f309b7f59e302a947}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Number\-Out\-Edges@{Return\-Number\-Out\-Edges}}
 \index{Return\-Number\-Out\-Edges@{Return\-Number\-Out\-Edges}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-Number\-Out\-Edges}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Bayesnet\-::\-Return\-Number\-Out\-Edges (

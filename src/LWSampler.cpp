@@ -76,14 +76,14 @@ std::pair< std::vector<unsigned int>, double> LWSampler::ReturnSample(bayonet::B
   //Key completed, asking for the sample
   auto sp_to_node = net[*it_topo];
   //Checking if the node is Evidence
-  if(sp_to_node->IsEvidence() == true){
+  if(sp_to_node.IsEvidence() == true){
    //unsigned int node_evidence = sp_to_node->GetEvidence();
-   std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node->GetEvidence());
+   std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node.GetEvidence());
    sample_map[*it_topo] = pair_to_store;
-   weight_to_return = weight_to_return * sp_to_node->conditionalTable.GetProbability(sp_to_node->GetEvidence(), key_vector);
+   weight_to_return = weight_to_return * sp_to_node.conditionalTable.GetProbability(sp_to_node.GetEvidence(), key_vector);
   }else{
    //If it is not an Evidence then storing the sample in the local index vector
-   std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node->conditionalTable.ReturnSample(key_vector));
+   std::pair<bool,unsigned int> pair_to_store = std::make_pair<bool, unsigned int>(true, sp_to_node.conditionalTable.ReturnSample(key_vector));
    sample_map[*it_topo] = pair_to_store;
   }
  }

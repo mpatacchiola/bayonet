@@ -30,7 +30,17 @@ namespace bayonet{
 /** \class ConditionalProbabilityTable
  *  \brief A table containing the conditional probabilities of random variables.
  *
- *  This class is a container for conditional probabilities.
+ * To quantify the relationships between the nodes it is necessary to specify
+ * a conditional distribution for each node given its parents. Using discrete
+ * random variables the best way to represent such a relationship is the 
+ * conditional probability table (CPT). The CPT of a node contains all the
+ * possible combinations of values (instantiation) of the parents nodes. For
+ * each instantiation it is necessary to specify the probabilities that the 
+ * child node assumes each of its values. 
+ * Bayonet store the CPT as a std::map, where the key is a vector of integrers
+ * representing the states of the parents node, and the value is a vector of 
+ * double representing the probabilities of the variable states.
+ * 
 **/
 class ConditionalProbabilityTable {
 
@@ -59,7 +69,7 @@ class ConditionalProbabilityTable {
 
  private:
   std::vector<unsigned int> mTotalParentsStates;
-  std::map<std::vector<unsigned int>,std::vector<double>> conditionalMap;
+  std::map<std::vector<unsigned int>,std::vector<double> > conditionalMap;
 
   void FillMap(unsigned int NodeStatesNumber, std::vector<unsigned int> parentsStates);
 

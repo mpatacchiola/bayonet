@@ -82,18 +82,18 @@ int main()
  //Setting the Conditional tables for each node.
  //The conditional table contains the probabilities associated with each
  //state of each parent of the current node.
- myNet[CLOUDY]->conditionalTable.SetProbabilities({}, {0.50, 0.50});
+ myNet[CLOUDY].conditionalTable.SetProbabilities({}, {0.50, 0.50});
 
- myNet[SPRINKLER]->conditionalTable.SetProbabilities({true}, {0.90, 0.10});
- myNet[SPRINKLER]->conditionalTable.SetProbabilities({false}, {0.50, 0.50});
+ myNet[SPRINKLER].conditionalTable.SetProbabilities({true}, {0.90, 0.10});
+ myNet[SPRINKLER].conditionalTable.SetProbabilities({false}, {0.50, 0.50});
 
- myNet[RAIN]->conditionalTable.SetProbabilities({true}, {0.20, 0.80});
- myNet[RAIN]->conditionalTable.SetProbabilities({false}, {0.80, 0.20});
+ myNet[RAIN].conditionalTable.SetProbabilities({true}, {0.20, 0.80});
+ myNet[RAIN].conditionalTable.SetProbabilities({false}, {0.80, 0.20});
 
- myNet[GRASS]->conditionalTable.SetProbabilities({true,true}, {0.01, 0.99});
- myNet[GRASS]->conditionalTable.SetProbabilities({true,false}, {0.10, 0.90});
- myNet[GRASS]->conditionalTable.SetProbabilities({false,true}, {0.10, 0.90});
- myNet[GRASS]->conditionalTable.SetProbabilities({false,false}, {1.0, 0.0});
+ myNet[GRASS].conditionalTable.SetProbabilities({true,true}, {0.01, 0.99});
+ myNet[GRASS].conditionalTable.SetProbabilities({true,false}, {0.10, 0.90});
+ myNet[GRASS].conditionalTable.SetProbabilities({false,true}, {0.10, 0.90});
+ myNet[GRASS].conditionalTable.SetProbabilities({false,false}, {1.0, 0.0});
 
  //The output of the sampler is a JointTable, that is a useful
  //way to deal with joint probabilities. Here the inference is made.
@@ -113,7 +113,7 @@ int main()
 
  //In the following sections we are going to play with the nodes,
  //setting up different inference sates and looking for the results.
- myNet[GRASS]->SetEvidence(true);
+ myNet[GRASS].SetEvidence(true);
  myJointTable = myLWSampler.ReturnJointProbabilityTable(myNet,iterations);
 
  std::cout << std::endl << "========= The GRASS is wet =========" << std::endl;
@@ -127,8 +127,8 @@ int main()
  myJointTable.PrintMarginal(GRASS);
  std::cout << std::endl;
 
- myNet[GRASS]->SetEvidence(-1);
- myNet[CLOUDY]->SetEvidence(true);
+ myNet[GRASS].SetEvidence(-1);
+ myNet[CLOUDY].SetEvidence(true);
  myJointTable = myLWSampler.ReturnJointProbabilityTable(myNet,iterations);
 
  std::cout << std::endl << "====== The weather is CLOUDY  ======" << std::endl;

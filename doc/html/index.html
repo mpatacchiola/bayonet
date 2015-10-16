@@ -82,18 +82,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Bayesian networks are probabilistic graphical models, a set of random variables (called nodes) connected through directed edges. Each edge of the network represents a causal relation between two nodes.</p>
 <p>Bayonet is a C++ library that permits to create discrete Bayesian networks, the library has a lot of properties that we can summarize here:</p>
 <ul>
-<li>Safe memory management through smart pointers and STL containers (C++11)</li>
+<li>Safe memory management through STL containers (C++11)</li>
 <li>No external library required, Bayonet is self-contained</li>
 <li>Completely open source (GNU v2.0)</li>
 <li>Easy to create and manage densely connected networks</li>
-<li>Deterministic inference (Pearl's message passing)</li>
 <li>Approximate inference through sampling</li>
 <li>Different sampling methods: Rejection, Likelihood-Weighting, Gibbs</li>
-<li>Learning the network parameters</li>
 <li>Topological sorting, Depth-First and Breadth-First Searching</li>
 </ul>
-<p>Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections and cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.</p>
-<p>Smart pointer are one of the most important features of C++11 and Bayonet use them in different classes. Each node is stored in a network as a shared pointer. Using smart pointers it is possible to allocate and delete memory in a safe way, it is also possible to share and access nodes without caring about dangling pointers.</p>
+<p>Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections or cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.</p>
 <h2>Prerequisites </h2>
 <p>To install the library you must have <em>make</em> and *g++* already installed on your system. You can install them from a Unix system running the following commands from the terminal:</p>
 <p><code>sudo apt-get install build-essential g++</code></p>
@@ -117,6 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>In this case the library will be statically included inside your code. To integrate bayonet in a different environment (ex Eclipse, Code::Blocks, etc) follow the istructions given by the producer on how to integrate an external shared library or a static one.</p>
 <h2>References </h2>
 <ul>
+<li><em>Bayesian Artificial Intelligence. Kevin B. Korb and Ann E. Nicholson. CRC Press, 2011.</em></li>
 <li><em>Probabilistic Graphical Models. Principles and Techniques. Daphne Koller and Nir Friedman. The MIT Press, 2009.</em></li>
 <li><em>Artificial Intelligence: A Modern Approach. Stuart Russell and Peter Norvig. Pearson, 2009.</em></li>
 <li><em>Learning Bayesian Networks. Richard E. Neapolitan. Perason, 2003.</em> </li>
@@ -124,7 +122,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 15 2015 15:23:36 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 16 2015 13:18:29 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

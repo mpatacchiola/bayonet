@@ -133,7 +133,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A table containing the conditional probabilities of random variables. </p>
-<p>This class is a container for conditional probabilities. </p>
+<p>To quantify the relationships between the nodes it is necessary to specify a conditional distribution for each node given its parents. Using discrete random variables the best way to represent such a relationship is the conditional probability table (CPT). The CPT of a node contains all the possible combinations of values (instantiation) of the parents nodes. For each instantiation it is necessary to specify the probabilities that the child node assumes each of its values. Bayonet store the CPT as a std::map, where the key is a vector of integrers representing the states of the parents node, and the value is a vector of double representing the probabilities of the variable states. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a58abcca6946f80bfe3c86ccbbdeed31e"></a>
 <div class="memitem">
@@ -460,7 +460,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 15 2015 15:23:35 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 16 2015 13:18:29 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

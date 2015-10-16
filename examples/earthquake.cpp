@@ -86,22 +86,22 @@ int main()
  //Setting the Conditional tables for each node.
  //The conditional table contains the probabilities associated with each
  //state of each parent of the current node.
- myNet[BURGLARY]->conditionalTable.SetProbabilities({}, {0.99, 0.01});
+ myNet[BURGLARY].conditionalTable.SetProbabilities({}, {0.99, 0.01});
 
- myNet[EARTHQUAKE]->conditionalTable.SetProbabilities({}, {0.98, 0.02});
+ myNet[EARTHQUAKE].conditionalTable.SetProbabilities({}, {0.98, 0.02});
 
  //Attention: true and false are used to make the code clear,
  //the function takes integers, here a cast bool>int is automatically done.
- myNet[ALARM]->conditionalTable.SetProbabilities({true,true}, {0.05, 0.95});
- myNet[ALARM]->conditionalTable.SetProbabilities({true,false}, {0.06, 0.94});
- myNet[ALARM]->conditionalTable.SetProbabilities({false,true}, {0.71, 0.29});
- myNet[ALARM]->conditionalTable.SetProbabilities({false,false}, {0.999, 0.001});
+ myNet[ALARM].conditionalTable.SetProbabilities({true,true}, {0.05, 0.95});
+ myNet[ALARM].conditionalTable.SetProbabilities({true,false}, {0.06, 0.94});
+ myNet[ALARM].conditionalTable.SetProbabilities({false,true}, {0.71, 0.29});
+ myNet[ALARM].conditionalTable.SetProbabilities({false,false}, {0.999, 0.001});
 
- myNet[JOHN]->conditionalTable.SetProbabilities({true}, {0.10, 0.90});
- myNet[JOHN]->conditionalTable.SetProbabilities({false}, {0.95, 0.05});
+ myNet[JOHN].conditionalTable.SetProbabilities({true}, {0.10, 0.90});
+ myNet[JOHN].conditionalTable.SetProbabilities({false}, {0.95, 0.05});
 
- myNet[MARY]->conditionalTable.SetProbabilities({true}, {0.30, 0.70});
- myNet[MARY]->conditionalTable.SetProbabilities({false}, {0.99, 0.01});
+ myNet[MARY].conditionalTable.SetProbabilities({true}, {0.30, 0.70});
+ myNet[MARY].conditionalTable.SetProbabilities({false}, {0.99, 0.01});
 
 
 
@@ -126,7 +126,7 @@ int main()
 
  //In the following sections we are going to play with the nodes,
  //setting up different inference states and looking for the results.
- myNet[JOHN]->SetEvidence(true);
+ myNet[JOHN].SetEvidence(true);
  myJointTable = myLWSampler.ReturnJointProbabilityTable(myNet,iterations);
 
  std::cout << std::endl << "============ JOHN calls ============" << std::endl;
@@ -144,8 +144,8 @@ int main()
 
 
  //setting up different inference states and looking for the results.
- myNet[JOHN]->SetEvidence(-1); //disabling the evidence for JOHN node
- myNet[BURGLARY]->SetEvidence(true);
+ myNet[JOHN].SetEvidence(-1); //disabling the evidence for JOHN node
+ myNet[BURGLARY].SetEvidence(true);
 
  myJointTable = myLWSampler.ReturnJointProbabilityTable(myNet,iterations);
  std::cout << std::endl << "======= There is a BURGLARY  =======" << std::endl;

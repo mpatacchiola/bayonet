@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['isevidence',['IsEvidence',['../classbayonet_1_1_bayesnode.html#a71a90c0403ecb1441d43af3978200fd2',1,'bayonet::Bayesnode']]],
-  ['isinadjacencylist',['IsInAdjacencyList',['../classbayonet_1_1_bayesnode.html#a531f3d3341170ba4ea6d646f1a368b54',1,'bayonet::Bayesnode']]],
-  ['isleaf',['IsLeaf',['../classbayonet_1_1_bayesnet.html#af9809dc12e3f77859f9674ced08fe7b0',1,'bayonet::Bayesnet']]],
-  ['isroot',['IsRoot',['../classbayonet_1_1_bayesnet.html#a5877478cf225ed47f43df29cc087c5d6',1,'bayonet::Bayesnet']]]
+  ['jointprobabilitytable',['JointProbabilityTable',['../classbayonet_1_1_joint_probability_table.html',1,'bayonet']]],
+  ['jointprobabilitytable',['JointProbabilityTable',['../classbayonet_1_1_joint_probability_table.html#abc02930b72bf85bde3981e422e8676e0',1,'bayonet::JointProbabilityTable::JointProbabilityTable()'],['../classbayonet_1_1_joint_probability_table.html#afedab5cdff76623e341a9e8075a5867b',1,'bayonet::JointProbabilityTable::JointProbabilityTable(std::vector&lt; unsigned int &gt; variablesTotStatesVector)']]]
 ];

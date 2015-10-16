@@ -38,10 +38,10 @@ class Bayesnode {
  public:
 
   /// Enum class colour
-  enum class colour : char {
-   WHITE = 'W', ///< is used for unobserved nodes
-   GREY = 'G', ///< is is used for partially observed nodes
-   BLACK = 'B', ///< is used for observed nodes
+  enum colour {
+   WHITE, ///< is used for unobserved nodes
+   GREY, ///< is is used for partially observed nodes
+   BLACK, ///< is used for observed nodes
   };
 
   ConditionalProbabilityTable conditionalTable;

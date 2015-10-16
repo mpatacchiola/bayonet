@@ -5,7 +5,7 @@
 
 
 CC=g++
-CFLAGS=-Wall -std=c++11 -fPIC
+CFLAGS=-Wall -fPIC -std=c++11 
 
 compile:
 	@echo

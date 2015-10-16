@@ -84,18 +84,18 @@ int main()
 
  //If GUEST choose the door with the prize then MONTY can choose with equal 
  //probability some of the other two doors.
- myNet[MONTY]->conditionalTable.SetProbabilities({A, A}, {0.0, 0.5, 0.5}); //PLAYER choose A, PRIZE is in A
- myNet[MONTY]->conditionalTable.SetProbabilities({B, B}, {0.5, 0.0, 0.5}); //PLAYER choose B, PRIZE is in B
- myNet[MONTY]->conditionalTable.SetProbabilities({C, C}, {0.5, 0.5, 0.0}); //PLAYER choose C, PRIZE is in C
+ myNet[MONTY].conditionalTable.SetProbabilities({A, A}, {0.0, 0.5, 0.5}); //PLAYER choose A, PRIZE is in A
+ myNet[MONTY].conditionalTable.SetProbabilities({B, B}, {0.5, 0.0, 0.5}); //PLAYER choose B, PRIZE is in B
+ myNet[MONTY].conditionalTable.SetProbabilities({C, C}, {0.5, 0.5, 0.0}); //PLAYER choose C, PRIZE is in C
 
  //if the GUEST choose a door where there is not a prize, then MONTY will 
  //choose the remaining empty door.
- myNet[MONTY]->conditionalTable.SetProbabilities({A, B}, {0.0, 0.0, 1.0}); //PLAYER choose A, PRIZE is in B
- myNet[MONTY]->conditionalTable.SetProbabilities({A, C}, {0.0, 1.0, 0.0}); //PLAYER choose A, PRIZE is in C
- myNet[MONTY]->conditionalTable.SetProbabilities({B, A}, {0.0, 0.0, 1.0}); //PLAYER choose B, PRIZE is in A
- myNet[MONTY]->conditionalTable.SetProbabilities({B, C}, {1.0, 0.0, 0.0}); //PLAYER choose B, PRIZE is in C
- myNet[MONTY]->conditionalTable.SetProbabilities({C, A}, {0.0, 1.0, 0.0}); //PLAYER choose C, PRIZE is in A
- myNet[MONTY]->conditionalTable.SetProbabilities({C, B}, {1.0, 0.0, 0.0}); //PLAYER choose C, PRIZE is in B
+ myNet[MONTY].conditionalTable.SetProbabilities({A, B}, {0.0, 0.0, 1.0}); //PLAYER choose A, PRIZE is in B
+ myNet[MONTY].conditionalTable.SetProbabilities({A, C}, {0.0, 1.0, 0.0}); //PLAYER choose A, PRIZE is in C
+ myNet[MONTY].conditionalTable.SetProbabilities({B, A}, {0.0, 0.0, 1.0}); //PLAYER choose B, PRIZE is in A
+ myNet[MONTY].conditionalTable.SetProbabilities({B, C}, {1.0, 0.0, 0.0}); //PLAYER choose B, PRIZE is in C
+ myNet[MONTY].conditionalTable.SetProbabilities({C, A}, {0.0, 1.0, 0.0}); //PLAYER choose C, PRIZE is in A
+ myNet[MONTY].conditionalTable.SetProbabilities({C, B}, {1.0, 0.0, 0.0}); //PLAYER choose C, PRIZE is in B
 
  //First we print the marginals for each node and each state. In this
  //moment we do not have any evidence to define, then each outcome
@@ -114,7 +114,7 @@ int main()
  //that decision we are in a new universe and the probabilities
  //are different from the previous plot.
  std::cout << std::endl << "======= The PLAYER choose the door A =======" << std::endl;
- myNet[PLAYER]->SetEvidence(A);
+ myNet[PLAYER].SetEvidence(A);
  myJointTable = myRejectionSampler.ReturnJointProbabilityTable(myNet,iterations);
  std::cout << std::endl << "------------- PLAYER -------------" << std::endl;
  myJointTable.PrintMarginal(PLAYER);
@@ -129,7 +129,7 @@ int main()
  //probabilities. This is the final step and it permits to solve
  //the Monty Hall dilemma.
  std::cout << std::endl << "=======  MONTY opens the door B  =======" << std::endl;
- myNet[MONTY]->SetEvidence(B);
+ myNet[MONTY].SetEvidence(B);
  myJointTable = myRejectionSampler.ReturnJointProbabilityTable(myNet,iterations);
  std::cout << std::endl << "------------- PLAYER -------------" << std::endl;
  myJointTable.PrintMarginal(PLAYER);
