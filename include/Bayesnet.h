@@ -20,7 +20,6 @@
 #ifndef BAYESNET_H
 #define BAYESNET_H
 
-#include <memory> //shared_ptr
 #include"Bayesnode.h"
 #include"JointProbabilityTable.h"
 #include <functional>
@@ -52,7 +51,11 @@ class Bayesnet{
   std::list<unsigned int> ReturnInEdges(unsigned int index);
   unsigned int ReturnNumberOutEdges(unsigned int index);
   unsigned int ReturnNumberInEdges(unsigned int index);
+
   std::list<unsigned int> ReturnTopologicalList();
+  std::list<unsigned int> ReturnRootList();
+  std::list<unsigned int> ReturnLeafList();
+
   std::vector<unsigned int> ReturnTotalStates();
   std::vector<unsigned int> ReturnNotEvidenceNodes();
   std::vector<unsigned int> ReturnEvidenceNodes();

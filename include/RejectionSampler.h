@@ -20,10 +20,7 @@
 #ifndef REJECTIONSAMPLER_H
 #define REJECTIONSAMPLER_H
 
-#include <initializer_list>
-#include <map>
 #include<vector>
-#include <memory>
 #include"Bayesnet.h"
 #include"JointProbabilityTable.h"
 

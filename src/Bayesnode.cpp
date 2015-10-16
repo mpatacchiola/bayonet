@@ -18,9 +18,7 @@
 */
 
 #include "Bayesnode.h"
-#include <random>
 #include <iostream>
-#include <algorithm> //std::find
 
 namespace bayonet{
 

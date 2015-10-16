@@ -20,10 +20,8 @@
 #ifndef BAYESNODE_H
 #define BAYESNODE_H
 
-#include <vector>
 #include<list>
 #include <string>
-#include <memory>
 #include "ConditionalProbabilityTable.h"
 
 namespace bayonet{

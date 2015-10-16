@@ -18,8 +18,6 @@
 */
 
 #include <iostream>
-#include <iomanip>
-#include <sstream>
 #include <random>
 #include"JointProbabilityTable.h"
 

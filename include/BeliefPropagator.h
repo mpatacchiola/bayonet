@@ -17,40 +17,45 @@
  *
 */
 
-#ifndef LWSAMPLER_H
-#define LWSAMPLER_H
+#ifndef BELIEFPROPAGATOR_H
+#define BELIEFPROPAGATORR_H
 
 #include<vector>
+#include <memory>
 #include"Bayesnet.h"
 #include"JointProbabilityTable.h"
 
 namespace bayonet{
 
 
-/** \class LWSampler
-*   \brief Implementation of the Likelihood-Weighted sampler. 
-* 
-* Using a rejection sampler with high dimensional random variables
-* is problematic because many samples get lost. In this case a
-* Likelihood-Weighted sampler is more efficient. The samples are "forced"
-* to assume the appropriate value according to the inference.
+/** \class BeliefPropagator
+*   \brief Implementation of the belief propagation algorithm.
+*
+*  
+* The BeliefPropagator class permits to use the Kim-Pearl message passing algorithm
+* for making inferences on a Bayesian network. 
 *
 **/
-class LWSampler {
+class BeliefPropagator {
 
 public:
-LWSampler();
-~LWSampler();
+BeliefPropagator();
+~BeliefPropagator();
 
-std::pair< std::vector<unsigned int>, double> ReturnSample(bayonet::Bayesnet& net);
-
-std::vector<std::pair<std::vector<unsigned int>, double>> AccumulateSamples(Bayesnet&, unsigned int cycles);
-
-void PrintSample(bayonet::Bayesnet& net, unsigned int cycles = 1);
 JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles);
 
 
 private:
+
+struct parameters{
+ unsigned int index;
+ unsigned int states;
+ std::vector<double> belief_vector;
+ std::vector<double> pi_messages_vector;
+ std::vector<double> lambda_messages_vector;
+};
+
+
 
 };
 
@@ -58,7 +63,7 @@ private:
 
 }
 
-#endif // LWSAMPLER_H
+#endif // BELIEFPROPAGATOR_H
 
 
 

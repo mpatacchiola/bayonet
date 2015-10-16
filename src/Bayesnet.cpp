@@ -194,6 +194,32 @@ std::list<unsigned int> Bayesnet::ReturnTopologicalList() {
 }
 
 /**
+* I return a list of integers, containing the index of
+* all the Root nodes.
+*
+**/
+std::list<unsigned int> Bayesnet::ReturnRootList(){
+ std::list<unsigned int> list_to_return;
+ for(unsigned int i=0; i<nodesVector.size(); i++){
+  if(IsRoot(i) == true) list_to_return.push_back(i);
+ }
+ return list_to_return;
+}
+
+/**
+* I return a list of integers, containing the index of
+* all the Leaf nodes.
+*
+**/
+std::list<unsigned int> Bayesnet::ReturnLeafList(){
+ std::list<unsigned int> list_to_return;
+ for(unsigned int i=0; i<nodesVector.size(); i++){
+  if(IsLeaf(i) == true) list_to_return.push_back(i);
+ }
+ return list_to_return;
+}
+
+/**
 * Given the the index of a variable and the states of all
 * the variables, it returns the associated probability.
 *
