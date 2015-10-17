@@ -49,8 +49,14 @@ class ConditionalProbabilityTable {
   ConditionalProbabilityTable(unsigned int NodeStatesNumber, std::vector<unsigned int> parentsStatesList);
   ~ConditionalProbabilityTable();
 
+  std::pair<std::vector<unsigned int>, std::vector<double>> ReturnRow(unsigned int index);
+  std::vector<unsigned int> ReturnParentsState(unsigned int index);
+
+  std::vector<unsigned int> FindParentState(unsigned int parentIndex, unsigned int parentState);
+
   double GetProbability(unsigned int variableState, std::vector<unsigned int> parentsStates);
   std::vector<double> GetProbabilities(std::vector<unsigned int> parentsStates);
+  std::vector<double> GetProbabilities(unsigned int variableState, unsigned int parentIndex, unsigned int parentsState);
   bool SetProbabilities(std::vector<unsigned int> parentsStates, std::vector<double> probabilities);
   void Print();
   void PrintProbabilities(std::vector<unsigned int> parentsStates);

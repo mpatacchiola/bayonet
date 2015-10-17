@@ -67,6 +67,58 @@ ConditionalProbabilityTable::ConditionalProbabilityTable(unsigned int NodeStates
 ConditionalProbabilityTable::~ConditionalProbabilityTable(){}
 
 /**
+* Return a single row of the table.
+* The row is a pair containing the parent state
+* and the probabilities for all the variable states.
+*
+* @param index
+**/
+std::pair<std::vector<unsigned int>, std::vector<double>> ConditionalProbabilityTable::ReturnRow(unsigned int index){
+ std::vector<unsigned int> parent_vector;
+ std::vector<double> state_vector;
+ if(index > conditionalMap.size()) return make_pair(parent_vector, state_vector); //out of range > empty vector returned
+ auto it_map=conditionalMap.begin();
+ std::advance(it_map, index);
+ parent_vector = it_map->first;
+ state_vector = it_map->second;
+ return make_pair(parent_vector, state_vector);
+}
+
+/**
+* Return the Parents state at a given index
+*
+* @param index
+**/
+std::vector<unsigned int> ConditionalProbabilityTable::ReturnParentsState(unsigned int index){
+ std::vector<unsigned int> vector_to_return;
+ if(index > conditionalMap.size()) return vector_to_return; //out of range > empty vector returned
+ auto it_map=conditionalMap.begin();
+ std::advance(it_map, index);
+ vector_to_return = it_map->first;
+ return vector_to_return;
+}
+
+/**
+* It find in which rows the specified parent has the specified state.
+* It returns a list of integers, representing the positions of the
+* parent in the CPT.
+*
+* @param parentIndex
+* @param parentState
+**/
+std::vector<unsigned int> ConditionalProbabilityTable::FindParentState(unsigned int parentIndex, unsigned int parentState){
+ unsigned int row = 0;
+ std::vector<unsigned int> rows_vector;
+ //Iterate through map content:
+ for (auto it_map=conditionalMap.begin(); it_map!=conditionalMap.end(); ++it_map){
+  auto parents_vector = it_map->first;
+  if(parents_vector[parentIndex] == parentState) rows_vector.push_back(row);
+  row++;
+ }
+ return rows_vector;
+}
+
+/**
 * Given the state of the variable and a vector key it returns the associated probability
 *
 * @param variableState
@@ -87,6 +139,24 @@ double ConditionalProbabilityTable::GetProbability(unsigned int variableState, s
 **/
 std::vector<double> ConditionalProbabilityTable::GetProbabilities(std::vector<unsigned int> parentsStates){
  return conditionalMap[parentsStates];
+}
+
+/**
+* Given a variable State, a specific parent index and a parent state,
+* it returns all the probabilities associated with that configuration
+* finding them through the rows of the CPT
+*
+* @param variableState
+* @param parentIndex
+* @param parentsState
+**/
+std::vector<double> ConditionalProbabilityTable::GetProbabilities(unsigned int variableState, unsigned int parentIndex, unsigned int parentsState){
+ std::vector<double> vector_to_return;
+ //Iterate through map content:
+ for (auto it_map=conditionalMap.begin(); it_map!=conditionalMap.end(); ++it_map){
+  if(it_map->first[parentIndex] == parentsState) vector_to_return.push_back( it_map->second[variableState] );
+ }
+ return vector_to_return;
 }
 
 /**

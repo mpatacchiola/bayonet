@@ -39,27 +39,33 @@ namespace bayonet{
 class BeliefPropagator {
 
 public:
-BeliefPropagator();
-~BeliefPropagator();
+ BeliefPropagator();
+ ~BeliefPropagator();
 
-JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles);
+ JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles);
+
+
+
+
+ struct parameters{
+  double belief;
+  double pi_value;
+  double lambda_value;
+  double pi_message;
+  double lambda_message;
+ };
+
+
+ void InitialTree(Bayesnet& net);
+ void UpdateTree(Bayesnet& net);
+ double ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state);
+ double ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state);
 
 
 private:
-
-struct parameters{
- unsigned int index;
- unsigned int states;
- std::vector<double> belief_vector;
- std::vector<double> pi_messages_vector;
- std::vector<double> lambda_messages_vector;
-};
-
-
+ std::vector<std::vector<parameters>> parametersVector;
 
 };
-
-
 
 }
 
