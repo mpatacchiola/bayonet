@@ -44,26 +44,22 @@ public:
 
  JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles);
 
+ void InitialTree(Bayesnet& net);
+ void UpdateTree(Bayesnet& net);
+ void Print();
 
-
+private:
 
  struct parameters{
   double belief;
   double pi_value;
   double lambda_value;
-  double pi_message;
-  double lambda_message;
  };
 
+ std::vector<std::vector<parameters>> parametersVector;
 
- void InitialTree(Bayesnet& net);
- void UpdateTree(Bayesnet& net);
  double ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state);
  double ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state);
- void Print();
-
-private:
- std::vector<std::vector<parameters>> parametersVector;
 
 };
 
