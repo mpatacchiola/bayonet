@@ -57,10 +57,11 @@ private:
  };
 
  std::vector<std::vector<parameters>> parametersVector;
-
  double ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state);
  double ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state);
-
+ void SetPiValues(bayonet::Bayesnet& net, unsigned int X);
+ void SetLambdaValues(bayonet::Bayesnet& net, unsigned int X);
+ void SetBelief(bayonet::Bayesnet& net, unsigned int X);
 };
 
 }

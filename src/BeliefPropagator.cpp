@@ -51,6 +51,8 @@ JointProbabilityTable BeliefPropagator::ReturnJointProbabilityTable(bayonet::Bay
 
 /**
 * It initializes the network tree.
+* ATTENTION: the tree must be initialized
+* without any evidence!
 *
 * @param net the bayesian network to initialize
 **/
@@ -95,12 +97,14 @@ void BeliefPropagator::InitialTree(Bayesnet& net){
    if(net[nodes_counter].IsEvidence() == true && net[nodes_counter].GetEvidence()==states_counter){
     it_state->pi_value = 1;
     it_state->lambda_value = 1;
+    it_state->belief = 1;
    //If root node, then pi_values are equal to the associated conditional probability
    }
 
    if(net[nodes_counter].IsEvidence() == true && net[nodes_counter].GetEvidence()!=states_counter){
     it_state->pi_value = 0;
     it_state->lambda_value = 0;
+    it_state->belief = 0;
    //If root node, then pi_values are equal to the associated conditional probability
    }
 
@@ -112,75 +116,63 @@ void BeliefPropagator::InitialTree(Bayesnet& net){
 
 /**
 * It updates the Belief for all the nodes in the network.
-* The Tree must be initialized before calling this function
+* The Tree must be initialized before calling this function.
 *
 * @param net The network to Update
 **/
 void BeliefPropagator::UpdateTree(Bayesnet& net){
- 
- unsigned int nodes_counter = 0;
- for(auto it_nodes=parametersVector.begin(); it_nodes!=parametersVector.end(); ++it_nodes){
-  unsigned int states_counter = 0;
-  double alfa = 0.0; //normalizing constant, used at the end for normalizing the belief of the node
-  for(auto it_states=it_nodes->begin(); it_states!=it_nodes->end(); ++it_states){
 
-  //0-Before any operation of updating it is necessary to reset everything
-  //it_states->lambda_value = 1;  //to 1 because it is multiplied
-  it_states->pi_value = 0; //to 0 because it is added
-
-   //1-Calculating lambda_values
-   if(net[nodes_counter].IsEvidence() == true && net[nodes_counter].GetEvidence()==states_counter) it_states->lambda_value=1.0;
-   if(net[nodes_counter].IsEvidence() == true && net[nodes_counter].GetEvidence()!=states_counter) it_states->lambda_value=0.0;
-   if(net[nodes_counter].IsEvidence() == false){
-    auto out_list=net.ReturnOutEdges(nodes_counter);
-    for(auto it_out=out_list.begin(); it_out!=out_list.end(); ++it_out){
-     //Asking lambda_messages to all the children
-    //Y send X a lambda_message
-   //(net, unsigned int Y, unsigned int X, unsigned int X_state)
-      double local_lambda_message = ReturnLambdaMessage(net, *it_out, nodes_counter, states_counter);
-      it_states->lambda_value *= local_lambda_message;
-    }
+ //The first iteration finds the First evidence
+ //and save its position in the topo_list
+ auto topo_list = net.ReturnTopologicalList();
+ unsigned int first_evidence_pos = 0;
+ for(auto it_topo=topo_list.begin(); it_topo!=topo_list.end(); ++it_topo){
+   if(net[*it_topo].IsEvidence() == true){
+    //1-Calculating lambda_values
+    SetLambdaValues(net, *it_topo);
+    //2-Calculating pi_values
+    SetPiValues(net, *it_topo);
+    //3-Belief updating
+    SetBelief(net, *it_topo);
+    first_evidence_pos = *it_topo;
+    break;
    }
-
-   //2-Calculating pi_values
-   unsigned int cpt_tot_rows = net[nodes_counter].conditionalTable.ReturnRowsNumber();
-   std::vector<unsigned int> parents_vector;
-   double state_probability = 0.0;
-   for(unsigned int i_row=0; i_row<cpt_tot_rows; i_row++){
-    parents_vector = net[nodes_counter].conditionalTable.ReturnRow(i_row).first;
-    state_probability = net[nodes_counter].conditionalTable.GetProbability(states_counter, parents_vector);
-    double temp_multiplier = state_probability;
-    auto it_in_list = net.ReturnInEdges(nodes_counter);
-    unsigned int parent_counter = 0;
-    for(auto it_in=it_in_list.begin(); it_in!=it_in_list.end(); ++it_in){
-     //Asking pi_messages to all the parents
-        double local_pi_message = ReturnPiMessage(net, *it_in, parents_vector[parent_counter], nodes_counter);
-        temp_multiplier *= local_pi_message;
-	parent_counter++;
-    }
-    it_states->pi_value += temp_multiplier;
-   }
-
-   //3-Calculating Belief
-   if(net[nodes_counter].IsEvidence() == true && net[nodes_counter].GetEvidence()!=states_counter) it_states->pi_value=0;
-   it_states->belief = it_states->pi_value * it_states->lambda_value;
-   alfa += it_states->belief; //accumulating the normalization constant
-   states_counter++;
-  }
-
-  //4-Normalizing the belief of the node
-  for(auto it_states=it_nodes->begin(); it_states!=it_nodes->end(); ++it_states){
-    it_states->belief = it_states->belief / alfa;
-  }
-
-  nodes_counter++;
  }
 
+ //Second iteration, from the evidence to the leaf nodes
+ std::list<unsigned int>::iterator it_ev = topo_list.begin();
+ std::advance(it_ev, first_evidence_pos);
+
+ for(auto it_topo=it_ev; it_topo!=topo_list.end(); ++it_topo){
+  //1-Calculating lambda_values
+  SetLambdaValues(net, *it_topo);
+  //2-Calculating pi_values
+  SetPiValues(net, *it_topo);
+  //3-Belief updating
+  SetBelief(net, *it_topo); 
+ }
+ 
+ //Third iteration, from the evidence to the root nodes
+ topo_list.reverse();
+ for(auto it_topo=topo_list.begin(); it_topo!=topo_list.end(); ++it_topo){
+   if(net[*it_topo].IsEvidence() == true){
+    first_evidence_pos = *it_topo;
+    break;
+   }
+ }
+ for(auto it_topo=it_ev; it_topo!=topo_list.end(); ++it_topo){
+  //1-Calculating lambda_values
+  SetLambdaValues(net, *it_topo);
+  //2-Calculating pi_values
+  SetPiValues(net, *it_topo);
+  //3-Belief updating
+  SetBelief(net, *it_topo); 
+ }
 }
 
-
 /**
-* It return a vector of pi messages from a node
+* It return a pi messages from a node Parent node Z
+* To calculate the Pi_Message it needs ReturnLambdaMessage() from all the children
 * Z send X a pi_message
 * Z -> X -> Y
 **/
@@ -193,8 +185,9 @@ double BeliefPropagator::ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Z,
  double z_pi_value = parametersVector[Z][Z_state].pi_value;
 
  //0- Check if X is a child of Z, and its position in the in_list of  Z
- auto z_out_list = net.ReturnInEdges(Z);
- //unsigned int position_counter=0;
+ auto z_out_list = net.ReturnOutEdges(Z);
+ //If the node is a LEAF and does not have any children
+ //if(z_out_list.size() == 0)return z_pi_value;
 
  //Iterate through Z out_list (children) asking for lambda messages
  double lambda_mess_multiplier = 1;
@@ -207,6 +200,7 @@ double BeliefPropagator::ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Z,
 
 /**
 * It return a vector of lambda messages from a node
+* To find the LambdaMessage it calls ReturnPiMessage() from all the Parents
 * Y send X a Lambda_message
 * Z -> X -> Y
 **/
@@ -223,10 +217,15 @@ double BeliefPropagator::ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned in
   position_counter++;
  }//Well now we have the position of X in Y
 
+ //Attention: For ROOT nodes it is impossible to send back lambda messages
+ //because they do not have any parent
+ //TODO
+ if(net.IsRoot(Y) == true)
+ return 1;
+
  //1- It get a list of index, representing the position of X_state in Y CPT
  std::vector<unsigned int> parent_position_vector;
  parent_position_vector = net[Y].conditionalTable.FindParentState(pos_x_in_y, X_state);
-
  //2- Using the list at the previous step it iterates and returns the parent states vector of Y
  //The parent states vector is used for asking specific PI_MESS necessary to compute the LAMBDA_MESS
  for(unsigned int i_param=0; i_param<parametersVector[Y].size(); i_param++){
@@ -258,22 +257,128 @@ double BeliefPropagator::ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned in
  return final_result;
 }
 
+/**
+* It set all the pi_value of a node
+*
+**/
+void BeliefPropagator::SetPiValues(bayonet::Bayesnet& net, unsigned int X){
+ unsigned int states_counter = 0;
+ for(auto it_nodes=parametersVector[X].begin(); it_nodes!=parametersVector[X].end(); ++it_nodes){
 
+ if(net[X].IsEvidence() == true && net[X].GetEvidence()==states_counter) parametersVector[X][states_counter].pi_value = 1.0;
+ if(net[X].IsEvidence() == true && net[X].GetEvidence()!=states_counter) parametersVector[X][states_counter].pi_value = 0.0;
+ if(net[X].IsEvidence() == false){
+   double pi = 0;
+   unsigned int cpt_tot_rows = net[X].conditionalTable.ReturnRowsNumber();
+   std::vector<unsigned int> parents_vector;
+   double state_probability = 0.0;
+   for(unsigned int i_row=0; i_row<cpt_tot_rows; i_row++){
+    parents_vector = net[X].conditionalTable.ReturnRow(i_row).first;
+    state_probability = net[X].conditionalTable.GetProbability(states_counter, parents_vector);
+    double temp_multiplier = state_probability;
+    auto it_in_list = net.ReturnInEdges(X);
+    unsigned int parent_counter = 0;
+    for(auto it_in=it_in_list.begin(); it_in!=it_in_list.end(); ++it_in){
+     //Asking pi_messages to all the parents
+        double local_pi_message = ReturnPiMessage(net, *it_in, parents_vector[parent_counter], X);
+        temp_multiplier *= local_pi_message;
+	parent_counter++;
+    }
+    pi += temp_multiplier;
+   }
+ parametersVector[X][states_counter].pi_value = pi;
+}
+
+ states_counter++;
+}
+}
+
+/**
+* It set all the lambda_value of a node
+*
+**/
+void BeliefPropagator::SetLambdaValues(bayonet::Bayesnet& net, unsigned int X){
+
+ unsigned int states_counter = 0;
+ for(auto it_nodes=parametersVector[X].begin(); it_nodes!=parametersVector[X].end(); ++it_nodes){
+  
+ //Calculating lambda_values
+ double lambda = 1;
+ if(net[X].IsEvidence() == true && net[X].GetEvidence()==states_counter) parametersVector[X][states_counter].lambda_value = 1.0;
+ if(net[X].IsEvidence() == true && net[X].GetEvidence()!=states_counter) parametersVector[X][states_counter].lambda_value = 0.0;
+ if(net[X].IsEvidence() == false){
+  auto out_list=net.ReturnOutEdges(X);
+
+  //for(auto it_out=out_list.begin(); it_out!=out_list.end(); ++it_out){
+  //SetLambdaValues(net, *it_out);
+  //}
+
+  for(auto it_out=out_list.begin(); it_out!=out_list.end(); ++it_out){
+   //Asking lambda_messages to all the children
+   //Y send X a lambda_message
+   //(net, unsigned int Y, unsigned int X, unsigned int X_state)
+   double local_lambda_message = ReturnLambdaMessage(net, *it_out, X, states_counter);
+   lambda *= local_lambda_message;
+  }
+  parametersVector[X][states_counter].lambda_value = lambda;
+ }
+
+ states_counter++;
+ }
+}
+
+/**
+* It set the belief of the node, the value are normalized.
+*
+**/
+void BeliefPropagator::SetBelief(bayonet::Bayesnet& net, unsigned int X){
+ unsigned int states_counter = 0;
+ double alfa = 0;
+ for(auto it_nodes=parametersVector[X].begin(); it_nodes!=parametersVector[X].end(); ++it_nodes){
+  if(net[X].IsEvidence() == true && net[X].GetEvidence()==states_counter){
+   parametersVector[X][states_counter].belief = 1.0;
+   alfa += 1;
+  }
+  if(net[X].IsEvidence() == true && net[X].GetEvidence()!=states_counter){
+   parametersVector[X][states_counter].belief = 0.0;
+   alfa += 0;
+  }
+  if(net[X].IsEvidence() == false){
+   parametersVector[X][states_counter].belief = parametersVector[X][states_counter].pi_value * parametersVector[X][states_counter].lambda_value;
+    alfa += parametersVector[X][states_counter].belief; //accumulating the normalization constant
+  }
+
+  states_counter++;
+ }
+
+  //Normalization
+  states_counter = 0;
+  for(auto it_nodes=parametersVector[X].begin(); it_nodes!=parametersVector[X].end(); ++it_nodes){
+   parametersVector[X][states_counter].belief = parametersVector[X][states_counter].belief / alfa;
+   states_counter++;
+  }
+
+
+}
+
+/**
+* It prints the parameters (belief, pi-value, lambda-value)
+* for all the nodes of the network.
+*
+**/
 void BeliefPropagator::Print(){
  unsigned int nodes_counter = 0;
  for(auto it_first= parametersVector.begin(); it_first!= parametersVector.end(); ++it_first){
-   std::cout << "NODE: " << nodes_counter << std::endl;
-   for(auto it_states=it_first->begin(); it_states!=it_first->end(); ++it_states){
-     std::cout << "belief: " << it_states->belief;
-     std::cout << " pi_value: " << it_states->pi_value;
-     std::cout << " lambda_value: " << it_states->lambda_value;
-     std::cout << std::endl;
-   }
-    std::cout << std::endl;
-
+  std::cout << "NODE: " << nodes_counter << std::endl;
+  for(auto it_states=it_first->begin(); it_states!=it_first->end(); ++it_states){
+   std::cout << "belief: " << it_states->belief;
+   std::cout << " pi-value: " << it_states->pi_value;
+   std::cout << " lambda-value: " << it_states->lambda_value;
+   std::cout << std::endl;
+  }
+  std::cout << std::endl;
   nodes_counter++;
  }
-
 }
 
 

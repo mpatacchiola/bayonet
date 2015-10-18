@@ -109,10 +109,22 @@ std::vector<unsigned int> ConditionalProbabilityTable::ReturnParentsState(unsign
 std::vector<unsigned int> ConditionalProbabilityTable::FindParentState(unsigned int parentIndex, unsigned int parentState){
  unsigned int row = 0;
  std::vector<unsigned int> rows_vector;
+
  //Iterate through map content:
  for (auto it_map=conditionalMap.begin(); it_map!=conditionalMap.end(); ++it_map){
-  auto parents_vector = it_map->first;
+  std::vector<unsigned int> parents_vector = it_map->first;
+
+  if(parents_vector.size()==0){
+   std::cerr << "ERROR: the Conditional Table does not have any parent" << std::endl;
+   return rows_vector;
+  }
+  if(parentIndex > parents_vector.size()-1){
+   std::cerr << "ERROR: parentIndex out of range in Conditional Table" << std::endl;
+   return rows_vector;
+  }
+//std::cout  << "  "  << "    CHEK 1.1.1.1.CON " << parentIndex << " # " << parents_vector.size() << " " << row << std::endl;
   if(parents_vector[parentIndex] == parentState) rows_vector.push_back(row);
+
   row++;
  }
  return rows_vector;
