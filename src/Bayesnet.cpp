@@ -67,13 +67,9 @@ Bayesnode& Bayesnet::operator[](unsigned int index){
 **/
 bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
- //unsigned int node_states = nodesVector[firstNode]->ReturnNumberOfStates();
- //nodesVector[secondNode]->AddIncomingEdge(firstNode, node_states);
- auto sp_first = nodesVector[firstNode];
- auto sp_second = nodesVector[secondNode];
- unsigned int first_tot_states = sp_first.ReturnNumberOfStates();
- sp_first.AddToAdjacencyList(secondNode);
- sp_second.conditionalTable.AddVariable(first_tot_states);
+ unsigned int first_tot_states = nodesVector[firstNode].ReturnNumberOfStates();
+ nodesVector[firstNode].AddToAdjacencyList(secondNode);
+ nodesVector[secondNode].conditionalTable.AddVariable(first_tot_states);
  return true;
 }
 
@@ -85,8 +81,7 @@ bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
 **/
 bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
  if(firstNode == secondNode) return false;
- auto sp_first = nodesVector[firstNode];
- sp_first.RemoveFromAdjacencyList(secondNode);
+ nodesVector[firstNode].RemoveFromAdjacencyList(secondNode);
  return true;
 }
 
@@ -97,7 +92,6 @@ bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
 * @param secondNode the child node
 **/
 bool Bayesnet::HasEdge(unsigned int FirstNode, unsigned int SecondNode){
- //return nodesVector[SecondNode]->HasIncomingEdgeFrom(FirstNode);
  return nodesVector[FirstNode].IsInAdjacencyList(SecondNode);
 }
 
@@ -236,8 +230,7 @@ double Bayesnet::GetNodeProbability(unsigned int index, std::vector<unsigned int
  }
 
  unsigned int variable_state = variablesStatesVector[index];
- auto sp_node = nodesVector[index];
- double result = sp_node.conditionalTable.GetProbability(variable_state, key_vector);
+ double result = nodesVector[index].conditionalTable.GetProbability(variable_state, key_vector);
  return result;
 }
 

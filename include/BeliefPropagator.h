@@ -60,7 +60,7 @@ public:
  void UpdateTree(Bayesnet& net);
  double ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state);
  double ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state);
-
+ void Print();
 
 private:
  std::vector<std::vector<parameters>> parametersVector;
