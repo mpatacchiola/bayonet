@@ -109,38 +109,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef REJECTIONSAMPLER_H</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define REJECTIONSAMPLER_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include&lt;vector&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include&quot;Bayesnet.h&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include&quot;JointProbabilityTable.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include&lt;vector&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include&quot;Bayesnet.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include&quot;JointProbabilityTable.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>bayonet{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>bayonet{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classbayonet_1_1_rejection_sampler.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbayonet_1_1_rejection_sampler.html">RejectionSampler</a> {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<a class="code" href="classbayonet_1_1_rejection_sampler.html">RejectionSampler</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;~<a class="code" href="classbayonet_1_1_rejection_sampler.html">RejectionSampler</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;std::vector&lt;unsigned int&gt; <a class="code" href="classbayonet_1_1_rejection_sampler.html#a1f2c685367f549965dcafd9c1b77ab1e">ReturnSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;std::vector&lt;std::vector&lt;unsigned int&gt;&gt; <a class="code" href="classbayonet_1_1_rejection_sampler.html#aa5d0525c10cba1a99fba9e4233d8ac30">AccumulateSamples</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp;, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;std::vector&lt;std::vector&lt;unsigned int&gt;&gt; <a class="code" href="classbayonet_1_1_rejection_sampler.html#ab63d7fa72ea2f9e8dfcd5f873d257df4">AccumulateAndDiscardSamples</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp;, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_rejection_sampler.html#ab68ff90b1c015d6aa2d185cacb18a74d">PrintSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles = 1);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> <a class="code" href="classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5">ReturnJointProbabilityTable</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classbayonet_1_1_rejection_sampler.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbayonet_1_1_rejection_sampler.html">RejectionSampler</a> {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<a class="code" href="classbayonet_1_1_rejection_sampler.html">RejectionSampler</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;~<a class="code" href="classbayonet_1_1_rejection_sampler.html">RejectionSampler</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;std::vector&lt;unsigned int&gt; <a class="code" href="classbayonet_1_1_rejection_sampler.html#a1f2c685367f549965dcafd9c1b77ab1e">ReturnSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;std::vector&lt;std::vector&lt;unsigned int&gt;&gt; <a class="code" href="classbayonet_1_1_rejection_sampler.html#aa5d0525c10cba1a99fba9e4233d8ac30">AccumulateSamples</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp;, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;std::vector&lt;std::vector&lt;unsigned int&gt;&gt; <a class="code" href="classbayonet_1_1_rejection_sampler.html#ab63d7fa72ea2f9e8dfcd5f873d257df4">AccumulateAndDiscardSamples</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp;, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_rejection_sampler.html#ab68ff90b1c015d6aa2d185cacb18a74d">PrintSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles = 1);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<a class="code" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> <a class="code" href="classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5">ReturnJointProbabilityTable</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif // REJECTIONSAMPLER_H</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif // REJECTIONSAMPLER_H</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
@@ -150,21 +150,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="ttc" id="classbayonet_1_1_joint_probability_table_html"><div class="ttname"><a href="classbayonet_1_1_joint_probability_table.html">bayonet::JointProbabilityTable</a></div><div class="ttdoc">A table containing the joint probabilities of random variables. </div><div class="ttdef"><b>Definition:</b> JointProbabilityTable.h:45</div></div>
 <div class="ttc" id="classbayonet_1_1_rejection_sampler_html_a1f2c685367f549965dcafd9c1b77ab1e"><div class="ttname"><a href="classbayonet_1_1_rejection_sampler.html#a1f2c685367f549965dcafd9c1b77ab1e">bayonet::RejectionSampler::ReturnSample</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; ReturnSample(bayonet::Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> RejectionSampler.cpp:39</div></div>
 <div class="ttc" id="classbayonet_1_1_rejection_sampler_html_ab63d7fa72ea2f9e8dfcd5f873d257df4"><div class="ttname"><a href="classbayonet_1_1_rejection_sampler.html#ab63d7fa72ea2f9e8dfcd5f873d257df4">bayonet::RejectionSampler::AccumulateAndDiscardSamples</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; AccumulateAndDiscardSamples(Bayesnet &amp;, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> RejectionSampler.cpp:115</div></div>
-<div class="ttc" id="classbayonet_1_1_bayesnet_html"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a></div><div class="ttdoc">This class represents the whole Bayesian network. </div><div class="ttdef"><b>Definition:</b> Bayesnet.h:35</div></div>
-<div class="ttc" id="classbayonet_1_1_rejection_sampler_html"><div class="ttname"><a href="classbayonet_1_1_rejection_sampler.html">bayonet::RejectionSampler</a></div><div class="ttdoc">This object is used for sampling a Bayesian network and make inference. </div><div class="ttdef"><b>Definition:</b> RejectionSampler.h:41</div></div>
+<div class="ttc" id="classbayonet_1_1_bayesnet_html"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a></div><div class="ttdoc">This class represents the whole Bayesian network. </div><div class="ttdef"><b>Definition:</b> Bayesnet.h:34</div></div>
+<div class="ttc" id="classbayonet_1_1_rejection_sampler_html"><div class="ttname"><a href="classbayonet_1_1_rejection_sampler.html">bayonet::RejectionSampler</a></div><div class="ttdoc">This object is used for sampling a Bayesian network and make inference. </div><div class="ttdef"><b>Definition:</b> RejectionSampler.h:38</div></div>
 <div class="ttc" id="classbayonet_1_1_rejection_sampler_html_aa5d0525c10cba1a99fba9e4233d8ac30"><div class="ttname"><a href="classbayonet_1_1_rejection_sampler.html#aa5d0525c10cba1a99fba9e4233d8ac30">bayonet::RejectionSampler::AccumulateSamples</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; AccumulateSamples(Bayesnet &amp;, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> RejectionSampler.cpp:98</div></div>
 <div class="ttc" id="classbayonet_1_1_rejection_sampler_html_a0ba74f6d5f5fd61baa968464e2e3aac5"><div class="ttname"><a href="classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5">bayonet::RejectionSampler::ReturnJointProbabilityTable</a></div><div class="ttdeci">JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet &amp;net, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> RejectionSampler.cpp:214</div></div>
 <div class="ttc" id="classbayonet_1_1_rejection_sampler_html_ab68ff90b1c015d6aa2d185cacb18a74d"><div class="ttname"><a href="classbayonet_1_1_rejection_sampler.html#ab68ff90b1c015d6aa2d185cacb18a74d">bayonet::RejectionSampler::PrintSample</a></div><div class="ttdeci">void PrintSample(bayonet::Bayesnet &amp;net, unsigned int cycles=1)</div><div class="ttdef"><b>Definition:</b> RejectionSampler.cpp:146</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 16 2015 13:18:29 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 19 2015 17:04:41 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

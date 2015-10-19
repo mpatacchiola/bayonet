@@ -1,0 +1,91 @@
+\hypertarget{classbayonet_1_1_belief_propagator}{\section{bayonet\-:\-:Belief\-Propagator Class Reference}
+\label{classbayonet_1_1_belief_propagator}\index{bayonet\-::\-Belief\-Propagator@{bayonet\-::\-Belief\-Propagator}}
+}
+
+
+Implementation of the belief propagation algorithm.  
+
+
+
+
+{\ttfamily \#include $<$Belief\-Propagator.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classbayonet_1_1_belief_propagator_ac9be764473228531c25af33db046d663}{Initial\-Tree} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet} \&net)
+\item 
+void \hyperlink{classbayonet_1_1_belief_propagator_a8d66b5e99de3775df9beb17a084b9638}{Update\-Tree} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet} \&net)
+\item 
+void \hyperlink{classbayonet_1_1_belief_propagator_ae593892ddb8eb9eb9787d487cbbce06c}{Print} ()
+\item 
+\hyperlink{classbayonet_1_1_joint_probability_table}{Joint\-Probability\-Table} \hyperlink{classbayonet_1_1_belief_propagator_af758ccf83bf74fd701168ba0a6196671}{Return\-Joint\-Probability\-Table} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of the belief propagation algorithm. 
+
+The \hyperlink{classbayonet_1_1_belief_propagator}{Belief\-Propagator} class permits to use the Kim-\/\-Pearl message passing algorithm for making exact inferences in a Bayesian network. The Kim-\/\-Pearl algorithm uses a set of parameters, called pi-\/values and lambda-\/values, and a set of messages called pi-\/message and lambda-\/message, for answering inference queries. This algorithm can be used only if the network is single connected. The algorithm is quite complicated, a good description can be found in\-:
+
+\char`\"{}\-Bayesian Artificial Intelligence\char`\"{} (Kevin B. Korb and Ann E. Nicholson) chapter 3. \char`\"{}\-Learning Bayesian Networks\char`\"{} (Richard E. Neapolitan) chapter 3. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_belief_propagator_ac9be764473228531c25af33db046d663}{\index{bayonet\-::\-Belief\-Propagator@{bayonet\-::\-Belief\-Propagator}!Initial\-Tree@{Initial\-Tree}}
+\index{Initial\-Tree@{Initial\-Tree}!bayonet::BeliefPropagator@{bayonet\-::\-Belief\-Propagator}}
+\subsubsection[{Initial\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Belief\-Propagator\-::\-Initial\-Tree (
+\begin{DoxyParamCaption}
+\item[{{\bf Bayesnet} \&}]{net}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_belief_propagator_ac9be764473228531c25af33db046d663}
+It initializes the network tree. A\-T\-T\-E\-N\-T\-I\-O\-N\-: the tree must be initialized without any evidence!
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the bayesian network to initialize \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_belief_propagator_ae593892ddb8eb9eb9787d487cbbce06c}{\index{bayonet\-::\-Belief\-Propagator@{bayonet\-::\-Belief\-Propagator}!Print@{Print}}
+\index{Print@{Print}!bayonet::BeliefPropagator@{bayonet\-::\-Belief\-Propagator}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Belief\-Propagator\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_belief_propagator_ae593892ddb8eb9eb9787d487cbbce06c}
+It prints the parameters (belief, pi-\/value, lambda-\/value) for all the nodes of the network. \hypertarget{classbayonet_1_1_belief_propagator_af758ccf83bf74fd701168ba0a6196671}{\index{bayonet\-::\-Belief\-Propagator@{bayonet\-::\-Belief\-Propagator}!Return\-Joint\-Probability\-Table@{Return\-Joint\-Probability\-Table}}
+\index{Return\-Joint\-Probability\-Table@{Return\-Joint\-Probability\-Table}!bayonet::BeliefPropagator@{bayonet\-::\-Belief\-Propagator}}
+\subsubsection[{Return\-Joint\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Joint\-Probability\-Table} bayonet\-::\-Belief\-Propagator\-::\-Return\-Joint\-Probability\-Table (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_belief_propagator_af758ccf83bf74fd701168ba0a6196671}
+It creates a Joint Probability table starting from the Bayesian network and sampling for the number of iterations specified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+it return a Joint Probability Table object 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_belief_propagator_a8d66b5e99de3775df9beb17a084b9638}{\index{bayonet\-::\-Belief\-Propagator@{bayonet\-::\-Belief\-Propagator}!Update\-Tree@{Update\-Tree}}
+\index{Update\-Tree@{Update\-Tree}!bayonet::BeliefPropagator@{bayonet\-::\-Belief\-Propagator}}
+\subsubsection[{Update\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Belief\-Propagator\-::\-Update\-Tree (
+\begin{DoxyParamCaption}
+\item[{{\bf Bayesnet} \&}]{net}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_belief_propagator_a8d66b5e99de3775df9beb17a084b9638}
+It updates the Belief for all the nodes in the network. The Tree must be initialized before calling this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & The network to Update \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+include/Belief\-Propagator.\-h\item 
+src/Belief\-Propagator.\-cpp\end{DoxyCompactItemize}

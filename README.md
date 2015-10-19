@@ -7,13 +7,15 @@ Bayesian networks are probabilistic graphical models, a set of random variables 
 
 Bayonet is a C++ library that permits to create discrete Bayesian networks, the library has a lot of properties that we can summarize here:
 
-- Safe memory management through STL containers (C++11)
+- Safe memory management through STL containers
+- Object Oriented approach, easy to use, easy to read
 - No external library required, Bayonet is self-contained
 - Completely open source (GNU v2.0)
 - Easy to create and manage densely connected networks
-- Approximate inference through sampling
-- Different sampling methods: Rejection, Likelihood-Weighting, Gibbs
-- Topological sorting, Depth-First and Breadth-First Searching
+- Exact Inference with belief propagation (Kim-Pearl Message Passing)
+- Approximate inference through sampling methods
+- Different samplers: Rejection, Likelihood-Weighting, Gibbs
+- Topological sorting, Depth-First and Breadth-First Search
 
 Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections or cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.
 
@@ -57,6 +59,12 @@ Using a similar command it is also possible to use the static version of the lib
 
 In this case the library will be statically included inside your code.
 To integrate bayonet in a different environment (ex Eclipse, Code::Blocks, etc) follow the istructions given by the producer on how to integrate an external shared library or a static one.
+
+Examples
+----------
+Into the folder `examples` it is possible to find different samples that one can use. The code is heavily commented and it can be used as guideline for different applications.
+To compile the code just type: `make compile` inside the `examples` folder. 
+The executables are created inside */bayonet/examples/build/exec*. 
 
 
 References

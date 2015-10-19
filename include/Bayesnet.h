@@ -67,7 +67,6 @@ class Bayesnet{
   bool IsTree();
   //bool IsPolytree(); //TODO
   bool IsMultiConnected();
-  //int ReturnNetworkType(); //TODO
 
   bool IsRoot(unsigned int);
   bool IsLeaf(unsigned int); //TODO
@@ -81,7 +80,6 @@ class Bayesnet{
   std::list<unsigned int> DepthFirstSearch(unsigned int startingNode);
 
  private:
-  //std::vector<std::shared_ptr<Bayesnode>> nodesVector;
   std::vector<Bayesnode> nodesVector;
   std::pair<std::list<unsigned int>, unsigned int> RawDepthFirstSearch(unsigned int index);
 

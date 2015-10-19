@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Bayonet: bayonet::LWSampler Class Reference</title>
+<title>Bayonet: bayonet::BeliefPropagator Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,150 +81,85 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>bayonet</b></li><li class="navelem"><a class="el" href="classbayonet_1_1_l_w_sampler.html">LWSampler</a></li>  </ul>
+<li class="navelem"><b>bayonet</b></li><li class="navelem"><a class="el" href="classbayonet_1_1_belief_propagator.html">BeliefPropagator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classbayonet_1_1_l_w_sampler-members.html">List of all members</a>  </div>
+<a href="classbayonet_1_1_belief_propagator-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">bayonet::LWSampler Class Reference</div>  </div>
+<div class="title">bayonet::BeliefPropagator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of the Likelihood-Weighted sampler.  
- <a href="classbayonet_1_1_l_w_sampler.html#details">More...</a></p>
+<p>Implementation of the belief propagation algorithm.  
+ <a href="classbayonet_1_1_belief_propagator.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_l_w_sampler_8h_source.html">LWSampler.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_belief_propagator_8h_source.html">BeliefPropagator.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1da2655dd3332796a3293c3aac8d618d"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::vector<br class="typebreak"/>
-&lt; unsigned int &gt;, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_l_w_sampler.html#a1da2655dd3332796a3293c3aac8d618d">ReturnSample</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net)</td></tr>
-<tr class="separator:a1da2655dd3332796a3293c3aac8d618d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd25d8f7eb12dd345dbfc8984cadcdbf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair<br class="typebreak"/>
-&lt; std::vector&lt; unsigned int &gt;<br class="typebreak"/>
-, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_l_w_sampler.html#abd25d8f7eb12dd345dbfc8984cadcdbf">AccumulateSamples</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;, unsigned int cycles)</td></tr>
-<tr class="separator:abd25d8f7eb12dd345dbfc8984cadcdbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a010eacc55fbbb462f50b7ab6b292056f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_l_w_sampler.html#a010eacc55fbbb462f50b7ab6b292056f">PrintSample</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, unsigned int cycles=1)</td></tr>
-<tr class="separator:a010eacc55fbbb462f50b7ab6b292056f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2fd4c51a13c8cc95f5eaca05941eb47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_l_w_sampler.html#af2fd4c51a13c8cc95f5eaca05941eb47">ReturnJointProbabilityTable</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, unsigned int cycles)</td></tr>
-<tr class="separator:af2fd4c51a13c8cc95f5eaca05941eb47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9be764473228531c25af33db046d663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_belief_propagator.html#ac9be764473228531c25af33db046d663">InitialTree</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;net)</td></tr>
+<tr class="separator:ac9be764473228531c25af33db046d663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d66b5e99de3775df9beb17a084b9638"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_belief_propagator.html#a8d66b5e99de3775df9beb17a084b9638">UpdateTree</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;net)</td></tr>
+<tr class="separator:a8d66b5e99de3775df9beb17a084b9638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae593892ddb8eb9eb9787d487cbbce06c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_belief_propagator.html#ae593892ddb8eb9eb9787d487cbbce06c">Print</a> ()</td></tr>
+<tr class="separator:ae593892ddb8eb9eb9787d487cbbce06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af758ccf83bf74fd701168ba0a6196671"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_belief_propagator.html#af758ccf83bf74fd701168ba0a6196671">ReturnJointProbabilityTable</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net)</td></tr>
+<tr class="separator:af758ccf83bf74fd701168ba0a6196671"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of the Likelihood-Weighted sampler. </p>
-<p>Using a rejection sampler with high dimensional random variables is problematic because many samples get lost. In this case a Likelihood-Weighted sampler is more efficient. The samples are "forced" to assume the appropriate value according to the inference. </p>
+<div class="textblock"><p>Implementation of the belief propagation algorithm. </p>
+<p>The <a class="el" href="classbayonet_1_1_belief_propagator.html" title="Implementation of the belief propagation algorithm. ">BeliefPropagator</a> class permits to use the Kim-Pearl message passing algorithm for making exact inferences in a Bayesian network. The Kim-Pearl algorithm uses a set of parameters, called pi-values and lambda-values, and a set of messages called pi-message and lambda-message, for answering inference queries. This algorithm can be used only if the network is single connected. The algorithm is quite complicated, a good description can be found in:</p>
+<p>"Bayesian Artificial Intelligence" (Kevin B. Korb and Ann E. Nicholson) chapter 3. "Learning Bayesian Networks" (Richard E. Neapolitan) chapter 3. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="abd25d8f7eb12dd345dbfc8984cadcdbf"></a>
+<a class="anchor" id="ac9be764473228531c25af33db046d663"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::pair&lt; std::vector&lt; unsigned int &gt;, double &gt; &gt; bayonet::LWSampler::AccumulateSamples </td>
+          <td class="memname">void bayonet::BeliefPropagator::InitialTree </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;&#160;</td>
-          <td class="paramname"><em>net</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>net</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>cycles</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It accumulate samples picking up them from the Bayesian network.</p>
+<p>It initializes the network tree. ATTENTION: the tree must be initialized without any evidence!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
-    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+    <tr><td class="paramname">net</td><td>the bayesian network to initialize </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a010eacc55fbbb462f50b7ab6b292056f"></a>
+<a class="anchor" id="ae593892ddb8eb9eb9787d487cbbce06c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void bayonet::LWSampler::PrintSample </td>
+          <td class="memname">void bayonet::BeliefPropagator::Print </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
-          <td class="paramname"><em>net</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>cycles</em> = <code>1</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It prints the result of the sampling. It is possible to do it for different iterations. The format used is the following : INDEX ..... SAMPLE ..... WEIGHT</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
-    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>It prints the parameters (belief, pi-value, lambda-value) for all the nodes of the network. </p>
 
 </div>
 </div>
-<a class="anchor" id="af2fd4c51a13c8cc95f5eaca05941eb47"></a>
+<a class="anchor" id="af758ccf83bf74fd701168ba0a6196671"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> bayonet::LWSampler::ReturnJointProbabilityTable </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
-          <td class="paramname"><em>net</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>cycles</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>It creates a Joint Probability table starting from the Bayesian network and sampling for the number of iterations specified.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
-    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>it return a Joint Probability Table object </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a1da2655dd3332796a3293c3aac8d618d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::pair&lt; std::vector&lt; unsigned int &gt;, double &gt; bayonet::LWSampler::ReturnSample </td>
+          <td class="memname"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> bayonet::BeliefPropagator::ReturnJointProbabilityTable </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
           <td class="paramname"><em>net</em></td><td>)</td>
@@ -232,10 +167,34 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It returns a std::pair containing a single sample picked up from the Bayesian network and the relative weight.</p>
+<p>It creates a Joint Probability table starting from the Bayesian network and sampling for the number of iterations specified.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>it return a Joint Probability Table object </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8d66b5e99de3775df9beb17a084b9638"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::BeliefPropagator::UpdateTree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It updates the Belief for all the nodes in the network. The Tree must be initialized before calling this function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>The network to Update </td></tr>
   </table>
   </dd>
 </dl>
@@ -243,13 +202,13 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/<a class="el" href="_l_w_sampler_8h_source.html">LWSampler.h</a></li>
-<li>src/LWSampler.cpp</li>
+<li>include/<a class="el" href="_belief_propagator_8h_source.html">BeliefPropagator.h</a></li>
+<li>src/BeliefPropagator.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2015 17:04:42 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 19 2015 17:04:41 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -39,6 +39,10 @@ unsigned int \hyperlink{classbayonet_1_1_bayesnet_a7d47ce38f3882b80121f6acc351fd
 \item 
 std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_a3e8e924c33186e72bfa7d8ace1c211e6}{Return\-Topological\-List} ()
 \item 
+std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_a0043ca31c5eb4fe742557bf92cc943a5}{Return\-Root\-List} ()
+\item 
+std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_ac30c1485ff84825f534bf7604ee0115d}{Return\-Leaf\-List} ()
+\item 
 std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_af05513604bc2273f64abd7e685d1d636}{Return\-Total\-States} ()
 \item 
 std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_ac9f389cd6382946deb5b04cb6513f11e}{Return\-Not\-Evidence\-Nodes} ()
@@ -48,6 +52,10 @@ std\-::vector$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_a8610f2ec
 double \hyperlink{classbayonet_1_1_bayesnet_a0140ea4f620f852b12746f2a92bd4013}{Get\-Node\-Probability} (unsigned int index, std\-::vector$<$ unsigned int $>$ variables\-States\-Vector)
 \item 
 void \hyperlink{classbayonet_1_1_bayesnet_a2a934ac59da3a02720c40515b6b599e7}{Reset\-All\-Colours} ()
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnet_aaceeb50586b7c5c5920e276671d8f30e}{Is\-Tree} ()
+\item 
+bool \hyperlink{classbayonet_1_1_bayesnet_af82ed68cc718009c948d681addd48e23}{Is\-Multi\-Connected} ()
 \item 
 bool \hyperlink{classbayonet_1_1_bayesnet_a5877478cf225ed47f43df29cc087c5d6}{Is\-Root} (unsigned int)
 \item 
@@ -60,7 +68,7 @@ const std\-::vector$<$ \hyperlink{classbayonet_1_1_bayesnode}{Bayesnode} $>$ \& 
 \item 
 std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_adef5210316c514cd50e977d5bc6292e5}{Breadth\-First\-Search} (unsigned int starting\-Node)
 \item 
-void \hyperlink{classbayonet_1_1_bayesnet_a8ab753ba22b35727cce998e2266b9afe}{Depth\-First\-Search} (unsigned int starting\-Node, std\-::shared\-\_\-ptr$<$ std\-::list$<$ unsigned int $>$$>$ sp\-To\-List, bool reset\-Colours=true)
+std\-::list$<$ unsigned int $>$ \hyperlink{classbayonet_1_1_bayesnet_a7b1aee3d53ca9a2b534528c53c9813bf}{Depth\-First\-Search} (unsigned int starting\-Node)
 \end{DoxyCompactItemize}
 
 
@@ -132,15 +140,13 @@ Breadth First Search algorithm. Starting from a node it performs a breadth-\/fir
 \begin{DoxyReturn}{Returns}
 it returns a list of index representing the order of nodes visited 
 \end{DoxyReturn}
-\hypertarget{classbayonet_1_1_bayesnet_a8ab753ba22b35727cce998e2266b9afe}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Depth\-First\-Search@{Depth\-First\-Search}}
+\hypertarget{classbayonet_1_1_bayesnet_a7b1aee3d53ca9a2b534528c53c9813bf}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Depth\-First\-Search@{Depth\-First\-Search}}
 \index{Depth\-First\-Search@{Depth\-First\-Search}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
-\subsubsection[{Depth\-First\-Search}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Bayesnet\-::\-Depth\-First\-Search (
+\subsubsection[{Depth\-First\-Search}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ unsigned int $>$ bayonet\-::\-Bayesnet\-::\-Depth\-First\-Search (
 \begin{DoxyParamCaption}
-\item[{unsigned int}]{starting\-Node, }
-\item[{std\-::shared\-\_\-ptr$<$ std\-::list$<$ unsigned int $>$$>$}]{sp\-To\-List, }
-\item[{bool}]{reset\-Colours = {\ttfamily true}}
+\item[{unsigned int}]{starting\-Node}
 \end{DoxyParamCaption}
-)}}\label{classbayonet_1_1_bayesnet_a8ab753ba22b35727cce998e2266b9afe}
+)}}\label{classbayonet_1_1_bayesnet_a7b1aee3d53ca9a2b534528c53c9813bf}
 Depth First Search algorithm. Starting from a node it performs a depth-\/first traversal of the network.
 
 
@@ -173,8 +179,8 @@ Given the the index of a variable and the states of all the variables, it return
 \index{Has\-Edge@{Has\-Edge}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Has\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnet\-::\-Has\-Edge (
 \begin{DoxyParamCaption}
-\item[{unsigned int}]{First\-Node, }
-\item[{unsigned int}]{Second\-Node}
+\item[{unsigned int}]{first\-Node, }
+\item[{unsigned int}]{second\-Node}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnet_ae852714069b47eff14918d5a4e53a2dd}
 It checks if an Edge between two nodes exist.
@@ -198,6 +204,18 @@ A leaf node is a node without children but with parents.
 \begin{DoxyReturn}{Returns}
 it returns true if the node is a leaf node. 
 \end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnet_af82ed68cc718009c948d681addd48e23}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Is\-Multi\-Connected@{Is\-Multi\-Connected}}
+\index{Is\-Multi\-Connected@{Is\-Multi\-Connected}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Is\-Multi\-Connected}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnet\-::\-Is\-Multi\-Connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_af82ed68cc718009c948d681addd48e23}
+Multi-\/\-Connected Bayesian network is a network with multiple possible paths from a starting node to an arriving node. To check if the network is multi-\/ connected, a Depth\-First search is done from the root nodes, during the D\-F\-S traversal it is possible to see if some nodes were already visited.
+
+\begin{DoxyReturn}{Returns}
+it returns true if the network is multi-\/conncted 
+\end{DoxyReturn}
 \hypertarget{classbayonet_1_1_bayesnet_a5877478cf225ed47f43df29cc087c5d6}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Is\-Root@{Is\-Root}}
 \index{Is\-Root@{Is\-Root}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Is\-Root}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnet\-::\-Is\-Root (
@@ -209,6 +227,18 @@ A root node is a node without parents but with children.
 
 \begin{DoxyReturn}{Returns}
 it returns true if the node is a root node. 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_bayesnet_aaceeb50586b7c5c5920e276671d8f30e}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Is\-Tree@{Is\-Tree}}
+\index{Is\-Tree@{Is\-Tree}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Is\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Bayesnet\-::\-Is\-Tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_aaceeb50586b7c5c5920e276671d8f30e}
+A Bayesian network is a Tree if it has only one root node and no cycles.
+
+\begin{DoxyReturn}{Returns}
+it returns true if the network is a tree 
 \end{DoxyReturn}
 \hypertarget{classbayonet_1_1_bayesnet_ac2367ab8e0fdae128f17159f09c63eea}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
 \index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
@@ -268,7 +298,14 @@ it returns the list of evidence node
 \item[{unsigned int}]{index}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnet_a5621b949d8fda17ae0efd9810655b1b3}
-It returns the input index list. \hypertarget{classbayonet_1_1_bayesnet_a7b349d82edb61c0c982bb4b1240912da}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Nodes\-Vector@{Return\-Nodes\-Vector}}
+It returns the input index list. \hypertarget{classbayonet_1_1_bayesnet_ac30c1485ff84825f534bf7604ee0115d}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Leaf\-List@{Return\-Leaf\-List}}
+\index{Return\-Leaf\-List@{Return\-Leaf\-List}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Return\-Leaf\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ unsigned int $>$ bayonet\-::\-Bayesnet\-::\-Return\-Leaf\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_ac30c1485ff84825f534bf7604ee0115d}
+I return a list of integers, containing the index of all the Leaf nodes. \hypertarget{classbayonet_1_1_bayesnet_a7b349d82edb61c0c982bb4b1240912da}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Nodes\-Vector@{Return\-Nodes\-Vector}}
 \index{Return\-Nodes\-Vector@{Return\-Nodes\-Vector}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-Nodes\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$ {\bf Bayesnode} $>$ \& bayonet\-::\-Bayesnet\-::\-Return\-Nodes\-Vector (
 \begin{DoxyParamCaption}
@@ -327,7 +364,14 @@ It returns the number of Incoming edges from the node specified in the index. \h
 \item[{unsigned int}]{index}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_bayesnet_acb33076271f03ba59ac98a04b762d26b}
-It returns output index list \hypertarget{classbayonet_1_1_bayesnet_a3e8e924c33186e72bfa7d8ace1c211e6}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Topological\-List@{Return\-Topological\-List}}
+It returns output index list \hypertarget{classbayonet_1_1_bayesnet_a0043ca31c5eb4fe742557bf92cc943a5}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Root\-List@{Return\-Root\-List}}
+\index{Return\-Root\-List@{Return\-Root\-List}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
+\subsubsection[{Return\-Root\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ unsigned int $>$ bayonet\-::\-Bayesnet\-::\-Return\-Root\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_bayesnet_a0043ca31c5eb4fe742557bf92cc943a5}
+I return a list of integers, containing the index of all the Root nodes. \hypertarget{classbayonet_1_1_bayesnet_a3e8e924c33186e72bfa7d8ace1c211e6}{\index{bayonet\-::\-Bayesnet@{bayonet\-::\-Bayesnet}!Return\-Topological\-List@{Return\-Topological\-List}}
 \index{Return\-Topological\-List@{Return\-Topological\-List}!bayonet::Bayesnet@{bayonet\-::\-Bayesnet}}
 \subsubsection[{Return\-Topological\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ unsigned int $>$ bayonet\-::\-Bayesnet\-::\-Return\-Topological\-List (
 \begin{DoxyParamCaption}

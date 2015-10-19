@@ -106,10 +106,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af83db269bcfc340658801d5e473ad5c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd07eba1d571bf8f8bac3014f2409b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a5fd07eba1d571bf8f8bac3014f2409b2">~ConditionalProbabilityTable</a> ()</td></tr>
 <tr class="separator:a5fd07eba1d571bf8f8bac3014f2409b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f85eea7202955d5fd5c9366382afd53"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::vector<br class="typebreak"/>
+&lt; unsigned int &gt;, std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a0f85eea7202955d5fd5c9366382afd53">ReturnRow</a> (unsigned int index)</td></tr>
+<tr class="separator:a0f85eea7202955d5fd5c9366382afd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a5837abe851b24de1ee1e2a7ab94b3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a08a5837abe851b24de1ee1e2a7ab94b3">ReturnParentsState</a> (unsigned int index)</td></tr>
+<tr class="separator:a08a5837abe851b24de1ee1e2a7ab94b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b946112b6d04692f855970186eabb02"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a9b946112b6d04692f855970186eabb02">FindParentState</a> (unsigned int parentIndex, unsigned int parentState)</td></tr>
+<tr class="separator:a9b946112b6d04692f855970186eabb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb4965bc9b4903d5108fd9b6e1379e1b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#aeb4965bc9b4903d5108fd9b6e1379e1b">GetProbability</a> (unsigned int variableState, std::vector&lt; unsigned int &gt; parentsStates)</td></tr>
 <tr class="separator:aeb4965bc9b4903d5108fd9b6e1379e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7612e2c40e51eaf4d94109adb2bd269d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a7612e2c40e51eaf4d94109adb2bd269d">GetProbabilities</a> (std::vector&lt; unsigned int &gt; parentsStates)</td></tr>
 <tr class="separator:a7612e2c40e51eaf4d94109adb2bd269d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93e9309f56608d368ca47c9ca02e51e6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a93e9309f56608d368ca47c9ca02e51e6">GetProbabilities</a> (unsigned int variableState, unsigned int parentIndex, unsigned int parentsState)</td></tr>
+<tr class="separator:a93e9309f56608d368ca47c9ca02e51e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac94cd225747e8f59c5497b860ff777c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#ac94cd225747e8f59c5497b860ff777c0">SetProbabilities</a> (std::vector&lt; unsigned int &gt; parentsStates, std::vector&lt; double &gt; probabilities)</td></tr>
 <tr class="separator:ac94cd225747e8f59c5497b860ff777c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0815f7814cc5797629035f17f0cf26c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a0815f7814cc5797629035f17f0cf26c2">Print</a> ()</td></tr>
@@ -248,6 +258,40 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9b946112b6d04692f855970186eabb02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; bayonet::ConditionalProbabilityTable::FindParentState </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>parentIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>parentState</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It find in which rows the specified parent has the specified state. It returns a list of integers, representing the positions of the parent in the CPT.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentIndex</td><td></td></tr>
+    <tr><td class="paramname">parentState</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a7612e2c40e51eaf4d94109adb2bd269d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -265,6 +309,47 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parentsStates</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a93e9309f56608d368ca47c9ca02e51e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; bayonet::ConditionalProbabilityTable::GetProbabilities </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>variableState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>parentIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>parentsState</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Given a variable State, a specific parent index and a parent state, it returns all the probabilities associated with that configuration finding them through the rows of the CPT</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variableState</td><td></td></tr>
+    <tr><td class="paramname">parentIndex</td><td></td></tr>
+    <tr><td class="paramname">parentsState</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -386,6 +471,52 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a08a5837abe851b24de1ee1e2a7ab94b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; unsigned int &gt; bayonet::ConditionalProbabilityTable::ReturnParentsState </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the Parents state at a given index</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0f85eea7202955d5fd5c9366382afd53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; std::vector&lt; unsigned int &gt;, std::vector&lt; double &gt; &gt; bayonet::ConditionalProbabilityTable::ReturnRow </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return a single row of the table. The row is a pair containing the parent state and the probabilities for all the variable states.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ae2b35a361fb92684abdfde96887b24e6"></a>
 <div class="memitem">
 <div class="memproto">
@@ -460,7 +591,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 16 2015 13:18:29 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 19 2015 17:04:42 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

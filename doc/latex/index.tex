@@ -6,13 +6,15 @@ Bayonet is a C++ library that permits to create discrete Bayesian networks, the 
 
 
 \begin{DoxyItemize}
-\item Safe memory management through S\-T\-L containers (C++11)
+\item Safe memory management through S\-T\-L containers
+\item Object Oriented approach, easy to use, easy to read
 \item No external library required, Bayonet is self-\/contained
 \item Completely open source (G\-N\-U v2.\-0)
 \item Easy to create and manage densely connected networks
-\item Approximate inference through sampling
-\item Different sampling methods\-: Rejection, Likelihood-\/\-Weighting, Gibbs
-\item Topological sorting, Depth-\/\-First and Breadth-\/\-First Searching
+\item Exact Inference with belief propagation (Kim-\/\-Pearl Message Passing)
+\item Approximate inference through sampling methods
+\item Different samplers\-: Rejection, Likelihood-\/\-Weighting, Gibbs
+\item Topological sorting, Depth-\/\-First and Breadth-\/\-First Search
 \end{DoxyItemize}
 
 Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-\/connections or cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-\/list representation is used. Using an adjacency-\/matrix the amount of space necessary to store the nodes N is O(\-N$^\wedge$2), instead using the adjacency-\/list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.
@@ -50,6 +52,10 @@ This command will compile the imaginary file mycode.\-cpp and will produce an ex
 {\ttfamily g++ -\/std=c++11 -\/\-I/usr/local/lib -\/static -\/lbayonet -\/c /home/username/mycode.cpp}
 
 In this case the library will be statically included inside your code. To integrate bayonet in a different environment (ex Eclipse, Code\-::\-Blocks, etc) follow the istructions given by the producer on how to integrate an external shared library or a static one.
+
+\subsection*{Examples }
+
+Into the folder {\ttfamily examples} it is possible to find different samples that one can use. The code is heavily commented and it can be used as guideline for different applications. To compile the code just type\-: {\ttfamily make compile} inside the {\ttfamily examples} folder. The executables are created inside $\ast$/bayonet/examples/build/exec$\ast$.
 
 \subsection*{References }
 

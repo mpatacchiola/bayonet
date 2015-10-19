@@ -31,11 +31,6 @@ namespace bayonet{
 * @param numberOfStates the number of state to assign to each node
 **/
 Bayesnet::Bayesnet(std::vector<unsigned int> nodesTotStatesVector) {
- //nodesVector.reserve(nodesTotStatesVector.size());
- //for(auto it=nodesTotStatesVector.begin(); it!=nodesTotStatesVector.end(); ++it){
-  //auto sp = std::make_shared<Bayesnode>(*it);
-  //nodesVector.push_back(sp); //filling the nodes vector
- //}
  nodesVector.reserve(nodesTotStatesVector.size());
  for(auto it=nodesTotStatesVector.begin(); it!=nodesTotStatesVector.end(); ++it){
   Bayesnode my_node(*it);
@@ -86,6 +81,10 @@ bool Bayesnet::AddEdge(unsigned int firstNode, unsigned int secondNode){
 * @param secondNode the child node
 **/
 bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
+ if(firstNode > nodesVector.size() || secondNode > nodesVector.size()){
+  std::cerr << "ERROR: Out of range index" << std::endl;
+  return false;
+ }
  if(firstNode == secondNode) return false;
  nodesVector[firstNode].RemoveFromAdjacencyList(secondNode);
  return true;
@@ -97,8 +96,12 @@ bool Bayesnet::RemoveEdge(unsigned int firstNode, unsigned int secondNode){
 * @param firstNode the parent node
 * @param secondNode the child node
 **/
-bool Bayesnet::HasEdge(unsigned int FirstNode, unsigned int SecondNode){
- return nodesVector[FirstNode].IsInAdjacencyList(SecondNode);
+bool Bayesnet::HasEdge(unsigned int firstNode, unsigned int secondNode){
+ if(firstNode > nodesVector.size() || secondNode > nodesVector.size()){
+  std::cerr << "ERROR: Out of range index" << std::endl;
+  return false;
+ }
+ return nodesVector[firstNode].IsInAdjacencyList(secondNode);
 }
 
 /**
@@ -301,7 +304,7 @@ std::vector<unsigned int> Bayesnet::ReturnEvidenceNodes(){
 * @return it returns true if the network is a tree
 **/
 bool Bayesnet::IsTree(){
- if(ReturnRootList().size() == 1) return true;
+ if(ReturnRootList().size() == 1 && IsMultiConnected()==false) return true;
  else return false;
 }
 
@@ -459,17 +462,6 @@ std::pair<std::list<unsigned int>, unsigned int> Bayesnet::RawDepthFirstSearch(u
 
 
 } //namespace
-
-
-
-
-
-
-
-
-
-
-
 
 
 
