@@ -86,6 +86,11 @@ JointProbabilityTable BeliefPropagator::ReturnJointProbabilityTable(bayonet::Bay
 **/
 void BeliefPropagator::InitialTree(Bayesnet& net){
 
+ if(net.IsMultiConnected() == true){
+  std::cerr << "ERROR: the network is Multi-Connected, it is not possible to use Belief Propagation" << std::endl;
+  return;
+ }
+
  //1- It clear the vector, to prevent problem
  //if the method is called more than once.
  parametersVector.clear();
@@ -149,6 +154,11 @@ void BeliefPropagator::InitialTree(Bayesnet& net){
 * @param net The network to Update
 **/
 void BeliefPropagator::UpdateTree(Bayesnet& net){
+
+ if(net.IsMultiConnected() == true){
+  std::cerr << "ERROR: the network is Multi-Connected, it is not possible to use Belief Propagation" << std::endl;
+  return;
+ }
 
  //The first iteration finds the First evidence
  //and save its position in the topo_list

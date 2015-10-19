@@ -64,9 +64,9 @@ class Bayesnet{
 
   void ResetAllColours();
 
-  //bool IsTree; //TODO
+  bool IsTree();
   //bool IsPolytree(); //TODO
-  //bool IsMultiConnected(); //TODO
+  bool IsMultiConnected();
   //int ReturnNetworkType(); //TODO
 
   bool IsRoot(unsigned int);
@@ -78,12 +78,14 @@ class Bayesnet{
   void FillJointProbabilityTable();
 
   std::list<unsigned int> BreadthFirstSearch(unsigned int startingNode);
-  void DepthFirstSearch(unsigned int startingNode, std::shared_ptr<std::list<unsigned int>> spToList, bool resetColours = true);
+  std::list<unsigned int> DepthFirstSearch(unsigned int startingNode);
 
  private:
   //std::vector<std::shared_ptr<Bayesnode>> nodesVector;
   std::vector<Bayesnode> nodesVector;
-  
+  std::pair<std::list<unsigned int>, unsigned int> RawDepthFirstSearch(unsigned int index);
+
+
 };
 
 }
