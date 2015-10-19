@@ -35,14 +35,42 @@ BeliefPropagator::~BeliefPropagator(){}
 * the number of iterations specified.
 *
 * @param net the Bayesian network to use for picking up the sample.
-* @param cycles the number of iterations
 * @return it return a Joint Probability Table object
 **/
-JointProbabilityTable BeliefPropagator::ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles){
+JointProbabilityTable BeliefPropagator::ReturnJointProbabilityTable(bayonet::Bayesnet& net){
 
  //0-Declare the JPT
  JointProbabilityTable joint_table(net.ReturnTotalStates());
 
+ //1-reset JPT
+ //This step is not necessary, because the probabilities
+ //are not added but assigned below.
+ //joint_table.ResetProbabilities();
+
+ //2-In this part it is taken the belief of each variable 
+ //for each possible state, and it is multiplied with
+ //the other variables states, in order to obtain the 
+ //final joint distribution probability.
+ //
+ //Iteration through the joint_table rows
+ for(unsigned int i_row=0; i_row<joint_table.ReturnRowsNumber(); i_row++){
+  auto temp_pair = joint_table.ReturnRow(i_row);
+  auto parents_vector = temp_pair.first;
+
+  //It returns the state of the Variable considered at the moment
+  unsigned int parent_counter = 0;
+  double joint_probability = 1.0;
+  //Computing the joint probability
+  for(auto it_state=parents_vector.begin(); it_state!=parents_vector.end(); ++it_state){
+   joint_probability *= parametersVector[parent_counter][*it_state].belief;
+   parent_counter++;
+  }
+  //Setting the probability in the table
+  joint_table.SetProbability(parents_vector, joint_probability);
+ }
+
+ //3- Normalizing the table
+ joint_table.NormalizeProbabilities();
 
  //5-Return JPT
  return joint_table;
@@ -175,6 +203,8 @@ void BeliefPropagator::UpdateTree(Bayesnet& net){
 * To calculate the Pi_Message it needs ReturnLambdaMessage() from all the children
 * Z send X a pi_message
 * Z -> X -> Y
+*
+* @param net the Bayesian network to modify
 **/
 double BeliefPropagator::ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Z, unsigned int Z_state, unsigned int X){
 
@@ -203,6 +233,8 @@ double BeliefPropagator::ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Z,
 * To find the LambdaMessage it calls ReturnPiMessage() from all the Parents
 * Y send X a Lambda_message
 * Z -> X -> Y
+*
+* @param net the Bayesian network to modify
 **/
 double BeliefPropagator::ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state){
  //auto y_param_vector = parametersVector[Y];
@@ -260,6 +292,7 @@ double BeliefPropagator::ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned in
 /**
 * It set all the pi_value of a node
 *
+* @param net the Bayesian network to modify
 **/
 void BeliefPropagator::SetPiValues(bayonet::Bayesnet& net, unsigned int X){
  unsigned int states_counter = 0;
@@ -296,6 +329,7 @@ void BeliefPropagator::SetPiValues(bayonet::Bayesnet& net, unsigned int X){
 /**
 * It set all the lambda_value of a node
 *
+* @param net the Bayesian network to modify
 **/
 void BeliefPropagator::SetLambdaValues(bayonet::Bayesnet& net, unsigned int X){
 
@@ -330,6 +364,7 @@ void BeliefPropagator::SetLambdaValues(bayonet::Bayesnet& net, unsigned int X){
 /**
 * It set the belief of the node, the value are normalized.
 *
+* @param net the Bayesian network to modify
 **/
 void BeliefPropagator::SetBelief(bayonet::Bayesnet& net, unsigned int X){
  unsigned int states_counter = 0;

@@ -33,7 +33,14 @@ namespace bayonet{
 *
 *  
 * The BeliefPropagator class permits to use the Kim-Pearl message passing algorithm
-* for making inferences on a Bayesian network. 
+* for making exact inferences in a Bayesian network. The Kim-Pearl algorithm uses a set of
+* parameters, called pi-values and lambda-values, and a set of messages called
+* pi-message and lambda-message, for answering inference queries. 
+* This algorithm can be used only if the network is single connected.
+* The algorithm is quite complicated, a good description can be found in:
+*
+* "Bayesian Artificial Intelligence" (Kevin B. Korb and Ann E. Nicholson) chapter 3.
+* "Learning Bayesian Networks" (Richard E. Neapolitan) chapter 3.
 *
 **/
 class BeliefPropagator {
@@ -42,11 +49,11 @@ public:
  BeliefPropagator();
  ~BeliefPropagator();
 
- JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles);
-
  void InitialTree(Bayesnet& net);
  void UpdateTree(Bayesnet& net);
  void Print();
+
+ JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net);
 
 private:
 

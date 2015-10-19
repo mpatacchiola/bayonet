@@ -53,6 +53,25 @@ JointProbabilityTable::JointProbabilityTable(std::vector<unsigned int> variables
 JointProbabilityTable::~JointProbabilityTable(){}
 
 /**
+* It returns the specified row from the table
+*
+* @param index
+**/
+std::pair<std::vector<unsigned int>, double> JointProbabilityTable::ReturnRow(unsigned int index){
+ std::vector<unsigned int> parent_vector;
+ double probability;
+ if(index > mJointMap.size()){
+  std::cerr << "ERROR: Joint Table out of range index" << std::endl;
+  return make_pair(parent_vector, probability); //out of range > empty vector returned
+ }
+ auto it_map=mJointMap.begin();
+ std::advance(it_map, index);
+ parent_vector = it_map->first;
+ probability = it_map->second;
+ return make_pair(parent_vector, probability);
+}
+
+/**
 * It returns the marginal probability of a given variable.
 *
 * @param variableIndex

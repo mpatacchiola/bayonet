@@ -49,6 +49,8 @@ class JointProbabilityTable {
   JointProbabilityTable(std::vector<unsigned int> variablesTotStatesVector);
   ~JointProbabilityTable();
 
+  std::pair<std::vector<unsigned int>, double> ReturnRow(unsigned int index);
+
   double ReturnMarginal(unsigned int variableIndex, unsigned int variableState);
   std::vector<unsigned int> ReturnKey(unsigned int index);
   double GetProbability(std::vector<unsigned int> variablesStatesVector);
