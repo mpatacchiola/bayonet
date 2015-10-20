@@ -22,7 +22,7 @@
 
 #include <initializer_list>
 #include <map>
-#include<vector>
+#include <vector>
 #include <memory>
 
 namespace bayonet{

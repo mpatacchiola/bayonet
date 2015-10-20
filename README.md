@@ -62,8 +62,8 @@ To integrate bayonet in a different environment (ex Eclipse, Code::Blocks, etc) 
 
 Examples
 ----------
-Into the folder `examples` it is possible to find different samples that one can use. The code is heavily commented and it can be used as guideline for different applications.
-To compile the code just type: `make compile` inside the `examples` folder. 
+Into the folder */examples* it is possible to find different samples that one can use. The code is heavily commented and it can be used as guideline for different applications.
+To compile the code just type: `make compile` inside the */examples* folder. 
 The executables are created inside */bayonet/examples/build/exec*. 
 
 

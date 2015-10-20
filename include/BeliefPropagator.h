@@ -24,6 +24,7 @@
 #include <memory>
 #include"Bayesnet.h"
 #include"JointProbabilityTable.h"
+#include"MarginalProbabilityTable.h"
 
 namespace bayonet{
 
@@ -54,6 +55,7 @@ public:
  void Print();
 
  JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net);
+ MarginalProbabilityTable ReturnMarginalProbabilityTable();
 
 private:
 

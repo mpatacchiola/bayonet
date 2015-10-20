@@ -19,7 +19,6 @@
 
 #include <iostream>
 #include <iomanip>
-#include <sstream>
 #include <random>
 #include "ConditionalProbabilityTable.h"
 

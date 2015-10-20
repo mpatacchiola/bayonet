@@ -26,6 +26,21 @@ namespace bayonet{
 
 /**
 * It create a net with a certain number of nodes and number of states.
+* Using this constructor is easy to create very big network without pain.
+*
+* @param totNodes the number of nodes to store in the network
+* @param totStates the number of states that each node must have
+**/
+Bayesnet::Bayesnet(unsigned int totNodes, unsigned int totStates){
+ nodesVector.reserve(totNodes);
+ for(unsigned int i=0; i<totNodes; i++){
+  Bayesnode my_node(totStates);
+  nodesVector.push_back(my_node); //filling the nodes vector
+ }
+}
+
+/**
+* It create a net with a certain number of nodes and number of states.
 *
 * @param numberOfNodes the number of nodes to add to the network
 * @param numberOfStates the number of state to assign to each node

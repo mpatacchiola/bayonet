@@ -5,7 +5,10 @@
 
 
 CC=g++
-CFLAGS=-Wall -fPIC -std=c++11 
+CFLAGS=-Wall -fPIC -std=c++11
+
+#to compress the files for the handwritten digit example: tar -jcvf output2.tar pendigits.tes pendigits.tra
+#to uncompress the files: tar -jxvf output2.tar pendigits.tes pendigits.tra
 
 compile:
 	@echo
@@ -20,6 +23,7 @@ compile:
 	g++ $(CFLAGS) -Iinclude -c ./src/Bayesnet.cpp -o ./bin/obj/Bayesnet.o
 	g++ $(CFLAGS) -Iinclude -c ./src/ConditionalProbabilityTable.cpp -o ./bin/obj/ConditionalProbabilityTable.o
 	g++ $(CFLAGS) -Iinclude -c ./src/JointProbabilityTable.cpp -o ./bin/obj/JointProbabilityTable.o
+	g++ $(CFLAGS) -Iinclude -c ./src/MarginalProbabilityTable.cpp -o ./bin/obj/MarginalProbabilityTable.o
 	g++ $(CFLAGS) -Iinclude -c ./src/RejectionSampler.cpp -o ./bin/obj/RejectionSampler.o
 	g++ $(CFLAGS) -Iinclude -c ./src/LWSampler.cpp -o ./bin/obj/LWSampler.o
 	g++ $(CFLAGS) -Iinclude -c ./src/GibbsSampler.cpp -o ./bin/obj/GibbsSampler.o
@@ -27,11 +31,11 @@ compile:
 
 	@echo
 	@echo "=== Starting creation of Shared Library ==="
-	g++ -fPIC -shared -Wl,-soname,libbayonet.so.1 -o ./bin/lib/libbayonet.so.1.0 ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o ./bin/obj/BeliefPropagator.o
+	g++ -fPIC -shared -Wl,-soname,libbayonet.so.1 -o ./bin/lib/libbayonet.so.1.0 ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/MarginalProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o ./bin/obj/BeliefPropagator.o
 
 	@echo
 	@echo "=== Creating the Static Library ==="
-	ar rcs ./bin/lib/libbayonet.a ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o ./bin/obj/BeliefPropagator.o
+	ar rcs ./bin/lib/libbayonet.a ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/MarginalProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o ./bin/obj/BeliefPropagator.o
 
 install:
 
@@ -47,7 +51,7 @@ install:
 	ln -sf /usr/local/lib/libbayonet.so.1.0 /usr/local/lib/libbayonet.so.1
 
 remove:
-	rm ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o ./bin/obj/BeliefPropagator.o
+	rm ./bin/obj/Bayesnode.o ./bin/obj/Bayesnet.o ./bin/obj/ConditionalProbabilityTable.o ./bin/obj/JointProbabilityTable.o ./bin/obj/MarginalProbabilityTable.o ./bin/obj/RejectionSampler.o ./bin/obj/LWSampler.o ./bin/obj/GibbsSampler.o ./bin/obj/BeliefPropagator.o
 	rm ./bin/lib/libbayonet.so.1.0  
 	rm /usr/local/lib/libbayonet.so /usr/local/lib/libbayonet.so.1
 	rm /usr/local/lib/libbayonet.a ./bin/lib/libbayonet.a

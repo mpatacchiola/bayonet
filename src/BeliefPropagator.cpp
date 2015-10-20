@@ -76,6 +76,33 @@ JointProbabilityTable BeliefPropagator::ReturnJointProbabilityTable(bayonet::Bay
  return joint_table;
 }
 
+MarginalProbabilityTable BeliefPropagator::ReturnMarginalProbabilityTable(){
+
+ //1- First it is necessary to create the table.
+ //We have to know how many states each variable has.
+ std::vector<unsigned int> tot_states_vector;
+ tot_states_vector.reserve(parametersVector.size());
+ for(auto it_param=parametersVector.begin(); it_param!=parametersVector.end(); ++it_param){
+  tot_states_vector.push_back(it_param->size());
+ }
+
+ MarginalProbabilityTable marginal_table(tot_states_vector);
+
+ //2- For each variable we build a belief vector and
+ //we push that vector inside the table.
+ unsigned int var_counter = 0;
+ for(auto it_var=parametersVector.begin(); it_var!=parametersVector.end(); ++it_var){
+  std::vector<double> probabilities_vector;
+  probabilities_vector.reserve(it_var->size());
+  for(auto it_belief=it_var->begin(); it_belief!=it_var->end(); ++it_belief){
+   probabilities_vector.push_back(it_belief->belief);
+  }
+  marginal_table.SetProbabilities(var_counter, probabilities_vector);
+  var_counter++;
+ }
+
+ return marginal_table;
+}
 
 /**
 * It initializes the network tree.

@@ -35,6 +35,7 @@ class Bayesnet{
 
  public:
 
+  Bayesnet(unsigned int totNodes, unsigned int totStates);
   Bayesnet(std::vector<unsigned int> nodesTotStatesVector);
   ~Bayesnet();
 
