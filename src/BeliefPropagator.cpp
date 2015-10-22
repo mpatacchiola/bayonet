@@ -22,6 +22,8 @@
 #include <random>
 #include <list>
 #include <utility>      // std::pair
+#include  <limits>
+#include <stdexcept>
 
 namespace bayonet{
 
@@ -259,10 +261,13 @@ double BeliefPropagator::ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Z,
  //Iterate through Z out_list (children) asking for lambda messages
  double lambda_mess_multiplier = 1;
  for(auto it_out=z_out_list.begin(); it_out!=z_out_list.end(); ++it_out){
-  if(*it_out != X) lambda_mess_multiplier *= ReturnLambdaMessage(net, *it_out, Z, Z_state); //all children send to Z the lambda_mess
+  if(*it_out != X){
+   //lambda_mess_multiplier *= ReturnLambdaMessage(net, *it_out, Z, Z_state); //all children send to Z the lambda_mess
+   lambda_mess_multiplier = UMult(lambda_mess_multiplier ,ReturnLambdaMessage(net, *it_out, Z, Z_state));
+  }
  }
 
- return z_pi_value * lambda_mess_multiplier;
+ return UMult(z_pi_value, lambda_mess_multiplier);
 }
 
 /**
@@ -274,6 +279,8 @@ double BeliefPropagator::ReturnPiMessage(bayonet::Bayesnet& net, unsigned int Z,
 * @param net the Bayesian network to modify
 **/
 double BeliefPropagator::ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned int Y, unsigned int X, unsigned int X_state){
+
+try{
  //auto y_param_vector = parametersVector[Y];
  double final_result = 0;
 
@@ -308,22 +315,31 @@ double BeliefPropagator::ReturnLambdaMessage(bayonet::Bayesnet& net, unsigned in
    //For all the in nodes (but the X node) we ask for the pi_messages
    //and we multiply the values in a variable
    unsigned int i_parent=0;
+   bool round_error = true;
    for(auto it_in=y_in_list.begin(); it_in!=y_in_list.end(); ++it_in){
     if(i_parent!=pos_x_in_y){
      //Here Y ask to all its parents (but X) to send pi_messages
      double local_pi_message = ReturnPiMessage( net, *it_in, parents_states_vector[i_parent], Y);
-     pi_mess_multiplier *= local_pi_message;
+     pi_mess_multiplier = UMult(pi_mess_multiplier, local_pi_message);
+     if(local_pi_message==0) round_error = false;
     }
+    if(pi_mess_multiplier==0 && round_error==true)pi_mess_multiplier=std::numeric_limits<double>::min();
     i_parent++;
    }
 
-   temp_result +=  probability * pi_mess_multiplier; //Adding the PROBABILITY and PI_MESS to temp result
+   temp_result +=  UMult(probability, pi_mess_multiplier) ; //Adding the PROBABILITY and PI_MESS to temp result
   } 
-  temp_result *= parametersVector[Y][i_param].lambda_value; //Multiplying the temp result times LAMBDA_VALUE
+  temp_result = UMult(temp_result, parametersVector[Y][i_param].lambda_value) ; //Multiplying the temp result times LAMBDA_VALUE
   final_result +=  temp_result; //Adding to final result
  }
-
  return final_result;
+
+
+}catch ( std::exception &e ) {
+ std::cerr << "EXCEPTION: " << e.what() << std::endl;
+};
+
+ return 0;
 }
 
 /**
@@ -351,7 +367,7 @@ void BeliefPropagator::SetPiValues(bayonet::Bayesnet& net, unsigned int X){
     for(auto it_in=it_in_list.begin(); it_in!=it_in_list.end(); ++it_in){
      //Asking pi_messages to all the parents
         double local_pi_message = ReturnPiMessage(net, *it_in, parents_vector[parent_counter], X);
-        temp_multiplier *= local_pi_message;
+        temp_multiplier = UMult(temp_multiplier, local_pi_message);
 	parent_counter++;
     }
     pi += temp_multiplier;
@@ -383,14 +399,14 @@ void BeliefPropagator::SetLambdaValues(bayonet::Bayesnet& net, unsigned int X){
   //for(auto it_out=out_list.begin(); it_out!=out_list.end(); ++it_out){
   //SetLambdaValues(net, *it_out);
   //}
-
   for(auto it_out=out_list.begin(); it_out!=out_list.end(); ++it_out){
    //Asking lambda_messages to all the children
    //Y send X a lambda_message
    //(net, unsigned int Y, unsigned int X, unsigned int X_state)
    double local_lambda_message = ReturnLambdaMessage(net, *it_out, X, states_counter);
-   lambda *= local_lambda_message;
+   lambda = UMult(lambda, local_lambda_message);
   }
+
   parametersVector[X][states_counter].lambda_value = lambda;
  }
 
@@ -416,7 +432,9 @@ void BeliefPropagator::SetBelief(bayonet::Bayesnet& net, unsigned int X){
    alfa += 0;
   }
   if(net[X].IsEvidence() == false){
-   parametersVector[X][states_counter].belief = parametersVector[X][states_counter].pi_value * parametersVector[X][states_counter].lambda_value;
+   //parametersVector[X][states_counter].belief = parametersVector[X][states_counter].pi_value * parametersVector[X][states_counter].lambda_value;
+   parametersVector[X][states_counter].belief = UMult(parametersVector[X][states_counter].pi_value, parametersVector[X][states_counter].lambda_value);
+
     alfa += parametersVector[X][states_counter].belief; //accumulating the normalization constant
   }
 
@@ -425,6 +443,7 @@ void BeliefPropagator::SetBelief(bayonet::Bayesnet& net, unsigned int X){
 
   //Normalization
   states_counter = 0;
+  if(alfa == 0) alfa=1.0;
   for(auto it_nodes=parametersVector[X].begin(); it_nodes!=parametersVector[X].end(); ++it_nodes){
    parametersVector[X][states_counter].belief = parametersVector[X][states_counter].belief / alfa;
    states_counter++;
@@ -450,6 +469,35 @@ void BeliefPropagator::Print(){
   }
   std::cout << std::endl;
   nodes_counter++;
+ }
+}
+
+/**
+* It prints the parameters (belief, pi-value, lambda-value)
+* for the specified variable
+*
+**/
+void BeliefPropagator::PrintVariable(unsigned int index){
+  std::cout << "NODE: " << index << std::endl;
+  for(auto it_states=parametersVector[index].begin(); it_states!=parametersVector[index].end(); ++it_states){
+   std::cout << "belief: " << it_states->belief;
+   std::cout << " pi-value: " << it_states->pi_value;
+   std::cout << " lambda-value: " << it_states->lambda_value;
+   std::cout << std::endl;
+  }
+  std::cout << std::endl;
+}
+
+
+double BeliefPropagator::UMult(double a, double b){
+ //double result = a*b;
+ //if(a!=0 && b!=0 && result==0){
+
+  if (a*b =< std::numeric_limits<double>::lowest()){
+  std::cout << "LOWER BOUND REACHED ################################# " <<std::endl;
+  return std::numeric_limits<double>::lowest();
+ } else {
+  return a*b;
  }
 }
 

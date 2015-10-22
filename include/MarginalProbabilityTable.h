@@ -41,10 +41,16 @@ class MarginalProbabilityTable {
   ~MarginalProbabilityTable();
 
  bool SetProbability(unsigned int variableIndex, unsigned int stateIndex, double probability);
+ bool AddToProbability(unsigned int variableIndex, unsigned int stateIndex, double probability);
  double GetProbability(unsigned int variableIndex, unsigned int stateIndex);
+
+ unsigned int ReturnMostProbableState(unsigned int variableIndex);
 
  bool SetProbabilities(unsigned int index, std::vector<double> probabilitiesVector);
  std::vector<double> GetProbabilities(unsigned int index);
+
+ void ResetProbabilities();
+ void NormalizeProbabilities();
 
  void Print();
  void PrintVariable(unsigned int index);

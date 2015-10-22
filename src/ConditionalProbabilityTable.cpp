@@ -186,6 +186,24 @@ bool ConditionalProbabilityTable::SetProbabilities(std::vector<unsigned int> par
 }
 
 /**
+* Given a vector key and a variable state, it adds a value
+* to the associated probability.
+*
+* @param variableState
+* @param parentsStates
+* @param valueToAdd
+**/
+bool ConditionalProbabilityTable::AddToProbability(unsigned int variableState, std::vector<unsigned int> parentsStates, double valueToAdd){
+ if(variableState > conditionalMap.at(parentsStates).size()){
+  std::cerr << "ERROR: Conditional Table out of range index." << std::endl;
+  return false; 
+ }
+
+ conditionalMap.at(parentsStates)[variableState] += valueToAdd;
+ return true;
+}
+
+/**
 * It prints the conditional table on the terminal.
 * If the number of columns and rows is huge, the terminal could cut parts of the output.
 *
@@ -252,11 +270,12 @@ void ConditionalProbabilityTable::PrintProbabilities(std::vector<unsigned int> p
 *
 **/
 void ConditionalProbabilityTable::NormalizeProbabilities(){
- double accumulator = 0;
-
+ 
  //Iterate through map content:
  for (auto it_map=conditionalMap.begin(); it_map!=conditionalMap.end(); ++it_map){
-
+   //define an accumulator variable
+   //and assigne to it the value of zero
+   double accumulator = 0;
    //Iterate through the vector of probabilities for accumulate the sum
    for (auto it_data=it_map->second.begin(); it_data!=it_map->second.end(); ++it_data){
     accumulator += *it_data;
@@ -264,10 +283,12 @@ void ConditionalProbabilityTable::NormalizeProbabilities(){
 
    //Iterate through the vector of probabilities for the normalization
    for (auto it_data=it_map->second.begin(); it_data!=it_map->second.end(); ++it_data){
-    *it_data = *it_data / accumulator;
+    //If the accumulator is zero, then all the variables are zero
+    //It prevent a problem in case of a zero divisor
+    if(accumulator != 0) *it_data = *it_data / accumulator;
+    else *it_data = 0.0;
    }
  }
-
 }
 
 /**
@@ -336,6 +357,21 @@ void ConditionalProbabilityTable::AddVariable(unsigned int totStates=2){
  conditionalMap.clear();
 
  FillMap(tot_columns, mTotalParentsStates);
+}
+
+/**
+* It set to zero all the entries of the table.
+*
+**/
+void ConditionalProbabilityTable::Reset(){
+ //Iterate through map content:
+ for (auto it_map=conditionalMap.begin(); it_map!=conditionalMap.end(); ++it_map){
+
+  //Iterate through the vector of probabilities
+  for (auto it_data=it_map->second.begin(); it_data!=it_map->second.end(); ++it_data){
+   *it_data = 0.0;
+  }
+ }
 }
 
 /**

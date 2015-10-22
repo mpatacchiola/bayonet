@@ -58,6 +58,7 @@ class ConditionalProbabilityTable {
   std::vector<double> GetProbabilities(std::vector<unsigned int> parentsStates);
   std::vector<double> GetProbabilities(unsigned int variableState, unsigned int parentIndex, unsigned int parentsState);
   bool SetProbabilities(std::vector<unsigned int> parentsStates, std::vector<double> probabilities);
+  bool AddToProbability(unsigned int variableState, std::vector<unsigned int> parentsStates, double valueToAdd);
   void Print();
   void PrintProbabilities(std::vector<unsigned int> parentsStates);
 
@@ -66,6 +67,7 @@ class ConditionalProbabilityTable {
 
   unsigned int ReturnSample(std::vector<unsigned int> parentsStates);
 
+  void Reset();
   void AddVariable(unsigned int totStates);
   void Clear();
 

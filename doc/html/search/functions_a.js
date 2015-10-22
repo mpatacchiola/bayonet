@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_5b_5d',['operator[]',['../classbayonet_1_1_bayesnet.html#ac2367ab8e0fdae128f17159f09c63eea',1,'bayonet::Bayesnet']]]
+  ['normalizeprobabilities',['NormalizeProbabilities',['../classbayonet_1_1_conditional_probability_table.html#a600256d28edeef688ab4cdf38794acc3',1,'bayonet::ConditionalProbabilityTable::NormalizeProbabilities()'],['../classbayonet_1_1_joint_probability_table.html#a7f89dc909bd3fc68ba0859ce4b6f130c',1,'bayonet::JointProbabilityTable::NormalizeProbabilities()']]]
 ];

@@ -100,6 +100,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a5786e74d7f76586eaf6ee2e52a5b626e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a5786e74d7f76586eaf6ee2e52a5b626e">Bayesnet</a> (unsigned int totNodes, unsigned int totStates)</td></tr>
+<tr class="separator:a5786e74d7f76586eaf6ee2e52a5b626e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27bc4870f26d4bd00953d7589c2d4abd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#a27bc4870f26d4bd00953d7589c2d4abd">Bayesnet</a> (std::vector&lt; unsigned int &gt; nodesTotStatesVector)</td></tr>
 <tr class="separator:a27bc4870f26d4bd00953d7589c2d4abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0d3ee29b0676789a3c5d1c33a0e36a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_bayesnet.html#af0d3ee29b0676789a3c5d1c33a0e36a2">~Bayesnet</a> ()</td></tr>
@@ -162,6 +164,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FillJointProbabilityT
 <div class="textblock"><p>This class represents the whole Bayesian network. </p>
 <hr/>
  </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a5786e74d7f76586eaf6ee2e52a5b626e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bayonet::Bayesnet::Bayesnet </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>totNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>totStates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It create a net with a certain number of nodes and number of states. Using this constructor is easy to create very big network without pain.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">totNodes</td><td>the number of nodes to store in the network </td></tr>
+    <tr><td class="paramname">totStates</td><td>the number of states that each node must have </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a27bc4870f26d4bd00953d7589c2d4abd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -722,7 +758,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>FillJointProbabilityT
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2015 17:04:41 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 20 2015 18:03:33 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

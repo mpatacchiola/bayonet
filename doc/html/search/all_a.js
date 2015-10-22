@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['normalizeprobabilities',['NormalizeProbabilities',['../classbayonet_1_1_conditional_probability_table.html#a600256d28edeef688ab4cdf38794acc3',1,'bayonet::ConditionalProbabilityTable::NormalizeProbabilities()'],['../classbayonet_1_1_joint_probability_table.html#a7f89dc909bd3fc68ba0859ce4b6f130c',1,'bayonet::JointProbabilityTable::NormalizeProbabilities()']]]
+  ['marginalprobabilitytable',['MarginalProbabilityTable',['../classbayonet_1_1_marginal_probability_table.html',1,'bayonet']]],
+  ['marginalprobabilitytable',['MarginalProbabilityTable',['../classbayonet_1_1_marginal_probability_table.html#aaf7f15ab1f5ed12d53722cb66b6eeed8',1,'bayonet::MarginalProbabilityTable::MarginalProbabilityTable(unsigned int totVariables, unsigned int totStates)'],['../classbayonet_1_1_marginal_probability_table.html#aafec778bc82a3e6abb0ad05bd4fa6710',1,'bayonet::MarginalProbabilityTable::MarginalProbabilityTable(std::vector&lt; unsigned int &gt; variablesTotStatesVector)']]]
 ];

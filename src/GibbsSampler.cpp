@@ -352,6 +352,33 @@ JointProbabilityTable GibbsSampler::ReturnJointProbabilityTable(bayonet::Bayesne
  return joint_table;
 }
 
+MarginalProbabilityTable GibbsSampler::ReturnMarginalProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles){
+ MarginalProbabilityTable marginal_table(net.ReturnTotalStates());
+
+ marginal_table.ResetProbabilities();
+
+ //2-Accumulate samples
+ auto samples_vector = AccumulateSamples(net, cycles);
+
+ //2-Accumulate samples and Add sample and weight to JPT
+ for(auto it_acc=samples_vector.begin(); it_acc!=samples_vector.end(); ++it_acc){
+  auto sample_pair = *it_acc;
+  unsigned int var_counter = 0;
+  //Iteration through each element of the sample
+  //each element is a variable and the value is the state
+  for(auto it_sample=sample_pair.begin(); it_sample!=sample_pair.end(); ++it_sample){
+   marginal_table.AddToProbability(var_counter, *it_sample, 1.0);
+   var_counter++;
+  } 
+
+ }
+
+ marginal_table.NormalizeProbabilities();
+
+ return marginal_table;
+
+
+}
 
 /**
  * Return a random generated integer.

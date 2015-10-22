@@ -1,14 +1,12 @@
-Bayonet
-==============
+Bayonet: a C++ library for Bayesian networks
+============================================
 
-A C++ library for Bayesian networks
------------------------------------
 Bayesian networks are probabilistic graphical models, a set of random variables (called nodes) connected through directed edges. Each edge of the network represents a causal relation between two nodes. 
 
 Bayonet is a C++ library that permits to create discrete Bayesian networks, the library has a lot of properties that we can summarize here:
 
 - Safe memory management through STL containers
-- Object Oriented approach, easy to use, easy to read
+- Object Oriented approach: easy to read, easy to use
 - No external library required, Bayonet is self-contained
 - Completely open source (GNU v2.0)
 - Easy to create and manage densely connected networks

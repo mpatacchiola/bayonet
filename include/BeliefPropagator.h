@@ -53,6 +53,7 @@ public:
  void InitialTree(Bayesnet& net);
  void UpdateTree(Bayesnet& net);
  void Print();
+ void PrintVariable(unsigned int index);
 
  JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net);
  MarginalProbabilityTable ReturnMarginalProbabilityTable();
@@ -71,6 +72,8 @@ private:
  void SetPiValues(bayonet::Bayesnet& net, unsigned int X);
  void SetLambdaValues(bayonet::Bayesnet& net, unsigned int X);
  void SetBelief(bayonet::Bayesnet& net, unsigned int X);
+ double UMult(double a, double b);
+
 };
 
 }

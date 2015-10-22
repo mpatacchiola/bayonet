@@ -20,6 +20,7 @@
 
 #include <iostream>
 #include "MarginalProbabilityTable.h"
+#include <algorithm>    // std::min_element, std::max_element
 
 namespace bayonet{
 
@@ -97,6 +98,28 @@ bool MarginalProbabilityTable::SetProbability(unsigned int variableIndex, unsign
 *
 * @param variableIndex the index of the variable
 * @param stateIndex the index of the state
+* @param probability
+**/
+bool MarginalProbabilityTable::AddToProbability(unsigned int variableIndex, unsigned int stateIndex, double probability){
+ if(variableIndex > marginalTable.size()){
+  std::cerr << "ERROR: Marginal Table out of range index." << std::endl;
+  return false; 
+ }
+
+ if(stateIndex > marginalTable[variableIndex].size()){
+  std::cerr << "ERROR: Marginal Table out of range index." << std::endl;
+  return false; 
+ } 
+
+ marginalTable[variableIndex][stateIndex] += probability;
+ return true;
+}
+
+/**
+* It get the probability associated with a certain variable and state
+*
+* @param variableIndex the index of the variable
+* @param stateIndex the index of the state
 **/
 double MarginalProbabilityTable::GetProbability(unsigned int variableIndex, unsigned int stateIndex){
  if(variableIndex > marginalTable.size()){
@@ -112,6 +135,25 @@ double MarginalProbabilityTable::GetProbability(unsigned int variableIndex, unsi
  return marginalTable[variableIndex][stateIndex];
 }
 
+/**
+* It returns the state with the highest probability
+* once specified a variable index. If the variable
+* has many states with the same probability, the first
+* of that state is returned.
+*
+* @param variableIndex
+**/
+unsigned int MarginalProbabilityTable::ReturnMostProbableState(unsigned int variableIndex){
+ auto it_max = std::max_element(marginalTable[variableIndex].begin(), marginalTable[variableIndex].end());
+
+ unsigned int counter=0;
+ for(auto it_state=marginalTable[variableIndex].begin(); it_state!=marginalTable[variableIndex].end(); ++it_state){
+  if(it_state == it_max) return counter;
+  counter++;
+ }
+
+ return 0;
+}
 
 /**
 * It set the probabilities associated with a certain variable 
@@ -141,6 +183,40 @@ std::vector<double> MarginalProbabilityTable::GetProbabilities(unsigned int inde
   return void_vector; 
  }
  return marginalTable[index];
+}
+
+/**
+* It reset the probabilities, all values equal to zero
+*
+**/
+void MarginalProbabilityTable::ResetProbabilities(){
+ //Iterating through the line
+ for(auto it_table=marginalTable.begin(); it_table!=marginalTable.end(); ++it_table){
+  //Iterating through the elements
+  for(auto it_state=it_table->begin(); it_state!=it_table->end(); ++it_state){
+   *it_state = 0.0;
+  }
+ }
+}
+
+/**
+* It normalizes all the probabilities
+*
+**/
+void MarginalProbabilityTable::NormalizeProbabilities(){
+ //Iterating through the line
+ for(auto it_table=marginalTable.begin(); it_table!=marginalTable.end(); ++it_table){
+  //Iterating through the elements
+  //for accumulating the divisor
+  double accumulator=0.0;
+  for(auto it_state=it_table->begin(); it_state!=it_table->end(); ++it_state){
+   accumulator += *it_state;
+  }
+  //normalize the row
+  for(auto it_state=it_table->begin(); it_state!=it_table->end(); ++it_state){
+   *it_state = *it_state / accumulator;
+  }
+ }
 }
 
 /**

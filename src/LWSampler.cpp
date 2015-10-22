@@ -175,6 +175,32 @@ JointProbabilityTable LWSampler::ReturnJointProbabilityTable(bayonet::Bayesnet& 
 }
 
 
+MarginalProbabilityTable LWSampler::ReturnMarginalProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles){
+
+ MarginalProbabilityTable marginal_table(net.ReturnTotalStates());
+
+ marginal_table.ResetProbabilities();
+
+ //2-Accumulate samples and Add sample and weight to JPT
+ for(unsigned int i=0; i<cycles; i++){
+  auto sample_pair = ReturnSample(net);
+  unsigned int var_counter = 0;
+  //Iteration through each element of the sample
+  //each element is a variable and the value is the state
+  for(auto it_sample=sample_pair.first.begin(); it_sample!=sample_pair.first.end(); ++it_sample){
+   marginal_table.AddToProbability(var_counter, *it_sample, sample_pair.second);
+   var_counter++;
+  } 
+
+ }
+
+ marginal_table.NormalizeProbabilities();
+
+ return marginal_table;
+
+}
+
+
 
 } //namespace
 

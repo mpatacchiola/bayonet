@@ -1,0 +1,161 @@
+\hypertarget{classbayonet_1_1_marginal_probability_table}{\section{bayonet\-:\-:Marginal\-Probability\-Table Class Reference}
+\label{classbayonet_1_1_marginal_probability_table}\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}}
+}
+
+
+A table containing the marginal probabilities of random variables.  
+
+
+
+
+{\ttfamily \#include $<$Marginal\-Probability\-Table.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbayonet_1_1_marginal_probability_table_aaf7f15ab1f5ed12d53722cb66b6eeed8}{Marginal\-Probability\-Table} (unsigned int tot\-Variables, unsigned int tot\-States)
+\item 
+\hyperlink{classbayonet_1_1_marginal_probability_table_aafec778bc82a3e6abb0ad05bd4fa6710}{Marginal\-Probability\-Table} (std\-::vector$<$ unsigned int $>$ variables\-Tot\-States\-Vector)
+\item 
+bool \hyperlink{classbayonet_1_1_marginal_probability_table_a2e5df9bbbc655d522199b4b87e4d46e3}{Set\-Probability} (unsigned int variable\-Index, unsigned int state\-Index, double probability)
+\item 
+double \hyperlink{classbayonet_1_1_marginal_probability_table_a5447f68ac26b7adadc801de7c1f5ffa7}{Get\-Probability} (unsigned int variable\-Index, unsigned int state\-Index)
+\item 
+bool \hyperlink{classbayonet_1_1_marginal_probability_table_a0bdf638395853225660615a0a847c741}{Set\-Probabilities} (unsigned int index, std\-::vector$<$ double $>$ probabilities\-Vector)
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classbayonet_1_1_marginal_probability_table_aa97aabef18b97cdea29e0b74a5372d2e}{Get\-Probabilities} (unsigned int index)
+\item 
+void \hyperlink{classbayonet_1_1_marginal_probability_table_aca70cba427a713917d194b182e38ceb4}{Print} ()
+\item 
+void \hyperlink{classbayonet_1_1_marginal_probability_table_ac0d3f11940b2377eca44e9076d8de0ad}{Print\-Variable} (unsigned int index)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A table containing the marginal probabilities of random variables. 
+
+The marginal table express the probabilities of each state for each random variable. The discrete distribution is represented as a vector where each element is a probability associated with a state. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbayonet_1_1_marginal_probability_table_aaf7f15ab1f5ed12d53722cb66b6eeed8}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Marginal\-Probability\-Table@{Marginal\-Probability\-Table}}
+\index{Marginal\-Probability\-Table@{Marginal\-Probability\-Table}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Marginal\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Marginal\-Probability\-Table\-::\-Marginal\-Probability\-Table (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{tot\-Variables, }
+\item[{unsigned int}]{tot\-States}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_aaf7f15ab1f5ed12d53722cb66b6eeed8}
+The constructor of the object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tot\-Variables} & the total number of variable to insert in the table \\
+\hline
+{\em tot\-States} & the total number of states each variable must take \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_marginal_probability_table_aafec778bc82a3e6abb0ad05bd4fa6710}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Marginal\-Probability\-Table@{Marginal\-Probability\-Table}}
+\index{Marginal\-Probability\-Table@{Marginal\-Probability\-Table}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Marginal\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}bayonet\-::\-Marginal\-Probability\-Table\-::\-Marginal\-Probability\-Table (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ unsigned int $>$}]{variables\-Tot\-States\-Vector}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_aafec778bc82a3e6abb0ad05bd4fa6710}
+The constructor of the object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variables\-Tot\-States\-Vector} & a vector of integers representing the total number of states for each variable. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_marginal_probability_table_aa97aabef18b97cdea29e0b74a5372d2e}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Get\-Probabilities@{Get\-Probabilities}}
+\index{Get\-Probabilities@{Get\-Probabilities}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Get\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ double $>$ bayonet\-::\-Marginal\-Probability\-Table\-::\-Get\-Probabilities (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_aa97aabef18b97cdea29e0b74a5372d2e}
+It get the probabilities associated with a certain variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the variable \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_marginal_probability_table_a5447f68ac26b7adadc801de7c1f5ffa7}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Get\-Probability@{Get\-Probability}}
+\index{Get\-Probability@{Get\-Probability}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Get\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}double bayonet\-::\-Marginal\-Probability\-Table\-::\-Get\-Probability (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{variable\-Index, }
+\item[{unsigned int}]{state\-Index}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_a5447f68ac26b7adadc801de7c1f5ffa7}
+It get the probability associated with a certain variable and state
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\-Index} & the index of the variable \\
+\hline
+{\em state\-Index} & the index of the state \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_marginal_probability_table_aca70cba427a713917d194b182e38ceb4}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Print@{Print}}
+\index{Print@{Print}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Marginal\-Probability\-Table\-::\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_aca70cba427a713917d194b182e38ceb4}
+It prints the probabilities associated with each variable \hypertarget{classbayonet_1_1_marginal_probability_table_ac0d3f11940b2377eca44e9076d8de0ad}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Print\-Variable@{Print\-Variable}}
+\index{Print\-Variable@{Print\-Variable}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Print\-Variable}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Marginal\-Probability\-Table\-::\-Print\-Variable (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_ac0d3f11940b2377eca44e9076d8de0ad}
+It prints the probabilities associated with each variable \hypertarget{classbayonet_1_1_marginal_probability_table_a0bdf638395853225660615a0a847c741}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Set\-Probabilities@{Set\-Probabilities}}
+\index{Set\-Probabilities@{Set\-Probabilities}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Set\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Marginal\-Probability\-Table\-::\-Set\-Probabilities (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{index, }
+\item[{std\-::vector$<$ double $>$}]{probabilities\-Vector}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_a0bdf638395853225660615a0a847c741}
+It set the probabilities associated with a certain variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the variable \\
+\hline
+{\em probabilities\-Vector} & the probabilities of the variable \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_marginal_probability_table_a2e5df9bbbc655d522199b4b87e4d46e3}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Set\-Probability@{Set\-Probability}}
+\index{Set\-Probability@{Set\-Probability}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Set\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Marginal\-Probability\-Table\-::\-Set\-Probability (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{variable\-Index, }
+\item[{unsigned int}]{state\-Index, }
+\item[{double}]{probability}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_a2e5df9bbbc655d522199b4b87e4d46e3}
+It set the probabilities associated with a certain variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\-Index} & the index of the variable \\
+\hline
+{\em state\-Index} & the index of the state \\
+\hline
+{\em probability} & the value to set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+include/Marginal\-Probability\-Table.\-h\item 
+src/Marginal\-Probability\-Table.\-cpp\end{DoxyCompactItemize}
