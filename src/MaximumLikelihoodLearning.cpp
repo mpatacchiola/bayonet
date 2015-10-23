@@ -17,7 +17,7 @@
  *
 */
 
-#include"MaximumLikelihoodEstimator.h"
+#include"MaximumLikelihoodLearning.h"
 #include <iostream>
 #include <random>
 #include <list>
@@ -26,9 +26,9 @@
 namespace bayonet{
 
 
-MaximumLikelihoodEstimator::MaximumLikelihoodEstimator(){}
+MaximumLikelihoodLearning::MaximumLikelihoodLearning(){}
 
-MaximumLikelihoodEstimator::~MaximumLikelihoodEstimator(){}
+MaximumLikelihoodLearning::~MaximumLikelihoodLearning(){}
 
 
 /**
@@ -37,15 +37,23 @@ MaximumLikelihoodEstimator::~MaximumLikelihoodEstimator(){}
 *
 * @param net the Bayesian network to update
 * @param trainingDataset a reference to a vector of vector (matrix)
-* containing the state of each node obtained during the training phase
+* containing the state of each node obtained during the training phase.
+* Each line of the matrix must have the same number of values of the 
+* network given as input.
+* @return it return the updated network
 *
 **/
-Bayesnet MaximumLikelihoodEstimator::ReturnUpdatedNetwork(Bayesnet net, std::vector<std::vector<unsigned int>>& trainingDataset){
+Bayesnet MaximumLikelihoodLearning::ReturnUpdatedNetwork(Bayesnet net, std::vector<std::vector<unsigned int>>& trainingDataset){
 
  //1- For each node, Reset to zero the CPTs
+ //There are states that are never learnt during
+ //the training phase, in this case it is better
+ //to initialize the value of the conditionalTable to 1.0
+ //and add the dataset sample to them.
+ //"Artificial Intelligence: A Modern Approach." chapter 17
  unsigned int tot_nodes = net.ReturnNumberOfNodes();
  for(unsigned int i=0; i<tot_nodes; i++){
-  net[i].conditionalTable.Reset();
+  net[i].conditionalTable.ResetProbabilities(1.0); //<--- TRICK from the book 
  }
 
  //2- For each training vecotr, For each node, take the conditional table, 

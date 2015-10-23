@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Bayonet: include/LWSampler.h Source File</title>
+<title>Bayonet: include/MaximumLikelihoodLearning.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">LWSampler.h</div>  </div>
+<div class="title">MaximumLikelihoodLearning.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* </span></div>
@@ -106,42 +106,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef LWSAMPLER_H</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LWSAMPLER_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef MAXIMUMLIKELIHOODLEARNING_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAXIMUMLIKELIHOODLEARNINGR_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include&lt;vector&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include&quot;Bayesnet.h&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include&quot;JointProbabilityTable.h&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include&quot;MarginalProbabilityTable.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include&quot;Bayesnet.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>bayonet{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classbayonet_1_1_l_w_sampler.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbayonet_1_1_l_w_sampler.html">LWSampler</a> {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="classbayonet_1_1_l_w_sampler.html">LWSampler</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;~<a class="code" href="classbayonet_1_1_l_w_sampler.html">LWSampler</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classbayonet_1_1_maximum_likelihood_learning.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="classbayonet_1_1_maximum_likelihood_learning.html">MaximumLikelihoodLearning</a> {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;std::pair&lt; std::vector&lt;unsigned int&gt;, <span class="keywordtype">double</span>&gt; <a class="code" href="classbayonet_1_1_l_w_sampler.html#a1da2655dd3332796a3293c3aac8d618d">ReturnSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;std::vector&lt;std::pair&lt;std::vector&lt;unsigned int&gt;, <span class="keywordtype">double</span>&gt;&gt; <a class="code" href="classbayonet_1_1_l_w_sampler.html#abd25d8f7eb12dd345dbfc8984cadcdbf">AccumulateSamples</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp;, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <a class="code" href="classbayonet_1_1_maximum_likelihood_learning.html">MaximumLikelihoodLearning</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; ~<a class="code" href="classbayonet_1_1_maximum_likelihood_learning.html">MaximumLikelihoodLearning</a>();</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_l_w_sampler.html#a010eacc55fbbb462f50b7ab6b292056f">PrintSample</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles = 1);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> <a class="code" href="classbayonet_1_1_l_w_sampler.html#af2fd4c51a13c8cc95f5eaca05941eb47">ReturnJointProbabilityTable</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="classbayonet_1_1_marginal_probability_table.html">MarginalProbabilityTable</a> <a class="code" href="classbayonet_1_1_l_w_sampler.html#a64fb2a7e19596c4a49fbfcbbe7f0aa86">ReturnMarginalProbabilityTable</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cycles);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> <a class="code" href="classbayonet_1_1_maximum_likelihood_learning.html#a7d621911f54396bc94d9d4a677385a92">ReturnUpdatedNetwork</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a> net, std::vector&lt;std::vector&lt;unsigned int&gt;&gt;&amp; trainingDataset);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif // MAXIMUMLIKELIHOODLEARNING_H</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif // LWSAMPLER_H</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
@@ -151,18 +147,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="ttc" id="classbayonet_1_1_joint_probability_table_html"><div class="ttname"><a href="classbayonet_1_1_joint_probability_table.html">bayonet::JointProbabilityTable</a></div><div class="ttdoc">A table containing the joint probabilities of random variables. </div><div class="ttdef"><b>Definition:</b> JointProbabilityTable.h:45</div></div>
-<div class="ttc" id="classbayonet_1_1_l_w_sampler_html_af2fd4c51a13c8cc95f5eaca05941eb47"><div class="ttname"><a href="classbayonet_1_1_l_w_sampler.html#af2fd4c51a13c8cc95f5eaca05941eb47">bayonet::LWSampler::ReturnJointProbabilityTable</a></div><div class="ttdeci">JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet &amp;net, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> LWSampler.cpp:148</div></div>
-<div class="ttc" id="classbayonet_1_1_l_w_sampler_html_abd25d8f7eb12dd345dbfc8984cadcdbf"><div class="ttname"><a href="classbayonet_1_1_l_w_sampler.html#abd25d8f7eb12dd345dbfc8984cadcdbf">bayonet::LWSampler::AccumulateSamples</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; std::vector&lt; unsigned int &gt;, double &gt; &gt; AccumulateSamples(Bayesnet &amp;, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> LWSampler.cpp:108</div></div>
-<div class="ttc" id="classbayonet_1_1_marginal_probability_table_html"><div class="ttname"><a href="classbayonet_1_1_marginal_probability_table.html">bayonet::MarginalProbabilityTable</a></div><div class="ttdoc">A table containing the marginal probabilities of random variables. </div><div class="ttdef"><b>Definition:</b> MarginalProbabilityTable.h:36</div></div>
 <div class="ttc" id="classbayonet_1_1_bayesnet_html"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a></div><div class="ttdoc">This class represents the whole Bayesian network. </div><div class="ttdef"><b>Definition:</b> Bayesnet.h:34</div></div>
-<div class="ttc" id="classbayonet_1_1_l_w_sampler_html"><div class="ttname"><a href="classbayonet_1_1_l_w_sampler.html">bayonet::LWSampler</a></div><div class="ttdoc">Implementation of the Likelihood-Weighted sampler. </div><div class="ttdef"><b>Definition:</b> LWSampler.h:40</div></div>
-<div class="ttc" id="classbayonet_1_1_l_w_sampler_html_a010eacc55fbbb462f50b7ab6b292056f"><div class="ttname"><a href="classbayonet_1_1_l_w_sampler.html#a010eacc55fbbb462f50b7ab6b292056f">bayonet::LWSampler::PrintSample</a></div><div class="ttdeci">void PrintSample(bayonet::Bayesnet &amp;net, unsigned int cycles=1)</div><div class="ttdef"><b>Definition:</b> LWSampler.cpp:127</div></div>
-<div class="ttc" id="classbayonet_1_1_l_w_sampler_html_a1da2655dd3332796a3293c3aac8d618d"><div class="ttname"><a href="classbayonet_1_1_l_w_sampler.html#a1da2655dd3332796a3293c3aac8d618d">bayonet::LWSampler::ReturnSample</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; unsigned int &gt;, double &gt; ReturnSample(bayonet::Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> LWSampler.cpp:40</div></div>
-<div class="ttc" id="classbayonet_1_1_l_w_sampler_html_a64fb2a7e19596c4a49fbfcbbe7f0aa86"><div class="ttname"><a href="classbayonet_1_1_l_w_sampler.html#a64fb2a7e19596c4a49fbfcbbe7f0aa86">bayonet::LWSampler::ReturnMarginalProbabilityTable</a></div><div class="ttdeci">MarginalProbabilityTable ReturnMarginalProbabilityTable(bayonet::Bayesnet &amp;net, unsigned int cycles)</div><div class="ttdef"><b>Definition:</b> LWSampler.cpp:185</div></div>
+<div class="ttc" id="classbayonet_1_1_maximum_likelihood_learning_html_a7d621911f54396bc94d9d4a677385a92"><div class="ttname"><a href="classbayonet_1_1_maximum_likelihood_learning.html#a7d621911f54396bc94d9d4a677385a92">bayonet::MaximumLikelihoodLearning::ReturnUpdatedNetwork</a></div><div class="ttdeci">Bayesnet ReturnUpdatedNetwork(Bayesnet net, std::vector&lt; std::vector&lt; unsigned int &gt;&gt; &amp;trainingDataset)</div><div class="ttdef"><b>Definition:</b> MaximumLikelihoodLearning.cpp:46</div></div>
+<div class="ttc" id="classbayonet_1_1_maximum_likelihood_learning_html"><div class="ttname"><a href="classbayonet_1_1_maximum_likelihood_learning.html">bayonet::MaximumLikelihoodLearning</a></div><div class="ttdoc">Implementation of Maximum Likelihood Estimator (MLE). </div><div class="ttdef"><b>Definition:</b> MaximumLikelihoodLearning.h:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

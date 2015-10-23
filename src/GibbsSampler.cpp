@@ -352,6 +352,14 @@ JointProbabilityTable GibbsSampler::ReturnJointProbabilityTable(bayonet::Bayesne
  return joint_table;
 }
 
+/**
+* It creates a Marginal Probability table starting from the Bayesian network and sampling for
+* the number of iterations specified.
+*
+* @param net the Bayesian network to use for picking up the sample.
+* @param cycles the number of iterations
+* @return it return a Marginal Probability Table object
+**/
 MarginalProbabilityTable GibbsSampler::ReturnMarginalProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles){
  MarginalProbabilityTable marginal_table(net.ReturnTotalStates());
 

@@ -112,6 +112,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab68ff90b1c015d6aa2d185cacb18a74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ba74f6d5f5fd61baa968464e2e3aac5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_rejection_sampler.html#a0ba74f6d5f5fd61baa968464e2e3aac5">ReturnJointProbabilityTable</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, unsigned int cycles)</td></tr>
 <tr class="separator:a0ba74f6d5f5fd61baa968464e2e3aac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a185ff3bd9dd8e914d11c15d4bd50e385"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbayonet_1_1_marginal_probability_table.html">MarginalProbabilityTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_rejection_sampler.html#a185ff3bd9dd8e914d11c15d4bd50e385">ReturnMarginalProbabilityTable</a> (<a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;net, unsigned int cycles)</td></tr>
+<tr class="separator:a185ff3bd9dd8e914d11c15d4bd50e385"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This object is used for sampling a Bayesian network and make inference. </p>
@@ -254,6 +256,41 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a185ff3bd9dd8e914d11c15d4bd50e385"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbayonet_1_1_marginal_probability_table.html">MarginalProbabilityTable</a> bayonet::RejectionSampler::ReturnMarginalProbabilityTable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a> &amp;&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cycles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It creates a Marginal Probability table starting from the Bayesian network and sampling for the number of iterations specified.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net</td><td>the Bayesian network to use for picking up the sample. </td></tr>
+    <tr><td class="paramname">cycles</td><td>the number of iterations </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>it return a Marginal Probability Table object </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a1f2c685367f549965dcafd9c1b77ab1e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +321,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 20 2015 18:03:33 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 23 2015 16:37:32 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

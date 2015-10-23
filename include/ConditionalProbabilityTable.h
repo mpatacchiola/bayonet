@@ -36,8 +36,8 @@ namespace bayonet{
  * conditional probability table (CPT). The CPT of a node contains all the
  * possible combinations of values (instantiation) of the parents nodes. For
  * each instantiation it is necessary to specify the probabilities that the 
- * child node assumes each of its values. 
- * Bayonet store the CPT as a std::map, where the key is a vector of integrers
+ * child node assumes given each of its values. 
+ * Bayonet store the CPT as a std::map, where the key is a vector of integers
  * representing the states of the parents node, and the value is a vector of 
  * double representing the probabilities of the variable states.
  * 
@@ -67,7 +67,7 @@ class ConditionalProbabilityTable {
 
   unsigned int ReturnSample(std::vector<unsigned int> parentsStates);
 
-  void Reset();
+  void ResetProbabilities(double valueToSet=0.0);
   void AddVariable(unsigned int totStates);
   void Clear();
 

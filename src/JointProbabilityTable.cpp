@@ -264,10 +264,10 @@ void JointProbabilityTable::RandomizeProbabilities(){
 * It reset the probabilities inside each row of the table.
 * Each value is set to zero.
 **/
-void JointProbabilityTable::ResetProbabilities(){
+void JointProbabilityTable::ResetProbabilities(double valueToSet){
  //Iterate through map for the normalization
  for (auto it_map=mJointMap.begin(); it_map!=mJointMap.end(); ++it_map){
-  it_map->second = 0;
+  it_map->second = valueToSet;
  }
 }
 

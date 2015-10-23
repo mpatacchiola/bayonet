@@ -35,6 +35,8 @@ std\-::vector$<$ double $>$ \hyperlink{classbayonet_1_1_conditional_probability_
 \item 
 bool \hyperlink{classbayonet_1_1_conditional_probability_table_ac94cd225747e8f59c5497b860ff777c0}{Set\-Probabilities} (std\-::vector$<$ unsigned int $>$ parents\-States, std\-::vector$<$ double $>$ probabilities)
 \item 
+bool \hyperlink{classbayonet_1_1_conditional_probability_table_a8f0c8eced14e22be7b235b02825b732e}{Add\-To\-Probability} (unsigned int variable\-State, std\-::vector$<$ unsigned int $>$ parents\-States, double value\-To\-Add)
+\item 
 void \hyperlink{classbayonet_1_1_conditional_probability_table_a0815f7814cc5797629035f17f0cf26c2}{Print} ()
 \item 
 void \hyperlink{classbayonet_1_1_conditional_probability_table_a0ca5c1cbfeb5c86ef06161a810233b2a}{Print\-Probabilities} (std\-::vector$<$ unsigned int $>$ parents\-States)
@@ -44,6 +46,8 @@ void \hyperlink{classbayonet_1_1_conditional_probability_table_a600256d28edeef68
 void \hyperlink{classbayonet_1_1_conditional_probability_table_a224d882019f784a993c50043dca4cb5d}{Randomize\-Probabilities} ()
 \item 
 unsigned int \hyperlink{classbayonet_1_1_conditional_probability_table_a3e600c4b5247dd52a5d0e775ca898c69}{Return\-Sample} (std\-::vector$<$ unsigned int $>$ parents\-States)
+\item 
+void \hyperlink{classbayonet_1_1_conditional_probability_table_afc68c2346315d6aa43d71e549392f09a}{Reset\-Probabilities} (double value\-To\-Set=0.\-0)
 \item 
 void \hyperlink{classbayonet_1_1_conditional_probability_table_a038e1940c40528ac23101272f33f752c}{Add\-Variable} (unsigned int tot\-States)
 \item 
@@ -58,7 +62,7 @@ unsigned int \hyperlink{classbayonet_1_1_conditional_probability_table_a2fef41db
 \subsection{Detailed Description}
 A table containing the conditional probabilities of random variables. 
 
-To quantify the relationships between the nodes it is necessary to specify a conditional distribution for each node given its parents. Using discrete random variables the best way to represent such a relationship is the conditional probability table (C\-P\-T). The C\-P\-T of a node contains all the possible combinations of values (instantiation) of the parents nodes. For each instantiation it is necessary to specify the probabilities that the child node assumes each of its values. Bayonet store the C\-P\-T as a std\-::map, where the key is a vector of integrers representing the states of the parents node, and the value is a vector of double representing the probabilities of the variable states. 
+To quantify the relationships between the nodes it is necessary to specify a conditional distribution for each node given its parents. Using discrete random variables the best way to represent such a relationship is the conditional probability table (C\-P\-T). The C\-P\-T of a node contains all the possible combinations of values (instantiation) of the parents nodes. For each instantiation it is necessary to specify the probabilities that the child node assumes given each of its values. Bayonet store the C\-P\-T as a std\-::map, where the key is a vector of integers representing the states of the parents node, and the value is a vector of double representing the probabilities of the variable states. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classbayonet_1_1_conditional_probability_table_a58abcca6946f80bfe3c86ccbbdeed31e}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Conditional\-Probability\-Table@{Conditional\-Probability\-Table}}
@@ -102,6 +106,26 @@ The constructor of the object.
 Destroying the object 
 
 \subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_conditional_probability_table_a8f0c8eced14e22be7b235b02825b732e}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Add\-To\-Probability@{Add\-To\-Probability}}
+\index{Add\-To\-Probability@{Add\-To\-Probability}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Add\-To\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Conditional\-Probability\-Table\-::\-Add\-To\-Probability (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{variable\-State, }
+\item[{std\-::vector$<$ unsigned int $>$}]{parents\-States, }
+\item[{double}]{value\-To\-Add}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_a8f0c8eced14e22be7b235b02825b732e}
+Given a vector key and a variable state, it adds a value to the associated probability.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\-State} & \\
+\hline
+{\em parents\-States} & \\
+\hline
+{\em value\-To\-Add} & \\
+\hline
+\end{DoxyParams}
 \hypertarget{classbayonet_1_1_conditional_probability_table_a038e1940c40528ac23101272f33f752c}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Add\-Variable@{Add\-Variable}}
 \index{Add\-Variable@{Add\-Variable}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
 \subsubsection[{Add\-Variable}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Conditional\-Probability\-Table\-::\-Add\-Variable (
@@ -212,14 +236,35 @@ It prints the conditional table on the terminal. If the number of columns and ro
 \item[{std\-::vector$<$ unsigned int $>$}]{parents\-States}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_conditional_probability_table_a0ca5c1cbfeb5c86ef06161a810233b2a}
-It prints the probabilities associated with a particular set of parents. If the number of columns is huge, the terminal could cut parts of the output. \hypertarget{classbayonet_1_1_conditional_probability_table_a224d882019f784a993c50043dca4cb5d}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Randomize\-Probabilities@{Randomize\-Probabilities}}
+It prints the probabilities associated with a particular set of parents. If the number of columns is huge, the terminal could cut parts of the output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parents\-States} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_conditional_probability_table_a224d882019f784a993c50043dca4cb5d}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Randomize\-Probabilities@{Randomize\-Probabilities}}
 \index{Randomize\-Probabilities@{Randomize\-Probabilities}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
 \subsubsection[{Randomize\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Conditional\-Probability\-Table\-::\-Randomize\-Probabilities (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_conditional_probability_table_a224d882019f784a993c50043dca4cb5d}
-It randomize the probabilities inside each row of the table. The probabilities are also normalized. \hypertarget{classbayonet_1_1_conditional_probability_table_a2fef41dbe55cbccc82b3921d4d471c1d}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Return\-Columns\-Number@{Return\-Columns\-Number}}
+It randomize the probabilities inside each row of the table. The probabilities are also normalized. \hypertarget{classbayonet_1_1_conditional_probability_table_afc68c2346315d6aa43d71e549392f09a}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Reset\-Probabilities@{Reset\-Probabilities}}
+\index{Reset\-Probabilities@{Reset\-Probabilities}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
+\subsubsection[{Reset\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Conditional\-Probability\-Table\-::\-Reset\-Probabilities (
+\begin{DoxyParamCaption}
+\item[{double}]{value\-To\-Set = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_conditional_probability_table_afc68c2346315d6aa43d71e549392f09a}
+It set to zero all the entries of the table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value\-To\-Set} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_conditional_probability_table_a2fef41dbe55cbccc82b3921d4d471c1d}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Return\-Columns\-Number@{Return\-Columns\-Number}}
 \index{Return\-Columns\-Number@{Return\-Columns\-Number}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
 \subsubsection[{Return\-Columns\-Number}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Conditional\-Probability\-Table\-::\-Return\-Columns\-Number (
 \begin{DoxyParamCaption}
@@ -268,7 +313,14 @@ It returns the total number of rows. \hypertarget{classbayonet_1_1_conditional_p
 \item[{std\-::vector$<$ unsigned int $>$}]{parents\-States}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_conditional_probability_table_a3e600c4b5247dd52a5d0e775ca898c69}
-It returns a random sample, given a particular configuration of the parents \hypertarget{classbayonet_1_1_conditional_probability_table_ac94cd225747e8f59c5497b860ff777c0}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Set\-Probabilities@{Set\-Probabilities}}
+It returns a random sample, given a particular configuration of the parents
+
+
+\begin{DoxyParams}{Parameters}
+{\em parents\-States} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_conditional_probability_table_ac94cd225747e8f59c5497b860ff777c0}{\index{bayonet\-::\-Conditional\-Probability\-Table@{bayonet\-::\-Conditional\-Probability\-Table}!Set\-Probabilities@{Set\-Probabilities}}
 \index{Set\-Probabilities@{Set\-Probabilities}!bayonet::ConditionalProbabilityTable@{bayonet\-::\-Conditional\-Probability\-Table}}
 \subsubsection[{Set\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Conditional\-Probability\-Table\-::\-Set\-Probabilities (
 \begin{DoxyParamCaption}

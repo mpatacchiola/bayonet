@@ -189,12 +189,12 @@ std::vector<double> MarginalProbabilityTable::GetProbabilities(unsigned int inde
 * It reset the probabilities, all values equal to zero
 *
 **/
-void MarginalProbabilityTable::ResetProbabilities(){
+void MarginalProbabilityTable::ResetProbabilities(double valueToSet){
  //Iterating through the line
  for(auto it_table=marginalTable.begin(); it_table!=marginalTable.end(); ++it_table){
   //Iterating through the elements
   for(auto it_state=it_table->begin(); it_state!=it_table->end(); ++it_state){
-   *it_state = 0.0;
+   *it_state = valueToSet;
   }
  }
 }
@@ -212,9 +212,19 @@ void MarginalProbabilityTable::NormalizeProbabilities(){
   for(auto it_state=it_table->begin(); it_state!=it_table->end(); ++it_state){
    accumulator += *it_state;
   }
-  //normalize the row
-  for(auto it_state=it_table->begin(); it_state!=it_table->end(); ++it_state){
-   *it_state = *it_state / accumulator;
+
+  if(accumulator==0){
+   //sometimes the accumulator can be equal to zero
+   //In this case a division by 0 is not allowed
+   //then all the values are set to zero.
+   for(auto it_state=it_table->begin(); it_state!=it_table->end(); ++it_state){
+    *it_state = 0;
+   }
+  }else{
+   //normalize the row
+   for(auto it_state=it_table->begin(); it_state!=it_table->end(); ++it_state){
+    *it_state = *it_state / accumulator;
+   }
   }
  }
 }

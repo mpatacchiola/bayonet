@@ -234,6 +234,37 @@ JointProbabilityTable RejectionSampler::ReturnJointProbabilityTable(bayonet::Bay
  return joint_table;
 }
 
+/**
+* It creates a Marginal Probability table starting from the Bayesian network and sampling for
+* the number of iterations specified.
+*
+* @param net the Bayesian network to use for picking up the sample.
+* @param cycles the number of iterations
+* @return it return a Marginal Probability Table object
+**/
+MarginalProbabilityTable RejectionSampler::ReturnMarginalProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles){
+
+ MarginalProbabilityTable marginal_table(net.ReturnTotalStates());
+
+ marginal_table.ResetProbabilities();
+
+ //2-Accumulate samples and Add sample and weight to JPT
+ for(unsigned int i=0; i<cycles; i++){
+  auto sample_vector = ReturnSample(net);
+  unsigned int var_counter = 0;
+  //Iteration through each element of the sample
+  //each element is a variable and the value is the state
+  for(auto it_sample=sample_vector.begin(); it_sample!=sample_vector.end(); ++it_sample){
+   marginal_table.AddToProbability(var_counter, *it_sample, 1.0);
+   var_counter++;
+  } 
+
+ }
+
+ marginal_table.NormalizeProbabilities();
+
+ return marginal_table;
+}
 
 
 } //namespace

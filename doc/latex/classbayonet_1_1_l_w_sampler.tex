@@ -23,6 +23,8 @@ $<$ std\-::vector$<$ unsigned int $>$\\*
 void \hyperlink{classbayonet_1_1_l_w_sampler_a010eacc55fbbb462f50b7ab6b292056f}{Print\-Sample} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, unsigned int cycles=1)
 \item 
 \hyperlink{classbayonet_1_1_joint_probability_table}{Joint\-Probability\-Table} \hyperlink{classbayonet_1_1_l_w_sampler_af2fd4c51a13c8cc95f5eaca05941eb47}{Return\-Joint\-Probability\-Table} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, unsigned int cycles)
+\item 
+\hyperlink{classbayonet_1_1_marginal_probability_table}{Marginal\-Probability\-Table} \hyperlink{classbayonet_1_1_l_w_sampler_a64fb2a7e19596c4a49fbfcbbe7f0aa86}{Return\-Marginal\-Probability\-Table} (\hyperlink{classbayonet_1_1_bayesnet}{bayonet\-::\-Bayesnet} \&net, unsigned int cycles)
 \end{DoxyCompactItemize}
 
 
@@ -85,6 +87,26 @@ It creates a Joint Probability table starting from the Bayesian network and samp
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 it return a Joint Probability Table object 
+\end{DoxyReturn}
+\hypertarget{classbayonet_1_1_l_w_sampler_a64fb2a7e19596c4a49fbfcbbe7f0aa86}{\index{bayonet\-::\-L\-W\-Sampler@{bayonet\-::\-L\-W\-Sampler}!Return\-Marginal\-Probability\-Table@{Return\-Marginal\-Probability\-Table}}
+\index{Return\-Marginal\-Probability\-Table@{Return\-Marginal\-Probability\-Table}!bayonet::LWSampler@{bayonet\-::\-L\-W\-Sampler}}
+\subsubsection[{Return\-Marginal\-Probability\-Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Marginal\-Probability\-Table} bayonet\-::\-L\-W\-Sampler\-::\-Return\-Marginal\-Probability\-Table (
+\begin{DoxyParamCaption}
+\item[{{\bf bayonet\-::\-Bayesnet} \&}]{net, }
+\item[{unsigned int}]{cycles}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_l_w_sampler_a64fb2a7e19596c4a49fbfcbbe7f0aa86}
+It creates a Marginal Probability table starting from the Bayesian network and sampling for the number of iterations specified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to use for picking up the sample. \\
+\hline
+{\em cycles} & the number of iterations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+it return a Marginal Probability Table object 
 \end{DoxyReturn}
 \hypertarget{classbayonet_1_1_l_w_sampler_a1da2655dd3332796a3293c3aac8d618d}{\index{bayonet\-::\-L\-W\-Sampler@{bayonet\-::\-L\-W\-Sampler}!Return\-Sample@{Return\-Sample}}
 \index{Return\-Sample@{Return\-Sample}!bayonet::LWSampler@{bayonet\-::\-L\-W\-Sampler}}

@@ -19,11 +19,19 @@ A table containing the marginal probabilities of random variables.
 \item 
 bool \hyperlink{classbayonet_1_1_marginal_probability_table_a2e5df9bbbc655d522199b4b87e4d46e3}{Set\-Probability} (unsigned int variable\-Index, unsigned int state\-Index, double probability)
 \item 
+bool \hyperlink{classbayonet_1_1_marginal_probability_table_afd29b47bc1be02bf329612d0b4586372}{Add\-To\-Probability} (unsigned int variable\-Index, unsigned int state\-Index, double probability)
+\item 
 double \hyperlink{classbayonet_1_1_marginal_probability_table_a5447f68ac26b7adadc801de7c1f5ffa7}{Get\-Probability} (unsigned int variable\-Index, unsigned int state\-Index)
+\item 
+unsigned int \hyperlink{classbayonet_1_1_marginal_probability_table_aeaac086b73fe3d950ceb19ba755a9778}{Return\-Most\-Probable\-State} (unsigned int variable\-Index)
 \item 
 bool \hyperlink{classbayonet_1_1_marginal_probability_table_a0bdf638395853225660615a0a847c741}{Set\-Probabilities} (unsigned int index, std\-::vector$<$ double $>$ probabilities\-Vector)
 \item 
 std\-::vector$<$ double $>$ \hyperlink{classbayonet_1_1_marginal_probability_table_aa97aabef18b97cdea29e0b74a5372d2e}{Get\-Probabilities} (unsigned int index)
+\item 
+void \hyperlink{classbayonet_1_1_marginal_probability_table_af344153e4331262849efaab2e15da74f}{Reset\-Probabilities} (double value\-To\-Set=0)
+\item 
+void \hyperlink{classbayonet_1_1_marginal_probability_table_ae8761dbcf404325640572f806809c9b4}{Normalize\-Probabilities} ()
 \item 
 void \hyperlink{classbayonet_1_1_marginal_probability_table_aca70cba427a713917d194b182e38ceb4}{Print} ()
 \item 
@@ -71,6 +79,26 @@ The constructor of the object.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_marginal_probability_table_afd29b47bc1be02bf329612d0b4586372}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Add\-To\-Probability@{Add\-To\-Probability}}
+\index{Add\-To\-Probability@{Add\-To\-Probability}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Add\-To\-Probability}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Marginal\-Probability\-Table\-::\-Add\-To\-Probability (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{variable\-Index, }
+\item[{unsigned int}]{state\-Index, }
+\item[{double}]{probability}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_afd29b47bc1be02bf329612d0b4586372}
+It get the probability associated with a certain variable and state
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\-Index} & the index of the variable \\
+\hline
+{\em state\-Index} & the index of the state \\
+\hline
+{\em probability} & \\
+\hline
+\end{DoxyParams}
 \hypertarget{classbayonet_1_1_marginal_probability_table_aa97aabef18b97cdea29e0b74a5372d2e}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Get\-Probabilities@{Get\-Probabilities}}
 \index{Get\-Probabilities@{Get\-Probabilities}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
 \subsubsection[{Get\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ double $>$ bayonet\-::\-Marginal\-Probability\-Table\-::\-Get\-Probabilities (
@@ -102,7 +130,14 @@ It get the probability associated with a certain variable and state
 {\em state\-Index} & the index of the state \\
 \hline
 \end{DoxyParams}
-\hypertarget{classbayonet_1_1_marginal_probability_table_aca70cba427a713917d194b182e38ceb4}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Print@{Print}}
+\hypertarget{classbayonet_1_1_marginal_probability_table_ae8761dbcf404325640572f806809c9b4}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Normalize\-Probabilities@{Normalize\-Probabilities}}
+\index{Normalize\-Probabilities@{Normalize\-Probabilities}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Normalize\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Marginal\-Probability\-Table\-::\-Normalize\-Probabilities (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_ae8761dbcf404325640572f806809c9b4}
+It normalizes all the probabilities \hypertarget{classbayonet_1_1_marginal_probability_table_aca70cba427a713917d194b182e38ceb4}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Print@{Print}}
 \index{Print@{Print}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
 \subsubsection[{Print}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Marginal\-Probability\-Table\-::\-Print (
 \begin{DoxyParamCaption}
@@ -116,7 +151,28 @@ It prints the probabilities associated with each variable \hypertarget{classbayo
 \item[{unsigned int}]{index}
 \end{DoxyParamCaption}
 )}}\label{classbayonet_1_1_marginal_probability_table_ac0d3f11940b2377eca44e9076d8de0ad}
-It prints the probabilities associated with each variable \hypertarget{classbayonet_1_1_marginal_probability_table_a0bdf638395853225660615a0a847c741}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Set\-Probabilities@{Set\-Probabilities}}
+It prints the probabilities associated with each variable \hypertarget{classbayonet_1_1_marginal_probability_table_af344153e4331262849efaab2e15da74f}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Reset\-Probabilities@{Reset\-Probabilities}}
+\index{Reset\-Probabilities@{Reset\-Probabilities}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Reset\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}void bayonet\-::\-Marginal\-Probability\-Table\-::\-Reset\-Probabilities (
+\begin{DoxyParamCaption}
+\item[{double}]{value\-To\-Set = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_af344153e4331262849efaab2e15da74f}
+It reset the probabilities, all values equal to zero \hypertarget{classbayonet_1_1_marginal_probability_table_aeaac086b73fe3d950ceb19ba755a9778}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Return\-Most\-Probable\-State@{Return\-Most\-Probable\-State}}
+\index{Return\-Most\-Probable\-State@{Return\-Most\-Probable\-State}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
+\subsubsection[{Return\-Most\-Probable\-State}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int bayonet\-::\-Marginal\-Probability\-Table\-::\-Return\-Most\-Probable\-State (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{variable\-Index}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_marginal_probability_table_aeaac086b73fe3d950ceb19ba755a9778}
+It returns the state with the highest probability once specified a variable index. If the variable has many states with the same probability, the first of that state is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\-Index} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classbayonet_1_1_marginal_probability_table_a0bdf638395853225660615a0a847c741}{\index{bayonet\-::\-Marginal\-Probability\-Table@{bayonet\-::\-Marginal\-Probability\-Table}!Set\-Probabilities@{Set\-Probabilities}}
 \index{Set\-Probabilities@{Set\-Probabilities}!bayonet::MarginalProbabilityTable@{bayonet\-::\-Marginal\-Probability\-Table}}
 \subsubsection[{Set\-Probabilities}]{\setlength{\rightskip}{0pt plus 5cm}bool bayonet\-::\-Marginal\-Probability\-Table\-::\-Set\-Probabilities (
 \begin{DoxyParamCaption}

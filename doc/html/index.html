@@ -78,21 +78,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Bayonet Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2>A C++ library for Bayesian networks </h2>
-<p>Bayesian networks are probabilistic graphical models, a set of random variables (called nodes) connected through directed edges. Each edge of the network represents a causal relation between two nodes.</p>
+<div class="textblock"><p>Bayesian networks are probabilistic graphical models, a set of random variables (called nodes) connected through directed edges. Each edge of the network represents a causal relation between two nodes.</p>
 <p>Bayonet is a C++ library that permits to create discrete Bayesian networks, the library has a lot of properties that we can summarize here:</p>
 <ul>
 <li>Safe memory management through STL containers</li>
-<li>Object Oriented approach, easy to use, easy to read</li>
+<li>Object Oriented approach: easy to read, easy to use</li>
 <li>No external library required, Bayonet is self-contained</li>
 <li>Completely open source (GNU v2.0)</li>
+<li>Plenty of heavily commented examples</li>
 <li>Easy to create and manage densely connected networks</li>
 <li>Exact Inference with belief propagation (Kim-Pearl Message Passing)</li>
 <li>Approximate inference through sampling methods</li>
 <li>Different samplers: Rejection, Likelihood-Weighting, Gibbs</li>
+<li>Parameters learning (Maximum Likelihood Estimator)</li>
 <li>Topological sorting, Depth-First and Breadth-First Search</li>
 </ul>
 <p>Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections or cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.</p>
+<p>Once created the network it is possible to infer the marginal and joint probabilities using sampling and exact inference methods. The conditional probability tables can be set by hand or during a learning phase using a training dataset.</p>
 <h2>Prerequisites </h2>
 <p>To install the library you must have <em>make</em> and *g++* already installed on your system. You can install them from a Unix system running the following commands from the terminal:</p>
 <p><code>sudo apt-get install build-essential g++</code></p>
@@ -110,9 +112,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ol>
 <h2>Using the library </h2>
 <p>After the installation bayonet was copied on your system, inside the folder */usr/local/lib* you can see the shared library libbayonet.so and the static library libbayonet.a. Another important path is the one containing the header files, they are located at */usr/local/include/bayonet*. To use the shared library it is necessary to link it to your project. In g++ this is very easy, here is an example:</p>
-<p><code>g++ -Wall -std=c++11 -fPIC -I/usr/local/include/bayonet -L/usr/local/lib -Wl,--no-as-needed mycode.cpp -o mycode -lbayonet</code></p>
+<p><code>g++ -std=c++11 -fPIC -I/usr/local/include/bayonet -L/usr/local/lib -Wl,--no-as-needed mycode.cpp -o mycode -lbayonet</code></p>
 <p>This command will compile the imaginary file mycode.cpp and will produce an executable file called mycode in your project directory. Using a similar command it is also possible to use the static version of the library:</p>
-<p><code>g++ -std=c++11 -I/usr/local/lib -static -lbayonet -c /home/username/mycode.cpp</code></p>
+<p><code>g++ -std=c++11 -I/usr/local/lib -static -lbayonet -c mycode.cpp</code></p>
 <p>In this case the library will be statically included inside your code. To integrate bayonet in a different environment (ex Eclipse, Code::Blocks, etc) follow the istructions given by the producer on how to integrate an external shared library or a static one.</p>
 <h2>Examples </h2>
 <p>Into the folder */examples* it is possible to find different samples that one can use. The code is heavily commented and it can be used as guideline for different applications. To compile the code just type: <code>make compile</code> inside the */examples* folder. The executables are created inside */bayonet/examples/build/exec*.</p>
@@ -126,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 20 2015 18:03:33 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 23 2015 16:37:32 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

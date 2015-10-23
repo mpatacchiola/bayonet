@@ -17,8 +17,8 @@
  *
 */
 
-#ifndef MAXIMUMLIKELIHOODESTIMATOR_H
-#define MAXIMUMLIKELIHOODESTIMATORR_H
+#ifndef MAXIMUMLIKELIHOODLEARNING_H
+#define MAXIMUMLIKELIHOODLEARNINGR_H
 
 #include<vector>
 #include <memory>
@@ -28,11 +28,11 @@
 namespace bayonet{
 
 
-/** \class MaximumLikelihoodEstimator
-*   \brief Implementation of the belief propagation algorithm.
+/** \class MaximumLikelihoodLearning
+*   \brief Implementation of Maximum Likelihood Estimator (MLE).
 *
 *  
-* The MaximumLikelihoodEstimator (MLE) permits to estimate the parameters of a
+* The MaximumLikelihoodLearning permits to estimate the parameters of a
 * Bayesian network given a set of training data. The parameters of a BN are the 
 * Conditional Table entries associated with each node. The MLE for discrete BN 
 * simply count how many times each assignments of the variables appears in
@@ -41,11 +41,11 @@ namespace bayonet{
 * "Probabilistic Graphical Models. Principles and Techniques." (Daphne Koller and Nir Friedman.) chapter 17.
 *
 **/
-class MaximumLikelihoodEstimator {
+class MaximumLikelihoodLearning {
 
 public:
- MaximumLikelihoodEstimator();
- ~MaximumLikelihoodEstimator();
+ MaximumLikelihoodLearning();
+ ~MaximumLikelihoodLearning();
 
  Bayesnet ReturnUpdatedNetwork(Bayesnet net, std::vector<std::vector<unsigned int>>& trainingDataset);
 
@@ -57,7 +57,7 @@ private:
 
 }
 
-#endif // MAXIMUMLIKELIHOODESTIMATOR_H
+#endif // MAXIMUMLIKELIHOODLEARNING_H
 
 
 

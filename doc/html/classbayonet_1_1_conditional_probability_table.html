@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a93e9309f56608d368ca47c9ca02e51e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac94cd225747e8f59c5497b860ff777c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#ac94cd225747e8f59c5497b860ff777c0">SetProbabilities</a> (std::vector&lt; unsigned int &gt; parentsStates, std::vector&lt; double &gt; probabilities)</td></tr>
 <tr class="separator:ac94cd225747e8f59c5497b860ff777c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f0c8eced14e22be7b235b02825b732e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a8f0c8eced14e22be7b235b02825b732e">AddToProbability</a> (unsigned int variableState, std::vector&lt; unsigned int &gt; parentsStates, double valueToAdd)</td></tr>
+<tr class="separator:a8f0c8eced14e22be7b235b02825b732e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0815f7814cc5797629035f17f0cf26c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a0815f7814cc5797629035f17f0cf26c2">Print</a> ()</td></tr>
 <tr class="separator:a0815f7814cc5797629035f17f0cf26c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ca5c1cbfeb5c86ef06161a810233b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a0ca5c1cbfeb5c86ef06161a810233b2a">PrintProbabilities</a> (std::vector&lt; unsigned int &gt; parentsStates)</td></tr>
@@ -132,6 +134,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a224d882019f784a993c50043dca4cb5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e600c4b5247dd52a5d0e775ca898c69"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a3e600c4b5247dd52a5d0e775ca898c69">ReturnSample</a> (std::vector&lt; unsigned int &gt; parentsStates)</td></tr>
 <tr class="separator:a3e600c4b5247dd52a5d0e775ca898c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc68c2346315d6aa43d71e549392f09a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#afc68c2346315d6aa43d71e549392f09a">ResetProbabilities</a> (double valueToSet=0.0)</td></tr>
+<tr class="separator:afc68c2346315d6aa43d71e549392f09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a038e1940c40528ac23101272f33f752c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a038e1940c40528ac23101272f33f752c">AddVariable</a> (unsigned int totStates)</td></tr>
 <tr class="separator:a038e1940c40528ac23101272f33f752c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1708d2e94833fe8e0c37e661269dc11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_conditional_probability_table.html#a1708d2e94833fe8e0c37e661269dc11d">Clear</a> ()</td></tr>
@@ -143,7 +147,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A table containing the conditional probabilities of random variables. </p>
-<p>To quantify the relationships between the nodes it is necessary to specify a conditional distribution for each node given its parents. Using discrete random variables the best way to represent such a relationship is the conditional probability table (CPT). The CPT of a node contains all the possible combinations of values (instantiation) of the parents nodes. For each instantiation it is necessary to specify the probabilities that the child node assumes each of its values. Bayonet store the CPT as a std::map, where the key is a vector of integrers representing the states of the parents node, and the value is a vector of double representing the probabilities of the variable states. </p>
+<p>To quantify the relationships between the nodes it is necessary to specify a conditional distribution for each node given its parents. Using discrete random variables the best way to represent such a relationship is the conditional probability table (CPT). The CPT of a node contains all the possible combinations of values (instantiation) of the parents nodes. For each instantiation it is necessary to specify the probabilities that the child node assumes given each of its values. Bayonet store the CPT as a std::map, where the key is a vector of integers representing the states of the parents node, and the value is a vector of double representing the probabilities of the variable states. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a58abcca6946f80bfe3c86ccbbdeed31e"></a>
 <div class="memitem">
@@ -219,6 +223,47 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8f0c8eced14e22be7b235b02825b732e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool bayonet::ConditionalProbabilityTable::AddToProbability </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>variableState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>parentsStates</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>valueToAdd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Given a vector key and a variable state, it adds a value to the associated probability.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variableState</td><td></td></tr>
+    <tr><td class="paramname">parentsStates</td><td></td></tr>
+    <tr><td class="paramname">valueToAdd</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a038e1940c40528ac23101272f33f752c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -435,7 +480,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It prints the probabilities associated with a particular set of parents. If the number of columns is huge, the terminal could cut parts of the output. </p>
+<p>It prints the probabilities associated with a particular set of parents. If the number of columns is huge, the terminal could cut parts of the output.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentsStates</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -452,6 +503,29 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>It randomize the probabilities inside each row of the table. The probabilities are also normalized. </p>
+
+</div>
+</div>
+<a class="anchor" id="afc68c2346315d6aa43d71e549392f09a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::ConditionalProbabilityTable::ResetProbabilities </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>valueToSet</em> = <code>0.0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It set to zero all the entries of the table.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valueToSet</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -546,7 +620,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>It returns a random sample, given a particular configuration of the parents </p>
+<p>It returns a random sample, given a particular configuration of the parents</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentsStates</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -591,7 +671,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 20 2015 18:03:33 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 23 2015 16:37:32 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

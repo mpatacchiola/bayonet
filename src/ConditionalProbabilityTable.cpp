@@ -242,6 +242,7 @@ void ConditionalProbabilityTable::Print(){
 * It prints the probabilities associated with a particular set of parents.
 * If the number of columns is huge, the terminal could cut parts of the output.
 *
+* @param parentsStates
 **/
 void ConditionalProbabilityTable::PrintProbabilities(std::vector<unsigned int> parentsStates){
 
@@ -328,6 +329,7 @@ void ConditionalProbabilityTable::RandomizeProbabilities(){
 /**
 * It returns a random sample, given a particular configuration of the parents
 *
+* @param parentsStates
 **/
 unsigned int ConditionalProbabilityTable::ReturnSample(std::vector<unsigned int> parentsStates){
  std::random_device random_device;
@@ -362,14 +364,15 @@ void ConditionalProbabilityTable::AddVariable(unsigned int totStates=2){
 /**
 * It set to zero all the entries of the table.
 *
+* @param valueToSet
 **/
-void ConditionalProbabilityTable::Reset(){
+void ConditionalProbabilityTable::ResetProbabilities(double valueToSet){
  //Iterate through map content:
  for (auto it_map=conditionalMap.begin(); it_map!=conditionalMap.end(); ++it_map){
 
   //Iterate through the vector of probabilities
   for (auto it_data=it_map->second.begin(); it_data!=it_map->second.end(); ++it_data){
-   *it_data = 0.0;
+   *it_data = valueToSet;
   }
  }
 }
@@ -407,6 +410,8 @@ unsigned int ConditionalProbabilityTable::ReturnColumnsNumber(){
 * Private function. It's a low level function for filling the content of the map.
 * It works like an odometer and create all the possible combination of states starting from the parents states.
 *
+* @param NodeStatesNumber
+* @param parentsStates
 **/
 void ConditionalProbabilityTable::FillMap(unsigned int NodeStatesNumber, std::vector<unsigned int> parentsStates){
  //0- In case of a root node without parents, it adds only one row

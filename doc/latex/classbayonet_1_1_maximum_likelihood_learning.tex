@@ -1,0 +1,53 @@
+\hypertarget{classbayonet_1_1_maximum_likelihood_learning}{\section{bayonet\-:\-:Maximum\-Likelihood\-Learning Class Reference}
+\label{classbayonet_1_1_maximum_likelihood_learning}\index{bayonet\-::\-Maximum\-Likelihood\-Learning@{bayonet\-::\-Maximum\-Likelihood\-Learning}}
+}
+
+
+Implementation of Maximum Likelihood Estimator (M\-L\-E).  
+
+
+
+
+{\ttfamily \#include $<$Maximum\-Likelihood\-Learning.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet} \hyperlink{classbayonet_1_1_maximum_likelihood_learning_a7d621911f54396bc94d9d4a677385a92}{Return\-Updated\-Network} (\hyperlink{classbayonet_1_1_bayesnet}{Bayesnet} net, std\-::vector$<$ std\-::vector$<$ unsigned int $>$$>$ \&training\-Dataset)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of Maximum Likelihood Estimator (M\-L\-E). 
+
+The \hyperlink{classbayonet_1_1_maximum_likelihood_learning}{Maximum\-Likelihood\-Learning} permits to estimate the parameters of a Bayesian network given a set of training data. The parameters of a B\-N are the Conditional Table entries associated with each node. The M\-L\-E for discrete B\-N simply count how many times each assignments of the variables appears in the training dataset.
+
+\char`\"{}\-Probabilistic Graphical Models. Principles and Techniques.\char`\"{} (Daphne Koller and Nir Friedman.) chapter 17. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbayonet_1_1_maximum_likelihood_learning_a7d621911f54396bc94d9d4a677385a92}{\index{bayonet\-::\-Maximum\-Likelihood\-Learning@{bayonet\-::\-Maximum\-Likelihood\-Learning}!Return\-Updated\-Network@{Return\-Updated\-Network}}
+\index{Return\-Updated\-Network@{Return\-Updated\-Network}!bayonet::MaximumLikelihoodLearning@{bayonet\-::\-Maximum\-Likelihood\-Learning}}
+\subsubsection[{Return\-Updated\-Network}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bayesnet} bayonet\-::\-Maximum\-Likelihood\-Learning\-::\-Return\-Updated\-Network (
+\begin{DoxyParamCaption}
+\item[{{\bf Bayesnet}}]{net, }
+\item[{std\-::vector$<$ std\-::vector$<$ unsigned int $>$$>$ \&}]{training\-Dataset}
+\end{DoxyParamCaption}
+)}}\label{classbayonet_1_1_maximum_likelihood_learning_a7d621911f54396bc94d9d4a677385a92}
+It uses the training data to update the Conditional Probability Tables of each node in the network.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net} & the Bayesian network to update \\
+\hline
+{\em training\-Dataset} & a reference to a vector of vector (matrix) containing the state of each node obtained during the training phase. Each line of the matrix must have the same number of values of the network given as input. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+it return the updated network 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+include/Maximum\-Likelihood\-Learning.\-h\item 
+src/Maximum\-Likelihood\-Learning.\-cpp\end{DoxyCompactItemize}

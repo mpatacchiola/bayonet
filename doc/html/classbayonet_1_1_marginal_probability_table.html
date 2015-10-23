@@ -106,12 +106,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aafec778bc82a3e6abb0ad05bd4fa6710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e5df9bbbc655d522199b4b87e4d46e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#a2e5df9bbbc655d522199b4b87e4d46e3">SetProbability</a> (unsigned int variableIndex, unsigned int stateIndex, double probability)</td></tr>
 <tr class="separator:a2e5df9bbbc655d522199b4b87e4d46e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd29b47bc1be02bf329612d0b4586372"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#afd29b47bc1be02bf329612d0b4586372">AddToProbability</a> (unsigned int variableIndex, unsigned int stateIndex, double probability)</td></tr>
+<tr class="separator:afd29b47bc1be02bf329612d0b4586372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5447f68ac26b7adadc801de7c1f5ffa7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#a5447f68ac26b7adadc801de7c1f5ffa7">GetProbability</a> (unsigned int variableIndex, unsigned int stateIndex)</td></tr>
 <tr class="separator:a5447f68ac26b7adadc801de7c1f5ffa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaac086b73fe3d950ceb19ba755a9778"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#aeaac086b73fe3d950ceb19ba755a9778">ReturnMostProbableState</a> (unsigned int variableIndex)</td></tr>
+<tr class="separator:aeaac086b73fe3d950ceb19ba755a9778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bdf638395853225660615a0a847c741"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#a0bdf638395853225660615a0a847c741">SetProbabilities</a> (unsigned int index, std::vector&lt; double &gt; probabilitiesVector)</td></tr>
 <tr class="separator:a0bdf638395853225660615a0a847c741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa97aabef18b97cdea29e0b74a5372d2e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#aa97aabef18b97cdea29e0b74a5372d2e">GetProbabilities</a> (unsigned int index)</td></tr>
 <tr class="separator:aa97aabef18b97cdea29e0b74a5372d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af344153e4331262849efaab2e15da74f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#af344153e4331262849efaab2e15da74f">ResetProbabilities</a> (double valueToSet=0)</td></tr>
+<tr class="separator:af344153e4331262849efaab2e15da74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8761dbcf404325640572f806809c9b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#ae8761dbcf404325640572f806809c9b4">NormalizeProbabilities</a> ()</td></tr>
+<tr class="separator:ae8761dbcf404325640572f806809c9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca70cba427a713917d194b182e38ceb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#aca70cba427a713917d194b182e38ceb4">Print</a> ()</td></tr>
 <tr class="separator:aca70cba427a713917d194b182e38ceb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0d3f11940b2377eca44e9076d8de0ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbayonet_1_1_marginal_probability_table.html#ac0d3f11940b2377eca44e9076d8de0ad">PrintVariable</a> (unsigned int index)</td></tr>
@@ -179,6 +187,47 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="afd29b47bc1be02bf329612d0b4586372"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool bayonet::MarginalProbabilityTable::AddToProbability </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>variableIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>stateIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>probability</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It get the probability associated with a certain variable and state</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variableIndex</td><td>the index of the variable </td></tr>
+    <tr><td class="paramname">stateIndex</td><td>the index of the state </td></tr>
+    <tr><td class="paramname">probability</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="aa97aabef18b97cdea29e0b74a5372d2e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -236,6 +285,22 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae8761dbcf404325640572f806809c9b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::MarginalProbabilityTable::NormalizeProbabilities </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It normalizes all the probabilities </p>
+
+</div>
+</div>
 <a class="anchor" id="aca70cba427a713917d194b182e38ceb4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -266,6 +331,46 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>It prints the probabilities associated with each variable </p>
+
+</div>
+</div>
+<a class="anchor" id="af344153e4331262849efaab2e15da74f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bayonet::MarginalProbabilityTable::ResetProbabilities </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>valueToSet</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It reset the probabilities, all values equal to zero </p>
+
+</div>
+</div>
+<a class="anchor" id="aeaac086b73fe3d950ceb19ba755a9778"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int bayonet::MarginalProbabilityTable::ReturnMostProbableState </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>variableIndex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It returns the state with the highest probability once specified a variable index. If the variable has many states with the same probability, the first of that state is returned.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">variableIndex</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -351,7 +456,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 20 2015 18:03:33 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 23 2015 16:37:32 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

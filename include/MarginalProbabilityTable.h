@@ -49,7 +49,7 @@ class MarginalProbabilityTable {
  bool SetProbabilities(unsigned int index, std::vector<double> probabilitiesVector);
  std::vector<double> GetProbabilities(unsigned int index);
 
- void ResetProbabilities();
+ void ResetProbabilities(double valueToSet=0);
  void NormalizeProbabilities();
 
  void Print();

@@ -23,6 +23,7 @@
 #include<vector>
 #include"Bayesnet.h"
 #include"JointProbabilityTable.h"
+#include"MarginalProbabilityTable.h"
 
 namespace bayonet{
 
@@ -45,7 +46,7 @@ std::vector<std::vector<unsigned int>> AccumulateSamples(Bayesnet&, unsigned int
 std::vector<std::vector<unsigned int>> AccumulateAndDiscardSamples(Bayesnet&, unsigned int cycles);
 void PrintSample(bayonet::Bayesnet& net, unsigned int cycles = 1);
 JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles);
-
+MarginalProbabilityTable ReturnMarginalProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles);
 
 private:
 

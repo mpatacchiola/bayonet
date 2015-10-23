@@ -493,8 +493,7 @@ double BeliefPropagator::UMult(double a, double b){
  //double result = a*b;
  //if(a!=0 && b!=0 && result==0){
 
-  if (a*b =< std::numeric_limits<double>::lowest()){
-  std::cout << "LOWER BOUND REACHED ################################# " <<std::endl;
+  if (a*b <= std::numeric_limits<double>::lowest()){
   return std::numeric_limits<double>::lowest();
  } else {
   return a*b;

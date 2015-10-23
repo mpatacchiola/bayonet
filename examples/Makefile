@@ -7,6 +7,9 @@
 CC=g++
 CFLAGS=-Wall -std=c++11 -O3 -fexceptions -I/usr/local/include/bayonet
 
+#to compress the files for the handwritten digit example: tar -jcvf handwritten_dataset.tar pendigits.tes pendigits.tra
+#to uncompress the files: -jxvf handwritten_dataset.tar -C ./build/exec/
+
 compile:
 	@echo
 	@echo "===     Bayonet - C++ Bayesian network library     ==="
@@ -36,6 +39,15 @@ compile:
 	@echo "..... search"
 	g++ $(CFLAGS) -Iinclude -c ./search.cpp -o ./build/obj/search.o
 	g++ -o ./build/exec/search ./build/obj/search.o -lbayonet
+	@echo
+	@echo "..... naive bayes handwritten digits"
+	g++ $(CFLAGS) -Iinclude -c ./naive_bayes_handwritten_digits.cpp -o ./build/obj/naive_bayes_handwritten_digits.o
+	g++ -o ./build/exec/naive_bayes_handwritten_digits ./build/obj/naive_bayes_handwritten_digits.o -lbayonet
+
+	@echo
+	@echo "=== Uncompressing the dataset ==="
+	@echo
+	tar -jxvf handwritten_dataset.tar -C ./build/exec/
 
 
 remove:
@@ -46,7 +58,7 @@ remove:
 	rm ./build/obj/grass.o ./build/exec/grass
 	rm ./build/obj/earthquake.o ./build/exec/earthquake
 	rm ./build/obj/search.o ./build/exec/search
-
+	rm ./build/obj/naive_bayes_handwritten_digits.o ./build/exec/naive_bayes_handwritten_digits
 
 
 

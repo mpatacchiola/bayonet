@@ -63,7 +63,7 @@ class JointProbabilityTable {
 
   void NormalizeProbabilities(double alpha=0);
   void RandomizeProbabilities();
-  void ResetProbabilities();
+  void ResetProbabilities(double valueToSet=0);
 
   void AddVariable(unsigned int totStates);
   void Clear();

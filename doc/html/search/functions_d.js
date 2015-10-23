@@ -4,7 +4,7 @@ var searchData=
   ['removeedge',['RemoveEdge',['../classbayonet_1_1_bayesnet.html#a0ea810411a987ebeb97b580053ce7c7f',1,'bayonet::Bayesnet']]],
   ['removefromadjacencylist',['RemoveFromAdjacencyList',['../classbayonet_1_1_bayesnode.html#a96768ee5d89848d3275c7d916faad480',1,'bayonet::Bayesnode']]],
   ['resetallcolours',['ResetAllColours',['../classbayonet_1_1_bayesnet.html#a2a934ac59da3a02720c40515b6b599e7',1,'bayonet::Bayesnet']]],
-  ['resetprobabilities',['ResetProbabilities',['../classbayonet_1_1_joint_probability_table.html#a1d099395c21a1ec57df4ffbaa1b85484',1,'bayonet::JointProbabilityTable']]],
+  ['resetprobabilities',['ResetProbabilities',['../classbayonet_1_1_conditional_probability_table.html#afc68c2346315d6aa43d71e549392f09a',1,'bayonet::ConditionalProbabilityTable::ResetProbabilities()'],['../classbayonet_1_1_joint_probability_table.html#a0b818e8c877adcff33b4c27eb03ad31e',1,'bayonet::JointProbabilityTable::ResetProbabilities()'],['../classbayonet_1_1_marginal_probability_table.html#af344153e4331262849efaab2e15da74f',1,'bayonet::MarginalProbabilityTable::ResetProbabilities()']]],
   ['returnadjacencylist',['ReturnAdjacencyList',['../classbayonet_1_1_bayesnode.html#ad20de796507c48523bcf49fffdc7b3d5',1,'bayonet::Bayesnode']]],
   ['returncolumnsnumber',['ReturnColumnsNumber',['../classbayonet_1_1_conditional_probability_table.html#a2fef41dbe55cbccc82b3921d4d471c1d',1,'bayonet::ConditionalProbabilityTable']]],
   ['returnevidencenodes',['ReturnEvidenceNodes',['../classbayonet_1_1_bayesnet.html#a8610f2ec52297edfe6bf2151d2ce002c',1,'bayonet::Bayesnet']]],
@@ -13,6 +13,8 @@ var searchData=
   ['returnkey',['ReturnKey',['../classbayonet_1_1_joint_probability_table.html#a0bcd0ebffb4d8fd6403759c55de62f9b',1,'bayonet::JointProbabilityTable']]],
   ['returnleaflist',['ReturnLeafList',['../classbayonet_1_1_bayesnet.html#ac30c1485ff84825f534bf7604ee0115d',1,'bayonet::Bayesnet']]],
   ['returnmarginal',['ReturnMarginal',['../classbayonet_1_1_joint_probability_table.html#a90538c4bf67f0270b705caa26fea742b',1,'bayonet::JointProbabilityTable']]],
+  ['returnmarginalprobabilitytable',['ReturnMarginalProbabilityTable',['../classbayonet_1_1_gibbs_sampler.html#aba99980c2695c9d5835a29b9fb04c6f3',1,'bayonet::GibbsSampler::ReturnMarginalProbabilityTable()'],['../classbayonet_1_1_l_w_sampler.html#a64fb2a7e19596c4a49fbfcbbe7f0aa86',1,'bayonet::LWSampler::ReturnMarginalProbabilityTable()'],['../classbayonet_1_1_rejection_sampler.html#a185ff3bd9dd8e914d11c15d4bd50e385',1,'bayonet::RejectionSampler::ReturnMarginalProbabilityTable()']]],
+  ['returnmostprobablestate',['ReturnMostProbableState',['../classbayonet_1_1_marginal_probability_table.html#aeaac086b73fe3d950ceb19ba755a9778',1,'bayonet::MarginalProbabilityTable']]],
   ['returnnodesvector',['ReturnNodesVector',['../classbayonet_1_1_bayesnet.html#a7b349d82edb61c0c982bb4b1240912da',1,'bayonet::Bayesnet']]],
   ['returnnotevidencenodes',['ReturnNotEvidenceNodes',['../classbayonet_1_1_bayesnet.html#ac9f389cd6382946deb5b04cb6513f11e',1,'bayonet::Bayesnet']]],
   ['returnnumberinedges',['ReturnNumberInEdges',['../classbayonet_1_1_bayesnet.html#a7d47ce38f3882b80121f6acc351fd373',1,'bayonet::Bayesnet']]],
@@ -27,5 +29,6 @@ var searchData=
   ['returnrowsnumber',['ReturnRowsNumber',['../classbayonet_1_1_conditional_probability_table.html#ae2b35a361fb92684abdfde96887b24e6',1,'bayonet::ConditionalProbabilityTable::ReturnRowsNumber()'],['../classbayonet_1_1_joint_probability_table.html#af87920fcfa20657c2c3eb816a77ea66b',1,'bayonet::JointProbabilityTable::ReturnRowsNumber()']]],
   ['returnsample',['ReturnSample',['../classbayonet_1_1_conditional_probability_table.html#a3e600c4b5247dd52a5d0e775ca898c69',1,'bayonet::ConditionalProbabilityTable::ReturnSample()'],['../classbayonet_1_1_gibbs_sampler.html#ac789fc64fd349769633ab84ea5e59f70',1,'bayonet::GibbsSampler::ReturnSample(bayonet::Bayesnet &amp;net)'],['../classbayonet_1_1_gibbs_sampler.html#aa3e7d24f8eae4ee4c4ed0a2c16a9b5fa',1,'bayonet::GibbsSampler::ReturnSample(bayonet::Bayesnet &amp;net, std::vector&lt; unsigned int &gt; startingVector)'],['../classbayonet_1_1_l_w_sampler.html#a1da2655dd3332796a3293c3aac8d618d',1,'bayonet::LWSampler::ReturnSample()'],['../classbayonet_1_1_rejection_sampler.html#a1f2c685367f549965dcafd9c1b77ab1e',1,'bayonet::RejectionSampler::ReturnSample()']]],
   ['returntopologicallist',['ReturnTopologicalList',['../classbayonet_1_1_bayesnet.html#a3e8e924c33186e72bfa7d8ace1c211e6',1,'bayonet::Bayesnet']]],
-  ['returntotalstates',['ReturnTotalStates',['../classbayonet_1_1_bayesnet.html#af05513604bc2273f64abd7e685d1d636',1,'bayonet::Bayesnet']]]
+  ['returntotalstates',['ReturnTotalStates',['../classbayonet_1_1_bayesnet.html#af05513604bc2273f64abd7e685d1d636',1,'bayonet::Bayesnet']]],
+  ['returnupdatednetwork',['ReturnUpdatedNetwork',['../classbayonet_1_1_maximum_likelihood_learning.html#a7d621911f54396bc94d9d4a677385a92',1,'bayonet::MaximumLikelihoodLearning']]]
 ];

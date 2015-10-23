@@ -9,13 +9,17 @@ Bayonet is a C++ library that permits to create discrete Bayesian networks, the 
 - Object Oriented approach: easy to read, easy to use
 - No external library required, Bayonet is self-contained
 - Completely open source (GNU v2.0)
+- Plenty of heavily commented examples
 - Easy to create and manage densely connected networks
 - Exact Inference with belief propagation (Kim-Pearl Message Passing)
 - Approximate inference through sampling methods
 - Different samplers: Rejection, Likelihood-Weighting, Gibbs
+- Parameters learning (Maximum Likelihood Estimator)
 - Topological sorting, Depth-First and Breadth-First Search
 
 Bayonet manages Bayesian networks as sparse graphs, indeed they do not have self-connections or cycles and the resulting number of edges is not high. To store nodes and edges an adjacency-list representation is used. Using an adjacency-matrix the amount of space necessary to store the nodes N is O(N^2), instead using the adjacency-list representation it is only O(N + E) where E is the number of edges. Bayonet stores the edges inside each node in an adjacency list exploiting all the advantages of this representation.
+
+Once created the network it is possible to infer the marginal and joint probabilities using sampling and exact inference methods. The conditional probability tables can be set by hand or during a learning phase using a training dataset.
 
 
 Prerequisites
@@ -48,12 +52,12 @@ Using the library
 After the installation bayonet was copied on your system, inside the folder */usr/local/lib* you can see the shared library libbayonet.so and the static library libbayonet.a. Another important path is the one containing the header files, they are located at */usr/local/include/bayonet*. 
 To use the shared library it is necessary to link it to your project. In g++ this is very easy, here is an example:
 
-`g++ -Wall -std=c++11 -fPIC -I/usr/local/include/bayonet -L/usr/local/lib -Wl,--no-as-needed mycode.cpp -o mycode -lbayonet`
+`g++ -std=c++11 -fPIC -I/usr/local/include/bayonet -L/usr/local/lib -Wl,--no-as-needed mycode.cpp -o mycode -lbayonet`
 
 This command will compile the imaginary file mycode.cpp and will produce an executable file called mycode in your project directory.
 Using a similar command it is also possible to use the static version of the library:
 
-`g++ -std=c++11 -I/usr/local/lib -static -lbayonet -c /home/username/mycode.cpp`
+`g++ -std=c++11 -I/usr/local/lib -static -lbayonet -c mycode.cpp`
 
 In this case the library will be statically included inside your code.
 To integrate bayonet in a different environment (ex Eclipse, Code::Blocks, etc) follow the istructions given by the producer on how to integrate an external shared library or a static one.

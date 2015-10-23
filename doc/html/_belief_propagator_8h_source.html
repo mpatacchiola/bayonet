@@ -127,33 +127,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_belief_propagator.html#ac9be764473228531c25af33db046d663">InitialTree</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp; net);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_belief_propagator.html#a8d66b5e99de3775df9beb17a084b9638">UpdateTree</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">Bayesnet</a>&amp; net);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; <span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_belief_propagator.html#ae593892ddb8eb9eb9787d487cbbce06c">Print</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <a class="code" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> <a class="code" href="classbayonet_1_1_belief_propagator.html#af758ccf83bf74fd701168ba0a6196671">ReturnJointProbabilityTable</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <a class="code" href="classbayonet_1_1_marginal_probability_table.html">MarginalProbabilityTable</a> ReturnMarginalProbabilityTable();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span class="keyword">struct </span>parameters{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">double</span> belief;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">double</span> pi_value;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">double</span> lambda_value;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; };</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; std::vector&lt;std::vector&lt;parameters&gt;&gt; parametersVector;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; <span class="keywordtype">double</span> ReturnPiMessage(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X_state);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keywordtype">double</span> ReturnLambdaMessage(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X_state);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="keywordtype">void</span> SetPiValues(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; <span class="keywordtype">void</span> SetLambdaValues(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; <span class="keywordtype">void</span> SetBelief(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif // BELIEFPROPAGATOR_H</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="keywordtype">void</span> <a class="code" href="classbayonet_1_1_belief_propagator.html#af1fd526cb347a12091329dffbec6877e">PrintVariable</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <a class="code" href="classbayonet_1_1_joint_probability_table.html">JointProbabilityTable</a> <a class="code" href="classbayonet_1_1_belief_propagator.html#af758ccf83bf74fd701168ba0a6196671">ReturnJointProbabilityTable</a>(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <a class="code" href="classbayonet_1_1_marginal_probability_table.html">MarginalProbabilityTable</a> ReturnMarginalProbabilityTable();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; <span class="keyword">struct </span>parameters{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">double</span> belief;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">double</span> pi_value;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">double</span> lambda_value;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; std::vector&lt;std::vector&lt;parameters&gt;&gt; parametersVector;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keywordtype">double</span> ReturnPiMessage(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X_state);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="keywordtype">double</span> ReturnLambdaMessage(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Y, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X_state);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; <span class="keywordtype">void</span> SetPiValues(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; <span class="keywordtype">void</span> SetLambdaValues(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="keywordtype">void</span> SetBelief(<a class="code" href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a>&amp; net, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> X);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; <span class="keywordtype">double</span> UMult(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif // BELIEFPROPAGATOR_H</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
@@ -163,18 +163,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="ttc" id="classbayonet_1_1_joint_probability_table_html"><div class="ttname"><a href="classbayonet_1_1_joint_probability_table.html">bayonet::JointProbabilityTable</a></div><div class="ttdoc">A table containing the joint probabilities of random variables. </div><div class="ttdef"><b>Definition:</b> JointProbabilityTable.h:45</div></div>
+<div class="ttc" id="classbayonet_1_1_belief_propagator_html_af1fd526cb347a12091329dffbec6877e"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#af1fd526cb347a12091329dffbec6877e">bayonet::BeliefPropagator::PrintVariable</a></div><div class="ttdeci">void PrintVariable(unsigned int index)</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:480</div></div>
 <div class="ttc" id="classbayonet_1_1_marginal_probability_table_html"><div class="ttname"><a href="classbayonet_1_1_marginal_probability_table.html">bayonet::MarginalProbabilityTable</a></div><div class="ttdoc">A table containing the marginal probabilities of random variables. </div><div class="ttdef"><b>Definition:</b> MarginalProbabilityTable.h:36</div></div>
 <div class="ttc" id="classbayonet_1_1_bayesnet_html"><div class="ttname"><a href="classbayonet_1_1_bayesnet.html">bayonet::Bayesnet</a></div><div class="ttdoc">This class represents the whole Bayesian network. </div><div class="ttdef"><b>Definition:</b> Bayesnet.h:34</div></div>
-<div class="ttc" id="classbayonet_1_1_belief_propagator_html_a8d66b5e99de3775df9beb17a084b9638"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#a8d66b5e99de3775df9beb17a084b9638">bayonet::BeliefPropagator::UpdateTree</a></div><div class="ttdeci">void UpdateTree(Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:183</div></div>
+<div class="ttc" id="classbayonet_1_1_belief_propagator_html_a8d66b5e99de3775df9beb17a084b9638"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#a8d66b5e99de3775df9beb17a084b9638">bayonet::BeliefPropagator::UpdateTree</a></div><div class="ttdeci">void UpdateTree(Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:185</div></div>
 <div class="ttc" id="classbayonet_1_1_belief_propagator_html"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html">bayonet::BeliefPropagator</a></div><div class="ttdoc">Implementation of the belief propagation algorithm. </div><div class="ttdef"><b>Definition:</b> BeliefPropagator.h:47</div></div>
-<div class="ttc" id="classbayonet_1_1_belief_propagator_html_ae593892ddb8eb9eb9787d487cbbce06c"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#ae593892ddb8eb9eb9787d487cbbce06c">bayonet::BeliefPropagator::Print</a></div><div class="ttdeci">void Print()</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:441</div></div>
-<div class="ttc" id="classbayonet_1_1_belief_propagator_html_ac9be764473228531c25af33db046d663"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#ac9be764473228531c25af33db046d663">bayonet::BeliefPropagator::InitialTree</a></div><div class="ttdeci">void InitialTree(Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:114</div></div>
-<div class="ttc" id="classbayonet_1_1_belief_propagator_html_af758ccf83bf74fd701168ba0a6196671"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#af758ccf83bf74fd701168ba0a6196671">bayonet::BeliefPropagator::ReturnJointProbabilityTable</a></div><div class="ttdeci">JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:40</div></div>
+<div class="ttc" id="classbayonet_1_1_belief_propagator_html_ae593892ddb8eb9eb9787d487cbbce06c"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#ae593892ddb8eb9eb9787d487cbbce06c">bayonet::BeliefPropagator::Print</a></div><div class="ttdeci">void Print()</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:460</div></div>
+<div class="ttc" id="classbayonet_1_1_belief_propagator_html_ac9be764473228531c25af33db046d663"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#ac9be764473228531c25af33db046d663">bayonet::BeliefPropagator::InitialTree</a></div><div class="ttdeci">void InitialTree(Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:116</div></div>
+<div class="ttc" id="classbayonet_1_1_belief_propagator_html_af758ccf83bf74fd701168ba0a6196671"><div class="ttname"><a href="classbayonet_1_1_belief_propagator.html#af758ccf83bf74fd701168ba0a6196671">bayonet::BeliefPropagator::ReturnJointProbabilityTable</a></div><div class="ttdeci">JointProbabilityTable ReturnJointProbabilityTable(bayonet::Bayesnet &amp;net)</div><div class="ttdef"><b>Definition:</b> BeliefPropagator.cpp:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 20 2015 18:03:33 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 23 2015 16:37:32 for Bayonet by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

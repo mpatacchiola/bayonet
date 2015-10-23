@@ -174,7 +174,14 @@ JointProbabilityTable LWSampler::ReturnJointProbabilityTable(bayonet::Bayesnet& 
  return joint_table;
 }
 
-
+/**
+* It creates a Marginal Probability table starting from the Bayesian network and sampling for
+* the number of iterations specified.
+*
+* @param net the Bayesian network to use for picking up the sample.
+* @param cycles the number of iterations
+* @return it return a Marginal Probability Table object
+**/
 MarginalProbabilityTable LWSampler::ReturnMarginalProbabilityTable(bayonet::Bayesnet& net, unsigned int cycles){
 
  MarginalProbabilityTable marginal_table(net.ReturnTotalStates());
@@ -197,7 +204,6 @@ MarginalProbabilityTable LWSampler::ReturnMarginalProbabilityTable(bayonet::Baye
  marginal_table.NormalizeProbabilities();
 
  return marginal_table;
-
 }
 
 
